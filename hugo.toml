@@ -8,10 +8,11 @@ enableMissingTranslationPlaceholders = false
 
 [params]
     menu_style = "open-menu"
+    google_analytics_id = "G-GM1BZHDW1B"
 
 defaultContentLanguage = "en"
 googleAnalytics = "G-GM1BZHDW1B"
-google_analytics_id = "G-GM1BZHDW1B"
+
 [languages]
   [languages.en]
     contentDir = 'content/en'
