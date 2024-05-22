@@ -11,7 +11,6 @@ enableMissingTranslationPlaceholders = false
     google_analytics_id = "G-GM1BZHDW1B"
 
 defaultContentLanguage = "en"
-googleAnalytics = "G-GM1BZHDW1B"
 
 [languages]
   [languages.en]
