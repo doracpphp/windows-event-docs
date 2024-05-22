@@ -10,7 +10,7 @@ enableMissingTranslationPlaceholders = false
     menu_style = "open-menu"
 
 defaultContentLanguage = "en"
-
+googleAnalytics = "G-GM1BZHDW1B"
 [languages]
   [languages.en]
     contentDir = 'content/en'

@@ -1,5 +1,60 @@
-<!doctype html><html lang=en-US><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>4769(S, F) A Kerberos service ticket was requested. - ItemBox</title>
-<meta name=description content="Describes security event 4769(S, F) A Kerberos service ticket was requested."><meta name=generator content="Hugo 0.126.1"><link href=https://itembox.jp//index.xml rel=alternate type=application/rss+xml><link rel=canonical href=https://itembox.jp/auditing/event-4769/><link rel=stylesheet href=https://itembox.jp/css/theme.min.css><link rel=stylesheet href=https://itembox.jp/css/chroma.min.css><script defer src=https://itembox.jp//js/fontawesome6/all.min.js></script><script src=https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js integrity="sha256-H3cjtrm/ztDeuhCN9I4yh4iN2Ybx/y1RM7rMmAesA0k=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js integrity="sha256-4XodgW4TwIJuDtf+v6vDJ39FVxI0veC/kSCCmnFp7ck=" crossorigin=anonymous></script><script src=https://itembox.jp/js/bundle.js></script><style>:root{}</style><meta property="og:url" content="https://itembox.jp/auditing/event-4769/"><meta property="og:site_name" content="ItemBox"><meta property="og:title" content="4769(S, F) A Kerberos service ticket was requested."><meta property="og:description" content="Describes security event 4769(S, F) A Kerberos service ticket was requested."><meta property="og:locale" content="en_US"><meta property="og:type" content="article"><meta property="article:section" content="auditing"><meta name=twitter:card content="summary"><meta name=twitter:title content="4769(S, F) A Kerberos service ticket was requested."><meta name=twitter:description content="Describes security event 4769(S, F) A Kerberos service ticket was requested."><meta itemprop=name content="4769(S, F) A Kerberos service ticket was requested."><meta itemprop=description content="Describes security event 4769(S, F) A Kerberos service ticket was requested."><meta itemprop=wordCount content="4462"></head><body><div class=container><header><h1>ItemBox</h1></header><div class=content-container><main><h1>4769(S, F) A Kerberos service ticket was requested.</h1><h1 id=4769s-f-a-kerberos-service-ticket-was-requested>4769(S, F): A Kerberos service ticket was requested.</h1><p><em><strong>Subcategory:</strong></em> <a href=/auditing/audit-kerberos-service-ticket-operations/>Audit Kerberos Service Ticket Operations</a></p><p><em><strong>Event Description:</strong></em></p><p>This event generates every time Key Distribution Center gets a Kerberos Ticket Granting Service (TGS) ticket request.</p><p>This event generates only on domain controllers.</p><p>If TGS issue fails then you&rsquo;ll see Failure event with <strong>Failure Code</strong> field not equal to “<strong>0x0</strong>”.</p><p>You&rsquo;ll typically see many Failure events with <strong>Failure Code</strong> “<strong>0x20</strong>”, which simply means that a TGS ticket has expired. These are informational messages and have little to no security relevance.</p><blockquote><p><strong>Note</strong>  For recommendations, see <a href=/auditing/event-4769/#security-monitoring-recommendations>Security Monitoring Recommendations</a> for this event.</p></blockquote><p><em><strong>Event XML:</strong></em></p><pre tabindex=0><code>- &lt;Event xmlns=&#34;http://schemas.microsoft.com/win/2004/08/events/event&#34;&gt;
+<!DOCTYPE html>
+<html lang="en-US">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>4769(S, F) A Kerberos service ticket was requested. - ItemBox</title>
+<meta name="description" content="Describes security event 4769(S, F) A Kerberos service ticket was requested.">
+<meta name="generator" content="Hugo 0.126.1">
+<link href="http://localhost:1313//index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="http://localhost:1313/auditing/event-4769/">
+<link rel="stylesheet" href="http://localhost:1313/css/theme.min.css">
+<link rel="stylesheet" href="http://localhost:1313/css/chroma.min.css">
+<script defer src="http://localhost:1313//js/fontawesome6/all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js" integrity="sha256-H3cjtrm/ztDeuhCN9I4yh4iN2Ybx/y1RM7rMmAesA0k=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha256-4XodgW4TwIJuDtf+v6vDJ39FVxI0veC/kSCCmnFp7ck=" crossorigin="anonymous"></script>
+<script src="http://localhost:1313/js/bundle.js"></script><style>
+:root {}
+</style>
+<meta property="og:url" content="http://localhost:1313/auditing/event-4769/">
+  <meta property="og:site_name" content="ItemBox">
+  <meta property="og:title" content="4769(S, F) A Kerberos service ticket was requested.">
+  <meta property="og:description" content="Describes security event 4769(S, F) A Kerberos service ticket was requested.">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="auditing">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="4769(S, F) A Kerberos service ticket was requested.">
+  <meta name="twitter:description" content="Describes security event 4769(S, F) A Kerberos service ticket was requested.">
+
+  <meta itemprop="name" content="4769(S, F) A Kerberos service ticket was requested.">
+  <meta itemprop="description" content="Describes security event 4769(S, F) A Kerberos service ticket was requested.">
+  <meta itemprop="wordCount" content="4462"></head>
+<body>
+
+<div class="container"><header>
+<h1>ItemBox</h1>
+</header>
+
+
+<div class="content-container">
+<main><h1>4769(S, F) A Kerberos service ticket was requested.</h1>
+<h1 id="4769s-f-a-kerberos-service-ticket-was-requested">4769(S, F): A Kerberos service ticket was requested.</h1>
+<!-- raw HTML omitted -->
+<p><em><strong>Subcategory:</strong></em> <a href="/auditing/audit-kerberos-service-ticket-operations/">Audit Kerberos Service Ticket Operations</a></p>
+<p><em><strong>Event Description:</strong></em></p>
+<p>This event generates every time Key Distribution Center gets a Kerberos Ticket Granting Service (TGS) ticket request.</p>
+<p>This event generates only on domain controllers.</p>
+<p>If TGS issue fails then you&rsquo;ll see Failure event with <strong>Failure Code</strong> field not equal to “<strong>0x0</strong>”.</p>
+<p>You&rsquo;ll typically see many Failure events with <strong>Failure Code</strong> “<strong>0x20</strong>”, which simply means that a TGS ticket has expired. These are informational messages and have little to no security relevance.</p>
+<blockquote>
+<p><strong>Note</strong>  For recommendations, see <a href="/auditing/event-4769/#security-monitoring-recommendations">Security Monitoring Recommendations</a> for this event.</p>
+</blockquote>
+<!-- raw HTML omitted -->
+<p><em><strong>Event XML:</strong></em></p>
+<pre tabindex="0"><code>- &lt;Event xmlns=&#34;http://schemas.microsoft.com/win/2004/08/events/event&#34;&gt;
 - &lt;System&gt;
 &lt;Provider Name=&#34;Microsoft-Windows-Security-Auditing&#34; Guid=&#34;{54849625-5478-4994-A5BA-3E3B0328C30D}&#34; /&gt;
 &lt;EventID&gt;4769&lt;/EventID&gt;
@@ -30,7 +85,1107 @@
 &lt;Data Name=&#34;TransmittedServices&#34;&gt;-&lt;/Data&gt;
 &lt;/EventData&gt;
 &lt;/Event&gt;
-</code></pre><p><em><strong>Required Server Roles:</strong></em> Active Directory domain controller.</p><p><em><strong>Minimum OS Version:</strong></em> Windows Server 2008.</p><p><em><strong>Event Versions:</strong></em> 0.</p><p><em><strong>Field Descriptions:</strong></em></p><p><strong>Account Information:</strong></p><ul><li><p><strong>Account Name</strong> [Type = UnicodeString]<strong>:</strong> the user name of the account that requested the ticket in the User Principal Name (UPN) syntax. Computer account name ends with <strong>$</strong> character in the user name part. This field typically has the following value format: user_account_name@FULL_DOMAIN_NAME.</p><ul><li><p>User account example: <a href=mailto:dadmin@CONTOSO.LOCAL>dadmin@CONTOSO.LOCAL</a></p></li><li><p>Computer account example: <a href=mailto:WIN81$@CONTOSO.LOCAL>WIN81$@CONTOSO.LOCAL</a></p><blockquote><p><strong>Note</strong> Although this field is in the UPN format, this isn&rsquo;t the attribute value of &ldquo;UserPrincipalName&rdquo; of the user account. It is the &ldquo;normalized&rdquo; name or implicit UPN. It is built from the user SamAccountName and the Active Directory domain name.</p></blockquote><p>This parameter in this event is optional and can be empty in some cases.</p></li></ul></li><li><p><strong>Account Domain</strong> [Type = UnicodeString]<strong>:</strong> the name of the Kerberos Realm that <strong>Account Name</strong> belongs to. This can appear in a variety of formats, including the following:</p><ul><li><p>Domain NETBIOS name example: CONTOSO</p></li><li><p>Lowercase full domain name: contoso.local</p></li><li><p>Uppercase full domain name: CONTOSO.LOCAL</p><p>This parameter in this event is optional and can be empty in some cases.</p></li></ul></li><li><p><strong>Logon GUID</strong> [Type = GUID]: a GUID that can help you correlate this event (on a domain controller) with other events (on the target computer for which the TGS was issued) that can contain the same <strong>Logon GUID</strong>. These events are “<a href=/auditing/event-4624/>4624</a>: An account was successfully logged on”, “<a href=/auditing/event-4648/>4648</a>(S): A logon was attempted using explicit credentials” and “<a href=/auditing/event-4964/>4964</a>(S): Special groups have been assigned to a new logon.”</p><p>This parameter might not be captured in the event, and in that case appears as “{00000000-0000-0000-0000-000000000000}”.</p></li></ul><blockquote><p><strong>Note</strong>  <strong>GUID</strong> is an acronym for &lsquo;Globally Unique Identifier&rsquo;. It is a 128-bit integer number used to identify resources, activities or instances.</p></blockquote><p><strong>Service Information:</strong></p><ul><li><p><strong>Service Name</strong> [Type = UnicodeString]: the name of the account or computer for which the TGS ticket was requested.</p><ul><li>This parameter in this event is optional and can be empty in some cases.</li></ul></li><li><p><strong>Service ID</strong> [Type = SID]<strong>:</strong> SID of the account or computer object for which the TGS ticket was requested. Event Viewer automatically tries to resolve SIDs and show the account name. If the SID can&rsquo;t be resolved, you&rsquo;ll see the source data in the event.</p><ul><li><strong>NULL SID</strong> – this value shows in Failure events.</li></ul></li></ul><blockquote><p><strong>Note</strong>  A <strong>security identifier (SID)</strong> is a unique value of variable length used to identify a trustee (security principal). Each account has a unique SID that is issued by an authority, such as an Active Directory domain controller, and stored in a security database. Each time a user logs on, the system retrieves the SID for that user from the database and places it in the access token for that user. The system uses the SID in the access token to identify the user in all subsequent interactions with Windows security. When a SID has been used as the unique identifier for a user or group, it can&rsquo;t ever be used again to identify another user or group. For more information about SIDs, see <a href=/windows/access-protection/access-control/security-identifiers>Security identifiers</a>.</p></blockquote><p><strong>Network Information:</strong></p><ul><li><p><strong>Client Address</strong> [Type = UnicodeString]<strong>:</strong> IP address of the computer from which the TGS request was received. Formats vary, and include the following:</p><ul><li><p><strong>IPv6</strong> or <strong>IPv4</strong> address.</p></li><li><p><strong>::ffff:IPv4_address</strong>.</p></li><li><p><strong>::1</strong> - localhost.</p></li></ul></li><li><p><strong>Client Port</strong> [Type = UnicodeString]: source port number of client network connection (TGS request connection).</p><ul><li>0 for local (localhost) requests.</li></ul></li></ul><p><strong>Additional information:</strong></p><ul><li><p><strong>Ticket Options</strong>: [Type = HexInt32]: this is a set of different Ticket Flags in hexadecimal format.</p><p>Example:</p><ul><li><p>Ticket Options: 0x40810010</p></li><li><p>Binary view: 01000000100000010000000000010000</p></li><li><p>Using <strong>MSB 0</strong> bit numbering we have bit 1, 8, 15 and 27 set = Forwardable, Renewable, Canonicalize, Renewable-ok.</p></li></ul></li></ul><blockquote><p><strong>Note</strong>  In the table below <strong>“MSB 0”</strong> bit numbering is used, because RFC documents use this style. In “MSB 0” style bit numbering begins from left.</p></blockquote><p>The most common values:</p><ul><li><p>0x40810010 - Forwardable, Renewable, Canonicalize, Renewable-ok</p></li><li><p>0x40810000 - Forwardable, Renewable, Canonicalize</p></li><li><p>0x60810010 - Forwardable, Forwarded, Renewable, Canonicalize, Renewable-ok</p></li></ul><table><thead><tr><th>Bit</th><th>Flag Name</th><th>Description</th></tr></thead><tbody><tr><td>0</td><td>Reserved</td><td>-</td></tr><tr><td>1</td><td>Forwardable</td><td>(TGT only). Tells the ticket-granting service that it can issue a new TGT—based on the presented TGT—with a different network address based on the presented TGT.</td></tr><tr><td>2</td><td>Forwarded</td><td>Indicates either that a TGT has been forwarded or that a ticket was issued from a forwarded TGT.</td></tr><tr><td>3</td><td>Proxiable</td><td>(TGT only). Tells the ticket-granting service that it can issue tickets with a network address that differs from the one in the TGT.</td></tr><tr><td>4</td><td>Proxy</td><td>Indicates that the network address in the ticket is different from the one in the TGT used to obtain the ticket.</td></tr><tr><td>5</td><td>Allow-postdate</td><td>Postdated tickets SHOULD NOT be supported in <a href=/openspecs/windows_protocols/ms-kile/2a32282e-dd48-4ad9-a542-609804b02cc9>KILE</a> (Microsoft Kerberos Protocol Extension).</td></tr><tr><td>6</td><td>Postdated</td><td>Postdated tickets SHOULD NOT be supported in <a href=/openspecs/windows_protocols/ms-kile/2a32282e-dd48-4ad9-a542-609804b02cc9>KILE</a> (Microsoft Kerberos Protocol Extension).</td></tr><tr><td>7</td><td>Invalid</td><td>This flag indicates that a ticket is invalid, and it must be validated by the KDC before use. Application servers must reject tickets which have this flag set.</td></tr><tr><td>8</td><td>Renewable</td><td>Used in combination with the End Time and Renew Till fields to cause tickets with long life spans to be renewed at the KDC periodically.</td></tr><tr><td>9</td><td>Initial</td><td>Indicates that a ticket was issued using the authentication service (AS) exchange and not issued based on a TGT.</td></tr><tr><td>10</td><td>Pre-authent</td><td>Indicates that the client was authenticated by the KDC before a ticket was issued. This flag usually indicates the presence of an authenticator in the ticket. It can also flag the presence of credentials taken from a smart card logon.</td></tr><tr><td>11</td><td>Opt-hardware-auth</td><td>This flag was originally intended to indicate that hardware-supported authentication was used during pre-authentication. This flag is no longer recommended in the Kerberos V5 protocol. KDCs MUST NOT issue a ticket with this flag set. KDCs SHOULD NOT preserve this flag if it is set by another KDC.</td></tr><tr><td>12</td><td>Transited-policy-checked</td><td>KILE MUST NOT check for transited domains on servers or a KDC. Application servers MUST ignore the TRANSITED-POLICY-CHECKED flag.</td></tr><tr><td>13</td><td>Ok-as-delegate</td><td>The KDC MUST set the OK-AS-DELEGATE flag if the service account is trusted for delegation.</td></tr><tr><td>14</td><td>Request-anonymous</td><td>KILE not use this flag.</td></tr><tr><td>15</td><td>Name-canonicalize</td><td>In order to request referrals the Kerberos client MUST explicitly request the “canonicalize” KDC option for the AS-REQ or TGS-REQ.</td></tr><tr><td>16-25</td><td>Unused</td><td>-</td></tr><tr><td>26</td><td>Disable-transited-check</td><td>By default the KDC will check the transited field of a TGT against the policy of the local realm before it will issue derivative tickets based on the TGT. If this flag is set in the request, checking of the transited field is disabled. Tickets issued without the performance of this check will be noted by the reset (0) value of the TRANSITED-POLICY-CHECKED flag, indicating to the application server that the transited field must be checked locally. KDCs are encouraged but not required to honorthe DISABLE-TRANSITED-CHECK option.Should not be in use, because Transited-policy-checked flag isn&rsquo;t supported by KILE.</td></tr><tr><td>27</td><td>Renewable-ok</td><td>The RENEWABLE-OK option indicates that a renewable ticket will be acceptable if a ticket with the requested life can&rsquo;t otherwise be provided, in which case a renewable ticket may be issued with a renew-till equal to the requested end time. The value of the renew-till field may still be limited by local limits, or limits selected by the individual principal or server.</td></tr><tr><td>28</td><td>Enc-tkt-in-skey</td><td>No information.</td></tr><tr><td>29</td><td>Unused</td><td>-</td></tr><tr><td>30</td><td>Renew</td><td>The RENEW option indicates that the present request is for a renewal. The ticket provided is encrypted in the secret key for the server on which it is valid. This option will only be honored if the ticket to be renewed has its RENEWABLE flag set and if the time in its renew-till field hasn&rsquo;t passed. The ticket to be renewed is passed in the padata field as part of the authentication header.</td></tr><tr><td>31</td><td>Validate</td><td>This option is used only by the ticket-granting service. The VALIDATE option indicates that the request is to validate a postdated ticket. Shouldn&rsquo;t be in use, because postdated tickets aren&rsquo;t supported by KILE.</td></tr></tbody></table><ul><li><strong>Ticket Encryption Type</strong>: [Type = HexInt32]: the cryptographic suite that was used for issued TGS.</li></ul><table><thead><tr><th>Type</th><th>Type Name</th><th>Description</th></tr></thead><tbody><tr><td>0x1</td><td>DES-CBC-CRC</td><td>Disabled by default starting from Windows 7 and Windows Server 2008 R2.</td></tr><tr><td>0x3</td><td>DES-CBC-MD5</td><td>Disabled by default starting from Windows 7 and Windows Server 2008 R2.</td></tr><tr><td>0x11</td><td>AES128-CTS-HMAC-SHA1-96</td><td>Supported starting from Windows Server 2008 and Windows Vista.</td></tr><tr><td>0x12</td><td>AES256-CTS-HMAC-SHA1-96</td><td>Supported starting from Windows Server 2008 and Windows Vista.</td></tr><tr><td>0x17</td><td>RC4-HMAC</td><td>Default suite for operating systems before Windows Server 2008 and Windows Vista.</td></tr><tr><td>0x18</td><td>RC4-HMAC-EXP</td><td>Default suite for operating systems before Windows Server 2008 and Windows Vista.</td></tr><tr><td>0xFFFFFFFF or 0xffffffff</td><td>-</td><td>This type shows in Audit Failure events.</td></tr></tbody></table><ul><li><strong>Failure Code</strong> [Type = HexInt32]<strong>:</strong> hexadecimal result code of TGS issue operation.
-Some errors are only reported when you set <a href=/troubleshoot/windows-server/windows-security/kerberos-protocol-registry-kdc-configuration-keys>KdcExtraLogLevel</a> registry key value with the following flags:</li><li>0x01: Audit SPN unknown errors.</li><li>0x10: Log audit events on encryption type (ETYPE) and bad options errors.</li></ul><p>The table below contains the list of the most common error codes for this event:</p><table><thead><tr><th>Code</th><th>Code Name</th><th>Description</th><th>Possible causes</th></tr></thead><tbody><tr><td>0x0</td><td>KDC_ERR_NONE</td><td>No error</td><td>No errors were found.</td></tr><tr><td>0x1</td><td>KDC_ERR_NAME_EXP</td><td>Client&rsquo;s entry in KDC database has expired</td><td>No information.</td></tr><tr><td>0x2</td><td>KDC_ERR_SERVICE_EXP</td><td>Server&rsquo;s entry in KDC database has expired</td><td>No information.</td></tr><tr><td>0x3</td><td>KDC_ERR_BAD_PVNO</td><td>Requested Kerberos version number not supported</td><td>No information.</td></tr><tr><td>0x4</td><td>KDC_ERR_C_OLD_MAST_KVNO</td><td>Client&rsquo;s key encrypted in old master key</td><td>No information.</td></tr><tr><td>0x5</td><td>KDC_ERR_S_OLD_MAST_KVNO</td><td>Server&rsquo;s key encrypted in old master key</td><td>No information.</td></tr><tr><td>0x6</td><td>KDC_ERR_C_PRINCIPAL_UNKNOWN</td><td>Client not found in Kerberos database</td><td>The username doesn’t exist.</td></tr><tr><td>0x7</td><td>KDC_ERR_S_PRINCIPAL_UNKNOWN</td><td>Server not found in Kerberos database</td><td>This error can occur if the domain controller can&rsquo;t find the server’s name in Active Directory. This error is similar to KDC_ERR_C_PRINCIPAL_UNKNOWN except that it occurs when the server name can&rsquo;t be found.</td></tr><tr><td>0x8</td><td>KDC_ERR_PRINCIPAL_NOT_UNIQUE</td><td>Multiple principal entries in KDC database</td><td>This error occurs if duplicate principal names exist. Unique principal names are crucial for ensuring mutual authentication. Thus, duplicate principal names are strictly forbidden, even across multiple realms. Without unique principal names, the client has no way of ensuring that the server it is communicating with is the correct one.</td></tr><tr><td>0x9</td><td>KDC_ERR_NULL_KEY</td><td>The client or server has a null key (master key)</td><td>No master key was found for client or server. Usually it means that administrator should reset the password on the account.</td></tr><tr><td>0xA</td><td>KDC_ERR_CANNOT_POSTDATE</td><td>Ticket (TGT) not eligible for postdating</td><td>This error can occur if a client requests postdating of a Kerberos ticket. Postdating is the act of requesting that a ticket’s start time be set into the future.It also can occur if there is a time difference between the client and the KDC.</td></tr><tr><td>0xB</td><td>KDC_ERR_NEVER_VALID</td><td>Requested start time is later than end time</td><td>There&rsquo;s a time difference between the KDC and the client.</td></tr><tr><td>0xC</td><td>KDC_ERR_POLICY</td><td>Requested start time is later than end time</td><td>This error is usually the result of logon restrictions in place on a user’s account. For example workstation restriction, smart card authentication requirement or logon time restriction.</td></tr><tr><td>0xD</td><td>KDC_ERR_BADOPTION</td><td>KDC cannot accommodate requested option</td><td>Impending expiration of a TGT.The SPN to which the client is attempting to delegate credentials isn&rsquo;t in its Allowed-to-delegate-to list</td></tr><tr><td>0xE</td><td>KDC_ERR_ETYPE_NOTSUPP</td><td>KDC has no support for encryption type</td><td>In general, this error occurs when the KDC or a client receives a packet that it can&rsquo;t decrypt.</td></tr><tr><td>0xF</td><td>KDC_ERR_SUMTYPE_NOSUPP</td><td>KDC has no support for checksum type</td><td>The KDC, server, or client receives a packet for which it doesn&rsquo;t have a key of the appropriate encryption type. The result is that the computer is unable to decrypt the ticket.</td></tr><tr><td>0x10</td><td>KDC_ERR_PADATA_TYPE_NOSUPP</td><td>KDC has no support for PADATA type (pre-authentication data)</td><td>Smart card logon is being attempted and the proper certificate can&rsquo;t be located. This can happen because the wrong certification authority (CA) is being queried or the proper CA can&rsquo;t be contacted.It can also happen when a domain controller doesn’t have a certificate installed for smart cards (Domain Controller or Domain Controller Authentication templates).This error code can&rsquo;t occur in event “<a href=/auditing/event-4768/>4768</a>. A Kerberos authentication ticket (TGT) was requested”. It occurs in “<a href=/auditing/event-4771/>4771</a>. Kerberos pre-authentication failed” event.</td></tr><tr><td>0x11</td><td>KDC_ERR_TRTYPE_NO_SUPP</td><td>KDC has no support for transited type</td><td>No information.</td></tr><tr><td>0x12</td><td>KDC_ERR_CLIENT_REVOKED</td><td>Client’s credentials have been revoked</td><td>This might be because of an explicit disabling or because of other restrictions in place on the account. For example: account disabled, expired, or locked out.</td></tr><tr><td>0x13</td><td>KDC_ERR_SERVICE_REVOKED</td><td>Credentials for server have been revoked</td><td>No information.</td></tr><tr><td>0x14</td><td>KDC_ERR_TGT_REVOKED</td><td>TGT has been revoked</td><td>Since the remote KDC may change its PKCROSS key while there are PKCROSS tickets still active, it SHOULD cache the old PKCROSS keys until the last issued PKCROSS ticket expires. Otherwise, the remote KDC will respond to a client with a KRB-ERROR message of type KDC_ERR_TGT_REVOKED. See <a href=https://www.ietf.org/proceedings/49/I-D/draft-ietf-cat-kerberos-pk-cross-07.txt>RFC1510</a> for more details.</td></tr><tr><td>0x15</td><td>KDC_ERR_CLIENT_NOTYET</td><td>Client not yet valid—try again later</td><td>No information.</td></tr><tr><td>0x16</td><td>KDC_ERR_SERVICE_NOTYET</td><td>Server not yet valid—try again later</td><td>No information.</td></tr><tr><td>0x17</td><td>KDC_ERR_KEY_EXPIRED</td><td>Password has expired—change password to reset</td><td>The user’s password has expired.This error code can&rsquo;t occur in event “<a href=/auditing/event-4768/>4768</a>. A Kerberos authentication ticket (TGT) was requested”. It occurs in “<a href=/auditing/event-4771/>4771</a>. Kerberos pre-authentication failed” event.</td></tr><tr><td>0x18</td><td>KDC_ERR_PREAUTH_FAILED</td><td>Pre-authentication information was invalid</td><td>The wrong password was provided.This error code can&rsquo;t occur in event “<a href=/auditing/event-4768/>4768</a>. A Kerberos authentication ticket (TGT) was requested”. It occurs in “<a href=/auditing/event-4771/>4771</a>. Kerberos pre-authentication failed” event.</td></tr><tr><td>0x19</td><td>KDC_ERR_PREAUTH_REQUIRED</td><td>Additional pre-authentication required</td><td>This error often occurs in UNIX interoperability scenarios. MIT-Kerberos clients don&rsquo;t request pre-authentication when they send a KRB_AS_REQ message. If pre-authentication is required (the default), Windows systems will send this error. Most MIT-Kerberos clients will respond to this error by giving the pre-authentication, in which case the error can be ignored, but some clients might not respond in this way.</td></tr><tr><td>0x1A</td><td>KDC_ERR_SERVER_NOMATCH</td><td>KDC does not know about the requested server</td><td>No information.</td></tr><tr><td>0x1B</td><td>KDC_ERR_MUST_USE_USER2USER</td><td>Server principal valid for user2user only</td><td>This error occurs because the service is missing an SPN.</td></tr><tr><td>0x1F</td><td>KRB_AP_ERR_BAD_INTEGRITY</td><td>Integrity check on decrypted field failed</td><td>The authenticator was encrypted with something other than the session key. The result is that the client can&rsquo;t decrypt the resulting message. The modification of the message could be the result of an attack or it could be because of network noise.</td></tr><tr><td>0x20</td><td>KRB_AP_ERR_TKT_EXPIRED</td><td>The ticket has expired</td><td>The smaller the value for the “Maximum lifetime for user ticket” Kerberos policy setting, the more likely it is that this error will occur. Because ticket renewal is automatic, you should not have to do anything if you get this message.</td></tr><tr><td>0x21</td><td>KRB_AP_ERR_TKT_NYV</td><td>The ticket is not yet valid</td><td>The ticket presented to the server isn&rsquo;t yet valid (in relationship to the server time). The most probable cause is that the clocks on the KDC and the client aren&rsquo;t synchronized.If cross-realm Kerberos authentication is being attempted, then you should verify time synchronization between the KDC in the target realm and the KDC in the client realm, as well.</td></tr><tr><td>0x22</td><td>KRB_AP_ERR_REPEAT</td><td>The request is a replay</td><td>This error indicates that a specific authenticator showed up twice — the KDC has detected that this session ticket duplicates one that it has already received.</td></tr><tr><td>0x23</td><td>KRB_AP_ERR_NOT_US</td><td>The ticket is not for us</td><td>The server has received a ticket that was meant for a different realm.</td></tr><tr><td>0x24</td><td>KRB_AP_ERR_BADMATCH</td><td>The ticket and authenticator do not match</td><td>The KRB_TGS_REQ is being sent to the wrong KDC.There&rsquo;s an account mismatch during protocol transition.</td></tr><tr><td>0x25</td><td>KRB_AP_ERR_SKEW</td><td>The clock skew is too great</td><td>This error is logged if a client computer sends a timestamp whose value differs from that of the server’s timestamp by more than the number of minutes found in the “Maximum tolerance for computer clock synchronization” setting in Kerberos policy.</td></tr><tr><td>0x26</td><td>KRB_AP_ERR_BADADDR</td><td>Network address in network layer header doesn&rsquo;t match address inside ticket</td><td>Session tickets MAY include the addresses from which they are valid. This error can occur if the address of the computer sending the ticket is different from the valid address in the ticket. A possible cause of this could be an Internet Protocol (IP) address change. Another possible cause is when a ticket is passed through a proxy server or NAT. The client is unaware of the address scheme used by the proxy server, so unless the program caused the client to request a proxy server ticket with the proxy server&rsquo;s source address, the ticket could be invalid.</td></tr><tr><td>0x27</td><td>KRB_AP_ERR_BADVERSION</td><td>Protocol version numbers don&rsquo;t match (PVNO)</td><td>When an application receives a KRB_SAFE message, it verifies it. If any error occurs, an error code is reported for use by the application.The message is first checked by verifying that the protocol version and type fields match the current version and KRB_SAFE, respectively. A mismatch generates a KRB_AP_ERR_BADVERSION.See <a href=http://www.ietf.org/rfc/rfc4120.txt>RFC4120</a> for more details.</td></tr><tr><td>0x28</td><td>KRB_AP_ERR_MSG_TYPE</td><td>Message type is unsupported</td><td>This message is generated when target server finds that message format is wrong. This applies to KRB_AP_REQ, KRB_SAFE, KRB_PRIV and KRB_CRED messages. This error also generated if use of UDP protocol is being attempted with User-to-User authentication.</td></tr><tr><td>0x29</td><td>KRB_AP_ERR_MODIFIED</td><td>Message stream modified and checksum didn&rsquo;t match</td><td>The authentication data was encrypted with the wrong key for the intended server.The authentication data was modified in transit by a hardware or software error, or by an attacker.The client sent the authentication data to the wrong server because incorrect DNS data caused the client to send the request to the wrong server.The client sent the authentication data to the wrong server because DNS data was out-of-date on the client.</td></tr><tr><td>0x2A</td><td>KRB_AP_ERR_BADORDER</td><td>Message out of order (possible tampering)</td><td>This event generates for KRB_SAFE and KRB_PRIV messages if an incorrect sequence number is included, or if a sequence number is expected but not present. See <a href=http://www.ietf.org/rfc/rfc4120.txt>RFC4120</a> for more details.</td></tr><tr><td>0x2C</td><td>KRB_AP_ERR_BADKEYVER</td><td>Specified version of key is not available</td><td>This error might be generated on server side during receipt of invalid KRB_AP_REQ message. If the key version indicated by the Ticket in the KRB_AP_REQ isn&rsquo;t one the server can use (e.g., it indicates an old key, and the server no longer possesses a copy of the old key), the KRB_AP_ERR_BADKEYVER error is returned.</td></tr><tr><td>0x2D</td><td>KRB_AP_ERR_NOKEY</td><td>Service key not available</td><td>This error might be generated on server side during receipt of invalid KRB_AP_REQ message. Because it is possible for the server to be registered in multiple realms, with different keys in each, the realm field in the unencrypted portion of the ticket in the KRB_AP_REQ is used to specify which secret key the server should use to decrypt that ticket. The KRB_AP_ERR_NOKEY error code is returned if the server doesn&rsquo;t have the proper key to decipher the ticket.</td></tr><tr><td>0x2E</td><td>KRB_AP_ERR_MUT_FAIL</td><td>Mutual authentication failed</td><td>No information.</td></tr><tr><td>0x2F</td><td>KRB_AP_ERR_BADDIRECTION</td><td>Incorrect message direction</td><td>No information.</td></tr><tr><td>0x30</td><td>KRB_AP_ERR_METHOD</td><td>Alternative authentication method required</td><td>According to <a href=http://www.ietf.org/rfc/rfc4120.txt>RFC4120</a> this error message is obsolete.</td></tr><tr><td>0x31</td><td>KRB_AP_ERR_BADSEQ</td><td>Incorrect sequence number in message</td><td>No information.</td></tr><tr><td>0x32</td><td>KRB_AP_ERR_INAPP_CKSUM</td><td>Inappropriate type of checksum in message (checksum may be unsupported)</td><td>When KDC receives KRB_TGS_REQ message it decrypts it, and after the user-supplied checksum in the Authenticator MUST be verified against the contents of the request, and the message MUST be rejected if the checksums don&rsquo;t match (with an error code of KRB_AP_ERR_MODIFIED) or if the checksum isn&rsquo;t collision-proof (with an error code of KRB_AP_ERR_INAPP_CKSUM).</td></tr><tr><td>0x33</td><td>KRB_AP_PATH_NOT_ACCEPTED</td><td>Desired path is unreachable</td><td>No information.</td></tr><tr><td>0x34</td><td>KRB_ERR_RESPONSE_TOO_BIG</td><td>Too much data</td><td>The size of a ticket is too large to be transmitted reliably via UDP. In a Windows environment, this message is purely informational. A computer running a Windows operating system will automatically try TCP if UDP fails.</td></tr><tr><td>0x3C</td><td>KRB_ERR_GENERIC</td><td>Generic error</td><td>Group membership has overloaded the PAC.Multiple recent password changes haven&rsquo;t propagated.Crypto subsystem error caused by running out of memory.SPN too long.SPN has too many parts.</td></tr><tr><td>0x3D</td><td>KRB_ERR_FIELD_TOOLONG</td><td>Field is too long for this implementation</td><td>Each request (KRB_KDC_REQ) and response (KRB_KDC_REP or KRB_ERROR) sent over the TCP stream is preceded by the length of the request as 4 octets in network byte order. The high bit of the length is reserved for future expansion and MUST currently be set to zero. If a KDC that doesn&rsquo;t understand how to interpret a set high bit of the length encoding receives a request with the high order bit of the length set, it MUST return a KRB-ERROR message with the error KRB_ERR_FIELD_TOOLONG and MUST close the TCP stream.</td></tr><tr><td>0x3E</td><td>KDC_ERR_CLIENT_NOT_TRUSTED</td><td>The client trust failed or is not implemented</td><td>This typically happens when user’s smart-card certificate is revoked or the root Certification Authority that issued the smart card certificate (in a chain) isn&rsquo;t trusted by the domain controller.</td></tr><tr><td>0x3F</td><td>KDC_ERR_KDC_NOT_TRUSTED</td><td>The KDC server trust failed or could not be verified</td><td>The trustedCertifiers field contains a list of certification authorities trusted by the client, in the case that the client doesn&rsquo;t possess the KDC&rsquo;s public key certificate. If the KDC has no certificate signed by any of the trustedCertifiers, then it returns an error of type KDC_ERR_KDC_NOT_TRUSTED. See <a href=https://www.ietf.org/proceedings/50/I-D/cat-kerberos-pk-init-13.txt>RFC1510</a> for more details.</td></tr><tr><td>0x40</td><td>KDC_ERR_INVALID_SIG</td><td>The signature is invalid</td><td>This error is related to PKINIT. If a PKI trust relationship exists, the KDC then verifies the client&rsquo;s signature on AuthPack (TGT request signature). If that fails, the KDC returns an error message of type KDC_ERR_INVALID_SIG.</td></tr><tr><td>0x41</td><td>KDC_ERR_KEY_TOO_WEAK</td><td>A higher encryption level is needed</td><td>If the clientPublicValue field is filled in, indicating that the client wishes to use Diffie-Hellman key agreement, then the KDC checks to see that the parameters satisfy its policy. If they don&rsquo;t (e.g., the prime size is insufficient for the expected encryption type), then the KDC sends back an error message of type KDC_ERR_KEY_TOO_WEAK.</td></tr><tr><td>0x42</td><td>KRB_AP_ERR_USER_TO_USER_REQUIRED</td><td>User-to-user authorization is required</td><td>In the case that the client application doesn&rsquo;t know that a service requires user-to-user authentication, and requests and receives a conventional KRB_AP_REP, the client will send the KRB_AP_REP request, and the server will respond with a KRB_ERROR token as described in <a href=https://tools.ietf.org/html/rfc1964>RFC1964</a>, with a msg-type of KRB_AP_ERR_USER_TO_USER_REQUIRED.</td></tr><tr><td>0x43</td><td>KRB_AP_ERR_NO_TGT</td><td>No TGT was presented or available</td><td>In user-to-user authentication if the service doesn&rsquo;t possess a ticket granting ticket, it should return the error KRB_AP_ERR_NO_TGT.</td></tr><tr><td>0x44</td><td>KDC_ERR_WRONG_REALM</td><td>Incorrect domain or principal</td><td>Although this error rarely occurs, it occurs when a client presents a cross-realm TGT to a realm other than the one specified in the TGT. Typically, this results from incorrectly configured DNS.</td></tr></tbody></table><ul><li><strong>Transited Services</strong> [Type = UnicodeString]: this field contains list of SPNs which were requested if constrained Kerberos delegation was used.</li></ul><blockquote><p><strong>Note</strong>  <strong>Service Principal Name (SPN)</strong> is the name by which a client uniquely identifies an instance of a service. If you install multiple instances of a service on computers throughout a forest, each instance must have its own SPN. A given service instance can have multiple SPNs if there are multiple names that clients might use for authentication. For example, an SPN always includes the name of the host computer on which the service instance is running, so a service instance might register an SPN for each name or alias of its host.</p></blockquote><h2 id=security-monitoring-recommendations>Security Monitoring Recommendations</h2><p>For 4769(S, F): A Kerberos service ticket was requested.</p><table><thead><tr><th><strong>Type of monitoring required</strong></th><th><strong>Recommendation</strong></th></tr></thead><tbody><tr><td><strong>High-value accounts</strong>: You might have high-value domain or local accounts for which you need to monitor each action.Examples of high-value accounts are database administrators, built-in local administrator account, domain administrators, service accounts, domain controller accounts and so on.</td><td>Monitor this event with the <strong>“Account Information\Account Name”</strong> that corresponds to the high-value account or accounts.</td></tr><tr><td><strong>Anomalies or malicious actions</strong>: You might have specific requirements for detecting anomalies or monitoring potential malicious actions. For example, you might need to monitor for use of an account outside of working hours.</td><td>When you monitor for anomalies or malicious actions, use the <strong>“Account Information\Account Name”</strong> (with other information) to monitor how or when a particular account is being used.</td></tr><tr><td><strong>Non-active accounts</strong>: You might have non-active, disabled, or guest accounts, or other accounts that should never be used.</td><td>Monitor this event with the <strong>“Account Information\Account Name”</strong> that corresponds to the accounts that should never be used.</td></tr><tr><td><strong>External accounts</strong>: You might be monitoring accounts from another domain, or “external” accounts that aren&rsquo;t allowed to perform certain actions (represented by certain specific events).</td><td>Monitor this event for the <strong>“Account Information\Account Domain”</strong> corresponding to another domain or “external” location.</td></tr><tr><td><strong>Restricted-use computers or devices</strong>: You might have certain computers, machines, or devices on which certain people (accounts) should not typically perform any actions.</td><td>Monitor the target <strong>Computer:</strong> (or other target device) for actions performed by the <strong>“Account Information\Account Name”</strong> that you are concerned about.</td></tr><tr><td><strong>Account naming conventions</strong>: Your organization might have specific naming conventions for account names.</td><td>Monitor “<strong>User ID”</strong> for names that don’t comply with naming conventions.</td></tr></tbody></table><ul><li><p>If you know that <strong>Account Name</strong> should never request any tickets for (that is, never get access to) a particular computer account or service account, monitor for <a href=/auditing/event-4769/>4769</a> events with the corresponding <strong>Account Name</strong> and <strong>Service ID</strong> fields.</p></li><li><p>You can track all <a href=/auditing/event-4769/>4769</a> events where the <strong>Client Address</strong> isn&rsquo;t from your internal IP range or not from private IP ranges.</p></li><li><p>If you know that <strong>Account Name</strong> should be able to request tickets (should be used) only from a known allow list of IP addresses, track all <strong>Client Address</strong> values for this <strong>Account Name</strong> in <a href=/auditing/event-4769/>4769</a> events. If <strong>Client Address</strong> isn&rsquo;t from your allow list of IP addresses, generate the alert.</p></li><li><p>All <strong>Client Address</strong> = <code>::1</code> means local TGS requests, which means that the <strong>Account Name</strong> logged on to a domain controller before making the TGS request. If you have an allow list of accounts allowed to log on to domain controllers, monitor events with <strong>Client Address</strong> = <code>::1</code> and any <strong>Account Name</strong> outside the allow list.</p></li><li><p>All <a href=/auditing/event-4769/>4769</a> events with <strong>Client Port</strong> field value > 0 and &lt; 1024 should be examined, because a well-known port was used for outbound connection.</p></li><li><p>Monitor for a <strong>Ticket Encryption Type</strong> of <strong>0x1</strong> or <strong>0x3</strong>, which means the DES algorithm was used. DES should not be in use, because of low security and known vulnerabilities. It is disabled by default starting from Windows 7 and Windows Server 2008 R2.</p></li><li><p>Starting with Windows Vista and Windows Server 2008, monitor for a <strong>Ticket Encryption Type</strong> other than <strong>0x11 and 0x12</strong>. These are the expected values, starting with these operating systems, and represent AES-family algorithms.</p></li><li><p>If you have a list of important <strong>Failure Codes</strong>, monitor for these codes.</p></li></ul><div class=edit-meta><br></div><nav class=pagination><a class="nav nav-prev" href=https://itembox.jp/auditing/event-4768/ title="4768(S, F) A Kerberos authentication ticket (TGT) was requested."><i class="fas fa-arrow-left" aria-hidden=true></i>&nbsp;Prev - 4768(S, F) A Kerberos authentication ticket (TGT) was requested.</a>
-<a class="nav nav-next" href=https://itembox.jp/auditing/event-4770/ title="4770(S) A Kerberos service ticket was renewed.">Next - 4770(S) A Kerberos service ticket was renewed. <i class="fas fa-arrow-right" aria-hidden=true></i></a></nav><footer><p class=powered>Powered by <a href=https://gohugo.io>Hugo</a>. Theme by <a href=https://themes.gohugo.io/hugo-theme-techdoc/>TechDoc</a>. Designed by <a href=https://github.com/thingsym/hugo-theme-techdoc>Thingsym</a>.</p></footer></main><div class=sidebar><nav class=open-menu><ul><li><a href=https://itembox.jp/>Home</a></li><li class=parent><a href=https://itembox.jp/auditing/></a><ul class=sub-menu><li><a href=https://itembox.jp/auditing/event-1100/>1100(S) The event logging service has shut down.</a></li><li><a href=https://itembox.jp/auditing/event-1102/>1102(S) The audit log was cleared.</a></li><li><a href=https://itembox.jp/auditing/event-1104/>1104(S) The security log is now full.</a></li><li><a href=https://itembox.jp/auditing/event-1105/>1105(S) Event log automatic backup.</a></li><li><a href=https://itembox.jp/auditing/event-4608/>4608(S) Windows is starting up.</a></li><li><a href=https://itembox.jp/auditing/event-4610/>4610(S) An authentication package has been loaded by the Local Security Authority.</a></li><li><a href=https://itembox.jp/auditing/event-4611/>4611(S) A trusted logon process has been registered with the Local Security Authority.</a></li><li><a href=https://itembox.jp/auditing/event-4612/>4612(S) Internal resources allocated for the queuing of audit messages have been exhausted, leading to the loss of some audits.</a></li><li><a href=https://itembox.jp/auditing/event-4614/>4614(S) A notification package has been loaded by the Security Account Manager.</a></li><li><a href=https://itembox.jp/auditing/event-4615/>4615(S) Invalid use of LPC port.</a></li><li><a href=https://itembox.jp/auditing/event-4616/>4616(S) The system time was changed.</a></li><li><a href=https://itembox.jp/auditing/event-4618/>4618(S) A monitored security event pattern has occurred.</a></li><li><a href=https://itembox.jp/auditing/event-4621/>4621(S) Administrator recovered system from CrashOnAuditFail.</a></li><li><a href=https://itembox.jp/auditing/event-4622/>4622(S) A security package has been loaded by the Local Security Authority.</a></li><li><a href=https://itembox.jp/auditing/event-4624/>4624(S) An account was successfully logged on.</a></li><li><a href=https://itembox.jp/auditing/event-4625/>4625(F) An account failed to log on.</a></li><li><a href=https://itembox.jp/auditing/event-4626/>4626(S) User/Device claims information.</a></li><li><a href=https://itembox.jp/auditing/event-4627/>4627(S) Group membership information.</a></li><li><a href=https://itembox.jp/auditing/event-4634/>4634(S) An account was logged off.</a></li><li><a href=https://itembox.jp/auditing/event-4647/>4647(S) User initiated logoff.</a></li><li><a href=https://itembox.jp/auditing/event-4648/>4648(S) A logon was attempted using explicit credentials.</a></li><li><a href=https://itembox.jp/auditing/event-4649/>4649(S) A replay attack was detected.</a></li><li><a href=https://itembox.jp/auditing/event-4656/>4656(S, F) A handle to an object was requested.</a></li><li><a href=https://itembox.jp/auditing/event-4657/>4657(S) A registry value was modified.</a></li><li><a href=https://itembox.jp/auditing/event-4658/>4658(S) The handle to an object was closed.</a></li><li><a href=https://itembox.jp/auditing/event-4660/>4660(S) An object was deleted.</a></li><li><a href=https://itembox.jp/auditing/event-4661/>4661(S, F) A handle to an object was requested.</a></li><li><a href=https://itembox.jp/auditing/event-4662/>4662(S, F) An operation was performed on an object.</a></li><li><a href=https://itembox.jp/auditing/event-4663/>4663(S) An attempt was made to access an object.</a></li><li><a href=https://itembox.jp/auditing/event-4664/>4664(S) An attempt was made to create a hard link.</a></li><li><a href=https://itembox.jp/auditing/event-4670/>4670(S) Permissions on an object were changed.</a></li><li><a href=https://itembox.jp/auditing/event-4671/>4671(-) An application attempted to access a blocked ordinal through the TBS.</a></li><li><a href=https://itembox.jp/auditing/event-4672/>4672(S) Special privileges assigned to new logon.</a></li><li><a href=https://itembox.jp/auditing/event-4673/>4673(S, F) A privileged service was called.</a></li><li><a href=https://itembox.jp/auditing/event-4674/>4674(S, F) An operation was attempted on a privileged object.</a></li><li><a href=https://itembox.jp/auditing/event-4675/>4675(S) SIDs were filtered.</a></li><li><a href=https://itembox.jp/auditing/event-4688/>4688(S) A new process has been created.</a></li><li><a href=https://itembox.jp/auditing/event-4689/>4689(S) A process has exited.</a></li><li><a href=https://itembox.jp/auditing/event-4690/>4690(S) An attempt was made to duplicate a handle to an object.</a></li><li><a href=https://itembox.jp/auditing/event-4691/>4691(S) Indirect access to an object was requested.</a></li><li><a href=https://itembox.jp/auditing/event-4692/>4692(S, F) Backup of data protection master key was attempted.</a></li><li><a href=https://itembox.jp/auditing/event-4693/>4693(S, F) Recovery of data protection master key was attempted.</a></li><li><a href=https://itembox.jp/auditing/event-4694/>4694(S, F) Protection of auditable protected data was attempted.</a></li><li><a href=https://itembox.jp/auditing/event-4695/>4695(S, F) Unprotection of auditable protected data was attempted.</a></li><li><a href=https://itembox.jp/auditing/event-4696/>4696(S) A primary token was assigned to process.</a></li><li><a href=https://itembox.jp/auditing/event-4697/>4697(S) A service was installed in the system.</a></li><li><a href=https://itembox.jp/auditing/event-4698/>4698(S) A scheduled task was created.</a></li><li><a href=https://itembox.jp/auditing/event-4699/>4699(S) A scheduled task was deleted.</a></li><li><a href=https://itembox.jp/auditing/event-4700/>4700(S) A scheduled task was enabled.</a></li><li><a href=https://itembox.jp/auditing/event-4701/>4701(S) A scheduled task was disabled.</a></li><li><a href=https://itembox.jp/auditing/event-4702/>4702(S) A scheduled task was updated.</a></li><li><a href=https://itembox.jp/auditing/event-4703/>4703(S) A user right was adjusted.</a></li><li><a href=https://itembox.jp/auditing/event-4704/>4704(S) A user right was assigned.</a></li><li><a href=https://itembox.jp/auditing/event-4705/>4705(S) A user right was removed.</a></li><li><a href=https://itembox.jp/auditing/event-4706/>4706(S) A new trust was created to a domain.</a></li><li><a href=https://itembox.jp/auditing/event-4707/>4707(S) A trust to a domain was removed.</a></li><li><a href=https://itembox.jp/auditing/event-4713/>4713(S) Kerberos policy was changed.</a></li><li><a href=https://itembox.jp/auditing/event-4714/>4714(S) Encrypted data recovery policy was changed.</a></li><li><a href=https://itembox.jp/auditing/event-4715/>4715(S) The audit policy (SACL) on an object was changed.</a></li><li><a href=https://itembox.jp/auditing/event-4716/>4716(S) Trusted domain information was modified.</a></li><li><a href=https://itembox.jp/auditing/event-4717/>4717(S) System security access was granted to an account.</a></li><li><a href=https://itembox.jp/auditing/event-4718/>4718(S) System security access was removed from an account.</a></li><li><a href=https://itembox.jp/auditing/event-4719/>4719(S) System audit policy was changed.</a></li><li><a href=https://itembox.jp/auditing/event-4720/>4720(S) A user account was created.</a></li><li><a href=https://itembox.jp/auditing/event-4722/>4722(S) A user account was enabled.</a></li><li><a href=https://itembox.jp/auditing/event-4723/>4723(S, F) An attempt was made to change an account's password.</a></li><li><a href=https://itembox.jp/auditing/event-4724/>4724(S, F) An attempt was made to reset an account's password.</a></li><li><a href=https://itembox.jp/auditing/event-4725/>4725(S) A user account was disabled.</a></li><li><a href=https://itembox.jp/auditing/event-4726/>4726(S) A user account was deleted.</a></li><li><a href=https://itembox.jp/auditing/event-4731/>4731(S) A security-enabled local group was created.</a></li><li><a href=https://itembox.jp/auditing/event-4732/>4732(S) A member was added to a security-enabled local group.</a></li><li><a href=https://itembox.jp/auditing/event-4733/>4733(S) A member was removed from a security-enabled local group.</a></li><li><a href=https://itembox.jp/auditing/event-4734/>4734(S) A security-enabled local group was deleted.</a></li><li><a href=https://itembox.jp/auditing/event-4735/>4735(S) A security-enabled local group was changed.</a></li><li><a href=https://itembox.jp/auditing/event-4738/>4738(S) A user account was changed.</a></li><li><a href=https://itembox.jp/auditing/event-4739/>4739(S) Domain Policy was changed.</a></li><li><a href=https://itembox.jp/auditing/event-4740/>4740(S) A user account was locked out.</a></li><li><a href=https://itembox.jp/auditing/event-4741/>4741(S) A computer account was created.</a></li><li><a href=https://itembox.jp/auditing/event-4742/>4742(S) A computer account was changed.</a></li><li><a href=https://itembox.jp/auditing/event-4743/>4743(S) A computer account was deleted.</a></li><li><a href=https://itembox.jp/auditing/event-4749/>4749(S) A security-disabled global group was created.</a></li><li><a href=https://itembox.jp/auditing/event-4750/>4750(S) A security-disabled global group was changed.</a></li><li><a href=https://itembox.jp/auditing/event-4751/>4751(S) A member was added to a security-disabled global group.</a></li><li><a href=https://itembox.jp/auditing/event-4752/>4752(S) A member was removed from a security-disabled global group.</a></li><li><a href=https://itembox.jp/auditing/event-4753/>4753(S) A security-disabled global group was deleted.</a></li><li><a href=https://itembox.jp/auditing/event-4764/>4764(S) A group's type was changed.</a></li><li><a href=https://itembox.jp/auditing/event-4765/>4765(S) SID History was added to an account.</a></li><li><a href=https://itembox.jp/auditing/event-4766/>4766(F) An attempt to add SID History to an account failed.</a></li><li><a href=https://itembox.jp/auditing/event-4767/>4767(S) A user account was unlocked.</a></li><li><a href=https://itembox.jp/auditing/event-4768/>4768(S, F) A Kerberos authentication ticket (TGT) was requested.</a></li><li class=active><a href=https://itembox.jp/auditing/event-4769/>4769(S, F) A Kerberos service ticket was requested.</a></li><li><a href=https://itembox.jp/auditing/event-4770/>4770(S) A Kerberos service ticket was renewed.</a></li><li><a href=https://itembox.jp/auditing/event-4771/>4771(F) Kerberos pre-authentication failed.</a></li><li><a href=https://itembox.jp/auditing/event-4772/>4772(F) A Kerberos authentication ticket request failed.</a></li><li><a href=https://itembox.jp/auditing/event-4773/>4773(F) A Kerberos service ticket request failed.</a></li><li><a href=https://itembox.jp/auditing/event-4774/>4774(S, F) An account was mapped for logon.</a></li><li><a href=https://itembox.jp/auditing/event-4775/>4775(F) An account could not be mapped for logon.</a></li><li><a href=https://itembox.jp/auditing/event-4776/>4776(S, F) The computer attempted to validate the credentials for an account.</a></li><li><a href=https://itembox.jp/auditing/event-4777/>4777(F) The domain controller failed to validate the credentials for an account.</a></li><li><a href=https://itembox.jp/auditing/event-4778/>4778(S) A session was reconnected to a Window Station.</a></li><li><a href=https://itembox.jp/auditing/event-4779/>4779(S) A session was disconnected from a Window Station.</a></li><li><a href=https://itembox.jp/auditing/event-4780/>4780(S) The ACL was set on accounts which are members of administrators groups.</a></li><li><a href=https://itembox.jp/auditing/event-4781/>4781(S) The name of an account was changed.</a></li><li><a href=https://itembox.jp/auditing/event-4782/>4782(S) The password hash of an account was accessed.</a></li><li><a href=https://itembox.jp/auditing/event-4793/>4793(S) The Password Policy Checking API was called.</a></li><li><a href=https://itembox.jp/auditing/event-4794/>4794(S, F) An attempt was made to set the Directory Services Restore Mode administrator password.</a></li><li><a href=https://itembox.jp/auditing/event-4798/>4798(S) A user's local group membership was enumerated.</a></li><li><a href=https://itembox.jp/auditing/event-4799/>4799(S) A security-enabled local group membership was enumerated.</a></li><li><a href=https://itembox.jp/auditing/event-4800/>4800(S) The workstation was locked.</a></li><li><a href=https://itembox.jp/auditing/event-4801/>4801(S) The workstation was unlocked.</a></li><li><a href=https://itembox.jp/auditing/event-4802/>4802(S) The screen saver was invoked.</a></li><li><a href=https://itembox.jp/auditing/event-4803/>4803(S) The screen saver was dismissed.</a></li><li><a href=https://itembox.jp/auditing/event-4816/>4816(S) RPC detected an integrity violation while decrypting an incoming message.</a></li><li><a href=https://itembox.jp/auditing/event-4817/>4817(S) Auditing settings on object were changed.</a></li><li><a href=https://itembox.jp/auditing/event-4818/>4818(S) Proposed Central Access Policy does not grant the same access permissions as the current Central Access Policy.</a></li><li><a href=https://itembox.jp/auditing/event-4819/>4819(S) Central Access Policies on the machine have been changed.</a></li><li><a href=https://itembox.jp/auditing/event-4826/>4826(S) Boot Configuration Data loaded.</a></li><li><a href=https://itembox.jp/auditing/event-4864/>4864(S) A namespace collision was detected.</a></li><li><a href=https://itembox.jp/auditing/event-4865/>4865(S) A trusted forest information entry was added.</a></li><li><a href=https://itembox.jp/auditing/event-4866/>4866(S) A trusted forest information entry was removed.</a></li><li><a href=https://itembox.jp/auditing/event-4867/>4867(S) A trusted forest information entry was modified.</a></li><li><a href=https://itembox.jp/auditing/event-4902/>4902(S) The Per-user audit policy table was created.</a></li><li><a href=https://itembox.jp/auditing/event-4904/>4904(S) An attempt was made to register a security event source.</a></li><li><a href=https://itembox.jp/auditing/event-4905/>4905(S) An attempt was made to unregister a security event source.</a></li><li><a href=https://itembox.jp/auditing/event-4906/>4906(S) The CrashOnAuditFail value has changed.</a></li><li><a href=https://itembox.jp/auditing/event-4907/>4907(S) Auditing settings on object were changed.</a></li><li><a href=https://itembox.jp/auditing/event-4908/>4908(S) Special Groups Logon table modified.</a></li><li><a href=https://itembox.jp/auditing/event-4909/>4909(-) The local policy settings for the TBS were changed.</a></li><li><a href=https://itembox.jp/auditing/event-4910/>4910(-) The group policy settings for the TBS were changed.</a></li><li><a href=https://itembox.jp/auditing/event-4911/>4911(S) Resource attributes of the object were changed.</a></li><li><a href=https://itembox.jp/auditing/event-4912/>4912(S) Per User Audit Policy was changed.</a></li><li><a href=https://itembox.jp/auditing/event-4913/>4913(S) Central Access Policy on the object was changed</a></li><li><a href=https://itembox.jp/auditing/event-4928/>4928(S, F) An Active Directory replica source naming context was established.</a></li><li><a href=https://itembox.jp/auditing/event-4929/>4929(S, F) An Active Directory replica source naming context was removed.</a></li><li><a href=https://itembox.jp/auditing/event-4930/>4930(S, F) An Active Directory replica source naming context was modified.</a></li><li><a href=https://itembox.jp/auditing/event-4931/>4931(S, F) An Active Directory replica destination naming context was modified.</a></li><li><a href=https://itembox.jp/auditing/event-4932/>4932(S) Synchronization of a replica of an Active Directory naming context has begun.</a></li><li><a href=https://itembox.jp/auditing/event-4933/>4933(S, F) Synchronization of a replica of an Active Directory naming context has ended.</a></li><li><a href=https://itembox.jp/auditing/event-4934/>4934(S) Attributes of an Active Directory object were replicated.</a></li><li><a href=https://itembox.jp/auditing/event-4935/>4935(F) Replication failure begins.</a></li><li><a href=https://itembox.jp/auditing/event-4936/>4936(S) Replication failure ends.</a></li><li><a href=https://itembox.jp/auditing/event-4937/>4937(S) A lingering object was removed from a replica.</a></li><li><a href=https://itembox.jp/auditing/event-4944/>4944(S) The following policy was active when the Windows Firewall started.</a></li><li><a href=https://itembox.jp/auditing/event-4945/>4945(S) A rule was listed when the Windows Firewall started.</a></li><li><a href=https://itembox.jp/auditing/event-4946/>4946(S) A change has been made to Windows Firewall exception list. A rule was added.</a></li><li><a href=https://itembox.jp/auditing/event-4947/>4947(S) A change has been made to Windows Firewall exception list. A rule was modified.</a></li><li><a href=https://itembox.jp/auditing/event-4948/>4948(S) A change has been made to Windows Firewall exception list. A rule was deleted.</a></li><li><a href=https://itembox.jp/auditing/event-4949/>4949(S) Windows Firewall settings were restored to the default values.</a></li><li><a href=https://itembox.jp/auditing/event-4950/>4950(S) A Windows Firewall setting has changed.</a></li><li><a href=https://itembox.jp/auditing/event-4951/>4951(F) A rule has been ignored because its major version number wasn't recognized by Windows Firewall.</a></li><li><a href=https://itembox.jp/auditing/event-4952/>4952(F) Parts of a rule have been ignored because its minor version number was not recognized by Windows Firewall. The other parts of the rule will be enforced.</a></li><li><a href=https://itembox.jp/auditing/event-4953/>4953(F) Windows Firewall ignored a rule because it couldn't be parsed.</a></li><li><a href=https://itembox.jp/auditing/event-4954/>4954(S) Windows Firewall Group Policy settings have changed. The new settings have been applied.</a></li><li><a href=https://itembox.jp/auditing/event-4956/>4956(S) Windows Firewall has changed the active profile.</a></li><li><a href=https://itembox.jp/auditing/event-4957/>4957(F) Windows Firewall did not apply the following rule.</a></li><li><a href=https://itembox.jp/auditing/event-4958/>4958(F) Windows Firewall did not apply the following rule because the rule referred to items not configured on this computer.</a></li><li><a href=https://itembox.jp/auditing/event-4964/>4964(S) Special groups have been assigned to a new logon.</a></li><li><a href=https://itembox.jp/auditing/event-4985/>4985(S) The state of a transaction has changed.</a></li><li><a href=https://itembox.jp/auditing/event-5024/>5024(S) The Windows Firewall Service has started successfully.</a></li><li><a href=https://itembox.jp/auditing/event-5025/>5025(S) The Windows Firewall Service has been stopped.</a></li><li><a href=https://itembox.jp/auditing/event-5027/>5027(F) The Windows Firewall Service was unable to retrieve the security policy from the local storage. The service will continue enforcing the current policy.</a></li><li><a href=https://itembox.jp/auditing/event-5028/>5028(F) The Windows Firewall Service was unable to parse the new security policy. The service will continue with currently enforced policy.</a></li><li><a href=https://itembox.jp/auditing/event-5029/>5029(F) The Windows Firewall Service failed to initialize the driver. The service will continue to enforce the current policy.</a></li><li><a href=https://itembox.jp/auditing/event-5030/>5030(F) The Windows Firewall Service failed to start.</a></li><li><a href=https://itembox.jp/auditing/event-5031/>5031(F) The Windows Firewall Service blocked an application from accepting incoming connections on the network.</a></li><li><a href=https://itembox.jp/auditing/event-5032/>5032(F) Windows Firewall was unable to notify the user that it blocked an application from accepting incoming connections on the network.</a></li><li><a href=https://itembox.jp/auditing/event-5033/>5033(S) The Windows Firewall Driver has started successfully.</a></li><li><a href=https://itembox.jp/auditing/event-5034/>5034(S) The Windows Firewall Driver was stopped.</a></li><li><a href=https://itembox.jp/auditing/event-5035/>5035(F) The Windows Firewall Driver failed to start.</a></li><li><a href=https://itembox.jp/auditing/event-5037/>5037(F) The Windows Firewall Driver detected critical runtime error. Terminating.</a></li><li><a href=https://itembox.jp/auditing/event-5038/>5038(F) Code integrity determined that the image hash of a file is not valid.</a></li><li><a href=https://itembox.jp/auditing/event-5039/>5039(-) A registry key was virtualized.</a></li><li><a href=https://itembox.jp/auditing/event-5051/>5051(-) A file was virtualized.</a></li><li><a href=https://itembox.jp/auditing/event-5056/>5056(S) A cryptographic self-test was performed.</a></li><li><a href=https://itembox.jp/auditing/event-5057/>5057(F) A cryptographic primitive operation failed.</a></li><li><a href=https://itembox.jp/auditing/event-5058/>5058(S, F) Key file operation.</a></li><li><a href=https://itembox.jp/auditing/event-5059/>5059(S, F) Key migration operation.</a></li><li><a href=https://itembox.jp/auditing/event-5060/>5060(F) Verification operation failed.</a></li><li><a href=https://itembox.jp/auditing/event-5061/>5061(S, F) Cryptographic operation.</a></li><li><a href=https://itembox.jp/auditing/event-5062/>5062(S) A kernel-mode cryptographic self-test was performed.</a></li><li><a href=https://itembox.jp/auditing/event-5063/>5063(S, F) A cryptographic provider operation was attempted.</a></li><li><a href=https://itembox.jp/auditing/event-5064/>5064(S, F) A cryptographic context operation was attempted.</a></li><li><a href=https://itembox.jp/auditing/event-5065/>5065(S, F) A cryptographic context modification was attempted.</a></li><li><a href=https://itembox.jp/auditing/event-5066/>5066(S, F) A cryptographic function operation was attempted.</a></li><li><a href=https://itembox.jp/auditing/event-5067/>5067(S, F) A cryptographic function modification was attempted.</a></li><li><a href=https://itembox.jp/auditing/event-5068/>5068(S, F) A cryptographic function provider operation was attempted.</a></li><li><a href=https://itembox.jp/auditing/event-5069/>5069(S, F) A cryptographic function property operation was attempted.</a></li><li><a href=https://itembox.jp/auditing/event-5070/>5070(S, F) A cryptographic function property modification was attempted.</a></li><li><a href=https://itembox.jp/auditing/event-5136/>5136(S) A directory service object was modified.</a></li><li><a href=https://itembox.jp/auditing/event-5137/>5137(S) A directory service object was created.</a></li><li><a href=https://itembox.jp/auditing/event-5138/>5138(S) A directory service object was undeleted.</a></li><li><a href=https://itembox.jp/auditing/event-5139/>5139(S) A directory service object was moved.</a></li><li><a href=https://itembox.jp/auditing/event-5140/>5140(S, F) A network share object was accessed.</a></li><li><a href=https://itembox.jp/auditing/event-5141/>5141(S) A directory service object was deleted.</a></li><li><a href=https://itembox.jp/auditing/event-5142/>5142(S) A network share object was added.</a></li><li><a href=https://itembox.jp/auditing/event-5143/>5143(S) A network share object was modified.</a></li><li><a href=https://itembox.jp/auditing/event-5144/>5144(S) A network share object was deleted.</a></li><li><a href=https://itembox.jp/auditing/event-5145/>5145(S, F) A network share object was checked to see whether client can be granted desired access.</a></li><li><a href=https://itembox.jp/auditing/event-5148/>5148(F) The Windows Filtering Platform has detected a DoS attack and entered a defensive mode; packets associated with this attack will be discarded.</a></li><li><a href=https://itembox.jp/auditing/event-5149/>5149(F) The DoS attack has subsided and normal processing is being resumed.</a></li><li><a href=https://itembox.jp/auditing/event-5150/>5150(-) The Windows Filtering Platform blocked a packet.</a></li><li><a href=https://itembox.jp/auditing/event-5151/>5151(-) A more restrictive Windows Filtering Platform filter has blocked a packet.</a></li><li><a href=https://itembox.jp/auditing/event-5152/>5152(F) The Windows Filtering Platform blocked a packet.</a></li><li><a href=https://itembox.jp/auditing/event-5153/>5153(S) A more restrictive Windows Filtering Platform filter has blocked a packet.</a></li><li><a href=https://itembox.jp/auditing/event-5154/>5154(S) The Windows Filtering Platform has permitted an application or service to listen on a port for incoming connections.</a></li><li><a href=https://itembox.jp/auditing/event-5155/>5155(F) The Windows Filtering Platform has blocked an application or service from listening on a port for incoming connections.</a></li><li><a href=https://itembox.jp/auditing/event-5156/>5156(S) The Windows Filtering Platform has permitted a connection.</a></li><li><a href=https://itembox.jp/auditing/event-5157/>5157(F) The Windows Filtering Platform has blocked a connection.</a></li><li><a href=https://itembox.jp/auditing/event-5158/>5158(S) The Windows Filtering Platform has permitted a bind to a local port.</a></li><li><a href=https://itembox.jp/auditing/event-5159/>5159(F) The Windows Filtering Platform has blocked a bind to a local port.</a></li><li><a href=https://itembox.jp/auditing/event-5168/>5168(F) SPN check for SMB/SMB2 failed.</a></li><li><a href=https://itembox.jp/auditing/event-5376/>5376(S) Credential Manager credentials were backed up.</a></li><li><a href=https://itembox.jp/auditing/event-5377/>5377(S) Credential Manager credentials were restored from a backup.</a></li><li><a href=https://itembox.jp/auditing/event-5378/>5378(F) The requested credentials delegation was disallowed by policy.</a></li><li><a href=https://itembox.jp/auditing/event-5447/>5447(S) A Windows Filtering Platform filter has been changed.</a></li><li><a href=https://itembox.jp/auditing/event-5632/>5632(S, F) A request was made to authenticate to a wireless network.</a></li><li><a href=https://itembox.jp/auditing/event-5633/>5633(S, F) A request was made to authenticate to a wired network.</a></li><li><a href=https://itembox.jp/auditing/event-5712/>5712(S) A Remote Procedure Call (RPC) was attempted.</a></li><li><a href=https://itembox.jp/auditing/event-5888/>5888(S) An object in the COM+ Catalog was modified.</a></li><li><a href=https://itembox.jp/auditing/event-5889/>5889(S) An object was deleted from the COM+ Catalog.</a></li><li><a href=https://itembox.jp/auditing/event-5890/>5890(S) An object was added to the COM+ Catalog.</a></li><li><a href=https://itembox.jp/auditing/event-6144/>6144(S) Security policy in the group policy objects has been applied successfully.</a></li><li><a href=https://itembox.jp/auditing/event-6145/>6145(F) One or more errors occurred while processing security policy in the group policy objects.</a></li><li><a href=https://itembox.jp/auditing/event-6281/>6281(F) Code Integrity determined that the page hashes of an image file aren't valid.</a></li><li><a href=https://itembox.jp/auditing/event-6400/>6400(-) BranchCache Received an incorrectly formatted response while discovering availability of content.</a></li><li><a href=https://itembox.jp/auditing/event-6401/>6401(-) BranchCache Received invalid data from a peer. Data discarded.</a></li><li><a href=https://itembox.jp/auditing/event-6402/>6402(-) BranchCache The message to the hosted cache offering it data is incorrectly formatted.</a></li><li><a href=https://itembox.jp/auditing/event-6403/>6403(-) BranchCache The hosted cache sent an incorrectly formatted response to the client.</a></li><li><a href=https://itembox.jp/auditing/event-6404/>6404(-) BranchCache Hosted cache could not be authenticated using the provisioned SSL certificate.</a></li><li><a href=https://itembox.jp/auditing/event-6405/>6405(-) BranchCache %2 instance(s) of event id %1 occurred.</a></li><li><a href=https://itembox.jp/auditing/event-6406/>6406(-) %1 registered to Windows Firewall to control filtering for the following %2.</a></li><li><a href=https://itembox.jp/auditing/event-6407/>6407(-) 1%.</a></li><li><a href=https://itembox.jp/auditing/event-6408/>6408(-) Registered product %1 failed and Windows Firewall is now controlling the filtering for %2.</a></li><li><a href=https://itembox.jp/auditing/event-6409/>6409(-) BranchCache A service connection point object could not be parsed.</a></li><li><a href=https://itembox.jp/auditing/event-6410/>6410(F) Code integrity determined that a file doesn't meet the security requirements to load into a process.</a></li><li><a href=https://itembox.jp/auditing/event-6416/>6416(S) A new external device was recognized by the System.</a></li><li><a href=https://itembox.jp/auditing/event-6419/>6419(S) A request was made to disable a device.</a></li><li><a href=https://itembox.jp/auditing/event-6420/>6420(S) A device was disabled.</a></li><li><a href=https://itembox.jp/auditing/event-6421/>6421(S) A request was made to enable a device.</a></li><li><a href=https://itembox.jp/auditing/event-6422/>6422(S) A device was enabled.</a></li><li><a href=https://itembox.jp/auditing/event-6423/>6423(S) The installation of this device is forbidden by system policy.</a></li><li><a href=https://itembox.jp/auditing/event-6424/>6424(S) The installation of this device was allowed, after having previously been forbidden by policy.</a></li><li><a href=https://itembox.jp/auditing/advanced-security-auditing/>Advanced security audit policies</a></li><li><a href=https://itembox.jp/auditing/advanced-security-audit-policy-settings/>Advanced security audit policy settings</a></li><li><a href=https://itembox.jp/auditing/appendix-a-security-monitoring-recommendations-for-many-audit-events/>Appendix A, Security monitoring recommendations for many audit events</a></li><li><a href=https://itembox.jp/auditing/apply-a-basic-audit-policy-on-a-file-or-folder/>Apply a basic audit policy on a file or folder</a></li><li><a href=https://itembox.jp/auditing/audit-account-lockout/>Audit Account Lockout</a></li><li><a href=https://itembox.jp/auditing/basic-audit-account-logon-events/>Audit account logon events</a></li><li><a href=https://itembox.jp/auditing/basic-audit-account-management/>Audit account management</a></li><li><a href=https://itembox.jp/auditing/audit-application-generated/>Audit Application Generated</a></li><li><a href=https://itembox.jp/auditing/audit-application-group-management/>Audit Application Group Management</a></li><li><a href=https://itembox.jp/auditing/audit-audit-policy-change/>Audit Audit Policy Change</a></li><li><a href=https://itembox.jp/auditing/audit-authentication-policy-change/>Audit Authentication Policy Change</a></li><li><a href=https://itembox.jp/auditing/audit-authorization-policy-change/>Audit Authorization Policy Change</a></li><li><a href=https://itembox.jp/auditing/audit-central-access-policy-staging/>Audit Central Access Policy Staging</a></li><li><a href=https://itembox.jp/auditing/audit-certification-services/>Audit Certification Services</a></li><li><a href=https://itembox.jp/auditing/audit-computer-account-management/>Audit Computer Account Management</a></li><li><a href=https://itembox.jp/auditing/audit-credential-validation/>Audit Credential Validation</a></li><li><a href=https://itembox.jp/auditing/audit-detailed-directory-service-replication/>Audit Detailed Directory Service Replication</a></li><li><a href=https://itembox.jp/auditing/audit-detailed-file-share/>Audit Detailed File Share</a></li><li><a href=https://itembox.jp/auditing/audit-directory-service-access/>Audit Directory Service Access</a></li><li><a href=https://itembox.jp/auditing/audit-directory-service-changes/>Audit Directory Service Changes</a></li><li><a href=https://itembox.jp/auditing/audit-directory-service-replication/>Audit Directory Service Replication</a></li><li><a href=https://itembox.jp/auditing/audit-distribution-group-management/>Audit Distribution Group Management</a></li><li><a href=https://itembox.jp/auditing/audit-dpapi-activity/>Audit DPAPI Activity</a></li><li><a href=https://itembox.jp/auditing/audit-file-share/>Audit File Share</a></li><li><a href=https://itembox.jp/auditing/audit-file-system/>Audit File System</a></li><li><a href=https://itembox.jp/auditing/audit-filtering-platform-connection/>Audit Filtering Platform Connection</a></li><li><a href=https://itembox.jp/auditing/audit-filtering-platform-packet-drop/>Audit Filtering Platform Packet Drop</a></li><li><a href=https://itembox.jp/auditing/audit-filtering-platform-policy-change/>Audit Filtering Platform Policy Change</a></li><li><a href=https://itembox.jp/auditing/audit-group-membership/>Audit Group Membership</a></li><li><a href=https://itembox.jp/auditing/audit-handle-manipulation/>Audit Handle Manipulation</a></li><li><a href=https://itembox.jp/auditing/audit-ipsec-driver/>Audit IPsec Driver</a></li><li><a href=https://itembox.jp/auditing/audit-ipsec-extended-mode/>Audit IPsec Extended Mode</a></li><li><a href=https://itembox.jp/auditing/audit-ipsec-main-mode/>Audit IPsec Main Mode</a></li><li><a href=https://itembox.jp/auditing/audit-ipsec-quick-mode/>Audit IPsec Quick Mode</a></li><li><a href=https://itembox.jp/auditing/audit-kerberos-authentication-service/>Audit Kerberos Authentication Service</a></li><li><a href=https://itembox.jp/auditing/audit-kerberos-service-ticket-operations/>Audit Kerberos Service Ticket Operations</a></li><li><a href=https://itembox.jp/auditing/audit-kernel-object/>Audit Kernel Object</a></li><li><a href=https://itembox.jp/auditing/audit-logoff/>Audit Logoff</a></li><li><a href=https://itembox.jp/auditing/audit-logon/>Audit Logon</a></li><li><a href=https://itembox.jp/auditing/basic-audit-logon-events/>Audit logon events</a></li><li><a href=https://itembox.jp/auditing/audit-mpssvc-rule-level-policy-change/>Audit MPSSVC Rule-Level Policy Change</a></li><li><a href=https://itembox.jp/auditing/audit-network-policy-server/>Audit Network Policy Server</a></li><li><a href=https://itembox.jp/auditing/audit-non-sensitive-privilege-use/>Audit Non-Sensitive Privilege Use</a></li><li><a href=https://itembox.jp/auditing/basic-audit-object-access/>Audit object access</a></li><li><a href=https://itembox.jp/auditing/audit-other-account-logon-events/>Audit Other Account Logon Events</a></li><li><a href=https://itembox.jp/auditing/audit-other-account-management-events/>Audit Other Account Management Events</a></li><li><a href=https://itembox.jp/auditing/audit-other-logonlogoff-events/>Audit Other Logon/Logoff Events</a></li><li><a href=https://itembox.jp/auditing/audit-other-object-access-events/>Audit Other Object Access Events</a></li><li><a href=https://itembox.jp/auditing/audit-other-policy-change-events/>Audit Other Policy Change Events</a></li><li><a href=https://itembox.jp/auditing/audit-other-privilege-use-events/>Audit Other Privilege Use Events</a></li><li><a href=https://itembox.jp/auditing/audit-other-system-events/>Audit Other System Events</a></li><li><a href=https://itembox.jp/auditing/audit-pnp-activity/>Audit PNP Activity</a></li><li><a href=https://itembox.jp/auditing/basic-audit-policy-change/>Audit policy change</a></li><li><a href=https://itembox.jp/auditing/basic-audit-privilege-use/>Audit privilege use</a></li><li><a href=https://itembox.jp/auditing/audit-process-creation/>Audit Process Creation</a></li><li><a href=https://itembox.jp/auditing/audit-process-termination/>Audit Process Termination</a></li><li><a href=https://itembox.jp/auditing/basic-audit-process-tracking/>Audit process tracking</a></li><li><a href=https://itembox.jp/auditing/audit-registry/>Audit Registry</a></li><li><a href=https://itembox.jp/auditing/audit-removable-storage/>Audit Removable Storage</a></li><li><a href=https://itembox.jp/auditing/audit-rpc-events/>Audit RPC Events</a></li><li><a href=https://itembox.jp/auditing/audit-sam/>Audit SAM</a></li><li><a href=https://itembox.jp/auditing/audit-security-group-management/>Audit Security Group Management</a></li><li><a href=https://itembox.jp/auditing/audit-security-state-change/>Audit Security State Change</a></li><li><a href=https://itembox.jp/auditing/audit-security-system-extension/>Audit Security System Extension</a></li><li><a href=https://itembox.jp/auditing/audit-sensitive-privilege-use/>Audit Sensitive Privilege Use</a></li><li><a href=https://itembox.jp/auditing/audit-special-logon/>Audit Special Logon</a></li><li><a href=https://itembox.jp/auditing/basic-audit-system-events/>Audit system events</a></li><li><a href=https://itembox.jp/auditing/audit-system-integrity/>Audit System Integrity</a></li><li><a href=https://itembox.jp/auditing/audit-token-right-adjusted/>Audit Token Right Adjusted</a></li><li><a href=https://itembox.jp/auditing/audit-user-account-management/>Audit User Account Management</a></li><li><a href=https://itembox.jp/auditing/audit-user-device-claims/>Audit User/Device Claims</a></li><li><a href=https://itembox.jp/auditing/basic-audit-directory-service-access/>Basic audit directory service access</a></li><li><a href=https://itembox.jp/auditing/basic-security-audit-policies/>Basic security audit policies</a></li><li><a href=https://itembox.jp/auditing/basic-security-audit-policy-settings/>Basic security audit policy settings</a></li><li><a href=https://itembox.jp/auditing/create-a-basic-audit-policy-settings-for-an-event-category/>Create a basic audit policy for an event category</a></li><li><a href=https://itembox.jp/auditing/file-system-global-object-access-auditing/>File System (Global Object Access Auditing)</a></li><li><a href=https://itembox.jp/auditing/how-to-list-xml-elements-in-eventdata/>How to get a list of XML data name elements in &lt;EventData></a></li><li><a href=https://itembox.jp/auditing/monitor-the-central-access-policies-associated-with-files-and-folders/>Monitor central access policies for files or folders</a></li><li><a href=https://itembox.jp/auditing/monitor-the-central-access-policies-that-apply-on-a-file-server/>Monitor central access policies on a file server</a></li><li><a href=https://itembox.jp/auditing/monitor-central-access-policy-and-rule-definitions/>Monitor central access policy and rule definitions</a></li><li><a href=https://itembox.jp/auditing/monitor-claim-types/>Monitor claim types</a></li><li><a href=https://itembox.jp/auditing/monitor-resource-attribute-definitions/>Monitor resource attribute definitions</a></li><li><a href=https://itembox.jp/auditing/monitor-the-resource-attributes-on-files-and-folders/>Monitor the resource attributes on files and folders</a></li><li><a href=https://itembox.jp/auditing/monitor-the-use-of-removable-storage-devices/>Monitor the use of removable storage devices</a></li><li><a href=https://itembox.jp/auditing/monitor-user-and-device-claims-during-sign-in/>Monitor user and device claims during sign-in</a></li><li><a href=https://itembox.jp/auditing/other-events/>Other Events</a></li><li><a href=https://itembox.jp/auditing/planning-and-deploying-advanced-security-audit-policies/>Plan and deploy advanced security audit policies</a></li><li><a href=https://itembox.jp/auditing/registry-global-object-access-auditing/>Registry (Global Object Access Auditing)</a></li><li><a href=https://itembox.jp/auditing/security-auditing-overview/>Security auditing</a></li><li><a href=https://itembox.jp/auditing/event-1108/>The event logging service encountered an error</a></li><li><a href=https://itembox.jp/auditing/using-advanced-security-auditing-options-to-monitor-dynamic-access-control-objects/>Using advanced security auditing options to monitor dynamic access control objects</a></li><li><a href=https://itembox.jp/auditing/view-the-security-event-log/>View the security event log</a></li><li><a href=https://itembox.jp/auditing/which-editions-of-windows-support-advanced-audit-policy-configuration/>Which editions of Windows support advanced audit policy configuration</a></li></ul></li></ul></nav><div class=sidebar-footer></div></div></div><a href=# id=backtothetop-fixed class=backtothetop data-backtothetop-duration=600 data-backtothetop-easing=easeOutQuart data-backtothetop-fixed-fadein=1000 data-backtothetop-fixed-fadeout=1000 data-backtothetop-fixed-bottom=10 data-backtothetop-fixed-right=20><span class="fa-layers fa-fw"><i class="fas fa-circle"></i>
-<i class="fas fa-arrow-circle-up"></i></span></a></div></body></html>
+</code></pre><p><em><strong>Required Server Roles:</strong></em> Active Directory domain controller.</p>
+<p><em><strong>Minimum OS Version:</strong></em> Windows Server 2008.</p>
+<p><em><strong>Event Versions:</strong></em> 0.</p>
+<p><em><strong>Field Descriptions:</strong></em></p>
+<p><strong>Account Information:</strong></p>
+<ul>
+<li>
+<p><strong>Account Name</strong> [Type = UnicodeString]<strong>:</strong> the user name of the account that requested the ticket in the User Principal Name (UPN) syntax. Computer account name ends with <strong>$</strong> character in the user name part. This field typically has the following value format: user_account_name@FULL_DOMAIN_NAME.</p>
+<ul>
+<li>
+<p>User account example: <a href="mailto:dadmin@CONTOSO.LOCAL">dadmin@CONTOSO.LOCAL</a></p>
+</li>
+<li>
+<p>Computer account example: <a href="mailto:WIN81$@CONTOSO.LOCAL">WIN81$@CONTOSO.LOCAL</a></p>
+<blockquote>
+<p><strong>Note</strong> Although this field is in the UPN format, this isn&rsquo;t the attribute value of &ldquo;UserPrincipalName&rdquo; of the user account. It is the &ldquo;normalized&rdquo; name or implicit UPN. It is built from the user SamAccountName and the Active Directory domain name.</p>
+</blockquote>
+<p>This parameter in this event is optional and can be empty in some cases.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Account Domain</strong> [Type = UnicodeString]<strong>:</strong> the name of the Kerberos Realm that <strong>Account Name</strong> belongs to. This can appear in a variety of formats, including the following:</p>
+<ul>
+<li>
+<p>Domain NETBIOS name example: CONTOSO</p>
+</li>
+<li>
+<p>Lowercase full domain name: contoso.local</p>
+</li>
+<li>
+<p>Uppercase full domain name: CONTOSO.LOCAL</p>
+<p>This parameter in this event is optional and can be empty in some cases.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Logon GUID</strong> [Type = GUID]: a GUID that can help you correlate this event (on a domain controller) with other events (on the target computer for which the TGS was issued) that can contain the same <strong>Logon GUID</strong>. These events are “<a href="/auditing/event-4624/">4624</a>: An account was successfully logged on”, “<a href="/auditing/event-4648/">4648</a>(S): A logon was attempted using explicit credentials” and “<a href="/auditing/event-4964/">4964</a>(S): Special groups have been assigned to a new logon.”</p>
+<p>This parameter might not be captured in the event, and in that case appears as “{00000000-0000-0000-0000-000000000000}”.</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>Note</strong>  <strong>GUID</strong> is an acronym for &lsquo;Globally Unique Identifier&rsquo;. It is a 128-bit integer number used to identify resources, activities or instances.</p>
+</blockquote>
+<p><strong>Service Information:</strong></p>
+<ul>
+<li>
+<p><strong>Service Name</strong> [Type = UnicodeString]: the name of the account or computer for which the TGS ticket was requested.</p>
+<ul>
+<li>This parameter in this event is optional and can be empty in some cases.</li>
+</ul>
+</li>
+<li>
+<p><strong>Service ID</strong> [Type = SID]<strong>:</strong> SID of the account or computer object for which the TGS ticket was requested. Event Viewer automatically tries to resolve SIDs and show the account name. If the SID can&rsquo;t be resolved, you&rsquo;ll see the source data in the event.</p>
+<ul>
+<li><strong>NULL SID</strong> – this value shows in Failure events.</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>Note</strong>  A <strong>security identifier (SID)</strong> is a unique value of variable length used to identify a trustee (security principal). Each account has a unique SID that is issued by an authority, such as an Active Directory domain controller, and stored in a security database. Each time a user logs on, the system retrieves the SID for that user from the database and places it in the access token for that user. The system uses the SID in the access token to identify the user in all subsequent interactions with Windows security. When a SID has been used as the unique identifier for a user or group, it can&rsquo;t ever be used again to identify another user or group. For more information about SIDs, see <a href="/windows/access-protection/access-control/security-identifiers">Security identifiers</a>.</p>
+</blockquote>
+<p><strong>Network Information:</strong></p>
+<ul>
+<li>
+<p><strong>Client Address</strong> [Type = UnicodeString]<strong>:</strong> IP address of the computer from which the TGS request was received. Formats vary, and include the following:</p>
+<ul>
+<li>
+<p><strong>IPv6</strong> or <strong>IPv4</strong> address.</p>
+</li>
+<li>
+<p><strong>::ffff:IPv4_address</strong>.</p>
+</li>
+<li>
+<p><strong>::1</strong> - localhost.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Client Port</strong> [Type = UnicodeString]: source port number of client network connection (TGS request connection).</p>
+<ul>
+<li>0 for local (localhost) requests.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Additional information:</strong></p>
+<ul>
+<li>
+<p><strong>Ticket Options</strong>: [Type = HexInt32]: this is a set of different Ticket Flags in hexadecimal format.</p>
+<p>Example:</p>
+<ul>
+<li>
+<p>Ticket Options: 0x40810010</p>
+</li>
+<li>
+<p>Binary view: 01000000100000010000000000010000</p>
+</li>
+<li>
+<p>Using <strong>MSB 0</strong> bit numbering we have bit 1, 8, 15 and 27 set = Forwardable, Renewable, Canonicalize, Renewable-ok.</p>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>Note</strong>  In the table below <strong>“MSB 0”</strong> bit numbering is used, because RFC documents use this style. In “MSB 0” style bit numbering begins from left.<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+</blockquote>
+<p>The most common values:</p>
+<ul>
+<li>
+<p>0x40810010 - Forwardable, Renewable, Canonicalize, Renewable-ok</p>
+</li>
+<li>
+<p>0x40810000 - Forwardable, Renewable, Canonicalize</p>
+</li>
+<li>
+<p>0x60810010 - Forwardable, Forwarded, Renewable, Canonicalize, Renewable-ok</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Bit</th>
+<th>Flag Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Reserved</td>
+<td>-</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Forwardable</td>
+<td>(TGT only). Tells the ticket-granting service that it can issue a new TGT—based on the presented TGT—with a different network address based on the presented TGT.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Forwarded</td>
+<td>Indicates either that a TGT has been forwarded or that a ticket was issued from a forwarded TGT.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Proxiable</td>
+<td>(TGT only). Tells the ticket-granting service that it can issue tickets with a network address that differs from the one in the TGT.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Proxy</td>
+<td>Indicates that the network address in the ticket is different from the one in the TGT used to obtain the ticket.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Allow-postdate</td>
+<td>Postdated tickets SHOULD NOT be supported in <a href="/openspecs/windows_protocols/ms-kile/2a32282e-dd48-4ad9-a542-609804b02cc9">KILE</a> (Microsoft Kerberos Protocol Extension).</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Postdated</td>
+<td>Postdated tickets SHOULD NOT be supported in <a href="/openspecs/windows_protocols/ms-kile/2a32282e-dd48-4ad9-a542-609804b02cc9">KILE</a> (Microsoft Kerberos Protocol Extension).</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Invalid</td>
+<td>This flag indicates that a ticket is invalid, and it must be validated by the KDC before use. Application servers must reject tickets which have this flag set.</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Renewable</td>
+<td>Used in combination with the End Time and Renew Till fields to cause tickets with long life spans to be renewed at the KDC periodically.</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Initial</td>
+<td>Indicates that a ticket was issued using the authentication service (AS) exchange and not issued based on a TGT.</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Pre-authent</td>
+<td>Indicates that the client was authenticated by the KDC before a ticket was issued. This flag usually indicates the presence of an authenticator in the ticket. It can also flag the presence of credentials taken from a smart card logon.</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Opt-hardware-auth</td>
+<td>This flag was originally intended to indicate that hardware-supported authentication was used during pre-authentication. This flag is no longer recommended in the Kerberos V5 protocol. KDCs MUST NOT issue a ticket with this flag set. KDCs SHOULD NOT preserve this flag if it is set by another KDC.</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Transited-policy-checked</td>
+<td>KILE MUST NOT check for transited domains on servers or a KDC. Application servers MUST ignore the TRANSITED-POLICY-CHECKED flag.</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Ok-as-delegate</td>
+<td>The KDC MUST set the OK-AS-DELEGATE flag if the service account is trusted for delegation.</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Request-anonymous</td>
+<td>KILE not use this flag.</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Name-canonicalize</td>
+<td>In order to request referrals the Kerberos client MUST explicitly request the “canonicalize” KDC option for the AS-REQ or TGS-REQ.</td>
+</tr>
+<tr>
+<td>16-25</td>
+<td>Unused</td>
+<td>-</td>
+</tr>
+<tr>
+<td>26</td>
+<td>Disable-transited-check</td>
+<td>By default the KDC will check the transited field of a TGT against the policy of the local realm before it will issue derivative tickets based on the TGT. If this flag is set in the request, checking of the transited field is disabled. Tickets issued without the performance of this check will be noted by the reset (0) value of the TRANSITED-POLICY-CHECKED flag, indicating to the application server that the transited field must be checked locally. KDCs are encouraged but not required to honor<!-- raw HTML omitted -->the DISABLE-TRANSITED-CHECK option.<!-- raw HTML omitted -->Should not be in use, because Transited-policy-checked flag isn&rsquo;t supported by KILE.</td>
+</tr>
+<tr>
+<td>27</td>
+<td>Renewable-ok</td>
+<td>The RENEWABLE-OK option indicates that a renewable ticket will be acceptable if a ticket with the requested life can&rsquo;t otherwise be provided, in which case a renewable ticket may be issued with a renew-till equal to the requested end time. The value of the renew-till field may still be limited by local limits, or limits selected by the individual principal or server.</td>
+</tr>
+<tr>
+<td>28</td>
+<td>Enc-tkt-in-skey</td>
+<td>No information.</td>
+</tr>
+<tr>
+<td>29</td>
+<td>Unused</td>
+<td>-</td>
+</tr>
+<tr>
+<td>30</td>
+<td>Renew</td>
+<td>The RENEW option indicates that the present request is for a renewal. The ticket provided is encrypted in the secret key for the server on which it is valid. This option will only be honored if the ticket to be renewed has its RENEWABLE flag set and if the time in its renew-till field hasn&rsquo;t passed. The ticket to be renewed is passed in the padata field as part of the authentication header.</td>
+</tr>
+<tr>
+<td>31</td>
+<td>Validate</td>
+<td>This option is used only by the ticket-granting service. The VALIDATE option indicates that the request is to validate a postdated ticket. Shouldn&rsquo;t be in use, because postdated tickets aren&rsquo;t supported by KILE.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Ticket Encryption Type</strong>: [Type = HexInt32]: the cryptographic suite that was used for issued TGS.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Type Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x1</td>
+<td>DES-CBC-CRC</td>
+<td>Disabled by default starting from Windows 7 and Windows Server 2008 R2.</td>
+</tr>
+<tr>
+<td>0x3</td>
+<td>DES-CBC-MD5</td>
+<td>Disabled by default starting from Windows 7 and Windows Server 2008 R2.</td>
+</tr>
+<tr>
+<td>0x11</td>
+<td>AES128-CTS-HMAC-SHA1-96</td>
+<td>Supported starting from Windows Server 2008 and Windows Vista.</td>
+</tr>
+<tr>
+<td>0x12</td>
+<td>AES256-CTS-HMAC-SHA1-96</td>
+<td>Supported starting from Windows Server 2008 and Windows Vista.</td>
+</tr>
+<tr>
+<td>0x17</td>
+<td>RC4-HMAC</td>
+<td>Default suite for operating systems before Windows Server 2008 and Windows Vista.</td>
+</tr>
+<tr>
+<td>0x18</td>
+<td>RC4-HMAC-EXP</td>
+<td>Default suite for operating systems before Windows Server 2008 and Windows Vista.</td>
+</tr>
+<tr>
+<td>0xFFFFFFFF or 0xffffffff</td>
+<td>-</td>
+<td>This type shows in Audit Failure events.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Failure Code</strong> [Type = HexInt32]<strong>:</strong> hexadecimal result code of TGS issue operation.
+Some errors are only reported when you set <a href="/troubleshoot/windows-server/windows-security/kerberos-protocol-registry-kdc-configuration-keys">KdcExtraLogLevel</a> registry key value with the following flags:</li>
+<li>0x01: Audit SPN unknown errors.</li>
+<li>0x10: Log audit events on encryption type (ETYPE) and bad options errors.</li>
+</ul>
+<p>The table below contains the list of the most common error codes for this event:</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Code Name</th>
+<th>Description</th>
+<th>Possible causes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x0</td>
+<td>KDC_ERR_NONE</td>
+<td>No error</td>
+<td>No errors were found.</td>
+</tr>
+<tr>
+<td>0x1</td>
+<td>KDC_ERR_NAME_EXP</td>
+<td>Client&rsquo;s entry in KDC database has expired</td>
+<td>No information.</td>
+</tr>
+<tr>
+<td>0x2</td>
+<td>KDC_ERR_SERVICE_EXP</td>
+<td>Server&rsquo;s entry in KDC database has expired</td>
+<td>No information.</td>
+</tr>
+<tr>
+<td>0x3</td>
+<td>KDC_ERR_BAD_PVNO</td>
+<td>Requested Kerberos version number not supported</td>
+<td>No information.</td>
+</tr>
+<tr>
+<td>0x4</td>
+<td>KDC_ERR_C_OLD_MAST_KVNO</td>
+<td>Client&rsquo;s key encrypted in old master key</td>
+<td>No information.</td>
+</tr>
+<tr>
+<td>0x5</td>
+<td>KDC_ERR_S_OLD_MAST_KVNO</td>
+<td>Server&rsquo;s key encrypted in old master key</td>
+<td>No information.</td>
+</tr>
+<tr>
+<td>0x6</td>
+<td>KDC_ERR_C_PRINCIPAL_UNKNOWN</td>
+<td>Client not found in Kerberos database</td>
+<td>The username doesn’t exist.</td>
+</tr>
+<tr>
+<td>0x7</td>
+<td>KDC_ERR_S_PRINCIPAL_UNKNOWN</td>
+<td>Server not found in Kerberos database</td>
+<td>This error can occur if the domain controller can&rsquo;t find the server’s name in Active Directory. This error is similar to KDC_ERR_C_PRINCIPAL_UNKNOWN except that it occurs when the server name can&rsquo;t be found.</td>
+</tr>
+<tr>
+<td>0x8</td>
+<td>KDC_ERR_PRINCIPAL_NOT_UNIQUE</td>
+<td>Multiple principal entries in KDC database</td>
+<td>This error occurs if duplicate principal names exist. Unique principal names are crucial for ensuring mutual authentication. Thus, duplicate principal names are strictly forbidden, even across multiple realms. Without unique principal names, the client has no way of ensuring that the server it is communicating with is the correct one.</td>
+</tr>
+<tr>
+<td>0x9</td>
+<td>KDC_ERR_NULL_KEY</td>
+<td>The client or server has a null key (master key)</td>
+<td>No master key was found for client or server. Usually it means that administrator should reset the password on the account.</td>
+</tr>
+<tr>
+<td>0xA</td>
+<td>KDC_ERR_CANNOT_POSTDATE</td>
+<td>Ticket (TGT) not eligible for postdating</td>
+<td>This error can occur if a client requests postdating of a Kerberos ticket. Postdating is the act of requesting that a ticket’s start time be set into the future.<!-- raw HTML omitted -->It also can occur if there is a time difference between the client and the KDC.</td>
+</tr>
+<tr>
+<td>0xB</td>
+<td>KDC_ERR_NEVER_VALID</td>
+<td>Requested start time is later than end time</td>
+<td>There&rsquo;s a time difference between the KDC and the client.</td>
+</tr>
+<tr>
+<td>0xC</td>
+<td>KDC_ERR_POLICY</td>
+<td>Requested start time is later than end time</td>
+<td>This error is usually the result of logon restrictions in place on a user’s account. For example workstation restriction, smart card authentication requirement or logon time restriction.</td>
+</tr>
+<tr>
+<td>0xD</td>
+<td>KDC_ERR_BADOPTION</td>
+<td>KDC cannot accommodate requested option</td>
+<td>Impending expiration of a TGT.<!-- raw HTML omitted -->The SPN to which the client is attempting to delegate credentials isn&rsquo;t in its Allowed-to-delegate-to list</td>
+</tr>
+<tr>
+<td>0xE</td>
+<td>KDC_ERR_ETYPE_NOTSUPP</td>
+<td>KDC has no support for encryption type</td>
+<td>In general, this error occurs when the KDC or a client receives a packet that it can&rsquo;t decrypt.</td>
+</tr>
+<tr>
+<td>0xF</td>
+<td>KDC_ERR_SUMTYPE_NOSUPP</td>
+<td>KDC has no support for checksum type</td>
+<td>The KDC, server, or client receives a packet for which it doesn&rsquo;t have a key of the appropriate encryption type. The result is that the computer is unable to decrypt the ticket.</td>
+</tr>
+<tr>
+<td>0x10</td>
+<td>KDC_ERR_PADATA_TYPE_NOSUPP</td>
+<td>KDC has no support for PADATA type (pre-authentication data)</td>
+<td>Smart card logon is being attempted and the proper certificate can&rsquo;t be located. This can happen because the wrong certification authority (CA) is being queried or the proper CA can&rsquo;t be contacted.<!-- raw HTML omitted -->It can also happen when a domain controller doesn’t have a certificate installed for smart cards (Domain Controller or Domain Controller Authentication templates).<!-- raw HTML omitted -->This error code can&rsquo;t occur in event “<a href="/auditing/event-4768/">4768</a>. A Kerberos authentication ticket (TGT) was requested”. It occurs in “<a href="/auditing/event-4771/">4771</a>. Kerberos pre-authentication failed” event.</td>
+</tr>
+<tr>
+<td>0x11</td>
+<td>KDC_ERR_TRTYPE_NO_SUPP</td>
+<td>KDC has no support for transited type</td>
+<td>No information.</td>
+</tr>
+<tr>
+<td>0x12</td>
+<td>KDC_ERR_CLIENT_REVOKED</td>
+<td>Client’s credentials have been revoked</td>
+<td>This might be because of an explicit disabling or because of other restrictions in place on the account. For example: account disabled, expired, or locked out.</td>
+</tr>
+<tr>
+<td>0x13</td>
+<td>KDC_ERR_SERVICE_REVOKED</td>
+<td>Credentials for server have been revoked</td>
+<td>No information.</td>
+</tr>
+<tr>
+<td>0x14</td>
+<td>KDC_ERR_TGT_REVOKED</td>
+<td>TGT has been revoked</td>
+<td>Since the remote KDC may change its PKCROSS key while there are PKCROSS tickets still active, it SHOULD cache the old PKCROSS keys until the last issued PKCROSS ticket expires. Otherwise, the remote KDC will respond to a client with a KRB-ERROR message of type KDC_ERR_TGT_REVOKED. See <a href="https://www.ietf.org/proceedings/49/I-D/draft-ietf-cat-kerberos-pk-cross-07.txt">RFC1510</a> for more details.</td>
+</tr>
+<tr>
+<td>0x15</td>
+<td>KDC_ERR_CLIENT_NOTYET</td>
+<td>Client not yet valid—try again later</td>
+<td>No information.</td>
+</tr>
+<tr>
+<td>0x16</td>
+<td>KDC_ERR_SERVICE_NOTYET</td>
+<td>Server not yet valid—try again later</td>
+<td>No information.</td>
+</tr>
+<tr>
+<td>0x17</td>
+<td>KDC_ERR_KEY_EXPIRED</td>
+<td>Password has expired—change password to reset</td>
+<td>The user’s password has expired.<!-- raw HTML omitted -->This error code can&rsquo;t occur in event “<a href="/auditing/event-4768/">4768</a>. A Kerberos authentication ticket (TGT) was requested”. It occurs in “<a href="/auditing/event-4771/">4771</a>. Kerberos pre-authentication failed” event.</td>
+</tr>
+<tr>
+<td>0x18</td>
+<td>KDC_ERR_PREAUTH_FAILED</td>
+<td>Pre-authentication information was invalid</td>
+<td>The wrong password was provided.<!-- raw HTML omitted -->This error code can&rsquo;t occur in event “<a href="/auditing/event-4768/">4768</a>. A Kerberos authentication ticket (TGT) was requested”. It occurs in “<a href="/auditing/event-4771/">4771</a>. Kerberos pre-authentication failed” event.</td>
+</tr>
+<tr>
+<td>0x19</td>
+<td>KDC_ERR_PREAUTH_REQUIRED</td>
+<td>Additional pre-authentication required</td>
+<td>This error often occurs in UNIX interoperability scenarios. MIT-Kerberos clients don&rsquo;t request pre-authentication when they send a KRB_AS_REQ message. If pre-authentication is required (the default), Windows systems will send this error. Most MIT-Kerberos clients will respond to this error by giving the pre-authentication, in which case the error can be ignored, but some clients might not respond in this way.</td>
+</tr>
+<tr>
+<td>0x1A</td>
+<td>KDC_ERR_SERVER_NOMATCH</td>
+<td>KDC does not know about the requested server</td>
+<td>No information.</td>
+</tr>
+<tr>
+<td>0x1B</td>
+<td>KDC_ERR_MUST_USE_USER2USER</td>
+<td>Server principal valid for user2user only</td>
+<td>This error occurs because the service is missing an SPN.</td>
+</tr>
+<tr>
+<td>0x1F</td>
+<td>KRB_AP_ERR_BAD_INTEGRITY</td>
+<td>Integrity check on decrypted field failed</td>
+<td>The authenticator was encrypted with something other than the session key. The result is that the client can&rsquo;t decrypt the resulting message. The modification of the message could be the result of an attack or it could be because of network noise.</td>
+</tr>
+<tr>
+<td>0x20</td>
+<td>KRB_AP_ERR_TKT_EXPIRED</td>
+<td>The ticket has expired</td>
+<td>The smaller the value for the “Maximum lifetime for user ticket” Kerberos policy setting, the more likely it is that this error will occur. Because ticket renewal is automatic, you should not have to do anything if you get this message.</td>
+</tr>
+<tr>
+<td>0x21</td>
+<td>KRB_AP_ERR_TKT_NYV</td>
+<td>The ticket is not yet valid</td>
+<td>The ticket presented to the server isn&rsquo;t yet valid (in relationship to the server time). The most probable cause is that the clocks on the KDC and the client aren&rsquo;t synchronized.<!-- raw HTML omitted -->If cross-realm Kerberos authentication is being attempted, then you should verify time synchronization between the KDC in the target realm and the KDC in the client realm, as well.</td>
+</tr>
+<tr>
+<td>0x22</td>
+<td>KRB_AP_ERR_REPEAT</td>
+<td>The request is a replay</td>
+<td>This error indicates that a specific authenticator showed up twice — the KDC has detected that this session ticket duplicates one that it has already received.</td>
+</tr>
+<tr>
+<td>0x23</td>
+<td>KRB_AP_ERR_NOT_US</td>
+<td>The ticket is not for us</td>
+<td>The server has received a ticket that was meant for a different realm.</td>
+</tr>
+<tr>
+<td>0x24</td>
+<td>KRB_AP_ERR_BADMATCH</td>
+<td>The ticket and authenticator do not match</td>
+<td>The KRB_TGS_REQ is being sent to the wrong KDC.<!-- raw HTML omitted -->There&rsquo;s an account mismatch during protocol transition.</td>
+</tr>
+<tr>
+<td>0x25</td>
+<td>KRB_AP_ERR_SKEW</td>
+<td>The clock skew is too great</td>
+<td>This error is logged if a client computer sends a timestamp whose value differs from that of the server’s timestamp by more than the number of minutes found in the “Maximum tolerance for computer clock synchronization” setting in Kerberos policy.</td>
+</tr>
+<tr>
+<td>0x26</td>
+<td>KRB_AP_ERR_BADADDR</td>
+<td>Network address in network layer header doesn&rsquo;t match address inside ticket</td>
+<td>Session tickets MAY include the addresses from which they are valid. This error can occur if the address of the computer sending the ticket is different from the valid address in the ticket. A possible cause of this could be an Internet Protocol (IP) address change. Another possible cause is when a ticket is passed through a proxy server or NAT. The client is unaware of the address scheme used by the proxy server, so unless the program caused the client to request a proxy server ticket with the proxy server&rsquo;s source address, the ticket could be invalid.</td>
+</tr>
+<tr>
+<td>0x27</td>
+<td>KRB_AP_ERR_BADVERSION</td>
+<td>Protocol version numbers don&rsquo;t match (PVNO)</td>
+<td>When an application receives a KRB_SAFE message, it verifies it. If any error occurs, an error code is reported for use by the application.<!-- raw HTML omitted -->The message is first checked by verifying that the protocol version and type fields match the current version and KRB_SAFE, respectively. A mismatch generates a KRB_AP_ERR_BADVERSION.<!-- raw HTML omitted -->See <a href="http://www.ietf.org/rfc/rfc4120.txt">RFC4120</a> for more details.</td>
+</tr>
+<tr>
+<td>0x28</td>
+<td>KRB_AP_ERR_MSG_TYPE</td>
+<td>Message type is unsupported</td>
+<td>This message is generated when target server finds that message format is wrong. This applies to KRB_AP_REQ, KRB_SAFE, KRB_PRIV and KRB_CRED messages. <!-- raw HTML omitted -->This error also generated if use of UDP protocol is being attempted with User-to-User authentication.</td>
+</tr>
+<tr>
+<td>0x29</td>
+<td>KRB_AP_ERR_MODIFIED</td>
+<td>Message stream modified and checksum didn&rsquo;t match</td>
+<td>The authentication data was encrypted with the wrong key for the intended server.<!-- raw HTML omitted -->The authentication data was modified in transit by a hardware or software error, or by an attacker.<!-- raw HTML omitted -->The client sent the authentication data to the wrong server because incorrect DNS data caused the client to send the request to the wrong server.<!-- raw HTML omitted -->The client sent the authentication data to the wrong server because DNS data was out-of-date on the client.</td>
+</tr>
+<tr>
+<td>0x2A</td>
+<td>KRB_AP_ERR_BADORDER</td>
+<td>Message out of order (possible tampering)</td>
+<td>This event generates for KRB_SAFE and KRB_PRIV messages if an incorrect sequence number is included, or if a sequence number is expected but not present. See <a href="http://www.ietf.org/rfc/rfc4120.txt">RFC4120</a> for more details.</td>
+</tr>
+<tr>
+<td>0x2C</td>
+<td>KRB_AP_ERR_BADKEYVER</td>
+<td>Specified version of key is not available</td>
+<td>This error might be generated on server side during receipt of invalid KRB_AP_REQ message. If the key version indicated by the Ticket in the KRB_AP_REQ isn&rsquo;t one the server can use (e.g., it indicates an old key, and the server no longer possesses a copy of the old key), the KRB_AP_ERR_BADKEYVER error is returned.</td>
+</tr>
+<tr>
+<td>0x2D</td>
+<td>KRB_AP_ERR_NOKEY</td>
+<td>Service key not available</td>
+<td>This error might be generated on server side during receipt of invalid KRB_AP_REQ message. Because it is possible for the server to be registered in multiple realms, with different keys in each, the realm field in the unencrypted portion of the ticket in the KRB_AP_REQ is used to specify which secret key the server should use to decrypt that ticket. The KRB_AP_ERR_NOKEY error code is returned if the server doesn&rsquo;t have the proper key to decipher the ticket.</td>
+</tr>
+<tr>
+<td>0x2E</td>
+<td>KRB_AP_ERR_MUT_FAIL</td>
+<td>Mutual authentication failed</td>
+<td>No information.</td>
+</tr>
+<tr>
+<td>0x2F</td>
+<td>KRB_AP_ERR_BADDIRECTION</td>
+<td>Incorrect message direction</td>
+<td>No information.</td>
+</tr>
+<tr>
+<td>0x30</td>
+<td>KRB_AP_ERR_METHOD</td>
+<td>Alternative authentication method required</td>
+<td>According to <a href="http://www.ietf.org/rfc/rfc4120.txt">RFC4120</a> this error message is obsolete.</td>
+</tr>
+<tr>
+<td>0x31</td>
+<td>KRB_AP_ERR_BADSEQ</td>
+<td>Incorrect sequence number in message</td>
+<td>No information.</td>
+</tr>
+<tr>
+<td>0x32</td>
+<td>KRB_AP_ERR_INAPP_CKSUM</td>
+<td>Inappropriate type of checksum in message (checksum may be unsupported)</td>
+<td>When KDC receives KRB_TGS_REQ message it decrypts it, and after the user-supplied checksum in the Authenticator MUST be verified against the contents of the request, and the message MUST be rejected if the checksums don&rsquo;t match (with an error code of KRB_AP_ERR_MODIFIED) or if the checksum isn&rsquo;t collision-proof (with an error code of KRB_AP_ERR_INAPP_CKSUM).</td>
+</tr>
+<tr>
+<td>0x33</td>
+<td>KRB_AP_PATH_NOT_ACCEPTED</td>
+<td>Desired path is unreachable</td>
+<td>No information.</td>
+</tr>
+<tr>
+<td>0x34</td>
+<td>KRB_ERR_RESPONSE_TOO_BIG</td>
+<td>Too much data</td>
+<td>The size of a ticket is too large to be transmitted reliably via UDP. In a Windows environment, this message is purely informational. A computer running a Windows operating system will automatically try TCP if UDP fails.</td>
+</tr>
+<tr>
+<td>0x3C</td>
+<td>KRB_ERR_GENERIC</td>
+<td>Generic error</td>
+<td>Group membership has overloaded the PAC.<!-- raw HTML omitted -->Multiple recent password changes haven&rsquo;t propagated.<!-- raw HTML omitted -->Crypto subsystem error caused by running out of memory.<!-- raw HTML omitted -->SPN too long.<!-- raw HTML omitted -->SPN has too many parts.</td>
+</tr>
+<tr>
+<td>0x3D</td>
+<td>KRB_ERR_FIELD_TOOLONG</td>
+<td>Field is too long for this implementation</td>
+<td>Each request (KRB_KDC_REQ) and response (KRB_KDC_REP or KRB_ERROR) sent over the TCP stream is preceded by the length of the request as 4 octets in network byte order. The high bit of the length is reserved for future expansion and MUST currently be set to zero. If a KDC that doesn&rsquo;t understand how to interpret a set high bit of the length encoding receives a request with the high order bit of the length set, it MUST return a KRB-ERROR message with the error KRB_ERR_FIELD_TOOLONG and MUST close the TCP stream.</td>
+</tr>
+<tr>
+<td>0x3E</td>
+<td>KDC_ERR_CLIENT_NOT_TRUSTED</td>
+<td>The client trust failed or is not implemented</td>
+<td>This typically happens when user’s smart-card certificate is revoked or the root Certification Authority that issued the smart card certificate (in a chain) isn&rsquo;t trusted by the domain controller.</td>
+</tr>
+<tr>
+<td>0x3F</td>
+<td>KDC_ERR_KDC_NOT_TRUSTED</td>
+<td>The KDC server trust failed or could not be verified</td>
+<td>The trustedCertifiers field contains a list of certification authorities trusted by the client, in the case that the client doesn&rsquo;t possess the KDC&rsquo;s public key certificate. If the KDC has no certificate signed by any of the trustedCertifiers, then it returns an error of type KDC_ERR_KDC_NOT_TRUSTED. See <a href="https://www.ietf.org/proceedings/50/I-D/cat-kerberos-pk-init-13.txt">RFC1510</a> for more details.</td>
+</tr>
+<tr>
+<td>0x40</td>
+<td>KDC_ERR_INVALID_SIG</td>
+<td>The signature is invalid</td>
+<td>This error is related to PKINIT. If a PKI trust relationship exists, the KDC then verifies the client&rsquo;s signature on AuthPack (TGT request signature). If that fails, the KDC returns an error message of type KDC_ERR_INVALID_SIG.</td>
+</tr>
+<tr>
+<td>0x41</td>
+<td>KDC_ERR_KEY_TOO_WEAK</td>
+<td>A higher encryption level is needed</td>
+<td>If the clientPublicValue field is filled in, indicating that the client wishes to use Diffie-Hellman key agreement, then the KDC checks to see that the parameters satisfy its policy. If they don&rsquo;t (e.g., the prime size is insufficient for the expected encryption type), then the KDC sends back an error message of type KDC_ERR_KEY_TOO_WEAK.</td>
+</tr>
+<tr>
+<td>0x42</td>
+<td>KRB_AP_ERR_USER_TO_USER_REQUIRED</td>
+<td>User-to-user authorization is required</td>
+<td>In the case that the client application doesn&rsquo;t know that a service requires user-to-user authentication, and requests and receives a conventional KRB_AP_REP, the client will send the KRB_AP_REP request, and the server will respond with a KRB_ERROR token as described in <a href="https://tools.ietf.org/html/rfc1964">RFC1964</a>, with a msg-type of KRB_AP_ERR_USER_TO_USER_REQUIRED.</td>
+</tr>
+<tr>
+<td>0x43</td>
+<td>KRB_AP_ERR_NO_TGT</td>
+<td>No TGT was presented or available</td>
+<td>In user-to-user authentication if the service doesn&rsquo;t possess a ticket granting ticket, it should return the error KRB_AP_ERR_NO_TGT.</td>
+</tr>
+<tr>
+<td>0x44</td>
+<td>KDC_ERR_WRONG_REALM</td>
+<td>Incorrect domain or principal</td>
+<td>Although this error rarely occurs, it occurs when a client presents a cross-realm TGT to a realm other than the one specified in the TGT. Typically, this results from incorrectly configured DNS.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Transited Services</strong> [Type = UnicodeString]: this field contains list of SPNs which were requested if constrained Kerberos delegation was used.</li>
+</ul>
+<blockquote>
+<p><strong>Note</strong>  <strong>Service Principal Name (SPN)</strong> is the name by which a client uniquely identifies an instance of a service. If you install multiple instances of a service on computers throughout a forest, each instance must have its own SPN. A given service instance can have multiple SPNs if there are multiple names that clients might use for authentication. For example, an SPN always includes the name of the host computer on which the service instance is running, so a service instance might register an SPN for each name or alias of its host.</p>
+</blockquote>
+<h2 id="security-monitoring-recommendations">Security Monitoring Recommendations</h2>
+<p>For 4769(S, F): A Kerberos service ticket was requested.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Type of monitoring required</strong></th>
+<th><strong>Recommendation</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>High-value accounts</strong>: You might have high-value domain or local accounts for which you need to monitor each action.<!-- raw HTML omitted -->Examples of high-value accounts are database administrators, built-in local administrator account, domain administrators, service accounts, domain controller accounts and so on.</td>
+<td>Monitor this event with the <strong>“Account Information\Account Name”</strong> that corresponds to the high-value account or accounts.</td>
+</tr>
+<tr>
+<td><strong>Anomalies or malicious actions</strong>: You might have specific requirements for detecting anomalies or monitoring potential malicious actions. For example, you might need to monitor for use of an account outside of working hours.</td>
+<td>When you monitor for anomalies or malicious actions, use the <strong>“Account Information\Account Name”</strong> (with other information) to monitor how or when a particular account is being used.</td>
+</tr>
+<tr>
+<td><strong>Non-active accounts</strong>: You might have non-active, disabled, or guest accounts, or other accounts that should never be used.</td>
+<td>Monitor this event with the <strong>“Account Information\Account Name”</strong> that corresponds to the accounts that should never be used.</td>
+</tr>
+<tr>
+<td><strong>External accounts</strong>: You might be monitoring accounts from another domain, or “external” accounts that aren&rsquo;t allowed to perform certain actions (represented by certain specific events).</td>
+<td>Monitor this event for the <strong>“Account Information\Account Domain”</strong> corresponding to another domain or “external” location.</td>
+</tr>
+<tr>
+<td><strong>Restricted-use computers or devices</strong>: You might have certain computers, machines, or devices on which certain people (accounts) should not typically perform any actions.</td>
+<td>Monitor the target <strong>Computer:</strong> (or other target device) for actions performed by the <strong>“Account Information\Account Name”</strong> that you are concerned about.</td>
+</tr>
+<tr>
+<td><strong>Account naming conventions</strong>: Your organization might have specific naming conventions for account names.</td>
+<td>Monitor “<strong>User ID”</strong> for names that don’t comply with naming conventions.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>If you know that <strong>Account Name</strong> should never request any tickets for (that is, never get access to) a particular computer account or service account, monitor for <a href="/auditing/event-4769/">4769</a> events with the corresponding <strong>Account Name</strong> and <strong>Service ID</strong> fields.</p>
+</li>
+<li>
+<p>You can track all <a href="/auditing/event-4769/">4769</a> events where the <strong>Client Address</strong> isn&rsquo;t from your internal IP range or not from private IP ranges.</p>
+</li>
+<li>
+<p>If you know that <strong>Account Name</strong> should be able to request tickets (should be used) only from a known allow list of IP addresses, track all <strong>Client Address</strong> values for this <strong>Account Name</strong> in <a href="/auditing/event-4769/">4769</a> events. If <strong>Client Address</strong> isn&rsquo;t from your allow list of IP addresses, generate the alert.</p>
+</li>
+<li>
+<p>All <strong>Client Address</strong> = <code>::1</code> means local TGS requests, which means that the <strong>Account Name</strong> logged on to a domain controller before making the TGS request. If you have an allow list of accounts allowed to log on to domain controllers, monitor events with <strong>Client Address</strong> = <code>::1</code> and any <strong>Account Name</strong> outside the allow list.</p>
+</li>
+<li>
+<p>All <a href="/auditing/event-4769/">4769</a> events with <strong>Client Port</strong> field value &gt; 0 and &lt; 1024 should be examined, because a well-known port was used for outbound connection.</p>
+</li>
+<li>
+<p>Monitor for a <strong>Ticket Encryption Type</strong> of <strong>0x1</strong> or <strong>0x3</strong>, which means the DES algorithm was used. DES should not be in use, because of low security and known vulnerabilities. It is disabled by default starting from Windows 7 and Windows Server 2008 R2.</p>
+</li>
+<li>
+<p>Starting with Windows Vista and Windows Server 2008, monitor for a <strong>Ticket Encryption Type</strong> other than <strong>0x11 and 0x12</strong>. These are the expected values, starting with these operating systems, and represent AES-family algorithms.</p>
+</li>
+<li>
+<p>If you have a list of important <strong>Failure Codes</strong>, monitor for these codes.</p>
+</li>
+</ul>
+<div class="edit-meta">
+
+<br></div><nav class="pagination"><a class="nav nav-prev" href="http://localhost:1313/auditing/event-4768/" title="4768(S, F) A Kerberos authentication ticket (TGT) was requested."><i class="fas fa-arrow-left" aria-hidden="true"></i>&nbsp;Prev - 4768(S, F) A Kerberos authentication ticket (TGT) was requested.</a>
+<a class="nav nav-next" href="http://localhost:1313/auditing/event-4770/" title="4770(S) A Kerberos service ticket was renewed.">Next - 4770(S) A Kerberos service ticket was renewed. <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main>
+<div class="sidebar">
+
+<nav class="open-menu">
+<ul>
+<li class=""><a href="http://localhost:1313/">Home</a></li>
+
+<li class="parent"><a href="http://localhost:1313/auditing/"></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="http://localhost:1313/auditing/event-1100/">1100(S) The event logging service has shut down.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-1102/">1102(S) The audit log was cleared.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-1104/">1104(S) The security log is now full.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-1105/">1105(S) Event log automatic backup.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4608/">4608(S) Windows is starting up.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4610/">4610(S) An authentication package has been loaded by the Local Security Authority.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4611/">4611(S) A trusted logon process has been registered with the Local Security Authority.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4612/">4612(S) Internal resources allocated for the queuing of audit messages have been exhausted, leading to the loss of some audits.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4614/">4614(S) A notification package has been loaded by the Security Account Manager.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4615/">4615(S) Invalid use of LPC port.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4616/">4616(S) The system time was changed.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4618/">4618(S) A monitored security event pattern has occurred.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4621/">4621(S) Administrator recovered system from CrashOnAuditFail.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4622/">4622(S) A security package has been loaded by the Local Security Authority.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4624/">4624(S) An account was successfully logged on.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4625/">4625(F) An account failed to log on.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4626/">4626(S) User/Device claims information.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4627/">4627(S) Group membership information.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4634/">4634(S) An account was logged off.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4647/">4647(S) User initiated logoff.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4648/">4648(S) A logon was attempted using explicit credentials.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4649/">4649(S) A replay attack was detected.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4656/">4656(S, F) A handle to an object was requested.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4657/">4657(S) A registry value was modified.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4658/">4658(S) The handle to an object was closed.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4660/">4660(S) An object was deleted.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4661/">4661(S, F) A handle to an object was requested.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4662/">4662(S, F) An operation was performed on an object.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4663/">4663(S) An attempt was made to access an object.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4664/">4664(S) An attempt was made to create a hard link.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4670/">4670(S) Permissions on an object were changed.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4671/">4671(-) An application attempted to access a blocked ordinal through the TBS.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4672/">4672(S) Special privileges assigned to new logon.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4673/">4673(S, F) A privileged service was called.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4674/">4674(S, F) An operation was attempted on a privileged object.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4675/">4675(S) SIDs were filtered.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4688/">4688(S) A new process has been created.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4689/">4689(S) A process has exited.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4690/">4690(S) An attempt was made to duplicate a handle to an object.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4691/">4691(S) Indirect access to an object was requested.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4692/">4692(S, F) Backup of data protection master key was attempted.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4693/">4693(S, F) Recovery of data protection master key was attempted.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4694/">4694(S, F) Protection of auditable protected data was attempted.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4695/">4695(S, F) Unprotection of auditable protected data was attempted.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4696/">4696(S) A primary token was assigned to process.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4697/">4697(S) A service was installed in the system.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4698/">4698(S) A scheduled task was created.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4699/">4699(S) A scheduled task was deleted.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4700/">4700(S) A scheduled task was enabled.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4701/">4701(S) A scheduled task was disabled.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4702/">4702(S) A scheduled task was updated.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4703/">4703(S) A user right was adjusted.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4704/">4704(S) A user right was assigned.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4705/">4705(S) A user right was removed.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4706/">4706(S) A new trust was created to a domain.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4707/">4707(S) A trust to a domain was removed.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4713/">4713(S) Kerberos policy was changed.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4714/">4714(S) Encrypted data recovery policy was changed.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4715/">4715(S) The audit policy (SACL) on an object was changed.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4716/">4716(S) Trusted domain information was modified.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4717/">4717(S) System security access was granted to an account.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4718/">4718(S) System security access was removed from an account.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4719/">4719(S) System audit policy was changed.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4720/">4720(S) A user account was created.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4722/">4722(S) A user account was enabled.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4723/">4723(S, F) An attempt was made to change an account&#39;s password.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4724/">4724(S, F) An attempt was made to reset an account&#39;s password.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4725/">4725(S) A user account was disabled.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4726/">4726(S) A user account was deleted.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4731/">4731(S) A security-enabled local group was created.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4732/">4732(S) A member was added to a security-enabled local group.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4733/">4733(S) A member was removed from a security-enabled local group.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4734/">4734(S) A security-enabled local group was deleted.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4735/">4735(S) A security-enabled local group was changed.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4738/">4738(S) A user account was changed.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4739/">4739(S) Domain Policy was changed.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4740/">4740(S) A user account was locked out.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4741/">4741(S) A computer account was created.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4742/">4742(S) A computer account was changed.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4743/">4743(S) A computer account was deleted.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4749/">4749(S) A security-disabled global group was created.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4750/">4750(S) A security-disabled global group was changed.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4751/">4751(S) A member was added to a security-disabled global group.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4752/">4752(S) A member was removed from a security-disabled global group.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4753/">4753(S) A security-disabled global group was deleted.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4764/">4764(S) A group&#39;s type was changed.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4765/">4765(S) SID History was added to an account.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4766/">4766(F) An attempt to add SID History to an account failed.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4767/">4767(S) A user account was unlocked.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4768/">4768(S, F) A Kerberos authentication ticket (TGT) was requested.</a></li>
+<li class="active"><a href="http://localhost:1313/auditing/event-4769/">4769(S, F) A Kerberos service ticket was requested.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4770/">4770(S) A Kerberos service ticket was renewed.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4771/">4771(F) Kerberos pre-authentication failed.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4772/">4772(F) A Kerberos authentication ticket request failed.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4773/">4773(F) A Kerberos service ticket request failed.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4774/">4774(S, F) An account was mapped for logon.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4775/">4775(F) An account could not be mapped for logon.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4776/">4776(S, F) The computer attempted to validate the credentials for an account.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4777/">4777(F) The domain controller failed to validate the credentials for an account.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4778/">4778(S) A session was reconnected to a Window Station.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4779/">4779(S) A session was disconnected from a Window Station.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4780/">4780(S) The ACL was set on accounts which are members of administrators groups.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4781/">4781(S) The name of an account was changed.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4782/">4782(S) The password hash of an account was accessed.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4793/">4793(S) The Password Policy Checking API was called.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4794/">4794(S, F) An attempt was made to set the Directory Services Restore Mode administrator password.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4798/">4798(S) A user&#39;s local group membership was enumerated.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4799/">4799(S) A security-enabled local group membership was enumerated.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4800/">4800(S) The workstation was locked.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4801/">4801(S) The workstation was unlocked.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4802/">4802(S) The screen saver was invoked.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4803/">4803(S) The screen saver was dismissed.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4816/">4816(S) RPC detected an integrity violation while decrypting an incoming message.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4817/">4817(S) Auditing settings on object were changed.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4818/">4818(S) Proposed Central Access Policy does not grant the same access permissions as the current Central Access Policy.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4819/">4819(S) Central Access Policies on the machine have been changed.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4826/">4826(S) Boot Configuration Data loaded.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4864/">4864(S) A namespace collision was detected.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4865/">4865(S) A trusted forest information entry was added.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4866/">4866(S) A trusted forest information entry was removed.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4867/">4867(S) A trusted forest information entry was modified.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4902/">4902(S) The Per-user audit policy table was created.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4904/">4904(S) An attempt was made to register a security event source.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4905/">4905(S) An attempt was made to unregister a security event source.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4906/">4906(S) The CrashOnAuditFail value has changed.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4907/">4907(S) Auditing settings on object were changed.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4908/">4908(S) Special Groups Logon table modified.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4909/">4909(-) The local policy settings for the TBS were changed.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4910/">4910(-) The group policy settings for the TBS were changed.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4911/">4911(S) Resource attributes of the object were changed.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4912/">4912(S) Per User Audit Policy was changed.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4913/">4913(S) Central Access Policy on the object was changed</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4928/">4928(S, F) An Active Directory replica source naming context was established.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4929/">4929(S, F) An Active Directory replica source naming context was removed.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4930/">4930(S, F) An Active Directory replica source naming context was modified.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4931/">4931(S, F) An Active Directory replica destination naming context was modified.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4932/">4932(S) Synchronization of a replica of an Active Directory naming context has begun.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4933/">4933(S, F) Synchronization of a replica of an Active Directory naming context has ended.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4934/">4934(S) Attributes of an Active Directory object were replicated.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4935/">4935(F) Replication failure begins.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4936/">4936(S) Replication failure ends.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4937/">4937(S) A lingering object was removed from a replica.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4944/">4944(S) The following policy was active when the Windows Firewall started.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4945/">4945(S) A rule was listed when the Windows Firewall started.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4946/">4946(S) A change has been made to Windows Firewall exception list. A rule was added.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4947/">4947(S) A change has been made to Windows Firewall exception list. A rule was modified.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4948/">4948(S) A change has been made to Windows Firewall exception list. A rule was deleted.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4949/">4949(S) Windows Firewall settings were restored to the default values.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4950/">4950(S) A Windows Firewall setting has changed.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4951/">4951(F) A rule has been ignored because its major version number wasn&#39;t recognized by Windows Firewall.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4952/">4952(F) Parts of a rule have been ignored because its minor version number was not recognized by Windows Firewall. The other parts of the rule will be enforced.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4953/">4953(F) Windows Firewall ignored a rule because it couldn&#39;t be parsed.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4954/">4954(S) Windows Firewall Group Policy settings have changed. The new settings have been applied.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4956/">4956(S) Windows Firewall has changed the active profile.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4957/">4957(F) Windows Firewall did not apply the following rule.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4958/">4958(F) Windows Firewall did not apply the following rule because the rule referred to items not configured on this computer.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4964/">4964(S) Special groups have been assigned to a new logon.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-4985/">4985(S) The state of a transaction has changed.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5024/">5024(S) The Windows Firewall Service has started successfully.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5025/">5025(S) The Windows Firewall Service has been stopped.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5027/">5027(F) The Windows Firewall Service was unable to retrieve the security policy from the local storage. The service will continue enforcing the current policy.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5028/">5028(F) The Windows Firewall Service was unable to parse the new security policy. The service will continue with currently enforced policy.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5029/">5029(F) The Windows Firewall Service failed to initialize the driver. The service will continue to enforce the current policy.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5030/">5030(F) The Windows Firewall Service failed to start.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5031/">5031(F) The Windows Firewall Service blocked an application from accepting incoming connections on the network.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5032/">5032(F) Windows Firewall was unable to notify the user that it blocked an application from accepting incoming connections on the network.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5033/">5033(S) The Windows Firewall Driver has started successfully.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5034/">5034(S) The Windows Firewall Driver was stopped.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5035/">5035(F) The Windows Firewall Driver failed to start.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5037/">5037(F) The Windows Firewall Driver detected critical runtime error. Terminating.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5038/">5038(F) Code integrity determined that the image hash of a file is not valid.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5039/">5039(-) A registry key was virtualized.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5051/">5051(-) A file was virtualized.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5056/">5056(S) A cryptographic self-test was performed.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5057/">5057(F) A cryptographic primitive operation failed.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5058/">5058(S, F) Key file operation.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5059/">5059(S, F) Key migration operation.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5060/">5060(F) Verification operation failed.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5061/">5061(S, F) Cryptographic operation.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5062/">5062(S) A kernel-mode cryptographic self-test was performed.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5063/">5063(S, F) A cryptographic provider operation was attempted.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5064/">5064(S, F) A cryptographic context operation was attempted.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5065/">5065(S, F) A cryptographic context modification was attempted.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5066/">5066(S, F) A cryptographic function operation was attempted.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5067/">5067(S, F) A cryptographic function modification was attempted.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5068/">5068(S, F) A cryptographic function provider operation was attempted.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5069/">5069(S, F) A cryptographic function property operation was attempted.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5070/">5070(S, F) A cryptographic function property modification was attempted.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5136/">5136(S) A directory service object was modified.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5137/">5137(S) A directory service object was created.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5138/">5138(S) A directory service object was undeleted.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5139/">5139(S) A directory service object was moved.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5140/">5140(S, F) A network share object was accessed.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5141/">5141(S) A directory service object was deleted.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5142/">5142(S) A network share object was added.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5143/">5143(S) A network share object was modified.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5144/">5144(S) A network share object was deleted.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5145/">5145(S, F) A network share object was checked to see whether client can be granted desired access.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5148/">5148(F) The Windows Filtering Platform has detected a DoS attack and entered a defensive mode; packets associated with this attack will be discarded.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5149/">5149(F) The DoS attack has subsided and normal processing is being resumed.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5150/">5150(-) The Windows Filtering Platform blocked a packet.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5151/">5151(-) A more restrictive Windows Filtering Platform filter has blocked a packet.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5152/">5152(F) The Windows Filtering Platform blocked a packet.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5153/">5153(S) A more restrictive Windows Filtering Platform filter has blocked a packet.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5154/">5154(S) The Windows Filtering Platform has permitted an application or service to listen on a port for incoming connections.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5155/">5155(F) The Windows Filtering Platform has blocked an application or service from listening on a port for incoming connections.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5156/">5156(S) The Windows Filtering Platform has permitted a connection.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5157/">5157(F) The Windows Filtering Platform has blocked a connection.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5158/">5158(S) The Windows Filtering Platform has permitted a bind to a local port.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5159/">5159(F) The Windows Filtering Platform has blocked a bind to a local port.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5168/">5168(F) SPN check for SMB/SMB2 failed.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5376/">5376(S) Credential Manager credentials were backed up.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5377/">5377(S) Credential Manager credentials were restored from a backup.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5378/">5378(F) The requested credentials delegation was disallowed by policy.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5447/">5447(S) A Windows Filtering Platform filter has been changed.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5632/">5632(S, F) A request was made to authenticate to a wireless network.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5633/">5633(S, F) A request was made to authenticate to a wired network.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5712/">5712(S) A Remote Procedure Call (RPC) was attempted.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5888/">5888(S) An object in the COM&#43; Catalog was modified.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5889/">5889(S) An object was deleted from the COM&#43; Catalog.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-5890/">5890(S) An object was added to the COM&#43; Catalog.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-6144/">6144(S) Security policy in the group policy objects has been applied successfully.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-6145/">6145(F) One or more errors occurred while processing security policy in the group policy objects.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-6281/">6281(F) Code Integrity determined that the page hashes of an image file aren&#39;t valid.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-6400/">6400(-) BranchCache Received an incorrectly formatted response while discovering availability of content.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-6401/">6401(-) BranchCache Received invalid data from a peer. Data discarded.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-6402/">6402(-) BranchCache The message to the hosted cache offering it data is incorrectly formatted.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-6403/">6403(-) BranchCache The hosted cache sent an incorrectly formatted response to the client.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-6404/">6404(-) BranchCache Hosted cache could not be authenticated using the provisioned SSL certificate.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-6405/">6405(-) BranchCache %2 instance(s) of event id %1 occurred.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-6406/">6406(-) %1 registered to Windows Firewall to control filtering for the following %2.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-6407/">6407(-) 1%.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-6408/">6408(-) Registered product %1 failed and Windows Firewall is now controlling the filtering for %2.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-6409/">6409(-) BranchCache A service connection point object could not be parsed.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-6410/">6410(F) Code integrity determined that a file doesn&#39;t meet the security requirements to load into a process.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-6416/">6416(S) A new external device was recognized by the System.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-6419/">6419(S) A request was made to disable a device.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-6420/">6420(S) A device was disabled.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-6421/">6421(S) A request was made to enable a device.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-6422/">6422(S) A device was enabled.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-6423/">6423(S) The installation of this device is forbidden by system policy.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-6424/">6424(S) The installation of this device was allowed, after having previously been forbidden by policy.</a></li>
+<li class=""><a href="http://localhost:1313/auditing/advanced-security-auditing/">Advanced security audit policies</a></li>
+<li class=""><a href="http://localhost:1313/auditing/advanced-security-audit-policy-settings/">Advanced security audit policy settings</a></li>
+<li class=""><a href="http://localhost:1313/auditing/appendix-a-security-monitoring-recommendations-for-many-audit-events/">Appendix A, Security monitoring recommendations for many audit events</a></li>
+<li class=""><a href="http://localhost:1313/auditing/apply-a-basic-audit-policy-on-a-file-or-folder/">Apply a basic audit policy on a file or folder</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-account-lockout/">Audit Account Lockout</a></li>
+<li class=""><a href="http://localhost:1313/auditing/basic-audit-account-logon-events/">Audit account logon events</a></li>
+<li class=""><a href="http://localhost:1313/auditing/basic-audit-account-management/">Audit account management</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-application-generated/">Audit Application Generated</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-application-group-management/">Audit Application Group Management</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-audit-policy-change/">Audit Audit Policy Change</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-authentication-policy-change/">Audit Authentication Policy Change</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-authorization-policy-change/">Audit Authorization Policy Change</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-central-access-policy-staging/">Audit Central Access Policy Staging</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-certification-services/">Audit Certification Services</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-computer-account-management/">Audit Computer Account Management</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-credential-validation/">Audit Credential Validation</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-detailed-directory-service-replication/">Audit Detailed Directory Service Replication</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-detailed-file-share/">Audit Detailed File Share</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-directory-service-access/">Audit Directory Service Access</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-directory-service-changes/">Audit Directory Service Changes</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-directory-service-replication/">Audit Directory Service Replication</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-distribution-group-management/">Audit Distribution Group Management</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-dpapi-activity/">Audit DPAPI Activity</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-file-share/">Audit File Share</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-file-system/">Audit File System</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-filtering-platform-connection/">Audit Filtering Platform Connection</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-filtering-platform-packet-drop/">Audit Filtering Platform Packet Drop</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-filtering-platform-policy-change/">Audit Filtering Platform Policy Change</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-group-membership/">Audit Group Membership</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-handle-manipulation/">Audit Handle Manipulation</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-ipsec-driver/">Audit IPsec Driver</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-ipsec-extended-mode/">Audit IPsec Extended Mode</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-ipsec-main-mode/">Audit IPsec Main Mode</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-ipsec-quick-mode/">Audit IPsec Quick Mode</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-kerberos-authentication-service/">Audit Kerberos Authentication Service</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-kerberos-service-ticket-operations/">Audit Kerberos Service Ticket Operations</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-kernel-object/">Audit Kernel Object</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-logoff/">Audit Logoff</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-logon/">Audit Logon</a></li>
+<li class=""><a href="http://localhost:1313/auditing/basic-audit-logon-events/">Audit logon events</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-mpssvc-rule-level-policy-change/">Audit MPSSVC Rule-Level Policy Change</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-network-policy-server/">Audit Network Policy Server</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-non-sensitive-privilege-use/">Audit Non-Sensitive Privilege Use</a></li>
+<li class=""><a href="http://localhost:1313/auditing/basic-audit-object-access/">Audit object access</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-other-account-logon-events/">Audit Other Account Logon Events</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-other-account-management-events/">Audit Other Account Management Events</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-other-logonlogoff-events/">Audit Other Logon/Logoff Events</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-other-object-access-events/">Audit Other Object Access Events</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-other-policy-change-events/">Audit Other Policy Change Events</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-other-privilege-use-events/">Audit Other Privilege Use Events</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-other-system-events/">Audit Other System Events</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-pnp-activity/">Audit PNP Activity</a></li>
+<li class=""><a href="http://localhost:1313/auditing/basic-audit-policy-change/">Audit policy change</a></li>
+<li class=""><a href="http://localhost:1313/auditing/basic-audit-privilege-use/">Audit privilege use</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-process-creation/">Audit Process Creation</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-process-termination/">Audit Process Termination</a></li>
+<li class=""><a href="http://localhost:1313/auditing/basic-audit-process-tracking/">Audit process tracking</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-registry/">Audit Registry</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-removable-storage/">Audit Removable Storage</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-rpc-events/">Audit RPC Events</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-sam/">Audit SAM</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-security-group-management/">Audit Security Group Management</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-security-state-change/">Audit Security State Change</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-security-system-extension/">Audit Security System Extension</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-sensitive-privilege-use/">Audit Sensitive Privilege Use</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-special-logon/">Audit Special Logon</a></li>
+<li class=""><a href="http://localhost:1313/auditing/basic-audit-system-events/">Audit system events</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-system-integrity/">Audit System Integrity</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-token-right-adjusted/">Audit Token Right Adjusted</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-user-account-management/">Audit User Account Management</a></li>
+<li class=""><a href="http://localhost:1313/auditing/audit-user-device-claims/">Audit User/Device Claims</a></li>
+<li class=""><a href="http://localhost:1313/auditing/basic-audit-directory-service-access/">Basic audit directory service access</a></li>
+<li class=""><a href="http://localhost:1313/auditing/basic-security-audit-policies/">Basic security audit policies</a></li>
+<li class=""><a href="http://localhost:1313/auditing/basic-security-audit-policy-settings/">Basic security audit policy settings</a></li>
+<li class=""><a href="http://localhost:1313/auditing/create-a-basic-audit-policy-settings-for-an-event-category/">Create a basic audit policy for an event category</a></li>
+<li class=""><a href="http://localhost:1313/auditing/file-system-global-object-access-auditing/">File System (Global Object Access Auditing)</a></li>
+<li class=""><a href="http://localhost:1313/auditing/how-to-list-xml-elements-in-eventdata/">How to get a list of XML data name elements in &lt;EventData&gt;</a></li>
+<li class=""><a href="http://localhost:1313/auditing/monitor-the-central-access-policies-associated-with-files-and-folders/">Monitor central access policies for files or folders</a></li>
+<li class=""><a href="http://localhost:1313/auditing/monitor-the-central-access-policies-that-apply-on-a-file-server/">Monitor central access policies on a file server</a></li>
+<li class=""><a href="http://localhost:1313/auditing/monitor-central-access-policy-and-rule-definitions/">Monitor central access policy and rule definitions</a></li>
+<li class=""><a href="http://localhost:1313/auditing/monitor-claim-types/">Monitor claim types</a></li>
+<li class=""><a href="http://localhost:1313/auditing/monitor-resource-attribute-definitions/">Monitor resource attribute definitions</a></li>
+<li class=""><a href="http://localhost:1313/auditing/monitor-the-resource-attributes-on-files-and-folders/">Monitor the resource attributes on files and folders</a></li>
+<li class=""><a href="http://localhost:1313/auditing/monitor-the-use-of-removable-storage-devices/">Monitor the use of removable storage devices</a></li>
+<li class=""><a href="http://localhost:1313/auditing/monitor-user-and-device-claims-during-sign-in/">Monitor user and device claims during sign-in</a></li>
+<li class=""><a href="http://localhost:1313/auditing/other-events/">Other Events</a></li>
+<li class=""><a href="http://localhost:1313/auditing/planning-and-deploying-advanced-security-audit-policies/">Plan and deploy advanced security audit policies</a></li>
+<li class=""><a href="http://localhost:1313/auditing/registry-global-object-access-auditing/">Registry (Global Object Access Auditing)</a></li>
+<li class=""><a href="http://localhost:1313/auditing/security-auditing-overview/">Security auditing</a></li>
+<li class=""><a href="http://localhost:1313/auditing/event-1108/">The event logging service encountered an error</a></li>
+<li class=""><a href="http://localhost:1313/auditing/using-advanced-security-auditing-options-to-monitor-dynamic-access-control-objects/">Using advanced security auditing options to monitor dynamic access control objects</a></li>
+<li class=""><a href="http://localhost:1313/auditing/view-the-security-event-log/">View the security event log</a></li>
+<li class=""><a href="http://localhost:1313/auditing/which-editions-of-windows-support-advanced-audit-policy-configuration/">Which editions of Windows support advanced audit policy configuration</a></li>
+</ul>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>
