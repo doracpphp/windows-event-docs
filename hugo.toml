@@ -1,0 +1,28 @@
+baseURL = 'https://itembox.jp'
+languageCode = 'en-us'
+title = 'Itembox'
+theme = "hugo-theme-techdoc"
+
+defaultContentLanguageInSubdir= false
+enableMissingTranslationPlaceholders = false
+
+[params]
+    menu_style = "open-menu"
+
+defaultContentLanguage = "en"
+
+[languages]
+  [languages.en]
+    contentDir = 'content/en'
+    languageName = "English"
+    disabled = false
+    languageCode = 'en-US'
+    weight = 10
+    title = "ItemBox"
+  [languages.ja]
+    contentDir = 'content/ja'
+    languageName = "Japanese"
+    disabled = false
+    languageCode = 'ja-jp'
+    weight = 20
+    title = "ItemBox"
