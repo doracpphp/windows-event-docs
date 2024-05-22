@@ -11,6 +11,7 @@ enableMissingTranslationPlaceholders = false
 
 defaultContentLanguage = "en"
 googleAnalytics = "G-GM1BZHDW1B"
+google_analytics_id = "G-GM1BZHDW1B"
 [languages]
   [languages.en]
     contentDir = 'content/en'
