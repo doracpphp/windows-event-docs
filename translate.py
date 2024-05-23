@@ -9,5 +9,7 @@ files_file = [
 ] 
 
 for f in files_file:
-    command = "chatgpt-md-translator " + os.path.join(dir_path, f) +" -o "+ os.path.join(out_path, f)
-    ret = subprocess.run(command, shell=True)
+    if not os.path.isfile(os.path.join(out_path, f)):
+        print(os.path.join(out_path, f))
+        command = "chatgpt-md-translator " + os.path.join(dir_path, f) +" -o "+ os.path.join(out_path, f)
+        ret = subprocess.run(command, shell=True)
