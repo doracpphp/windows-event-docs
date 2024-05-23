@@ -32,7 +32,7 @@ Windows ファイアウォールのルールを作成または編集する際に
 <br clear="all">
 
 ***イベント XML:***
-```
+```xml
 - <Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
 - <System>
  <Provider Name="Microsoft-Windows-Security-Auditing" Guid="{54849625-5478-4994-A5BA-3E3B0328C30D}" /> 
