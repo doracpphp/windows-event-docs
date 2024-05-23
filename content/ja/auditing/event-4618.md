@@ -1,6 +1,6 @@
 ---
-title: 4618(S) A monitored security event pattern has occurred. 
-description: Describes security event 4618(S) A monitored security event pattern has occurred.
+title: 4618(S) 監視されたセキュリティイベントパターンが発生しました。
+description: 監視されたセキュリティイベントパターンが発生しましたというセキュリティイベント4618(S)について説明します。
 ms.pagetype: security
 ms.mktglfcycl: deploy
 ms.sitesec: library
@@ -13,39 +13,38 @@ ms.author: vinpa
 ms.topic: reference
 ---
 
-# 4618(S): A monitored security event pattern has occurred.
+# 4618(S): 監視されたセキュリティイベントパターンが発生しました。
 
+***サブカテゴリ:***&nbsp;[システム整合性の監査](audit-system-integrity.md)
 
-***Subcategory:***&nbsp;[Audit System Integrity](audit-system-integrity.md)
-
-This event can be generated (invoked) only externally using the following command:
+このイベントは、次のコマンドを使用して外部からのみ生成（呼び出し）できます。
 
 **%windir%\\system32\\rundll32 %windir%\\system32\\authz.dll,AuthziGenerateAdminAlertAudit OrgEventId ComputerName UserSid UserName UserDomain UserLogonId EventCount Duration**
 
-Account must have **SeAuditPrivilege** (Generate security audits) to be able to generate this event.
+このイベントを生成するには、アカウントに**SeAuditPrivilege**（セキュリティ監査の生成）が必要です。
 
--   **UserSid** is resolved when viewing the event in event viewer.
+- **UserSid**は、イベントビューアーでイベントを表示するときに解決されます。
 
--   Only **OrgEventID**, **ComputerName**, and **EventCount** are required—others are optional. Fields not specified appear with “**-**“ in the event description field.
+- **OrgEventID**、**ComputerName**、および**EventCount**のみが必須で、他はオプションです。指定されていないフィールドは、イベント説明フィールドに「**-**」と表示されます。
 
--   If a field doesn’t match the expected data type, the event is not generated. That is, if **EventCount** = “XYZ”, then no event is generated.
+- フィールドが期待されるデータ型と一致しない場合、イベントは生成されません。つまり、**EventCount** = “XYZ”の場合、イベントは生成されません。
 
--   **UserSid**, **UserName**, and **UserDomain** are not related to each other (think **SubjectUser** fields, where they are)
+- **UserSid**、**UserName**、および**UserDomain**は互いに関連していません（**SubjectUser**フィールドのように関連している場合を除く）
 
--   Parameters are space delimited, even if a parameter is enclosed in double-quotes.
+- パラメータはスペースで区切られ、パラメータが二重引用符で囲まれていても同様です。
 
--   Here are the expected data types for the parameters:
+- パラメータの期待されるデータ型は次のとおりです：
 
-| Parameter    | Expected Data Type                               |
+| パラメータ    | 期待されるデータ型                               |
 |--------------|--------------------------------------------------|
 | OrgEventID   | Ulong                                            |
-| ComputerName | String                                           |
-| UserSid      | SID (in string format)                           |
-| UserName     | String                                           |
-| UserDomain   | String                                           |
-| UserLogonID  | Luid (a ULongLong converted to Hex in the event) |
+| ComputerName | 文字列                                           |
+| UserSid      | SID（文字列形式）                                |
+| UserName     | 文字列                                           |
+| UserDomain   | 文字列                                           |
+| UserLogonID  | Luid（イベントでULongLongを16進数に変換したもの） |
 | EventCount   | Ulong                                            |
-| Duration     | String                                           |
+| Duration     | 文字列                                           |
 
 <img src="images/event-4618.png" alt="Event 4618 illustration" width="449" height="494" hspace="10" align="left" />
 
@@ -84,15 +83,14 @@ Account must have **SeAuditPrivilege** (Generate security audits) to be able to 
 
 ```
 
-***Required Server Roles:*** None.
+***Required Server Roles:*** なし。
 
-***Minimum OS Version:*** Windows Server 2008, Windows Vista.
+***Minimum OS Version:*** Windows Server 2008, Windows Vista。
 
-***Event Versions:*** 0.
+***Event Versions:*** 0。
 
-## Security Monitoring Recommendations
+## セキュリティ監視の推奨事項
 
-For 4618(S): A monitored security event pattern has occurred.
+4618(S): 監視されたセキュリティイベントパターンが発生しました。
 
--   This event can be invoked only manually/intentionally, it is up to you how to interpret this event depends on information you put inside of it.
-
+-   このイベントは手動/意図的にのみ呼び出すことができ、イベント内に入れる情報に応じて解釈するのはあなた次第です。

@@ -1,6 +1,6 @@
 ---
-title: Audit Detailed File Share 
-description: The Advanced Security Audit policy setting, Audit Detailed File Share, allows you to audit attempts to access files and folders on a shared folder.
+title: 詳細ファイル共有の監査
+description: 高度なセキュリティ監査ポリシー設定である「詳細ファイル共有の監査」は、共有フォルダー内のファイルやフォルダーへのアクセス試行を監査することができます。
 ms.assetid: 60310104-b820-4033-a1cb-022a34f064ae
 ms.reviewer: 
 manager: aaroncz
@@ -14,30 +14,28 @@ ms.date: 09/06/2021
 ms.topic: reference
 ---
 
-# Audit Detailed File Share
+# 詳細ファイル共有の監査
 
+詳細ファイル共有の監査を使用すると、共有フォルダー内のファイルやフォルダーへのアクセス試行を監査することができます。
 
-Audit Detailed File Share allows you to audit attempts to access files and folders on a shared folder.
+詳細ファイル共有設定は、ファイルやフォルダーがアクセスされるたびにイベントを記録しますが、ファイル共有設定はクライアントとファイル共有間で確立された接続ごとに1つのイベントのみを記録します。詳細ファイル共有の監査イベントには、アクセスを許可または拒否するために使用された権限やその他の基準に関する詳細情報が含まれます。
 
-The Detailed File Share setting logs an event every time a file or folder is accessed, whereas the File Share setting only records one event for any connection established between a client and file share. Detailed File Share audit events include detailed information about the permissions or other criteria used to grant or deny access.
+共有フォルダーにはシステムアクセス制御リスト (SACL) はありません。このポリシー設定が有効になっている場合、システム上のすべての共有ファイルおよびフォルダーへのアクセスが監査されます。
 
-There are no system access control lists (SACLs) for shared folders. If this policy setting is enabled, access to all shared files and folders on the system is audited.
+**イベントボリューム**:
 
-**Event volume**:
+- ファイルサーバー上で高い。
 
--   High on file servers.
+- グループポリシーによって必要とされるSYSVOLネットワークアクセスのため、ドメインコントローラー上で高い。
 
--   High on domain controllers because of SYSVOL network access required by Group Policy.
+- メンバーサーバーおよびワークステーション上で低い。
 
--   Low on member servers and workstations.
+| コンピューターの種類 | 一般的な成功 | 一般的な失敗 | 強化された成功 | 強化された失敗 | コメント                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+|-----------------------|---------------|---------------|------------------|------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ドメインコントローラー | いいえ        | はい          | いいえ           | はい             | ドメインコントローラーでこのサブカテゴリの監査成功を有効にすると、特にSYSVOL共有のためにイベントのボリュームが高くなる傾向があります。<br>失敗アクセス試行の監視をお勧めします: ボリュームは高くないはずです。ネットワーク共有上のファイルやフォルダーにアクセスできなかったユーザーを確認することができます。                                                                                                                                                                                                                                                                                                                                                                                              |
+| メンバーサーバー     | IF            | はい          | IF               | はい             | IF – サーバーが通常多くのアクセス要求を受ける共有ネットワークフォルダーを持っている場合（例: ファイルサーバー）、イベントのボリュームが高くなる可能性があります。共有フォルダーにあるすべてのファイルやフォルダーへのすべての成功アクセスイベントを追跡する必要がある場合は、成功監査を有効にするか、[ファイルシステムの監査](audit-file-system.md)サブカテゴリを使用してください。ただし、そのサブカテゴリは、クライアントのIPアドレスなど、詳細ファイル共有の監査に含まれる情報の一部を除外します。<br>メンバーサーバーの失敗イベントのボリュームは高くないはずです（ファイルサーバーでない限り）。失敗監査を使用すると、このコンピューター上のネットワーク共有でファイルやフォルダーにアクセスできないユーザーを確認することができます。 |
+| ワークステーション   | IF            | はい          | IF               | はい             | IF – ワークステーションが通常多くのアクセス要求を受ける共有ネットワークフォルダーを持っている場合、イベントのボリュームが高くなる可能性があります。共有フォルダーにあるすべてのファイルやフォルダーへのすべての成功アクセスイベントを追跡する必要がある場合は、成功監査を有効にするか、ファイルシステムの監査サブカテゴリを使用してください。ただし、そのサブカテゴリは、クライアントのIPアドレスなど、詳細ファイル共有の監査に含まれる情報の一部を除外します。<br>ワークステーションの失敗イベントのボリュームは高くないはずです。失敗監査を使用すると、このコンピューター上のネットワーク共有でファイルやフォルダーにアクセスできないユーザーを確認することができます。                                                                                   |
 
-| Computer Type     | General Success | General Failure | Stronger Success | Stronger Failure | Comments                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|-------------------|-----------------|-----------------|------------------|------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Domain Controller | No              | Yes             | No               | Yes              | Audit Success for this subcategory on domain controllers typically will lead to high volume of events, especially for SYSVOL share.<br>We recommend monitoring Failure access attempts: the volume shouldn't be high. You will be able to see who wasn't able to get access to a file or folder on a network share on a computer.                                                                                                                                                                                                                                                                                                                                                                                              |
-| Member Server     | IF              | Yes             | IF               | Yes              | IF – If a server has shared network folders that typically get many access requests (File Server, for example), the volume of events might be high. If you really need to track all successful access events for every file or folder located on a shared folder, enable Success auditing or use the [Audit File System](audit-file-system.md) subcategory, although that subcategory excludes some information in Audit Detailed File Share, for example, the client’s IP address.<br>The volume of Failure events for member servers shouldn't be high (if they aren't File Servers). With Failure auditing, you can see who can't access a file or folder on a network share on this computer. |
-| Workstation       | IF              | Yes             | IF               | Yes              | IF – If a workstation has shared network folders that typically get many access requests, the volume of events might be high. If you really need to track all successful access events for every file or folder located on a shared folder, enable Success auditing or use Audit File System subcategory, although that subcategory excludes some information in Audit Detailed File Share, for example, the client’s IP address.<br>The volume of Failure events for workstations shouldn't be high. With Failure auditing, you can see who can't access a file or folder on a network share on this computer.                                                                                   |
+**イベントリスト:**
 
-**Events List:**
-
--   [5145](event-5145.md)(S, F): A network share object was checked to see whether client can be granted desired access.
-
+-   [5145](event-5145.md)(S, F): クライアントに希望するアクセス権を付与できるかどうかを確認するために、ネットワーク共有オブジェクトがチェックされました。

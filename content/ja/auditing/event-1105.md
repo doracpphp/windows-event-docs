@@ -1,6 +1,6 @@
 ---
-title: 1105(S) Event log automatic backup. 
-description: This event generates every time Windows security log becomes full and new event log file was created.
+title: 1105(S) イベントログの自動バックアップ
+description: このイベントは、Windowsセキュリティログが満杯になり、新しいイベントログファイルが作成されるたびに生成されます。
 ms.pagetype: security
 ms.mktglfcycl: deploy
 ms.sitesec: library
@@ -13,24 +13,23 @@ ms.author: vinpa
 ms.topic: reference
 ---
 
-# 1105(S): Event log automatic backup
-
+# 1105(S): イベントログの自動バックアップ
 
 <img src="images/event-1105.png" alt="Event 1105 illustration" width="572" height="317" hspace="10" align="left" />
 
-***Subcategory:***&nbsp;[Other Events](other-events.md)
+***サブカテゴリ:***&nbsp;[その他のイベント](other-events.md)
 
-***Event Description:***
+***イベントの説明:***
 
-This event generates every time Windows security log becomes full and new event log file was created.
+このイベントは、Windowsセキュリティログが満杯になり、新しいイベントログファイルが作成されるたびに生成されます。
 
-This event generates, for example, if the maximum size of Security Event Log file was reached and event log retention method is: “[Archive the log when full, do not overwrite events](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc721981(v=ws.11))”.
+例えば、セキュリティイベントログファイルの最大サイズに達し、イベントログの保持方法が「[満杯になったらログをアーカイブし、イベントを上書きしない](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc721981(v=ws.11))」の場合、このイベントが生成されます。
 
-> **Note**&nbsp;&nbsp;For recommendations, see [Security Monitoring Recommendations](#security-monitoring-recommendations) for this event.
+> **注**&nbsp;&nbsp;推奨事項については、このイベントの[セキュリティ監視の推奨事項](#security-monitoring-recommendations)を参照してください。
 
 <br clear="all">
 
-***Event XML:***
+***イベント XML:***
 ```
 - <Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
 - <System>
@@ -59,40 +58,40 @@ This event generates, for example, if the maximum size of Security Event Log fil
 
 ```
 
-***Required Server Roles:*** None.
+***必要なサーバー役割:*** なし。
 
-***Minimum OS Version:*** Windows Server 2008, Windows Vista.
+***最小 OS バージョン:*** Windows Server 2008, Windows Vista。
 
-***Event Versions:*** 0.
+***イベントバージョン:*** 0。
 
-***Field Descriptions:***
+***フィールドの説明:***
 
-**Log** \[Type = UnicodeString\]: the name of the log that was archived (new event log file was created and previous event log was archived). Always “**Security”** for Security Event Logs.
+**ログ** \[タイプ = UnicodeString\]: アーカイブされたログの名前（新しいイベントログファイルが作成され、以前のイベントログがアーカイブされました）。セキュリティイベントログの場合は常に「**Security**」。
 
-**File**: \[Type = FILETIME\]: full path and filename of archived log file.
+**ファイル**: \[タイプ = FILETIME\]: アーカイブされたログファイルのフルパスとファイル名。
 
-The format of archived log file name is: “Archive-LOG\_FILE\_NAME-YYYY-MM-DD-hh-mm-ss-nnn.evtx”. Where:
+アーカイブされたログファイル名の形式は「Archive-LOG\_FILE\_NAME-YYYY-MM-DD-hh-mm-ss-nnn.evtx」です。ここで：
 
--   LOG\_FILE\_NAME – the name of archived file.
+-   LOG\_FILE\_NAME – アーカイブされたファイルの名前。
 
--   Y – years.
+-   Y – 年。
 
--   M – months.
+-   M – 月。
 
--   D – days.
+-   D – 日。
 
--   h – hours.
+-   h – 時。
 
--   m – minutes.
+-   m – 分。
 
--   s – seconds.
+-   s – 秒。
 
--   n – fractional seconds.
+-   n – 小数秒。
 
-The time in this event is always in ***GMT+0/UTC+0*** time zone.
+このイベントの時間は常に ***GMT+0/UTC+0*** タイムゾーンです。
 
-## Security Monitoring Recommendations
+## セキュリティ監視の推奨事項
 
-For 1105(S): Event log automatic backup.
+1105(S): イベントログの自動バックアップ。
 
--   Typically it’s an informational event and no actions are needed. But if your baseline settings are not set to [Archive the log when full, do not overwrite events](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc721981(v=ws.11)), then this event will be a sign that some settings are not set to baseline settings or were changed.
+-   通常、これは情報提供のイベントであり、特にアクションは必要ありません。しかし、ベースライン設定が[ログがいっぱいになったときにアーカイブし、イベントを上書きしない](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc721981(v=ws.11))に設定されていない場合、このイベントは一部の設定がベースライン設定に設定されていないか、変更されたことを示すサインとなります。

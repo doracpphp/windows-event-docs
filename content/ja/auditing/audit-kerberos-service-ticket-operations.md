@@ -1,6 +1,6 @@
 ---
-title: Audit Kerberos Service Ticket Operations 
-description: The policy setting, Audit Kerberos Service Ticket Operations, determines if security audit events are generated for Kerberos service ticket requests.
+title: Kerberos サービス チケット操作の監査
+description: ポリシー設定「Kerberos サービス チケット操作の監査」は、Kerberos サービス チケット要求に対してセキュリティ監査イベントが生成されるかどうかを決定します。
 ms.assetid: ddc0abef-ac7f-4849-b90d-66700470ccd6
 ms.reviewer: 
 manager: aaroncz
@@ -14,27 +14,27 @@ ms.date: 09/06/2021
 ms.topic: reference
 ---
 
-# Audit Kerberos Service Ticket Operations
+# Kerberos サービス チケット操作の監査
+
+Kerberos サービス チケット操作の監査は、Kerberos サービス チケット要求に対してオペレーティング システムがセキュリティ監査イベントを生成するかどうかを決定します。
+
+ユーザーが保護されたネットワーク リソースにアクセスしようとするたびに、Kerberos を使用して認証が行われるとイベントが生成されます。Kerberos サービス チケット操作の監査イベントは、ユーザーの活動を追跡するために使用できます。
+
+**イベント ボリューム**: Kerberos キー配布センター サーバーでは非常に高い。
+
+このサブカテゴリには、発行された TGS と失敗した TGS 要求に関するイベントが含まれます。
+
+| コンピューターの種類 | 一般的な成功 | 一般的な失敗 | 強力な成功 | 強力な失敗 | コメント                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+|-----------------------|---------------|---------------|--------------|--------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ドメイン コントローラー | IF            | Yes           | Yes          | Yes          | ドメイン コントローラーでは予想されるボリュームが非常に高いです。<br><br>IF - 成功の監査を推奨します。これにより、特定のアカウントによるサービスの使用およびアクセス要求の一部であるすべての Kerberos サービス チケット要求 (TGS 要求) を確認できます。また、このアカウントが TGS を要求した IP アドレス、TGS が要求された時期、使用された暗号化タイプなどを確認できます。収集された情報の使用および分析に関する推奨事項については、[***セキュリティ監視の推奨事項***](appendix-a-security-monitoring-recommendations-for-many-audit-events.md) を参照してください。<br /><br />失敗の監査を推奨します。これにより、すべての失敗した要求を確認し、失敗の理由を調査できます。また、Kerberos の問題や攻撃の試みを検出することもできます。 |
+| メンバー サーバー     | No            | No            | No           | No           | このサブカテゴリはドメイン コントローラーでのみ意味があります。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| ワークステーション   | No            | No            | No           | No           | このサブカテゴリはドメイン コントローラーでのみ意味があります。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 
 
-Audit Kerberos Service Ticket Operations determines whether the operating system generates security audit events for Kerberos service ticket requests.
+**イベントリスト:**
 
-Events are generated every time Kerberos is used to authenticate a user who wants to access a protected network resource. Kerberos service ticket operation audit events can be used to track user activity.
+-   [4769](event-4769.md)(S, F): Kerberos サービスチケットが要求されました。
 
-**Event volume**: Very High on Kerberos Key Distribution Center servers.
+-   [4770](event-4770.md)(S): Kerberos サービスチケットが更新されました。
 
-This subcategory contains events about issued TGSs and failed TGS requests.
-
-| Computer Type     | General Success | General Failure | Stronger Success | Stronger Failure | Comments                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-|-------------------|-----------------|-----------------|------------------|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Domain Controller | IF              | Yes             | Yes              | Yes              | Expected volume is very high on domain controllers.<br><br>IF - We recommend Success auditing, because you will see all Kerberos Service Ticket requests (TGS requests), which are part of service use and access requests by specific accounts. Also, you can see the IP address from which this account requested TGS, when TGS was requested, which encryption type was used, and so on. For recommendations for using and analyzing the collected information, see our [***Security Monitoring Recommendations***](appendix-a-security-monitoring-recommendations-for-many-audit-events.md).<br /><br />We recommend Failure auditing, because you will see all failed requests and be able to investigate the reason for failure. You will also be able to detect Kerberos issues or possible attack attempts. |
-| Member Server     | No              | No              | No               | No               | This subcategory makes sense only on domain controllers.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| Workstation       | No              | No              | No               | No               | This subcategory makes sense only on domain controllers.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-
-**Events List:**
-
--   [4769](event-4769.md)(S, F): A Kerberos service ticket was requested.
-
--   [4770](event-4770.md)(S): A Kerberos service ticket was renewed.
-
--   [4773](event-4773.md)(F): A Kerberos service ticket request failed.
+-   [4773](event-4773.md)(F): Kerberos サービスチケットの要求が失敗しました。

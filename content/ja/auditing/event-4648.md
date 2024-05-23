@@ -1,6 +1,6 @@
 ---
-title: 4648(S) A logon was attempted using explicit credentials. 
-description: Describes security event 4648(S) A logon was attempted using explicit credentials.
+title: 4648(S) 明示的な資格情報を使用してログオンが試行されました。
+description: セキュリティ イベント 4648(S) 明示的な資格情報を使用してログオンが試行されました。
 ms.pagetype: security
 ms.mktglfcycl: deploy
 ms.sitesec: library
@@ -13,26 +13,25 @@ ms.author: vinpa
 ms.topic: reference
 ---
 
-# 4648(S): A logon was attempted using explicit credentials.
-
+# 4648(S): 明示的な資格情報を使用してログオンが試行されました。
 
 <img src="images/event-4648.png" alt="Event 4648 illustration" width="486" height="663" hspace="10" align="left" />
 
-***Subcategory:***&nbsp;[Audit Logon](audit-logon.md)
+***サブカテゴリ:***&nbsp;[ログオンの監査](audit-logon.md)
 
-***Event Description:***
+***イベントの説明:***
 
-This event is generated when a process attempts an account logon by explicitly specifying that account’s credentials.
+このイベントは、プロセスが明示的にそのアカウントの資格情報を指定してアカウントのログオンを試行したときに生成されます。
 
-This most commonly occurs in batch-type configurations such as scheduled tasks, or when using the “RUNAS” command.
+これは、スケジュールされたタスクなどのバッチタイプの構成や、「RUNAS」コマンドを使用する場合に最も一般的に発生します。
 
-It is also a routine event which periodically occurs during normal operating system activity.
+また、通常のオペレーティングシステムの活動中に定期的に発生するルーチンイベントでもあります。
 
-> **Note**&nbsp;&nbsp;For recommendations, see [Security Monitoring Recommendations](#security-monitoring-recommendations) for this event.
+> **注**&nbsp;&nbsp;推奨事項については、このイベントの[セキュリティ監視の推奨事項](#security-monitoring-recommendations)を参照してください。
 
 <br clear="all">
 
-***Event XML:***
+***イベント XML:***
 ```
 - <Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
 - <System>
@@ -71,125 +70,124 @@ It is also a routine event which periodically occurs during normal operating sys
 
 ```
 
-***Required Server Roles:*** None.
+***必要なサーバー ロール:*** なし。
 
-***Minimum OS Version:*** Windows Server 2008, Windows Vista.
+***最小 OS バージョン:*** Windows Server 2008, Windows Vista。
 
-***Event Versions:*** 0.
+***イベント バージョン:*** 0。
 
-***Field Descriptions:***
+***フィールドの説明:***
 
-**Subject:**
+**サブジェクト:**
 
--   **Security ID** \[Type = SID\]**:** SID of account that requested the new logon session with explicit credentials. Event Viewer automatically tries to resolve SIDs and show the account name. If the SID cannot be resolved, you will see the source data in the event.
+-   **セキュリティ ID** \[タイプ = SID\]**:** 明示的な資格情報で新しいログオン セッションを要求したアカウントの SID。イベント ビューアーは自動的に SID を解決してアカウント名を表示しようとします。SID を解決できない場合、イベントにはソース データが表示されます。
 
-> **Note**&nbsp;&nbsp;A **security identifier (SID)** is a unique value of variable length used to identify a trustee (security principal). Each account has a unique SID that is issued by an authority, such as an Active Directory domain controller, and stored in a security database. Each time a user logs on, the system retrieves the SID for that user from the database and places it in the access token for that user. The system uses the SID in the access token to identify the user in all subsequent interactions with Windows security. When a SID has been used as the unique identifier for a user or group, it cannot ever be used again to identify another user or group. For more information about SIDs, see [Security identifiers](/windows/access-protection/access-control/security-identifiers).
+> **注**&nbsp;&nbsp;**セキュリティ識別子 (SID)** は、トラスティ (セキュリティ プリンシパル) を識別するために使用される可変長の一意の値です。各アカウントには、Active Directory ドメイン コントローラーなどの認証機関によって発行され、セキュリティ データベースに保存される一意の SID があります。ユーザーがログオンするたびに、システムはデータベースからそのユーザーの SID を取得し、そのユーザーのアクセストークンに配置します。システムは、アクセストークン内の SID を使用して、以降のすべての Windows セキュリティとのやり取りでユーザーを識別します。SID がユーザーまたはグループの一意の識別子として使用された場合、それは他のユーザーまたはグループを識別するために再び使用されることはありません。SID の詳細については、[セキュリティ識別子](/windows/access-protection/access-control/security-identifiers)を参照してください。
 
--   **Account Name** \[Type = UnicodeString\]**:** the name of the account that requested the new logon session with explicit credentials.
+-   **アカウント名** \[タイプ = UnicodeString\]**:** 明示的な資格情報で新しいログオンセッションを要求したアカウントの名前。
 
--   **Account Domain** \[Type = UnicodeString\]**:** subject’s domain or computer name. Formats vary, and include the following:
+-   **アカウントドメイン** \[タイプ = UnicodeString\]**:** サブジェクトのドメインまたはコンピュータ名。形式はさまざまで、以下を含みます：
 
-    -   Domain NETBIOS name example: CONTOSO
+    -   ドメインのNETBIOS名の例: CONTOSO
 
-    -   Lowercase full domain name: contoso.local
+    -   小文字の完全なドメイン名: contoso.local
 
-    -   Uppercase full domain name: CONTOSO.LOCAL
+    -   大文字の完全なドメイン名: CONTOSO.LOCAL
 
-    -   For some [well-known security principals](/windows/security/identity-protection/access-control/security-identifiers), such as LOCAL SERVICE or ANONYMOUS LOGON, the value of this field is “NT AUTHORITY”.
+    -   LOCAL SERVICEやANONYMOUS LOGONなどの[よく知られたセキュリティプリンシパル](/windows/security/identity-protection/access-control/security-identifiers)の場合、このフィールドの値は「NT AUTHORITY」となります。
 
-    -   For local user accounts, this field will contain the name of the computer or device that this account belongs to, for example: “Win81”.
+    -   ローカルユーザーアカウントの場合、このフィールドにはこのアカウントが属するコンピュータまたはデバイスの名前が含まれます。例: 「Win81」。
 
--   **Logon ID** \[Type = HexInt64\]**:** hexadecimal value that can help you correlate this event with recent events that might contain the same Logon ID, for example, “[4624](event-4624.md): An account was successfully logged on.”
+-   **ログオンID** \[タイプ = HexInt64\]**:** 16進数の値で、同じログオンIDを含む可能性のある最近のイベントとこのイベントを関連付けるのに役立ちます。例: 「[4624](event-4624.md): アカウントが正常にログオンされました。」
 
--   **Logon GUID** \[Type = GUID\]: a GUID that can help you correlate this event with another event that can contain the same **Logon GUID**, “[4769](event-4769.md)(S, F): A Kerberos service ticket was requested event on a domain controller.
+-   **ログオンGUID** \[タイプ = GUID\]: 同じ**ログオンGUID**を含む可能性のある別のイベントとこのイベントを関連付けるのに役立つGUID。例: 「[4769](event-4769.md)(S, F): ドメインコントローラーでKerberosサービスチケットが要求されました。」
 
-    It also can be used for correlation between a 4648 event and several other events (on the same computer) that can contain the same **Logon GUID**, “[4624](event-4624.md)(S): An account was successfully logged on” and “[4964](event-4964.md)(S): Special groups have been assigned to a new logon.”
+    また、4648イベントと同じコンピュータ上の他のいくつかのイベント（同じ**ログオンGUID**を含む可能性がある）との関連付けにも使用できます。例: 「[4624](event-4624.md)(S): アカウントが正常にログオンされました」および「[4964](event-4964.md)(S): 特別なグループが新しいログオンに割り当てられました。」
 
-    This parameter might not be captured in the event, and in that case appears as “{00000000-0000-0000-0000-000000000000}”.
+    このパラメータはイベントでキャプチャされない場合があり、その場合は「{00000000-0000-0000-0000-000000000000}」として表示されます。
 
-> **Note**&nbsp;&nbsp;**GUID** is an acronym for 'Globally Unique Identifier'. It is a 128-bit integer number used to identify resources, activities or instances.
+> **注**&nbsp;&nbsp;**GUID**は「グローバル一意識別子」の略です。リソース、アクティビティ、またはインスタンスを識別するために使用される128ビットの整数です。
 
-**Account Whose Credentials Were Used:**
+**使用された資格情報のアカウント:**
 
--   **Account Name** \[Type = UnicodeString\]**:** the name of the account whose credentials were used.
+-   **アカウント名** \[タイプ = UnicodeString\]**:** 使用された資格情報のアカウントの名前。
 
--   **Account Domain** \[Type = UnicodeString\]**:** subject’s domain or computer name. Formats vary, and include the following:
+-   **アカウントドメイン** \[タイプ = UnicodeString\]**:** サブジェクトのドメインまたはコンピュータ名。形式はさまざまで、以下を含みます：
 
-    -   Domain NETBIOS name example: CONTOSO
+-   ドメイン NETBIOS 名の例: CONTOSO
 
-    -   Lowercase full domain name: contoso.local
+-   小文字の完全なドメイン名: contoso.local
 
-    -   Uppercase full domain name: CONTOSO.LOCAL
+-   大文字の完全なドメイン名: CONTOSO.LOCAL
 
-    -   For some [well-known security principals](/windows/security/identity-protection/access-control/security-identifiers), such as LOCAL SERVICE or ANONYMOUS LOGON, the value of this field is “NT AUTHORITY”.
+-   LOCAL SERVICE や ANONYMOUS LOGON などの[よく知られたセキュリティプリンシパル](/windows/security/identity-protection/access-control/security-identifiers)の場合、このフィールドの値は "NT AUTHORITY" です。
 
-    -   For local user accounts, this field will contain the name of the computer or device that this account belongs to, for example: “Win81”.
+-   ローカルユーザーアカウントの場合、このフィールドにはこのアカウントが属するコンピューターまたはデバイスの名前が含まれます。例: "Win81"。
 
--   **Logon GUID** \[Type = GUID\]: a GUID that can help you correlate this event with another event that can contain the same **Logon GUID**, “[4769](event-4769.md)(S, F): A Kerberos service ticket was requested event on a domain controller.
+-   **ログオン GUID** \[タイプ = GUID\]: このイベントを別のイベントと関連付けるのに役立つ GUID。別のイベントには同じ **ログオン GUID** が含まれることがあります。例えば、ドメインコントローラー上の "[4769](event-4769.md)(S, F): Kerberos サービスチケットが要求されたイベント" です。
 
-    It also can be used for correlation between a 4648 event and several other events (on the same computer) that can contain the same **Logon GUID**, “[4624](event-4624.md)(S): An account was successfully logged on” and “[4964](event-4964.md)(S): Special groups have been assigned to a new logon.”
+    また、同じコンピューター上で同じ **ログオン GUID** を含む 4648 イベントと他のいくつかのイベントとの相関に使用することもできます。例えば、"[4624](event-4624.md)(S): アカウントが正常にログオンされました" や "[4964](event-4964.md)(S): 特別なグループが新しいログオンに割り当てられました" です。
 
-    This parameter might not be captured in the event, and in that case appears as “{00000000-0000-0000-0000-000000000000}”.
+    このパラメーターはイベントでキャプチャされない場合があり、その場合は "{00000000-0000-0000-0000-000000000000}" として表示されます。
 
-> **Note**&nbsp;&nbsp;**GUID** is an acronym for 'Globally Unique Identifier'. It is a 128-bit integer number used to identify resources, activities or instances.
+> **注**&nbsp;&nbsp;**GUID** は 'Globally Unique Identifier' の略です。リソース、アクティビティ、またはインスタンスを識別するために使用される 128 ビットの整数です。
 
-**Target Server:**
+**ターゲットサーバー:**
 
--   **Target Server Name** \[Type = UnicodeString\]**:** the name of the server on which the new process was run. Has “**localhost**” value if the process was run locally.
+-   **ターゲットサーバー名** \[タイプ = UnicodeString\]**:** 新しいプロセスが実行されたサーバーの名前。プロセスがローカルで実行された場合は "**localhost**" の値を持ちます。
 
--   **Additional Information** \[Type = UnicodeString\]**:** there is no detailed information about this field in this document.
+-   **追加情報** \[タイプ = UnicodeString\]**:** このフィールドに関する詳細情報はこのドキュメントにはありません。
 
-**Process Information:**
+**プロセス情報:**
 
--   **Process ID** \[Type = Pointer\]: hexadecimal Process ID of the process which was run using explicit credentials. Process ID (PID) is a number used by the operating system to uniquely identify an active process. To see the PID for a specific process you can, for example, use Task Manager (Details tab, PID column):
+-   **プロセス ID** \[タイプ = ポインタ\]: 明示的な資格情報を使用して実行されたプロセスの 16 進数のプロセス ID。プロセス ID (PID) は、オペレーティングシステムがアクティブなプロセスを一意に識別するために使用する番号です。特定のプロセスの PID を確認するには、例えばタスクマネージャー (詳細タブ、PID 列) を使用できます:
 
-    <img src="images/task-manager.png" alt="Task manager illustration" width="585" height="375" />
+    <img src="images/task-manager.png" alt="タスクマネージャーのイラスト" width="585" height="375" />
 
-    If you convert the hexadecimal value to decimal, you can compare it to the values in Task Manager.
+    16進値を10進値に変換すると、タスクマネージャーの値と比較できます。
 
-    You can also correlate this process ID with a process ID in other events, for example, “[4688](event-4688.md): A new process has been created” **Process Information\\New Process ID**.
+    また、このプロセスIDを他のイベントのプロセスIDと関連付けることもできます。例えば、「[4688](event-4688.md): 新しいプロセスが作成されました」**プロセス情報\\新しいプロセスID**。
 
--   **Process Name** \[Type = UnicodeString\]**:** full path and the name of the executable for the process.
+-   **プロセス名** \[タイプ = UnicodeString\]**:** プロセスの実行可能ファイルのフルパスと名前。
 
-**Network Information:**
+**ネットワーク情報:**
 
--   **Network Address** \[Type = UnicodeString\]**:** IP address of machine from which logon attempt was performed.
+-   **ネットワークアドレス** \[タイプ = UnicodeString\]**:** ログオン試行が行われたマシンのIPアドレス。
 
-    -   IPv6 address or ::ffff:IPv4 address of a client.
+    -   クライアントのIPv6アドレスまたは::ffff:IPv4アドレス。
 
-    -   ::1 or 127.0.0.1 means localhost.
+    -   ::1または127.0.0.1はローカルホストを意味します。
 
--   **Port** \[Type = UnicodeString\]: source port which was used for logon attempt from remote machine.
+-   **ポート** \[タイプ = UnicodeString\]: リモートマシンからのログオン試行に使用されたソースポート。
 
-    -   0 for interactive logons.
+    -   対話型ログオンの場合は0。
 
-## Security Monitoring Recommendations
+## セキュリティ監視の推奨事項
 
-For 4648(S): A logon was attempted using explicit credentials.
+4648(S): 明示的な資格情報を使用してログオンが試行されました。
 
-The following table is similar to the table in [Appendix A: Security monitoring recommendations for many audit events](appendix-a-security-monitoring-recommendations-for-many-audit-events.md), but also describes ways of monitoring that use “**Account Whose Credentials Were Used\\Security ID.**”
+次の表は、[付録A: 多くの監査イベントに対するセキュリティ監視の推奨事項](appendix-a-security-monitoring-recommendations-for-many-audit-events.md)の表に似ていますが、「**資格情報が使用されたアカウント\\セキュリティID**」を使用した監視方法も説明しています。
 
-| **Type of monitoring required**                                                                                                                                                                                                                                                                                   | **Recommendation**                                                                                                                                                                                                                                                                                                                                                   |
+| **必要な監視の種類**                                                                                                                                                                                                                                                                                   | **推奨事項**                                                                                                                                                                                                                                                                                                                                                   |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **High-value accounts**: You might have high value domain or local accounts for which you need to monitor each action.<br>Examples of high value accounts are database administrators, built-in local administrator account, domain administrators, service accounts, domain controller accounts and so on. | Monitor this event with the **“Subject\\Security ID”** or “**Account Whose Credentials Were Used\\Security ID**” that correspond to the high value account or accounts.                                                                                                                                                                                              |
-| **Anomalies or malicious actions**: You might have specific requirements for detecting anomalies or monitoring potential malicious actions. For example, you might need to monitor for use of an account outside of working hours.                                                                                | When you monitor for anomalies or malicious actions, use the **“Subject\\Security ID”** and “**Account Whose Credentials Were Used\\Security ID**” (with other information) to monitor how or when a particular account is being used.                                                                                                                               |
-| **Non-active accounts**: You might have non-active, disabled, or guest accounts, or other accounts that should never be used.                                                                                                                                                                                     | Monitor this event with the **“Subject\\Security ID”** or “**Account Whose Credentials Were Used\\Security ID**” that correspond to the accounts that should never be used.                                                                                                                                                                                          |
-| **Account allow list**: You might have a specific allow list of accounts that are allowed to perform actions corresponding to particular events.                                                                                                                                                                    | If this event corresponds to a “allow list-only” action, review the **“Subject\\Security ID”** and “**Account Whose Credentials Were Used\\Security ID**” for accounts that are outside the allow list.                                                                                                                                                                |
-| **External accounts**: You might be monitoring accounts from another domain, or “external” accounts that are not allowed to perform the action corresponding to this event.                                                                                                                                       | Monitor for the **“Subject\\Account Domain”** or “**Account Whose Credentials Were Used\\Security ID**” corresponding to accounts from another domain or “external” accounts.                                                                                                                                                                                        |
-| **Restricted-use computers or devices**: You might have certain computers, machines, or devices on which certain people (accounts) should not typically perform any actions.                                                                                                                                      | Monitor the target **Computer:** (or other target device) for actions performed by the **“Subject\\Security ID”** or “**Account Whose Credentials Were Used\\Security ID**” that you are concerned about.<br>For example, you might monitor to ensure that “**Account Whose Credentials Were Used\\Security ID**” is not used to log on to a certain computer. |
-| **Account naming conventions**: Your organization might have specific naming conventions for account names.                                                                                                                                                                                                       | Monitor “**Subject\\Account Name”** and “**Account Whose Credentials Were Used\\Security ID**” for names that don’t comply with naming conventions.                                                                                                                                                                                                                  |
+| **高価値アカウント**: 各アクションを監視する必要がある高価値のドメインまたはローカルアカウントがある場合があります。<br>高価値アカウントの例としては、データベース管理者、組み込みのローカル管理者アカウント、ドメイン管理者、サービスアカウント、ドメインコントローラーアカウントなどがあります。 | 高価値アカウントまたはアカウントに対応する**「サブジェクト\\セキュリティID」**または「**資格情報が使用されたアカウント\\セキュリティID**」でこのイベントを監視します。                                                                                                                                                                                              |
+| **異常または悪意のある行動**: 異常を検出したり、潜在的な悪意のある行動を監視するための特定の要件がある場合があります。例えば、勤務時間外のアカウント使用を監視する必要があるかもしれません。                                                                                | 異常や悪意のある行動を監視する場合、**「サブジェクト\\セキュリティID」**および「**資格情報が使用されたアカウント\\セキュリティID**」（他の情報と共に）を使用して、特定のアカウントがどのように、またはいつ使用されているかを監視します。                                                                                                                               |
+| **非アクティブアカウント**: 非アクティブ、無効、またはゲストアカウント、または使用されるべきではない他のアカウントがある場合があります。                                                                                                                                                                                     | 使用されるべきではないアカウントに対応する**「サブジェクト\\セキュリティID」**または「**資格情報が使用されたアカウント\\セキュリティID**」でこのイベントを監視します。                                                                                                                                                                                          |
+| **アカウント許可リスト**: 特定のイベントに対応するアクションを実行することが許可されているアカウントの特定の許可リストがある場合があります。                                                                                                                                                                    | このイベントが「許可リストのみ」のアクションに対応する場合、許可リスト外のアカウントに対して**「サブジェクト\\セキュリティID」**および「**資格情報が使用されたアカウント\\セキュリティID**」を確認します。                                                                                                                                                                |
+| **外部アカウント**: 別のドメインからのアカウントや、このイベントに対応するアクションを実行することが許可されていない「外部」アカウントを監視している場合があります。                                                                                                                                       | 別のドメインからのアカウントや「外部」アカウントに対応する**「サブジェクト\\アカウントドメイン」**または「**資格情報が使用されたアカウント\\セキュリティID**」を監視します。                                                                                                                                                                                        |
+| **制限された使用のコンピュータまたはデバイス**: 特定の人（アカウント）が通常アクションを実行すべきではない特定のコンピュータ、マシン、またはデバイスがある場合があります。                                                                                                                                      | 関心のある**「サブジェクト\\セキュリティID」**または「**資格情報が使用されたアカウント\\セキュリティID**」によって実行されたアクションについて、対象の**コンピュータ:**（または他の対象デバイス）を監視します。<br>例えば、「**資格情報が使用されたアカウント\\セキュリティID**」が特定のコンピュータにログオンされないことを監視するかもしれません。 |
+| **アカウント命名規則**: 組織にはアカウント名に関する特定の命名規則があるかもしれません。                                                                                                                                                                                                       | 命名規則に従わない名前について「**サブジェクト\\アカウント名」**および「**資格情報が使用されたアカウント\\セキュリティID**」を監視します。                                                                                                                                                                                                                  |
 
--   If you have a pre-defined “**Process Name**” for the process reported in this event, monitor all events with “**Process Name**” not equal to your defined value.
+-   このイベントで報告されたプロセスに対して事前に定義された「**プロセス名**」がある場合、その定義された値と異なるすべてのイベントを監視します。
 
--   You can monitor to see if “**Process Name**” is not in a standard folder (for example, not in **System32** or **Program Files**) or is in a restricted folder (for example, **Temporary Internet Files**).
+-   「**プロセス名**」が標準フォルダ（例えば、**System32** や **Program Files**）にないか、制限されたフォルダ（例えば、**Temporary Internet Files**）にあるかを監視することができます。
 
 <!-- -->
 
--   If you have a pre-defined list of restricted substrings or words in process names (for example, “**mimikatz**” or “**cain.exe**”), check for these substrings in “**Process Name**.”
+-   プロセス名に含まれる制限された部分文字列や単語（例えば、「**mimikatz**」や「**cain.exe**」）の事前定義リストがある場合、「**プロセス名**」にこれらの部分文字列が含まれているかを確認します。
 
--   If **Subject\\Security ID** should not know or use credentials for **Account Whose Credentials Were Used\\Account Name**, monitor this event.
+-   **Subject\\Security ID** が **Account Whose Credentials Were Used\\Account Name** の資格情報を知っているべきでない、または使用すべきでない場合、このイベントを監視します。
 
--   If credentials for **Account Whose Credentials Were Used\\Account Name** should not be used from **Network Information\\Network Address**, monitor this event.
+-   **Account Whose Credentials Were Used\\Account Name** の資格情報が **Network Information\\Network Address** から使用されるべきでない場合、このイベントを監視します。
 
--   Check that **Network Information\\Network Address** is from internal IP address list. For example, if you know that a specific account (for example, a service account) should be used only from specific IP addresses, you can monitor for all events where **Network Information\\Network Address** is not one of the allowed IP addresses.
-
+-   **Network Information\\Network Address** が内部IPアドレスリストからのものであることを確認します。例えば、特定のアカウント（例えば、サービスアカウント）が特定のIPアドレスからのみ使用されるべきであることがわかっている場合、**Network Information\\Network Address** が許可されたIPアドレスのいずれでもないすべてのイベントを監視することができます。

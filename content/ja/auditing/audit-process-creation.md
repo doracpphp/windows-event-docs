@@ -1,6 +1,6 @@
 ---
-title: Audit Process Creation 
-description: The Advanced Security Audit policy setting, Audit Process Creation, determines if audit events are generated when a process is created (starts).
+title: プロセス作成の監査
+description: 高度なセキュリティ監査ポリシー設定であるプロセス作成の監査は、プロセスが作成（開始）されたときに監査イベントが生成されるかどうかを決定します。
 ms.assetid: 67e39fcd-ded6-45e8-b1b6-d411e4e93019
 ms.reviewer: 
 manager: aaroncz
@@ -10,30 +10,28 @@ ms.mktglfcycl: deploy
 ms.sitesec: library
 ms.localizationpriority: low
 author: vinaypamnani-msft
-ms.date: 03/16/2022
+ms.date: 2022/03/16
 ms.topic: reference
 ---
 
-# Audit Process Creation
+# プロセス作成の監査
 
+プロセス作成の監査は、プロセスが作成（開始）されたときにオペレーティングシステムが監査イベントを生成するかどうかを決定します。
 
-Audit Process Creation determines whether the operating system generates audit events when a process is created (starts).
+これらの監査イベントは、ユーザーの活動を追跡し、コンピューターの使用状況を理解するのに役立ちます。情報には、プロセスを作成したプログラムやユーザーの名前が含まれます。
 
-These audit events can help you track user activity and understand how a computer is being used. Information includes the name of the program or the user that created the process.
+**イベントボリューム**: コンピューターのプロセス活動に応じて、中から高。
 
-**Event volume**: Medium to High, depending on the process activity on the computer.
+このサブカテゴリでは、プロセスが作成または開始されたときに生成されるイベントを監査できます。プロセスを作成したアプリケーションとユーザーの名前も監査されます。
 
-This subcategory allows you to audit events generated when a process is created or starts. The name of the application and user that created the process is also audited.
+| コンピューターの種類 | 一般的な成功 | 一般的な失敗 | 強化された成功 | 強化された失敗 | コメント                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+|-----------------------|---------------|---------------|----------------|----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ドメインコントローラー | はい          | いいえ        | はい           | いいえ         | このサブカテゴリの成功監査情報を収集することは、法医学的調査に役立ち、特定のプロセスを誰が、いつ、どのオプション\\パラメーターで実行したかの情報を見つけるのに役立ちます。<br>さらに、昇格された資格情報の使用、潜在的な悪意のあるプロセス名などのプロセス作成イベントを分析できます。<br>イベントボリュームは通常、中から高レベルで、コンピューターのプロセス活動に依存します。<br>このサブカテゴリには失敗イベントがないため、失敗監査を有効にすることは推奨されません。 |
+| メンバーサーバー     | はい          | いいえ        | はい           | いいえ         | このサブカテゴリの成功監査情報を収集することは、法医学的調査に役立ち、特定のプロセスを誰が、いつ、どのオプション\\パラメーターで実行したかの情報を見つけるのに役立ちます。<br>さらに、昇格された資格情報の使用、潜在的な悪意のあるプロセス名などのプロセス作成イベントを分析できます。<br>イベントボリュームは通常、中から高レベルで、コンピューターのプロセス活動に依存します。<br>このサブカテゴリには失敗イベントがないため、失敗監査を有効にすることは推奨されません。 |
+| ワークステーション   | はい          | いいえ        | はい           | いいえ         | このサブカテゴリの成功監査情報を収集することは、法医学的調査に役立ち、特定のプロセスを誰が、いつ、どのオプション\\パラメーターで実行したかの情報を見つけるのに役立ちます。<br>さらに、昇格された資格情報の使用、潜在的な悪意のあるプロセス名などのプロセス作成イベントを分析できます。<br>イベントボリュームは通常、中から高レベルで、コンピューターのプロセス活動に依存します。<br>このサブカテゴリには失敗イベントがないため、失敗監査を有効にすることは推奨されません。 |
 
-| Computer Type     | General Success | General Failure | Stronger Success | Stronger Failure | Comments                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-|-------------------|-----------------|-----------------|------------------|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Domain Controller | Yes             | No              | Yes              | No               | It is typically useful to collect Success auditing information for this subcategory for forensic investigations, to find information who, when and with which options\\parameters ran specific process. <br>Additionally, you can analyse process creation events for elevated credentials use, potential malicious process names and so on.<br>The event volume is typically medium-high level, depending on the process activity on the computer.<br>This subcategory doesn’t have Failure events, so there is no recommendation to enable Failure auditing for this subcategory. |
-| Member Server     | Yes             | No              | Yes              | No               | It is typically useful to collect Success auditing information for this subcategory for forensic investigations, to find information who, when and with which options\\parameters ran specific process. <br>Additionally, you can analyse process creation events for elevated credentials use, potential malicious process names and so on.<br>The event volume is typically medium-high level, depending on the process activity on the computer.<br>This subcategory doesn’t have Failure events, so there is no recommendation to enable Failure auditing for this subcategory. |
-| Workstation       | Yes             | No              | Yes              | No               | It is typically useful to collect Success auditing information for this subcategory for forensic investigations, to find information who, when and with which options\\parameters ran specific process. <br>Additionally, you can analyse process creation events for elevated credentials use, potential malicious process names and so on.<br>The event volume is typically medium-high level, depending on the process activity on the computer.<br>This subcategory doesn’t have Failure events, so there is no recommendation to enable Failure auditing for this subcategory. |
+**イベントリスト:**
 
-**Events List:**
+-   [4688](event-4688.md)(S): 新しいプロセスが作成されました。
 
--   [4688](event-4688.md)(S): A new process has been created.
-
--   [4696](event-4696.md)(S): A primary token was assigned to process.
-
+-   [4696](event-4696.md)(S): プライマリトークンがプロセスに割り当てられました。

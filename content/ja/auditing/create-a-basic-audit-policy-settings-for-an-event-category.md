@@ -1,6 +1,6 @@
 ---
-title: Create a basic audit policy for an event category
-description: By defining auditing settings for specific event categories, you can create an auditing policy that suits the security needs of your organization.
+title: イベントカテゴリの基本的な監査ポリシーを作成する
+description: 特定のイベントカテゴリに対して監査設定を定義することで、組織のセキュリティニーズに合った監査ポリシーを作成できます。
 ms.assetid: C9F52751-B40D-482E-BE9D-2C61098249D3
 ms.reviewer:
 ms.author: vinpa
@@ -15,40 +15,39 @@ ms.topic: reference
 ms.date: 09/07/2021
 ---
 
-# Create a basic audit policy for an event category
+# イベントカテゴリの基本的な監査ポリシーを作成する
 
+特定のイベントカテゴリに対して監査設定を定義することで、組織のセキュリティニーズに合った監査ポリシーを作成できます。ドメインに参加しているデバイスでは、イベントカテゴリの監査設定はデフォルトでは未定義です。ドメインコントローラーでは、監査はデフォルトでオンになっています。
 
-By defining auditing settings for specific event categories, you can create an auditing policy that suits the security needs of your organization. On devices that are joined to a domain, auditing settings for the event categories are undefined by default. On domain controllers, auditing is turned on by default.
+この手順を完了するには、組み込みの Administrators グループのメンバーとしてログオンしている必要があります。
 
-To complete this procedure, you must be logged on as a member of the built-in Administrators group.
+**ローカルコンピューターのイベントカテゴリの監査ポリシー設定を定義または変更するには**
 
-**To define or modify auditing policy settings for an event category for your local computer**
+1.  ローカルセキュリティポリシーのスナップイン (secpol.msc) を開き、**ローカルポリシー** をクリックします。
+2.  **監査ポリシー** をクリックします。
+3.  結果ペインで、監査ポリシー設定を変更したいイベントカテゴリをダブルクリックします。
+4.  以下のいずれか、または両方を行い、**OK** をクリックします。
 
-1.  Open the Local Security Policy snap-in (secpol.msc), and then click **Local Policies**.
-2.  Click **Audit Policy**.
-3.  In the results pane, double-click an event category that you want to change the auditing policy settings for.
-4.  Do one or both of the following, and then click **OK.**
+    -   成功した試行を監査するには、**成功** チェックボックスを選択します。
+    -   失敗した試行を監査するには、**失敗** チェックボックスを選択します。
 
-    -   To audit successful attempts, select the **Success** check box.
-    -   To audit unsuccessful attempts, select the **Failure** check box.
+この手順を完了するには、Domain Admins グループのメンバーとしてログオンしている必要があります。
 
-To complete this procedure, you must be logged on as a member of the Domain Admins group.
+**ドメインまたは組織単位のイベントカテゴリの監査ポリシー設定を定義または変更するには、メンバーサーバーまたはドメインに参加しているワークステーションで行う場合**
 
-**To define or modify auditing policy settings for an event category for a domain or organizational unit, when you are on a member server or on a workstation that is joined to a domain**
+1.  グループポリシー管理コンソール (GPMC) を開きます。
+2.  コンソールツリーで、編集したい **既定のドメインポリシー** グループポリシーオブジェクト (GPO) を含むフォレストとドメインの **グループポリシーオブジェクト** をダブルクリックします。
+3.  **既定のドメインポリシー** GPO を右クリックし、**編集** をクリックします。
+4.  GPMC で、**コンピューターの構成**、**Windows の設定**、**セキュリティの設定** に移動し、**監査ポリシー** をクリックします。
+5.  結果ペインで、監査ポリシー設定を変更したいイベントカテゴリをダブルクリックします。
+6.  このイベントカテゴリの監査ポリシー設定を初めて定義する場合は、**これらのポリシー設定を定義する** チェックボックスを選択します。
+7.  以下のいずれか、または両方を行い、**OK** をクリックします。
 
-1.  Open the Group Policy Management Console (GPMC).
-2.  In the console tree, double-click **Group Policy objects** in the forest and domain containing the **Default Domain Policy** Group Policy object (GPO) that you want to edit.
-3.  Right-click the **Default Domain Policy** GPO, and then click **Edit**.
-4.  In the GPMC, go to **Computer Configuration**, **Windows Settings**, **Security Settings**, and then click **Audit Policy**.
-5.  In the results pane, double-click an event category that you want to change the auditing policy settings for.
-6.  If you are defining auditing policy settings for this event category for the first time, select the **Define these policy settings** check box.
-7.  Do one or both of the following, and then click **OK.**
+-   成功した試行を監査するには、**Success** チェックボックスを選択します。
+-   失敗した試行を監査するには、**Failure** チェックボックスを選択します。
 
-    -   To audit successful attempts, select the **Success** check box.
-    -   To audit unsuccessful attempts, select the **Failure** check box.
+## 追加の考慮事項
 
-## Additional considerations
-
--   To audit object access, enable auditing of the object access event category by following the steps above. Then, enable auditing on the specific object.
--   After your audit policy is configured, events will be recorded in the Security log. Open the Security log to view these events.
--   The default auditing policy setting for domain controllers is **No Auditing**. This means that even if auditing is enabled in the domain, the domain controllers do not inherit auditing policy locally. If you want domain auditing policy to apply to domain controllers, you must modify this policy setting.
+-   オブジェクトアクセスを監査するには、上記の手順に従ってオブジェクトアクセスイベントカテゴリの監査を有効にします。次に、特定のオブジェクトで監査を有効にします。
+-   監査ポリシーが構成されると、イベントはセキュリティログに記録されます。これらのイベントを表示するには、セキュリティログを開きます。
+-   ドメインコントローラーのデフォルトの監査ポリシー設定は **No Auditing** です。これは、ドメインで監査が有効になっていても、ドメインコントローラーはローカルで監査ポリシーを継承しないことを意味します。ドメイン監査ポリシーをドメインコントローラーに適用するには、このポリシー設定を変更する必要があります。

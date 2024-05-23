@@ -1,6 +1,6 @@
 ---
-title: Audit process tracking
-description: Determines whether to audit detailed tracking information for events such as program activation, process exit, handle duplication, and indirect object access.
+title: 監査プロセストラッキング
+description: プログラムの起動、プロセスの終了、ハンドルの複製、間接オブジェクトアクセスなどのイベントに関する詳細なトラッキング情報を監査するかどうかを決定します。
 ms.assetid: 91AC5C1E-F4DA-4B16-BEE2-C92D66E4CEEA
 ms.reviewer:
 ms.author: vinpa
@@ -15,37 +15,34 @@ ms.topic: reference
 ms.date: 09/06/2021
 ---
 
-# Audit process tracking
+# 監査プロセストラッキング
 
+プログラムの起動、プロセスの終了、ハンドルの複製、間接オブジェクトアクセスなどのイベントに関する詳細なトラッキング情報を監査するかどうかを決定します。
 
-Determines whether to audit detailed tracking information for events such as program activation, process exit, handle duplication, and indirect object access.
+このポリシー設定を定義すると、成功の監査、失敗の監査、またはイベントタイプの監査を行わないかを指定できます。成功の監査は、追跡されているプロセスが成功したときに監査エントリを生成します。失敗の監査は、追跡されているプロセスが失敗したときに監査エントリを生成します。
 
-If you define this policy setting, you can specify whether to audit successes, audit failures, or not audit the event type at all. Success audits generate an audit entry when the process being tracked succeeds. Failure audits generate an audit entry when the process being tracked fails.
+この値を **監査なし** に設定するには、このポリシー設定の **プロパティ** ダイアログボックスで、これらのポリシー設定を定義するチェックボックスを選択し、**成功** と **失敗** のチェックボックスをクリアします。
 
-To set this value to **No auditing**, in the **Properties** dialog box for this policy setting, select the Define these policy settings check box and clear the **Success** and **Failure** check boxes.
+**デフォルト:** 監査なし。
 
-**Default:** No auditing.
+## このセキュリティ設定を構成する
 
-## Configure this security setting
+このセキュリティ設定は、コンピュータの構成\\Windows の設定\\セキュリティの設定\\ローカル ポリシー\\監査ポリシーで構成できます。
 
-You can configure this security setting under Computer Configuration\\Windows Settings\\Security Settings\\Local Policies\\Audit Policy.
-
-| Process tracking events | Description |
+| プロセストラッキングイベント | 説明 |
 | - | - |
-| 592 | A new process was created.|
-| 593 | A process exited. |
-| 594 | A handle to an object was duplicated.|
-| 595 | Indirect access to an object was obtained.|
-| 596 | A data protection master key was backed up.<br>**Note:**  The master key is used by the CryptProtectData and CryptUnprotectData routines, and Encrypting File System (EFS). The master key is backed up each time a new one is created. (The default setting is 90 days.) The key is usually backed up to a domain controller.|
-| 597 | A data protection master key was recovered from a recovery server.|
-| 598 | Auditable data was protected. |
-| 599 | Auditable data was unprotected.|
-| 600 | A process was assigned a primary token.|
-| 601 | A user attempted to install a service. |
-| 602 | A scheduler job was created. |
+| 592 | 新しいプロセスが作成されました。|
+| 593 | プロセスが終了しました。 |
+| 594 | オブジェクトへのハンドルが複製されました。|
+| 595 | オブジェクトへの間接アクセスが取得されました。|
+| 596 | データ保護マスターキーがバックアップされました。<br>**注:** マスターキーは CryptProtectData および CryptUnprotectData ルーチン、および暗号化ファイルシステム (EFS) によって使用されます。新しいマスターキーが作成されるたびにバックアップされます。（デフォルト設定は 90 日です。）キーは通常、ドメインコントローラーにバックアップされます。|
+| 597 | データ保護マスターキーがリカバリーサーバーから復元されました。|
+| 598 | 監査可能なデータが保護されました。 |
+| 599 | 監査可能なデータの保護が解除されました。|
+| 600 | プロセスにプライマリトークンが割り当てられました。|
+| 601 | ユーザーがサービスのインストールを試みました。 |
+| 602 | スケジューラジョブが作成されました。 |
 
-## Related topics
+## 関連トピック
 
-- [Basic security audit policy settings](basic-security-audit-policy-settings.md)
-
-
+- [基本的なセキュリティ監査ポリシー設定](basic-security-audit-policy-settings.md)

@@ -1,6 +1,6 @@
 ---
-title: Audit DPAPI Activity 
-description: The policy setting, Audit DPAPI Activity, decides if encryption/decryption calls  to the data protection application interface (DPAPI) generate audit events.
+title: DPAPIアクティビティの監査
+description: ポリシー設定「DPAPIアクティビティの監査」は、データ保護アプリケーションインターフェイス（DPAPI）への暗号化/復号化呼び出しが監査イベントを生成するかどうかを決定します。
 ms.assetid: be4d4c83-c857-4e3d-a84e-8bcc3f2c99cd
 ms.reviewer: 
 manager: aaroncz
@@ -14,25 +14,24 @@ ms.date: 09/06/2021
 ms.topic: reference
 ---
 
-# Audit DPAPI Activity
+# DPAPIアクティビティの監査
 
+[DPAPI](/previous-versions/ms995355(v=msdn.10))アクティビティの監査は、データ保護アプリケーションインターフェイス（[DPAPI](/previous-versions/ms995355(v=msdn.10))）への暗号化または復号化呼び出しが行われたときに、オペレーティングシステムが監査イベントを生成するかどうかを決定します。
 
-Audit [DPAPI](/previous-versions/ms995355(v=msdn.10)) Activity determines whether the operating system generates audit events when encryption or decryption calls are made into the data protection application interface ([DPAPI](/previous-versions/ms995355(v=msdn.10))).
+**イベントボリューム**: 低。
 
-**Event volume**: Low.
-
-| Computer Type     | General Success | General Failure | Stronger Success | Stronger Failure | Comments                                                                                                                                                                                     |
+| コンピュータの種類 | 一般的な成功 | 一般的な失敗 | 強力な成功 | 強力な失敗 | コメント                                                                                                                                                                                     |
 |-------------------|-----------------|-----------------|------------------|------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Domain Controller | IF              | IF              | IF               | IF               | IF – Events in this subcategory typically have an informational purpose and it is difficult to detect any malicious activity using these events. It’s mainly used for DPAPI troubleshooting. |
-| Member Server     | IF              | IF              | IF               | IF               | IF – Events in this subcategory typically have an informational purpose and it is difficult to detect any malicious activity using these events. It’s mainly used for DPAPI troubleshooting. |
-| Workstation       | IF              | IF              | IF               | IF               | IF – Events in this subcategory typically have an informational purpose and it is difficult to detect any malicious activity using these events. It’s mainly used for DPAPI troubleshooting. |
+| ドメインコントローラー | IF              | IF              | IF               | IF               | IF – このサブカテゴリのイベントは通常、情報提供を目的としており、これらのイベントを使用して悪意のある活動を検出するのは困難です。主にDPAPIのトラブルシューティングに使用されます。 |
+| メンバーサーバー     | IF              | IF              | IF               | IF               | IF – このサブカテゴリのイベントは通常、情報提供を目的としており、これらのイベントを使用して悪意のある活動を検出するのは困難です。主にDPAPIのトラブルシューティングに使用されます。 |
+| ワークステーション   | IF              | IF              | IF               | IF               | IF – このサブカテゴリのイベントは通常、情報提供を目的としており、これらのイベントを使用して悪意のある活動を検出するのは困難です。主にDPAPIのトラブルシューティングに使用されます。 |
 
-**Events List:**
+**イベントリスト:**
 
--   [4692](event-4692.md)(S, F): Backup of data protection master key was attempted.
+-   [4692](event-4692.md)(S, F): データ保護マスターキーのバックアップが試みられました。
 
--   [4693](event-4693.md)(S, F): Recovery of data protection master key was attempted.
+-   [4693](event-4693.md)(S, F): データ保護マスターキーの復旧が試みられました。
 
--   [4694](event-4694.md)(S, F): Protection of auditable protected data was attempted.
+-   [4694](event-4694.md)(S, F): 監査可能な保護データの保護が試みられました。
 
--   [4695](event-4695.md)(S, F): Unprotection of auditable protected data was attempted.
+-   [4695](event-4695.md)(S, F): 監査可能な保護データの保護解除が試みられました。

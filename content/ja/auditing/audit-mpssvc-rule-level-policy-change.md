@@ -1,6 +1,6 @@
 ---
-title: Audit MPSSVC Rule-Level Policy Change 
-description: Audit MPSSVC Rule-Level Policy Change determines if audit events are generated when policy rules are altered for the Microsoft Protection Service (MPSSVC.exe).
+title: MPSSVC ルールレベルのポリシー変更の監査
+description: MPSSVC ルールレベルのポリシー変更の監査は、Microsoft Protection Service (MPSSVC.exe) のポリシールールが変更されたときに監査イベントが生成されるかどうかを決定します。
 ms.assetid: 263461b3-c61c-4ec3-9dee-851164845019
 ms.reviewer: 
 manager: aaroncz
@@ -14,62 +14,61 @@ ms.date: 09/06/2021
 ms.topic: reference
 ---
 
-# Audit MPSSVC Rule-Level Policy Change
+# MPSSVC ルールレベルのポリシー変更の監査
 
+MPSSVC ルールレベルのポリシー変更の監査は、Microsoft Protection Service (MPSSVC.exe) のポリシールールが変更されたときにオペレーティングシステムが監査イベントを生成するかどうかを決定します。
 
-Audit MPSSVC Rule-Level Policy Change determines whether the operating system generates audit events when changes are made to policy rules for the Microsoft Protection Service (MPSSVC.exe).
+Windows ファイアウォールによって使用される Microsoft Protection Service は、マルウェアに対するコンピュータの脅威保護の重要な部分です。追跡される活動には以下が含まれます:
 
-The Microsoft Protection Service, which is used by Windows Firewall, is an integral part of the computer’s threat protection against malware. The tracked activities include:
+-   Windows ファイアウォール サービスの開始時のアクティブなポリシー。
 
--   Active policies when the Windows Firewall service starts.
+-   Windows ファイアウォール ルールの変更。
 
--   Changes to Windows Firewall rules.
+-   Windows ファイアウォール 例外リストの変更。
 
--   Changes to the Windows Firewall exception list.
+-   Windows ファイアウォール 設定の変更。
 
--   Changes to Windows Firewall settings.
+-   Windows ファイアウォール サービスによって無視または適用されなかったルール。
 
--   Rules ignored or not applied by the Windows Firewall service.
+-   Windows ファイアウォール グループ ポリシー設定の変更。
 
--   Changes to Windows Firewall Group Policy settings.
+ファイアウォール ルールの変更は、コンピュータのセキュリティ状態とネットワーク攻撃に対する保護の程度を理解するために重要です。
 
-Changes to firewall rules are important for understanding the security state of the computer and how well it is protected against network attacks.
+**イベントボリューム**: 中。
 
-**Event volume**: Medium.
-
-| Computer Type     | General Success | General Failure | Stronger Success | Stronger Failure | Comments                                                                                                                                                                                                                                                                                               |
+| コンピュータの種類 | 一般的な成功 | 一般的な失敗 | 強力な成功 | 強力な失敗 | コメント                                                                                                                                                                                                                                                                                               |
 |-------------------|-----------------|-----------------|------------------|------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Domain Controller | Yes             | Yes             | Yes              | Yes              | Success events shows you changes in Windows Firewall rules and settings, active configuration and rules after Windows Firewall Service startup and default configuration restore actions.<br>Failure events may help to identify configuration problems with Windows Firewall rules or settings. |
-| Member Server     | Yes             | Yes             | Yes              | Yes              | Success events shows you changes in Windows Firewall rules and settings, active configuration and rules after Windows Firewall Service startup and default configuration restore actions.<br>Failure events may help to identify configuration problems with Windows Firewall rules or settings. |
-| Workstation       | Yes             | Yes             | Yes              | Yes              | Success events shows you changes in Windows Firewall rules and settings, active configuration and rules after Windows Firewall Service startup and default configuration restore actions.<br>Failure events may help to identify configuration problems with Windows Firewall rules or settings. |
+| ドメイン コントローラー | はい             | はい             | はい              | はい              | 成功イベントは、Windows ファイアウォール ルールと設定の変更、Windows ファイアウォール サービスの起動後のアクティブな構成とルール、およびデフォルト構成の復元アクションを示します。<br>失敗イベントは、Windows ファイアウォール ルールまたは設定の構成問題を特定するのに役立つ場合があります。 |
+| メンバー サーバー     | はい             | はい             | はい              | はい              | 成功イベントは、Windows ファイアウォール ルールと設定の変更、Windows ファイアウォール サービスの起動後のアクティブな構成とルール、およびデフォルト構成の復元アクションを示します。<br>失敗イベントは、Windows ファイアウォール ルールまたは設定の構成問題を特定するのに役立つ場合があります。 |
+| ワークステーション       | はい             | はい             | はい              | はい              | 成功イベントは、Windows ファイアウォール ルールと設定の変更、Windows ファイアウォール サービスの起動後のアクティブな構成とルール、およびデフォルト構成の復元アクションを示します。<br>失敗イベントは、Windows ファイアウォール ルールまたは設定の構成問題を特定するのに役立つ場合があります。 |
 
-**Events List:**
+**イベントリスト:**
 
--   [4944](event-4944.md)(S): The following policy was active when the Windows Firewall started.
+-   [4944](event-4944.md)(S): Windowsファイアウォールが開始されたときにアクティブだったポリシー。
 
--   [4945](event-4945.md)(S): A rule was listed when the Windows Firewall started.
+-   [4945](event-4945.md)(S): Windowsファイアウォールが開始されたときにリストされたルール。
 
--   [4946](event-4946.md)(S): A change has been made to Windows Firewall exception list. A rule was added.
+-   [4946](event-4946.md)(S): Windowsファイアウォールの例外リストに変更が加えられました。ルールが追加されました。
 
--   [4947](event-4947.md)(S): A change has been made to Windows Firewall exception list. A rule was modified.
+-   [4947](event-4947.md)(S): Windowsファイアウォールの例外リストに変更が加えられました。ルールが修正されました。
 
--   [4948](event-4948.md)(S): A change has been made to Windows Firewall exception list. A rule was deleted.
+-   [4948](event-4948.md)(S): Windowsファイアウォールの例外リストに変更が加えられました。ルールが削除されました。
 
--   [4949](event-4949.md)(S): Windows Firewall settings were restored to the default values.
+-   [4949](event-4949.md)(S): Windowsファイアウォールの設定がデフォルト値に復元されました。
 
--   [4950](event-4950.md)(S): A Windows Firewall setting has changed.
+-   [4950](event-4950.md)(S): Windowsファイアウォールの設定が変更されました。
 
--   [4951](event-4951.md)(F): A rule has been ignored because its major version number was not recognized by Windows Firewall.
+-   [4951](event-4951.md)(F): ルールのメジャーバージョン番号がWindowsファイアウォールによって認識されなかったため、ルールが無視されました。
 
--   [4952](event-4952.md)(F): Parts of a rule have been ignored because its minor version number was not recognized by Windows Firewall. The other parts of the rule will be enforced.
+-   [4952](event-4952.md)(F): ルールのマイナーバージョン番号がWindowsファイアウォールによって認識されなかったため、ルールの一部が無視されました。ルールの他の部分は適用されます。
 
--   [4953](event-4953.md)(F): A rule has been ignored by Windows Firewall because it could not parse the rule.
+-   [4953](event-4953.md)(F): ルールを解析できなかったため、Windowsファイアウォールによってルールが無視されました。
 
--   [4954](event-4954.md)(S): Windows Firewall Group Policy settings have changed. The new settings have been applied.
+-   [4954](event-4954.md)(S): Windowsファイアウォールのグループポリシー設定が変更されました。新しい設定が適用されました。
 
--   [4956](event-4956.md)(S): Windows Firewall has changed the active profile.
+-   [4956](event-4956.md)(S): Windowsファイアウォールがアクティブなプロファイルを変更しました。
 
--   [4957](event-4957.md)(F): Windows Firewall did not apply the following rule:
+-   [4957](event-4957.md)(F): Windowsファイアウォールは次のルールを適用しませんでした:
 
--   [4958](event-4958.md)(F): Windows Firewall did not apply the following rule because the rule referred to items not configured on this computer:
+-   [4958](event-4958.md)(F): 次のルールは、このコンピュータで構成されていない項目を参照しているため、Windowsファイアウォールは適用しませんでした:
 

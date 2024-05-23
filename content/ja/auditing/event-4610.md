@@ -1,6 +1,6 @@
 ---
-title: 4610(S) An authentication package has been loaded by the Local Security Authority. 
-description: Describes security event 4610(S) An authentication package has been loaded by the Local Security Authority.
+title: 4610(S) ローカル セキュリティ機関によって認証パッケージが読み込まれました。
+description: ローカル セキュリティ機関によって認証パッケージが読み込まれましたというセキュリティ イベント 4610(S) について説明します。
 ms.pagetype: security
 ms.mktglfcycl: deploy
 ms.sitesec: library
@@ -13,24 +13,24 @@ ms.author: vinpa
 ms.topic: reference
 ---
 
-# 4610(S): An authentication package has been loaded by the Local Security Authority.
+# 4610(S): ローカル セキュリティ機関によって認証パッケージが読み込まれました。
 
 
 <img src="images/event-4610.png" alt="Event 4610 illustration" width="656" height="317" hspace="10" align="left" />
 
-***Subcategory:***&nbsp;[Audit Security System Extension](audit-security-system-extension.md)
+***サブカテゴリ:***&nbsp;[セキュリティ システム拡張の監査](audit-security-system-extension.md)
 
-***Event Description:***
+***イベントの説明:***
 
-This event generates every time [Authentication Package](/windows/win32/secauthn/authentication-packages) has been loaded by the Local Security Authority ([LSA](/windows/win32/secauthn/lsa-authentication)).
+このイベントは、[認証パッケージ](/windows/win32/secauthn/authentication-packages) がローカル セキュリティ機関 ([LSA](/windows/win32/secauthn/lsa-authentication)) によって読み込まれるたびに生成されます。
 
-Each time the system starts, the LSA loads the Authentication Package DLLs from **HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Lsa\\Authentication Packages** registry value and performs the initialization sequence for every package located in these DLLs.
+システムが起動するたびに、LSA は **HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Lsa\\Authentication Packages** レジストリ値から認証パッケージ DLL を読み込み、これらの DLL にあるすべてのパッケージの初期化シーケンスを実行します。
 
-> **Note**&nbsp;&nbsp;For recommendations, see [Security Monitoring Recommendations](#security-monitoring-recommendations) for this event.
+> **注**&nbsp;&nbsp;推奨事項については、このイベントの[セキュリティ監視の推奨事項](#security-monitoring-recommendations)を参照してください。
 
 <br clear="all">
 
-***Event XML:***
+***イベント XML:***
 ```
 - <Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
 - <System>
@@ -56,22 +56,22 @@ Each time the system starts, the LSA loads the Authentication Package DLLs from 
 
 ```
 
-***Required Server Roles:*** None.
+***必要なサーバー ロール:*** なし。
 
-***Minimum OS Version:*** Windows Server 2008, Windows Vista.
+***最小 OS バージョン:*** Windows Server 2008, Windows Vista。
 
-***Event Versions:*** 0.
+***イベント バージョン:*** 0。
 
-***Field Descriptions:***
+***フィールドの説明:***
 
-**Authentication Package Name** \[Type = UnicodeString\]**:** the name of loaded [Authentication Package](/windows/win32/secauthn/authentication-packages). The format is: DLL\_PATH\_AND\_NAME: AUTHENTICATION\_PACKAGE\_NAME.
+**認証パッケージ名** \[型 = UnicodeString\]**:** 読み込まれた [認証パッケージ](/windows/win32/secauthn/authentication-packages) の名前。形式は DLL\_PATH\_AND\_NAME: AUTHENTICATION\_PACKAGE\_NAME です。
 
-By default the only one Authentication Package loaded by Windows 10 is “[MICROSOFT\_AUTHENTICATION\_PACKAGE\_V1\_0](/windows/win32/secauthn/msv1-0-authentication-package)”.
+デフォルトでは、Windows 10 によって読み込まれる唯一の認証パッケージは “[MICROSOFT\_AUTHENTICATION\_PACKAGE\_V1\_0](/windows/win32/secauthn/msv1-0-authentication-package)” です。
 
-## Security Monitoring Recommendations
+## セキュリティ監視の推奨事項
 
-For 4610(S): An authentication package has been loaded by the Local Security Authority.
+4610(S): ローカル セキュリティ機関によって認証パッケージが読み込まれました。
 
--   Report all “**Authentication Package Name**” not equals “C:\\Windows\\system32\\msv1\_0.DLL : MICROSOFT\_AUTHENTICATION\_PACKAGE\_V1\_0”, because by default this is the only Authentication Package loaded by Windows 10.
+-   すべての「**Authentication Package Name**」が「C:\\Windows\\system32\\msv1\_0.DLL : MICROSOFT\_AUTHENTICATION\_PACKAGE\_V1\_0」と等しくない場合を報告します。なぜなら、デフォルトではこれがWindows 10によって読み込まれる唯一の認証パッケージだからです。
 
--   Typically this event has an informational purpose. If you have a pre-defined list of allowed Authentication Packages in the system, then you can check whether “**Authentication Package Name”** is in your defined list.
+-   通常、このイベントは情報提供を目的としています。システム内で許可された認証パッケージの事前定義リストがある場合、「**Authentication Package Name**」が定義リストに含まれているかどうかを確認できます。

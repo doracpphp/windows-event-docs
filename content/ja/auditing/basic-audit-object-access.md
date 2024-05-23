@@ -1,6 +1,6 @@
 ---
-title: Audit object access
-description: The policy setting, Audit object access, determines whether to audit the event generated when a user accesses an object that has its own SACL specified.
+title: オブジェクトアクセスの監査
+description: ポリシー設定「オブジェクトアクセスの監査」は、ユーザーが独自のSACLを指定したオブジェクトにアクセスしたときに生成されるイベントを監査するかどうかを決定します。
 ms.assetid: D15B6D67-7886-44C2-9972-3F192D5407EA
 ms.reviewer:
 ms.author: vinpa
@@ -15,71 +15,67 @@ ms.topic: reference
 ms.date: 09/06/2021
 ---
 
-# Audit object access
+# オブジェクトアクセスの監査
 
+ユーザーが独自のシステムアクセス制御リスト (SACL) を指定したオブジェクト (例えば、ファイル、フォルダー、レジストリキー、プリンターなど) にアクセスしたときのイベントを監査するかどうかを決定します。
 
-Determines whether to audit the event of a user accessing an object--for example, a file, folder, registry key, printer, and so forth--that has its own system access control list (SACL) specified.
+このポリシー設定を定義すると、成功の監査、失敗の監査、またはイベントタイプの監査を行わないかを指定できます。成功の監査は、ユーザーが適切なSACLを指定したオブジェクトに正常にアクセスしたときに監査エントリを生成します。失敗の監査は、ユーザーがSACLを指定したオブジェクトにアクセスしようとして失敗したときに監査エントリを生成します。
 
-If you define this policy setting, you can specify whether to audit successes, audit failures, or not audit the event type at all. Success audits generate an audit entry when a user successfully accesses an object that has an appropriate SACL specified. Failure audits generate an audit entry when a user unsuccessfully attempts to access an object that has a SACL specified.
-
-To set this value to **No auditing**, in the **Properties** dialog box for this policy setting, select the Define these policy settings check box and clear the **Success** and **Failure** check boxes.
+この値を「監査なし」に設定するには、このポリシー設定の「プロパティ」ダイアログボックスで「これらのポリシー設定を定義する」チェックボックスを選択し、「成功」と「失敗」のチェックボックスをクリアします。
 
 > [!NOTE]
-> You can set a SACL on a file system object using the **Security** tab in that object's **Properties** dialog box.
+> ファイルシステムオブジェクトにSACLを設定するには、そのオブジェクトの「プロパティ」ダイアログボックスの「セキュリティ」タブを使用できます。
 
-**Default:** No auditing.
+**デフォルト:** 監査なし。
 
-## Configure this audit setting
+## この監査設定を構成する
 
-You can configure this security setting by opening the appropriate policy under Computer Configuration\\Windows Settings\\Security Settings\\Local Policies\\Audit Policy.
+コンピューターの構成\\Windowsの設定\\セキュリティの設定\\ローカルポリシー\\監査ポリシーの下にある適切なポリシーを開いて、このセキュリティ設定を構成できます。
 
-
-| Object access events |                                                                                                                    Description                                                                                                                     |
+| オブジェクトアクセスイベント |                                                                                                                    説明                                                                                                                     |
 |----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|         560          |                                                                                                 Access was granted to an already existing object.                                                                                                  |
-|         562          |                                                                                                         A handle to an object was closed.                                                                                                          |
-|         563          |                                An attempt was made to open an object with the intent to delete it.<br>**Note:**  This is used by file systems when the FILE_DELETE_ON_CLOSE flag is specified in Createfile().                                |
-|         564          |                                                                                                          A protected object was deleted.                                                                                                           |
-|         565          |                                                                                               Access was granted to an already existing object type.                                                                                               |
-|         567          | A permission associated with a handle was used.<br>**Note:**  A handle is created with certain granted permissions (Read, Write, and so on). When the handle is used, up to one audit is generated for each of the permissions that was used. |
-|         568          |                                                                                     An attempt was made to create a hard link to a file that is being audited.                                                                                     |
-|         569          |                                                                                The resource manager in Authorization Manager attempted to create a client context.                                                                                 |
-|         570          |                                                           A client attempted to access an object.<br>**Note:**  An event will be generated for every attempted operation on the object.                                                            |
-|         571          |                                                                                      The client context was deleted by the Authorization Manager application.                                                                                      |
-|         572          |                                                                                               The administrator manager initialized the application.                                                                                               |
-|         772          |                                                                                           The certificate manager denied a pending certificate request.                                                                                            |
-|         773          |                                                                                          Certificate Services received a resubmitted certificate request.                                                                                          |
-|         774          |                                                                                                    Certificate Services revoked a certificate.                                                                                                     |
-|         775          |                                                                             Certificate Services received a request to publish the certificate revocation list (CRL).                                                                              |
-|         776          |                                                                                       Certificate Services published the certificate revocation list (CRL).                                                                                        |
-|         777          |                                                                                                     A certificate request extension was made.                                                                                                      |
-|         778          |                                                                                                One or more certificate request attributes changed.                                                                                                 |
-|         779          |                                                                                                Certificate Services received a request to shutdown.                                                                                                |
-|         780          |                                                                                                        Certificate Services backup started.                                                                                                        |
-|         781          |                                                                                                       Certificate Services backup completed                                                                                                        |
-|         782          |                                                                                                       Certificate Services restore started.                                                                                                        |
-|         783          |                                                                                                      Certificate Services restore completed.                                                                                                       |
-|         784          |                                                                                                           Certificate Services started.                                                                                                            |
-|         785          |                                                                                                           Certificate Services stopped.                                                                                                            |
-|         786          |                                                                                             The security permissions for Certificate Services changed.                                                                                             |
-|         787          |                                                                                                  Certificate Services retrieved an archived key.                                                                                                   |
-|         788          |                                                                                           Certificate Services imported a certificate into its database.                                                                                           |
-|         789          |                                                                                                 The audit filter for Certificate Services changed.                                                                                                 |
-|         790          |                                                                                                Certificate Services received a certificate request.                                                                                                |
-|         791          |                                                                                   Certificate Services approved a certificate request and issued a certificate.                                                                                    |
-|         792          |                                                                                                 Certificate Services denied a certificate request.                                                                                                 |
-|         793          |                                                                                      Certificate Services set the status of a certificate request to pending.                                                                                      |
-|         794          |                                                                                         The certificate manager settings for Certificate Services changed.                                                                                         |
-|         795          |                                                                                               A configuration entry changed in Certificate Services.                                                                                               |
-|         796          |                                                                                                    A property of Certificate Services changed.                                                                                                     |
-|         797          |                                                                                                        Certificate Services archived a key.                                                                                                        |
-|         798          |                                                                                                 Certificate Services imported and archived a key.                                                                                                  |
-|         799          |                                                                                       Certificate Services published the CA certificate to Active Directory.                                                                                       |
-|         800          |                                                                                         One or more rows have been deleted from the certificate database.                                                                                          |
-|         801          |                                                                                                              Role separation enabled.                                                                                                              |
+|         560          |                                                                                                 既存のオブジェクトへのアクセスが許可されました。                                                                                                  |
+|         562          |                                                                                                         オブジェクトのハンドルが閉じられました。                                                                                                          |
+|         563          |                                削除する意図でオブジェクトを開こうとしました。<br>**注:** これは、Createfile() で FILE_DELETE_ON_CLOSE フラグが指定されたときにファイルシステムによって使用されます。                                |
+|         564          |                                                                                                          保護されたオブジェクトが削除されました。                                                                                                           |
+|         565          |                                                                                               既存のオブジェクトタイプへのアクセスが許可されました。                                                                                               |
+|         567          | ハンドルに関連付けられた権限が使用されました。<br>**注:** ハンドルは特定の許可 (読み取り、書き込みなど) で作成されます。ハンドルが使用されると、使用された各許可ごとに最大1つの監査が生成されます。 |
+|         568          |                                                                                     監査対象のファイルにハードリンクを作成しようとしました。                                                                                     |
+|         569          |                                                                                認証マネージャーのリソースマネージャーがクライアントコンテキストを作成しようとしました。                                                                                 |
+|         570          |                                                           クライアントがオブジェクトにアクセスしようとしました。<br>**注:** オブジェクトに対する試行操作ごとにイベントが生成されます。                                                            |
+|         571          |                                                                                      認証マネージャーアプリケーションによってクライアントコンテキストが削除されました。                                                                                      |
+|         572          |                                                                                               管理者マネージャーがアプリケーションを初期化しました。                                                                                               |
+|         772          |                                                                                           証明書マネージャーが保留中の証明書要求を拒否しました。                                                                                            |
+|         773          |                                                                                          証明書サービスが再提出された証明書要求を受け取りました。                                                                                          |
+|         774          |                                                                                                    証明書サービスが証明書を取り消しました。                                                                                                     |
+|         775          |                                                                             証明書サービスが証明書失効リスト (CRL) の発行要求を受け取りました。                                                                              |
+|         776          |                                                                                       証明書サービスが証明書失効リスト (CRL) を発行しました。                                                                                        |
+|         777          |                                                                                                     証明書要求の拡張が行われました。                                                                                                      |
+|         778          |                                                                                                1つ以上の証明書要求属性が変更されました。                                                                                                 |
+|         779          |                                                                                                証明書サービスがシャットダウン要求を受け取りました。                                                                                                |
+|         780          |                                                                                                        証明書サービスのバックアップが開始されました。                                                                                                        |
+|         781          |                                                                                                       証明書サービスのバックアップが完了しました                                                                                                        |
+|         782          |                                                                                                       証明書サービスの復元が開始されました。                                                                                                        |
+|         783          |                                                                                                      証明書サービスの復元が完了しました。                                                                                                       |
+|         784          |                                                                                                           証明書サービスが開始されました。                                                                                                            |
+|         785          |                                                                                                           証明書サービスが停止されました。                                                                                                            |
+|         786          |                                                                                             証明書サービスのセキュリティ権限が変更されました。                                                                                             |
+|         787          |                                                                                                  証明書サービスがアーカイブキーを取得しました。                                                                                                   |
+|         788          |                                                                                           証明書サービスが証明書をデータベースにインポートしました。                                                                                           |
+|         789          |                                                                                                 証明書サービスの監査フィルターが変更されました。                                                                                                 |
+|         790          |                                                                                                証明書サービスが証明書要求を受け取りました。                                                                                                |
+|         791          |                                                                                   証明書サービスが証明書要求を承認し、証明書を発行しました。                                                                                    |
+|         792          |                                                                                                 証明書サービスが証明書要求を拒否しました。                                                                                                 |
+|         793          |                                                                                      証明書サービスが証明書要求のステータスを保留中に設定しました。                                                                                      |
+|         794          |                                                                                         証明書サービスの証明書マネージャー設定が変更されました。                                                                                         |
+|         795          |                                                                                               証明書サービスの構成エントリが変更されました。                                                                                               |
+|         796          |                                                                                                    証明書サービスのプロパティが変更されました。                                                                                                     |
+|         797          |                                                                                                        証明書サービスがキーをアーカイブしました。                                                                                                        |
+|         798          |                                                                                                 証明書サービスがキーをインポートしてアーカイブしました。                                                                                                  |
+|         799          |                                                                                       証明書サービスがCA証明書をActive Directoryに発行しました。                                                                                       |
+|         800          |                                                                                         証明書データベースから1つ以上の行が削除されました。                                                                                          |
+|         801          |                                                                                                              ロール分離が有効になりました。                                                                                                              |
 
-## Related topics
+## 関連トピック
 
-- [Basic security audit policy settings](basic-security-audit-policy-settings.md)
-
-
+- [基本的なセキュリティ監査ポリシー設定](basic-security-audit-policy-settings.md)

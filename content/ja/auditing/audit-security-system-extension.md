@@ -1,6 +1,6 @@
 ---
-title: Audit Security System Extension 
-description: The Advanced Security Audit policy setting, Audit Security System Extension, determines if audit events related to security system extensions are generated.
+title: セキュリティシステム拡張の監査
+description: 高度なセキュリティ監査ポリシー設定である「セキュリティシステム拡張の監査」は、セキュリティシステム拡張に関連する監査イベントが生成されるかどうかを決定します。
 ms.assetid: 9f3c6bde-42b2-4a0a-b353-ed3106ebc005
 ms.reviewer: 
 manager: aaroncz
@@ -14,36 +14,34 @@ ms.date: 09/06/2021
 ms.topic: reference
 ---
 
-# Audit Security System Extension
+# セキュリティシステム拡張の監査
 
+セキュリティシステム拡張の監査には、認証パッケージ、通知パッケージ、またはセキュリティパッケージの読み込みに関する情報、および信頼されたログオンプロセス登録イベントに関する情報が含まれます。
 
-Audit Security System Extension contains information about the loading of an authentication package, notification package, or security package, plus information about trusted logon process registration events.
+オペレーティングシステムにおけるセキュリティシステム拡張の変更には、次の活動が含まれます：
 
-Changes to security system extensions in the operating system include the following activities:
+- セキュリティ拡張コードが読み込まれる（例：認証、通知、またはセキュリティパッケージ）。セキュリティ拡張コードはローカルセキュリティ機関に登録され、ログオン試行の認証、ログオン要求の送信、およびアカウントまたはパスワードの変更の通知に使用され、信頼されます。この拡張コードの例としては、KerberosやNTLMなどのセキュリティサポートプロバイダーがあります。
 
--   Security extension code is loaded (for example, an authentication, notification, or security package). Security extension code registers with the Local Security Authority and will be used and trusted to authenticate logon attempts, submit logon requests, and be notified of any account or password changes. Examples of this extension code are Security Support Providers, such as Kerberos and NTLM.
+- サービスがインストールされる。サービスがサービスコントロールマネージャに登録されると、監査ログが生成されます。監査ログには、サービス名、バイナリ、タイプ、開始タイプ、およびサービスアカウントに関する情報が含まれます。
 
--   A service is installed. An audit log is generated when a service is registered with the Service Control Manager. The audit log contains information about the service name, binary, type, start type, and service account.
+セキュリティシステム拡張やサービスのインストールまたは読み込みの試行は、セキュリティ侵害を示す可能性のある重要なシステムイベントです。
 
-Attempts to install or load security system extensions or services are critical system events that could indicate a security breach.
+**イベントボリューム**: 低。
 
-**Event volume**: Low.
-
-| Computer Type     | General Success | General Failure | Stronger Success | Stronger Failure | Comments                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| コンピュータタイプ | 一般的な成功 | 一般的な失敗 | 強力な成功 | 強力な失敗 | コメント                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 |-------------------|-----------------|-----------------|------------------|------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Domain Controller | Yes             | No              | Yes              | No               | The main reason why we recommend Success auditing for this subcategory is “[4697](event-4697.md)(S): A service was installed in the system.” <br>For other events, we strongly recommend monitoring an allowlist of allowed security extensions (authenticated packages, logon processes, notification packages, and security packages). Otherwise it's hard to pull useful information from these events, except event 4611 which typically should have “SYSTEM” as value for **“Subject”** field.<br>This subcategory doesn’t have Failure events, so there is no recommendation to enable Failure auditing for this subcategory. |
-| Member Server     | Yes             | No              | Yes              | No               | The main reason why we recommend Success auditing for this subcategory is “[4697](event-4697.md)(S): A service was installed in the system.” <br>For other events, we strongly recommend monitoring an allowlist of allowed security extensions (authenticated packages, logon processes, notification packages, and security packages). Otherwise it's hard to pull useful information from these events, except event 4611 which typically should display “SYSTEM” for the **“Subject”** field.<br>This subcategory doesn’t have Failure events, so there is no recommendation to enable Failure auditing for this subcategory.   |
-| Workstation       | Yes             | No              | Yes              | No               | The main reason why we recommend Success auditing for this subcategory is “[4697](event-4697.md)(S): A service was installed in the system.” <br>For other events, we strongly recommend monitoring an allowlist of allowed security extensions (authenticated packages, logon processes, notification packages, and security packages). Otherwise it's hard to pull useful information from these events, except event 4611 which typically should display “SYSTEM” for the **“Subject”** field.<br>This subcategory doesn’t have Failure events, so there is no recommendation to enable Failure auditing for this subcategory.   |
+| ドメインコントローラ | はい             | いいえ              | はい              | いいえ               | このサブカテゴリの成功監査を推奨する主な理由は「[4697](event-4697.md)(S): システムにサービスがインストールされました。」です。<br>他のイベントについては、許可されたセキュリティ拡張（認証パッケージ、ログオンプロセス、通知パッケージ、およびセキュリティパッケージ）の許可リストを監視することを強くお勧めします。そうでなければ、これらのイベントから有用な情報を引き出すのは難しいです。イベント4611は通常、「SYSTEM」が**「Subject」**フィールドの値であるべきです。<br>このサブカテゴリには失敗イベントがないため、失敗監査を有効にする推奨事項はありません。 |
+| メンバーサーバー     | はい             | いいえ              | はい              | いいえ               | このサブカテゴリの成功監査を推奨する主な理由は「[4697](event-4697.md)(S): システムにサービスがインストールされました。」です。<br>他のイベントについては、許可されたセキュリティ拡張（認証パッケージ、ログオンプロセス、通知パッケージ、およびセキュリティパッケージ）の許可リストを監視することを強くお勧めします。そうでなければ、これらのイベントから有用な情報を引き出すのは難しいです。イベント4611は通常、「SYSTEM」が**「Subject」**フィールドの値であるべきです。<br>このサブカテゴリには失敗イベントがないため、失敗監査を有効にする推奨事項はありません。   |
+| ワークステーション       | はい             | いいえ              | はい              | いいえ               | このサブカテゴリの成功監査を推奨する主な理由は「[4697](event-4697.md)(S): システムにサービスがインストールされました。」です。<br>他のイベントについては、許可されたセキュリティ拡張（認証パッケージ、ログオンプロセス、通知パッケージ、およびセキュリティパッケージ）の許可リストを監視することを強くお勧めします。そうでなければ、これらのイベントから有用な情報を引き出すのは難しいです。イベント4611は通常、「SYSTEM」が**「Subject」**フィールドの値であるべきです。<br>このサブカテゴリには失敗イベントがないため、失敗監査を有効にする推奨事項はありません。   |
 
-**Events List:**
+**イベントリスト:**
 
--   [4610](event-4610.md)(S): An authentication package has been loaded by the Local Security Authority.
+-   [4610](event-4610.md)(S): 認証パッケージがローカルセキュリティ機関によってロードされました。
 
--   [4611](event-4611.md)(S): A trusted logon process has been registered with the Local Security Authority.
+-   [4611](event-4611.md)(S): 信頼されたログオンプロセスがローカルセキュリティ機関に登録されました。
 
--   [4614](event-4614.md)(S): A notification package has been loaded by the Security Account Manager.
+-   [4614](event-4614.md)(S): 通知パッケージがセキュリティアカウントマネージャによってロードされました。
 
--   [4622](event-4622.md)(S): A security package has been loaded by the Local Security Authority.
+-   [4622](event-4622.md)(S): セキュリティパッケージがローカルセキュリティ機関によってロードされました。
 
--   [4697](event-4697.md)(S): A service was installed in the system.
-
+-   [4697](event-4697.md)(S): サービスがシステムにインストールされました。

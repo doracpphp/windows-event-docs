@@ -1,6 +1,6 @@
 ---
-title: 4622(S) A security package has been loaded by the Local Security Authority. 
-description: Describes security event 4622(S) A security package has been loaded by the Local Security Authority.
+title: 4622(S) ローカル セキュリティ機関によってセキュリティ パッケージが読み込まれました。
+description: セキュリティ イベント 4622(S) ローカル セキュリティ機関によってセキュリティ パッケージが読み込まれました。
 ms.pagetype: security
 ms.mktglfcycl: deploy
 ms.sitesec: library
@@ -13,28 +13,27 @@ ms.author: vinpa
 ms.topic: reference
 ---
 
-# 4622(S): A security package has been loaded by the Local Security Authority.
-
+# 4622(S): ローカル セキュリティ機関によってセキュリティ パッケージが読み込まれました。
 
 <img src="images/event-4622.png" alt="Event 4622 illustration" width="449" height="317" hspace="10" align="left" />
 
-***Subcategory:***&nbsp;[Audit Security System Extension](audit-security-system-extension.md)
+***サブカテゴリ:***&nbsp;[セキュリティ システム拡張の監査](audit-security-system-extension.md)
 
-***Event Description:***
+***イベントの説明:***
 
-This event generates every time [Security Package](/windows/win32/secauthn/ssp-aps-versus-ssps) has been loaded by the Local Security Authority ([LSA](/windows/win32/secauthn/lsa-authentication)).
+このイベントは、[セキュリティ パッケージ](/windows/win32/secauthn/ssp-aps-versus-ssps)がローカル セキュリティ機関 ([LSA](/windows/win32/secauthn/lsa-authentication)) によって読み込まれるたびに生成されます。
 
-Security Package is the software implementation of a security protocol (Kerberos, NTLM, for example). Security packages are contained in security support provider DLLs or security support provider/authentication package DLLs.
+セキュリティ パッケージは、セキュリティ プロトコル (例えば Kerberos、NTLM) のソフトウェア実装です。セキュリティ パッケージは、セキュリティ サポート プロバイダー DLL またはセキュリティ サポート プロバイダー/認証パッケージ DLL に含まれています。
 
-Each time the system starts, the LSA loads the Security Package DLLs from **HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Lsa\\OSConfig\\Security Packages** registry value and performs the initialization sequence for every package located in these DLLs.
+システムが起動するたびに、LSA は **HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Lsa\\OSConfig\\Security Packages** レジストリ値からセキュリティ パッケージ DLL を読み込み、これらの DLL にあるすべてのパッケージの初期化シーケンスを実行します。
 
-It is also possible to add security package dynamically using [AddSecurityPackage](/windows/win32/api/sspi/nf-sspi-addsecuritypackagea) function, not only during system startup process.
+また、システムの起動プロセス中だけでなく、[AddSecurityPackage](/windows/win32/api/sspi/nf-sspi-addsecuritypackagea) 関数を使用して動的にセキュリティ パッケージを追加することも可能です。
 
-> **Note**&nbsp;&nbsp;For recommendations, see [Security Monitoring Recommendations](#security-monitoring-recommendations) for this event.
+> **注**&nbsp;&nbsp;推奨事項については、このイベントの[セキュリティ監視の推奨事項](#security-monitoring-recommendations)を参照してください。
 
 <br clear="all">
 
-***Event XML:***
+***イベント XML:***
 ```
 - <Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
 - <System>
@@ -60,17 +59,17 @@ It is also possible to add security package dynamically using [AddSecurityPackag
 
 ```
 
-***Required Server Roles:*** None.
+***必要なサーバー ロール:*** なし。
 
-***Minimum OS Version:*** Windows Server 2008, Windows Vista.
+***最小 OS バージョン:*** Windows Server 2008、Windows Vista。
 
-***Event Versions:*** 0.
+***イベント バージョン:*** 0。
 
-***Field Descriptions:***
+***フィールドの説明:***
 
-**Security Package Name** \[Type = UnicodeString\]**:** the name of loaded Security Package. The format is: DLL\_PATH\_AND\_NAME: SECURITY\_PACKAGE\_NAME.
+**セキュリティ パッケージ名** \[タイプ = UnicodeString\]**:** 読み込まれたセキュリティ パッケージの名前。形式は DLL\_PATH\_AND\_NAME: SECURITY\_PACKAGE\_NAME です。
 
-These are some Security Package DLLs loaded by default in Windows 10:
+これらは、Windows 10でデフォルトで読み込まれるいくつかのセキュリティパッケージDLLです：
 
 -   C:\\Windows\\system32\\schannel.DLL : Microsoft Unified Security Protocol Provider
 
@@ -92,8 +91,8 @@ These are some Security Package DLLs loaded by default in Windows 10:
 
 -   C:\\Windows\\system32\\lsasrv.dll : Negotiate
 
-## Security Monitoring Recommendations
+## セキュリティ監視の推奨事項
 
-For 4622(S): A security package has been loaded by the Local Security Authority.
+4622(S): ローカルセキュリティ機関によってセキュリティパッケージが読み込まれました。
 
--   Typically this event has an informational purpose. If you defined the list of allowed Security Packages in the system, then you can check is “**Security Package Name”** field value in the allowlist or not.
+-   通常、このイベントは情報提供を目的としています。システムで許可されたセキュリティパッケージのリストを定義している場合、「**セキュリティパッケージ名**」フィールドの値が許可リストにあるかどうかを確認できます。

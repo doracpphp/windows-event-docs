@@ -1,6 +1,6 @@
 ---
-title: Audit Other Privilege Use Events 
-description: Learn about the audit other privilege use events, an auditing subcategory that should not have any events in it but enables generation of event 4985(S).
+title: 他の特権使用イベントの監査
+description: イベントを含まないはずの監査サブカテゴリである他の特権使用イベントについて学び、イベント 4985(S) の生成を有効にする方法を説明します。
 ms.assetid: 5f7f5b25-42a6-499f-8aa2-01ac79a2a63c
 ms.reviewer: 
 manager: aaroncz
@@ -14,19 +14,18 @@ ms.date: 09/06/2021
 ms.topic: reference
 ---
 
-# Audit Other Privilege Use Events
+# 他の特権使用イベントの監査
 
+この監査サブカテゴリにはイベントが含まれていないはずですが、何らかの理由で成功監査がイベント [4985(S): トランザクションの状態が変更されました](/windows/security/threat-protection/auditing/event-4985) の生成を有効にします。
 
-This auditing subcategory should not have any events in it, but for some reason Success auditing will enable the generation of event [4985(S): The state of a transaction has changed](/windows/security/threat-protection/auditing/event-4985).
+| コンピューターの種類 | 一般的な成功 | 一般的な失敗 | 強化された成功 | 強化された失敗 | コメント                                                                 |
+|-----------------------|---------------|---------------|----------------|----------------|--------------------------------------------------------------------------|
+| ドメインコントローラー | いいえ        | いいえ        | いいえ         | いいえ         | この監査サブカテゴリには情報提供イベントが含まれていません。                             |
+| メンバーサーバー       | いいえ        | いいえ        | いいえ         | いいえ         | この監査サブカテゴリには情報提供イベントが含まれていません。                             |
+| ワークステーション     | いいえ        | いいえ        | いいえ         | いいえ         | この監査サブカテゴリには情報提供イベントが含まれていません。                             |
 
-| Computer Type     | General Success | General Failure | Stronger Success | Stronger Failure | Comments                                                              |
-|-------------------|-----------------|-----------------|------------------|------------------|-----------------------------------------------------------------------|
-| Domain Controller | No              | No              | No               | No               | This auditing subcategory doesn’t have any informative events inside. |
-| Member Server     | No              | No              | No               | No               | This auditing subcategory doesn’t have any informative events inside. |
-| Workstation       | No              | No              | No               | No               | This auditing subcategory doesn’t have any informative events inside. |
+**イベントリスト:**
 
-**Events List:**
-
--   [4985](event-4985.md)(S): The state of a transaction has changed.
+-   [4985](event-4985.md)(S): トランザクションの状態が変更されました。
 
 

@@ -1,6 +1,6 @@
 ---
-title: 4614(S) A notification package has been loaded by the Security Account Manager. 
-description: Describes security event 4614(S) A notification package has been loaded by the Security Account Manager.
+title: 4614(S) セキュリティ アカウント マネージャーによって通知パッケージが読み込まれました。
+description: セキュリティ イベント 4614(S) セキュリティ アカウント マネージャーによって通知パッケージが読み込まれました。について説明します。
 ms.pagetype: security
 ms.mktglfcycl: deploy
 ms.sitesec: library
@@ -13,28 +13,28 @@ ms.author: vinpa
 ms.topic: reference
 ---
 
-# 4614(S): A notification package has been loaded by the Security Account Manager.
+# 4614(S): セキュリティ アカウント マネージャーによって通知パッケージが読み込まれました。
 
 
 <img src="images/event-4614.png" alt="Event 4614 illustration" width="449" height="317" hspace="10" align="left" />
 
-***Subcategory:***&nbsp;[Audit Security System Extension](audit-security-system-extension.md)
+***サブカテゴリー:***&nbsp;[セキュリティ システム拡張の監査](audit-security-system-extension.md)
 
-***Event Description:***
+***イベントの説明:***
 
-This event generates every time a Notification Package has been loaded by the [Security Account Manager](/previous-versions/windows/it-pro/windows-server-2003/cc756748(v=ws.10)).
+このイベントは、[セキュリティ アカウント マネージャー](/previous-versions/windows/it-pro/windows-server-2003/cc756748(v=ws.10))によって通知パッケージが読み込まれるたびに生成されます。
 
-In reality, starting with Windows Vista, a notification package should be interpreted as afs [Password Filter](/windows/win32/secmgmt/password-filters).
+実際には、Windows Vista 以降、通知パッケージは afs [パスワード フィルター](/windows/win32/secmgmt/password-filters)として解釈されるべきです。
 
-Password Filters are DLLs that are loaded or called when passwords are set or changed.
+パスワード フィルターは、パスワードが設定または変更されるときに読み込まれるか呼び出される DLL です。
 
-Each time a system starts, it loads the notification package DLLs from **HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Lsa\\Notification Packages** registry value and performs the initialization sequence for every package.
+システムが起動するたびに、**HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Lsa\\Notification Packages** レジストリ値から通知パッケージ DLL を読み込み、各パッケージの初期化シーケンスを実行します。
 
-> **Note**&nbsp;&nbsp;For recommendations, see [Security Monitoring Recommendations](#security-monitoring-recommendations) for this event.
+> **注**&nbsp;&nbsp;推奨事項については、このイベントの[セキュリティ監視の推奨事項](#security-monitoring-recommendations)を参照してください。
 
 <br clear="all">
 
-***Event XML:***
+***イベント XML:***
 ```
 - <Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
 - <System>
@@ -60,18 +60,18 @@ Each time a system starts, it loads the notification package DLLs from **HKEY\_L
 
 ```
 
-***Required Server Roles:*** None.
+***必要なサーバーの役割:*** なし。
 
-***Minimum OS Version:*** Windows Server 2008, Windows Vista.
+***最小 OS バージョン:*** Windows Server 2008, Windows Vista。
 
-***Event Versions:*** 0.
+***イベントバージョン:*** 0。
 
-***Field Descriptions:***
+***フィールドの説明:***
 
-**Notification Package Name** \[Type = UnicodeString\]**:** the name of loaded Notification Package.
+**通知パッケージ名** \[型 = UnicodeString\]**:** 読み込まれた通知パッケージの名前。
 
-## Security Monitoring Recommendations
+## セキュリティ監視の推奨事項
 
-For 4614(S): A notification package has been loaded by the Security Account Manager.
+4614(S): セキュリティ アカウント マネージャーによって通知パッケージが読み込まれました。
 
--   Typically this event has an informational purpose. If you defined the list of allowed Notification Packages in the system, then you can check is “**Notification Package Name”** field value in the allow list or not.
+-   通常、このイベントは情報提供を目的としています。システムで許可された通知パッケージのリストを定義している場合は、「**通知パッケージ名**」フィールドの値が許可リストに含まれているかどうかを確認できます。

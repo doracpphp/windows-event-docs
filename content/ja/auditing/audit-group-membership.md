@@ -1,6 +1,6 @@
 ---
-title: Audit Group Membership 
-description: Using the advanced security audit policy setting, Audit Group Membership, you can audit group memberships when they're enumerated on the client PC.
+title: 監査グループメンバーシップ
+description: 高度なセキュリティ監査ポリシー設定を使用して、監査グループメンバーシップを使用すると、クライアントPCで列挙されたときにグループメンバーシップを監査できます。
 ms.assetid: 1CD7B014-FBD9-44B9-9274-CC5715DE58B9
 ms.reviewer: 
 manager: aaroncz
@@ -14,32 +14,30 @@ ms.date: 09/06/2021
 ms.topic: reference
 ---
 
-# Audit Group Membership
+# 監査グループメンバーシップ
 
+監査グループメンバーシップを使用すると、クライアントコンピューターで列挙されたときにグループメンバーシップを監査できます。
 
-By using Audit Group Membership, you can audit group memberships when they're enumerated on the client computer.
+このポリシーを使用すると、ユーザーのログオン トークン内のグループ メンバーシップ情報を監査できます。このサブカテゴリのイベントは、ログオン セッションが作成されたコンピューターで生成されます。
 
-This policy allows you to audit the group membership information in the user's logon token. Events in this subcategory are generated on the computer on which a logon session is created.
+インタラクティブなログオンの場合、セキュリティ監査イベントはユーザーがログオンしたコンピューターで生成されます。ネットワークログオンの場合（たとえば、ネットワーク上の共有フォルダーにアクセスする場合）、セキュリティ監査イベントはリソースをホストしているコンピューターで生成されます。
 
-For an interactive logon, the security audit event is generated on the computer that the user logged on to. For a network logon, such as accessing a shared folder on the network, the security audit event is generated on the computer hosting the resource.
+[監査ログオン](audit-logon.md) サブカテゴリも有効にする必要があります。
 
-You must also enable the [Audit Logon](audit-logon.md) subcategory.
+グループメンバーシップ情報が単一のセキュリティ監査イベントに収まらない場合、複数のイベントが生成されます。
 
-Multiple events are generated if the group membership information cannot fit in a single security audit event
+**イベントボリューム**:
 
-**Event volume**:
+- クライアントコンピューターでは低い。
 
-- Low on a client computer.
+- ドメインコントローラーまたはネットワークサーバーでは中程度。
 
-- Medium on a domain controller or network servers.
-
-| Computer Type     | General Success | General Failure | Stronger Success | Stronger Failure | Comments                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| コンピューターの種類 | 一般的な成功 | 一般的な失敗 | 強力な成功 | 強力な失敗 | コメント                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 |-------------------|-----------------|-----------------|------------------|------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Domain Controller | Yes             | No              | Yes              | No               | Group membership information for a logged-in user can help to detect that member of specific domain or local group logged in to the machine (for example, member of database administrators, built-in local administrators, domain administrators, service accounts group, or other high value groups).<br>For recommendations for using and analyzing the collected information, see the ***Security Monitoring Recommendations*** sections.<br>This subcategory doesn’t have Failure events, so this subcategory doesn't have a recommendation to enable Failure auditing. |
-| Member Server     | Yes             | No              | Yes              | No               | Group membership information for logged in user can help to detect that member of specific domain or local group logged in to the machine (for example, member of database administrators, built-in local administrators, domain administrators, service accounts group, or other high value groups).<br>For recommendations for using and analyzing the collected information, see the ***Security Monitoring Recommendations*** sections.<br>This subcategory doesn’t have Failure events, so this subcategory doesn't have a recommendation to enable Failure auditing. |
-| Workstation       | Yes             | No              | Yes              | No               | Group membership information for a logged-in user can help to detect that member of specific domain or local group logged in to the machine (for example, member of database administrators, built-in local administrators, domain administrators, service accounts group, or other high value groups).<br>For recommendations for using and analyzing the collected information, see the ***Security Monitoring Recommendations*** sections.<br>This subcategory doesn’t have Failure events, so this subcategory doesn't have a recommendation to enable Failure auditing. |
+| ドメインコントローラー | はい             | いいえ              | はい              | いいえ               | ログインしたユーザーのグループメンバーシップ情報は、特定のドメインまたはローカルグループのメンバーがマシンにログインしたことを検出するのに役立ちます（たとえば、データベース管理者、組み込みのローカル管理者、ドメイン管理者、サービスアカウントグループ、またはその他の高価値グループのメンバー）。<br>収集された情報の使用と分析に関する推奨事項については、***セキュリティ監視の推奨事項***セクションを参照してください。<br>このサブカテゴリには失敗イベントがないため、失敗監査を有効にする推奨事項はありません。 |
+| メンバーサーバー     | はい             | いいえ              | はい              | いいえ               | ログインしたユーザーのグループメンバーシップ情報は、特定のドメインまたはローカルグループのメンバーがマシンにログインしたことを検出するのに役立ちます（たとえば、データベース管理者、組み込みのローカル管理者、ドメイン管理者、サービスアカウントグループ、またはその他の高価値グループのメンバー）。<br>収集された情報の使用と分析に関する推奨事項については、***セキュリティ監視の推奨事項***セクションを参照してください。<br>このサブカテゴリには失敗イベントがないため、失敗監査を有効にする推奨事項はありません。 |
+| ワークステーション       | はい             | いいえ              | はい              | いいえ               | ログインしたユーザーのグループメンバーシップ情報は、特定のドメインまたはローカルグループのメンバーがマシンにログインしたことを検出するのに役立ちます（たとえば、データベース管理者、組み込みのローカル管理者、ドメイン管理者、サービスアカウントグループ、またはその他の高価値グループのメンバー）。<br>収集された情報の使用と分析に関する推奨事項については、***セキュリティ監視の推奨事項***セクションを参照してください。<br>このサブカテゴリには失敗イベントがないため、失敗監査を有効にする推奨事項はありません。 |
 
-**Events List:**
+**イベントリスト:**
 
--   [4627](event-4627.md)(S): Group membership information.
-
+-   [4627](event-4627.md)(S): グループメンバーシップ情報。

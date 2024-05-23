@@ -1,6 +1,6 @@
 ---
-title: 1100(S) The event logging service has shut down. 
-description: Describes security event 1100(S) The event logging service has shut down.
+title: 1100(S) イベント ログ サービスがシャットダウンしました。
+description: セキュリティ イベント 1100(S) イベント ログ サービスがシャットダウンしました。について説明します。
 ms.pagetype: security
 ms.mktglfcycl: deploy
 ms.sitesec: library
@@ -13,26 +13,26 @@ ms.author: vinpa
 ms.topic: reference
 ---
 
-# 1100(S): The event logging service has shut down.
+# 1100(S): イベント ログ サービスがシャットダウンしました。
 
 
 <img src="images/event-1100.png" alt="Event 1100 illustration" width="449" height="317" hspace="10" align="left" />
 
-***Subcategory:***&nbsp;[Other Events](other-events.md)
+***サブカテゴリ:***&nbsp;[その他のイベント](other-events.md)
 
-***Event Description:***
+***イベントの説明:***
 
-This event generates every time Windows Event Log service has shut down.
+このイベントは、Windows イベント ログ サービスがシャットダウンするたびに生成されます。
 
-It also generates during normal system shutdown.
+通常のシステム シャットダウン中にも生成されます。
 
-This event doesn’t generate during emergency system reset.
+このイベントは、緊急システム リセット中には生成されません。
 
-> **Note**&nbsp;&nbsp;For recommendations, see [Security Monitoring Recommendations](#security-monitoring-recommendations) for this event.
+> **注**&nbsp;&nbsp;推奨事項については、このイベントの[セキュリティ監視の推奨事項](#security-monitoring-recommendations)を参照してください。
 
 <br clear="all">
 
-***Event XML:***
+***イベント XML:***
 ```
 - <Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
 - <System>
@@ -58,17 +58,16 @@ This event doesn’t generate during emergency system reset.
 
 ```
 
-***Required Server Roles:*** None.
+***必要なサーバー ロール:*** なし。
 
-***Minimum OS Version:*** Windows Server 2008, Windows Vista.
+***最小 OS バージョン:*** Windows Server 2008、Windows Vista。
 
-***Event Versions:*** 0.
+***イベント バージョン:*** 0。
 
-## Security Monitoring Recommendations
+## セキュリティ監視の推奨事項
 
-For 1100(S): The event logging service has shut down.
+1100(S): イベント ログ サービスがシャットダウンしました。
 
--   With this event, you can track system shutdowns and restarts.
+-   このイベントを使用して、システムのシャットダウンと再起動を追跡できます。
 
--   This event also can be a sign of malicious action when someone tried to shut down the Log Service to cover his or her activity.
-
+-   このイベントは、誰かがログ サービスをシャットダウンして活動を隠そうとした場合の悪意のある行動の兆候である可能性もあります。

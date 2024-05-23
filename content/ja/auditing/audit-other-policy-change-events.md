@@ -1,6 +1,6 @@
 ---
-title: Audit Other Policy Change Events 
-description: The policy setting, Audit Other Policy Change Events, determines if audit events are generated for security policy changes that are not otherwise audited.
+title: 他のポリシー変更イベントの監査
+description: ポリシー設定「他のポリシー変更イベントの監査」は、他の方法で監査されないセキュリティポリシーの変更について監査イベントが生成されるかどうかを決定します。
 ms.assetid: 8618502e-c21c-41cc-8a49-3dc1eb359e60
 ms.reviewer: 
 manager: aaroncz
@@ -14,50 +14,48 @@ ms.date: 09/06/2021
 ms.topic: reference
 ---
 
-# Audit Other Policy Change Events
+# 他のポリシー変更イベントの監査
 
+他のポリシー変更イベントの監査には、EFSデータ回復エージェントポリシーの変更、Windowsフィルタリングプラットフォームフィルターの変更、ローカルグループポリシー設定のセキュリティポリシー設定の更新状況、中央アクセスポリシーの変更、および暗号化次世代（CNG）操作の詳細なトラブルシューティングイベントに関するイベントが含まれます。
 
-Audit Other Policy Change Events contains events about EFS Data Recovery Agent policy changes, changes in Windows Filtering Platform filter, status on Security policy settings updates for local Group Policy settings, Central Access Policy changes, and detailed troubleshooting events for Cryptographic Next Generation (CNG) operations.
+**イベントボリューム**: 低。
 
-**Event volume**: Low.
+| コンピューターの種類 | 一般的な成功 | 一般的な失敗 | 強化された成功 | 強化された失敗 | コメント                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+|-----------------------|---------------|---------------|------------------|------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ドメインコントローラー | IF            | Yes           | IF               | Yes              | IF - グループポリシーの更新中に多くの回数生成され、通常はWindowsフィルタリングプラットフォームフィルターのトラブルシューティング目的で使用されるイベント「5447: Windowsフィルタリングプラットフォームフィルターが変更されました」があるため、成功監査を推奨しません。しかし、たとえばブート構成データや中央アクセスポリシーの変更を監視する必要がある場合、このサブカテゴリの成功監査を有効にする必要があります。<br>グループポリシーから適用されたセキュリティ設定のエラーや暗号化次世代（CNG）機能に関連する失敗イベントを検出するために、失敗監査を推奨します。 |
+| メンバーサーバー     | IF            | Yes           | IF               | Yes              | IF - グループポリシーの更新中に多くの回数生成され、通常はWindowsフィルタリングプラットフォームフィルターのトラブルシューティング目的で使用されるイベント「5447: Windowsフィルタリングプラットフォームフィルターが変更されました」があるため、成功監査を推奨しません。しかし、たとえばブート構成データや中央アクセスポリシーの変更を監視する必要がある場合、このサブカテゴリの成功監査を有効にする必要があります。<br>グループポリシーから適用されたセキュリティ設定のエラーや暗号化次世代（CNG）機能に関連する失敗イベントを検出するために、失敗監査を推奨します。 |
+| ワークステーション   | IF            | Yes           | IF               | Yes              | IF - グループポリシーの更新中に多くの回数生成され、通常はWindowsフィルタリングプラットフォームフィルターのトラブルシューティング目的で使用されるイベント「5447: Windowsフィルタリングプラットフォームフィルターが変更されました」があるため、成功監査を推奨しません。しかし、たとえばブート構成データや中央アクセスポリシーの変更を監視する必要がある場合、このサブカテゴリの成功監査を有効にする必要があります。<br>グループポリシーから適用されたセキュリティ設定のエラーや暗号化次世代（CNG）機能に関連する失敗イベントを検出するために、失敗監査を推奨します。 |
 
-| Computer Type     | General Success | General Failure | Stronger Success | Stronger Failure | Comments                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-|-------------------|-----------------|-----------------|------------------|------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Domain Controller | IF              | Yes             | IF               | Yes              | IF - We do not recommend Success auditing because of event “5447: A Windows Filtering Platform filter has been changed”—this event generates many times during group policy updates and typically is used for troubleshooting purposes for Windows Filtering Platform filters. But you would still need to enable Success auditing for this subcategory if, for example, you must monitor changes in Boot Configuration Data or Central Access Policies.<br>We recommend Failure auditing, to detect errors in applied Security settings which came from Group Policy, and failure events related to Cryptographic Next Generation (CNG) functions. |
-| Member Server     | IF              | Yes             | IF               | Yes              | IF - We do not recommend Success auditing because of event “5447: A Windows Filtering Platform filter has been changed”—this event generates many times during group policy updates and typically is used for troubleshooting purposes for Windows Filtering Platform filters. But you would still need to enable Success auditing for this subcategory if, for example, you must monitor changes in Boot Configuration Data or Central Access Policies.<br>We recommend Failure auditing, to detect errors in applied Security settings which came from Group Policy, and failure events related to Cryptographic Next Generation (CNG) functions. |
-| Workstation       | IF              | Yes             | IF               | Yes              | IF - We do not recommend Success auditing because of event “5447: A Windows Filtering Platform filter has been changed”—this event generates many times during group policy updates and typically is used for troubleshooting purposes for Windows Filtering Platform filters. But you would still need to enable Success auditing for this subcategory if, for example, you must monitor changes in Boot Configuration Data or Central Access Policies.<br>We recommend Failure auditing, to detect errors in applied Security settings which came from Group Policy, and failure events related to Cryptographic Next Generation (CNG) functions. |
+**イベントリスト:**
 
-**Events List:**
+-   [4714](event-4714.md)(S): 暗号化データ回復ポリシーが変更されました。
 
--   [4714](event-4714.md)(S): Encrypted data recovery policy was changed.
+-   [4819](event-4819.md)(S): マシン上の中央アクセスポリシーが変更されました。
 
--   [4819](event-4819.md)(S): Central Access Policies on the machine have been changed.
+-   [4826](event-4826.md)(S): ブート構成データが読み込まれました。
 
--   [4826](event-4826.md)(S): Boot Configuration Data loaded.
+-   [4909](event-4909.md)(-): TBSのローカルポリシー設定が変更されました。
 
--   [4909](event-4909.md)(-): The local policy settings for the TBS were changed.
+-   [4910](event-4910.md)(-): TBSのグループポリシー設定が変更されました。
 
--   [4910](event-4910.md)(-): The group policy settings for the TBS were changed.
+-   [5063](event-5063.md)(S, F): 暗号プロバイダー操作が試行されました。
 
--   [5063](event-5063.md)(S, F): A cryptographic provider operation was attempted.
+-   [5064](event-5064.md)(S, F): 暗号コンテキスト操作が試行されました。
 
--   [5064](event-5064.md)(S, F): A cryptographic context operation was attempted.
+-   [5065](event-5065.md)(S, F): 暗号コンテキストの変更が試行されました。
 
--   [5065](event-5065.md)(S, F): A cryptographic context modification was attempted.
+-   [5066](event-5066.md)(S, F): 暗号関数操作が試行されました。
 
--   [5066](event-5066.md)(S, F): A cryptographic function operation was attempted.
+-   [5067](event-5067.md)(S, F): 暗号関数の変更が試行されました。
 
--   [5067](event-5067.md)(S, F): A cryptographic function modification was attempted.
+-   [5068](event-5068.md)(S, F): 暗号関数プロバイダー操作が試行されました。
 
--   [5068](event-5068.md)(S, F): A cryptographic function provider operation was attempted.
+-   [5069](event-5069.md)(S, F): 暗号関数プロパティ操作が試行されました。
 
--   [5069](event-5069.md)(S, F): A cryptographic function property operation was attempted.
+-   [5070](event-5070.md)(S, F): 暗号関数プロパティの変更が試行されました。
 
--   [5070](event-5070.md)(S, F): A cryptographic function property modification was attempted.
+-   [5447](event-5447.md)(S): Windowsフィルタリングプラットフォームフィルターが変更されました。
 
--   [5447](event-5447.md)(S): A Windows Filtering Platform filter has been changed.
+-   [6144](event-6144.md)(S): グループポリシーオブジェクトのセキュリティポリシーが正常に適用されました。
 
--   [6144](event-6144.md)(S): Security policy in the group policy objects has been applied successfully.
-
--   [6145](event-6145.md)(F): One or more errors occurred while processing security policy in the group policy objects.
-
+-   [6145](event-6145.md)(F): グループポリシーオブジェクトのセキュリティポリシー処理中に1つ以上のエラーが発生しました。

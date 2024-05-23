@@ -1,6 +1,6 @@
 ---
-title: Apply a basic audit policy on a file or folder
-description: Apply audit policies to individual files and folders on your computer by setting the permission type to record access attempts in the security log.
+title: ファイルまたはフォルダーに基本的な監査ポリシーを適用する
+description: セキュリティログにアクセス試行を記録するために、ファイルやフォルダーに監査ポリシーを適用します。
 ms.assetid: 565E7249-5CD0-4B2E-B2C0-B3A0793A51E2
 ms.reviewer:
 ms.author: vinpa
@@ -18,54 +18,55 @@ ms.topic: reference
 ms.date: 09/06/2021
 ---
 
-# Apply a basic audit policy on a file or folder
+# ファイルまたはフォルダーに基本的な監査ポリシーを適用する
 
-You can apply audit policies to individual files and folders on your computer by setting the permission type to record successful access attempts or failed access attempts in the security log.
+セキュリティログに成功したアクセス試行や失敗したアクセス試行を記録するために、ファイルやフォルダーに監査ポリシーを適用できます。
 
-To complete this procedure, you must be signed in as a member of the built-in Administrators group or have **Manage auditing and security log** rights.
+この手順を完了するには、組み込みの管理者グループのメンバーとしてサインインしているか、**監査とセキュリティログの管理**権限を持っている必要があります。
 
-**To apply or modify auditing policy settings for a local file or folder**
+**ローカルファイルまたはフォルダーの監査ポリシー設定を適用または変更するには**
 
-1.  Select and hold (or right-click) the file or folder that you want to audit, select **Properties**, and then select the **Security** tab.
-2.  Select **Advanced**.
-3.  In the **Advanced Security Settings** dialog box, select the **Auditing** tab, and then select **Continue**.
-4.  Do one of the following tasks:
-    -   To set up auditing for a new user or group, select **Add**. Select **Select a principal**, type the name of the user or group that you want, and then select **OK**.
-    -   To remove auditing for an existing group or user, select the group or user name, select **Remove**, select **OK**, and then skip the rest of this procedure.
-    -   To view or change auditing for an existing group or user, select its name, and then select **Edit.**
-5.  In the **Type** box, indicate what actions you want to audit by selecting the appropriate check boxes:
-    -   To audit successful events, select **Success.**
-    -   To audit failure events, select **Fail.**
-    -   To audit all events, select **All.**
+1.  監査したいファイルまたはフォルダーを選択して長押し（または右クリック）し、**プロパティ**を選択してから**セキュリティ**タブを選択します。
+2.  **詳細設定**を選択します。
+3.  **詳細なセキュリティ設定**ダイアログボックスで、**監査**タブを選択し、**続行**を選択します。
+4.  次のいずれかのタスクを実行します:
+    -   新しいユーザーまたはグループの監査を設定するには、**追加**を選択します。**プリンシパルの選択**を選択し、監査したいユーザーまたはグループの名前を入力して、**OK**を選択します。
+    -   既存のグループまたはユーザーの監査を削除するには、グループまたはユーザー名を選択し、**削除**を選択してから**OK**を選択し、この手順をスキップします。
+    -   既存のグループまたはユーザーの監査を表示または変更するには、その名前を選択し、**編集**を選択します。
+5.  **種類**ボックスで、監査したいアクションを適切なチェックボックスを選択して示します:
+    -   成功イベントを監査するには、**成功**を選択します。
+    -   失敗イベントを監査するには、**失敗**を選択します。
+    -   すべてのイベントを監査するには、**すべて**を選択します。
 
 
 
-6.  In the **Applies to** box, select the object(s) to which the audit of events will apply. These objects include:
+6.  **適用先**ボックスで、イベントの監査が適用されるオブジェクトを選択します。これらのオブジェクトには以下が含まれます:
 
-    -   **This folder only**
-    -   **This folder, subfolders and files**
-    -   **This folder and subfolders**
-    -   **This folder and files**
-    -   **Subfolders and files only**
-    -   **Subfolders only**
-    -   **Files only**
+    -   **このフォルダーのみ**
+    -   **このフォルダー、サブフォルダーおよびファイル**
+    -   **このフォルダーおよびサブフォルダー**
+    -   **このフォルダーおよびファイル**
+    -   **サブフォルダーおよびファイルのみ**
+    -   **サブフォルダーのみ**
+    -   **ファイルのみ**
 
-7.  By default, the selected **Basic Permissions** to audit are the following:
-    -   **Read and execute**
-    -   **List folder contents**
-    -   **Read**
-    -   Additionally, with your selected audit combination, you can select any combination of the following permissions:
-          - **Full control**
-          - **Modify**
-          - **Write**
+7.  デフォルトでは、監査対象として選択される**基本的な権限**は以下の通りです：
+    -   **読み取りおよび実行**
+    -   **フォルダーの内容を一覧表示**
+    -   **読み取り**
+    -   さらに、選択した監査の組み合わせにより、以下の権限の任意の組み合わせを選択できます：
+          - **完全制御**
+          - **変更**
+          - **書き込み**
 
 > [!IMPORTANT]
-> Before you set up auditing for files and folders, you must enable [object access auditing](basic-audit-object-access.md). To do this, define auditing policy settings for the object access event category. If you don't enable object access auditing, you'll receive an error message when you set up auditing for files and folders, and no files or folders will be audited.
+> ファイルとフォルダーの監査を設定する前に、[オブジェクトアクセス監査](basic-audit-object-access.md)を有効にする必要があります。これを行うには、オブジェクトアクセスイベントカテゴリの監査ポリシー設定を定義します。オブジェクトアクセス監査を有効にしないと、ファイルとフォルダーの監査を設定する際にエラーメッセージが表示され、ファイルやフォルダーは監査されません。
  
-## More considerations
+## その他の考慮事項
 
--   After you turn on object access auditing, view the security log in Event Viewer to review the results of your changes.
--   You can set up file and folder auditing only on NTFS drives.
--   Because the security log is limited in size, carefully select the files and folders to be audited. Also, consider the amount of disk space that you want to devote to the security log. The maximum size for the security log is defined in Event Viewer.
+-   オブジェクトアクセス監査を有効にした後、Event Viewerのセキュリティログを表示して変更結果を確認します。
+-   ファイルとフォルダーの監査はNTFSドライブでのみ設定できます。
+-   セキュリティログのサイズには制限があるため、監査対象のファイルとフォルダーを慎重に選択してください。また、セキュリティログに割り当てるディスクスペースの量も考慮してください。セキュリティログの最大サイズはEvent Viewerで定義されています。
  
  
+

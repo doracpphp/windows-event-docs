@@ -1,6 +1,6 @@
 ---
-title: 1104(S) The security log is now full. 
-description: This event generates every time Windows security log becomes full and the event log retention method is set to Do not overwrite events.
+title: 1104(S) セキュリティログがいっぱいになりました。
+description: このイベントは、Windowsセキュリティログがいっぱいになり、イベントログの保持方法が「イベントを上書きしない」に設定されている場合に毎回生成されます。
 ms.pagetype: security
 ms.mktglfcycl: deploy
 ms.sitesec: library
@@ -13,24 +13,23 @@ ms.author: vinpa
 ms.topic: reference
 ---
 
-# 1104(S): The security log is now full.
-
+# 1104(S): セキュリティログがいっぱいになりました。
 
 <img src="images/event-1104.png" alt="Event 1104 illustration" width="449" height="317" hspace="10" align="left" />
 
-***Subcategory:***&nbsp;[Other Events](other-events.md)
+***サブカテゴリ:***&nbsp;[その他のイベント](other-events.md)
 
-***Event Description:***
+***イベントの説明:***
 
-This event generates every time Windows security log becomes full.
+このイベントは、Windowsセキュリティログがいっぱいになるたびに生成されます。
 
-This event generates, for example, if the maximum size of Security Event Log file was reached and event log retention method is: “[Do not overwrite events (Clear logs manually)](/previous-versions/windows/it-pro/windows-server-2003/cc778402(v=ws.10))”.
+たとえば、セキュリティイベントログファイルの最大サイズに達し、イベントログの保持方法が「[イベントを上書きしない（手動でログをクリア）](/previous-versions/windows/it-pro/windows-server-2003/cc778402(v=ws.10))」に設定されている場合に、このイベントが生成されます。
 
-> **Note**&nbsp;&nbsp;For recommendations, see [Security Monitoring Recommendations](#security-monitoring-recommendations) for this event.
+> **注**&nbsp;&nbsp;推奨事項については、このイベントの[セキュリティ監視の推奨事項](#security-monitoring-recommendations)を参照してください。
 
 <br clear="all">
 
-***Event XML:***
+***イベント XML:***
 ```
 - <Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
 - <System>
@@ -56,12 +55,12 @@ This event generates, for example, if the maximum size of Security Event Log fil
 
 ```
 
-***Required Server Roles:*** None.
+***必要なサーバー役割:*** なし。
 
-***Minimum OS Version:*** Windows Server 2008, Windows Vista.
+***最小 OS バージョン:*** Windows Server 2008, Windows Vista。
 
-***Event Versions:*** 0.
+***イベントバージョン:*** 0。
 
-## Security Monitoring Recommendations
+## セキュリティ監視の推奨事項
 
--   If the Security event log retention method is set to “[Do not overwrite events (Clear logs manually)](/previous-versions/windows/it-pro/windows-server-2003/cc778402(v=ws.10))”, then this event will indicate that log file is full and you need to perform immediate actions, for example, archive the log or clear it.
+-   セキュリティイベントログの保持方法が「[イベントを上書きしない（手動でログをクリア）](/previous-versions/windows/it-pro/windows-server-2003/cc778402(v=ws.10))」に設定されている場合、このイベントはログファイルがいっぱいであり、ログをアーカイブするかクリアするなどの即時のアクションが必要であることを示します。

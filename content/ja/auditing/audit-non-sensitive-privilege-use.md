@@ -1,6 +1,6 @@
 ---
-title: Audit Non-Sensitive Privilege Use 
-description: This article for the IT professional describes the Advanced Security Audit policy setting, Audit Non-Sensitive Privilege Use, which determines whether the operating system generates audit events when non-sensitive privileges (user rights) are used.
+title: 非機密特権の使用を監査する
+description: IT プロフェッショナル向けの記事で、非機密特権の使用を監査するという高度なセキュリティ監査ポリシー設定について説明します。これは、非機密特権（ユーザー権利）が使用されたときにオペレーティング システムが監査イベントを生成するかどうかを決定します。
 ms.assetid: 8fd74783-1059-443e-aa86-566d78606627
 ms.reviewer: 
 manager: aaroncz
@@ -14,72 +14,68 @@ ms.date: 09/06/2021
 ms.topic: reference
 ---
 
-# Audit Non-Sensitive Privilege Use
+# 非機密特権の使用を監査する
 
+非機密特権の使用を監査するには、非機密特権の使用を示すイベントが含まれます。これは非機密特権のリストです：
 
-Audit Non-Sensitive Privilege Use contains events that show usage of non-sensitive privileges. This is the list of non-sensitive privileges:
+-   信頼された呼び出し元として資格情報マネージャーにアクセスする
 
--   Access Credential Manager as a trusted caller
+-   ワークステーションをドメインに追加する
 
--   Add workstations to domain
+-   プロセスのメモリ割り当てを調整する
 
--   Adjust memory quotas for a process
+-   トラバース チェックをバイパスする
 
--   Bypass traverse checking
+-   システム時刻を変更する
 
--   Change the system time
+-   タイム ゾーンを変更する
 
--   Change the time zone
+-   ページ ファイルを作成する
 
--   Create a page file
+-   グローバル オブジェクトを作成する
 
--   Create global objects
+-   永続的な共有オブジェクトを作成する
 
--   Create permanent shared objects
+-   シンボリック リンクを作成する
 
--   Create symbolic links
+-   リモート システムからシャットダウンを強制する
 
--   Force shutdown from a remote system
+-   プロセスの作業セットを増やす
 
--   Increase a process working set
+-   スケジューリング優先度を上げる
 
--   Increase scheduling priority
+-   メモリ内のページをロックする
 
--   Lock pages in memory
+-   オブジェクト ラベルを変更する
 
--   Modify an object label
+-   ボリューム メンテナンス タスクを実行する
 
--   Perform volume maintenance tasks
+-   単一プロセスのプロファイルを作成する
 
--   Profile single process
+-   システム パフォーマンスをプロファイルする
 
--   Profile system performance
+-   コンピューターをドッキング ステーションから取り外す
 
--   Remove computer from docking station
+-   システムをシャットダウンする
 
--   Shut down the system
+-   ディレクトリ サービス データを同期する
 
--   Synchronize directory service data
+このサブカテゴリには、ファイルシステム トランザクション マネージャーからの情報イベントも含まれます。
 
-This subcategory also contains informational events from filesystem Transaction Manager.
+このポリシー設定を構成すると、非機密特権が呼び出されたときに監査イベントが生成されます。成功監査は成功した試行を記録し、失敗監査は失敗した試行を記録します。
 
-If you configure this policy setting, an audit event is generated when a non-sensitive privilege is called. Success audits record successful attempts, and failure audits record unsuccessful attempts.
+**イベント ボリューム**: 非常に高い。
 
-**Event volume**: Very High.
+| コンピューターの種類 | 一般的な成功 | 一般的な失敗 | 強化された成功 | 強化された失敗 | コメント                                                                                                                                                                                                                                                                                                                                                                                                           |
+|-----------------------|---------------|---------------|------------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ドメイン コントローラー | いいえ        | IF            | いいえ           | IF               | 成功監査はイベントのボリュームが非常に高く、通常は [機密特権の使用を監査する](audit-sensitive-privilege-use.md) サブカテゴリのイベントほど重要ではないため、お勧めしません。<br>IF – 非機密特権の使用に失敗した試行に関する情報が必要な場合、例えば **SeShutdownPrivilege** や **SeRemoteShutdownPrivilege** など、失敗監査を有効にすることができます。 |
+| メンバー サーバー     | いいえ        | IF            | いいえ           | IF               | 成功監査はイベントのボリュームが非常に高く、通常は [機密特権の使用を監査する](audit-sensitive-privilege-use.md) サブカテゴリのイベントほど重要ではないため、お勧めしません。<br>IF – 非機密特権の使用に失敗した試行に関する情報が必要な場合、例えば **SeShutdownPrivilege** や **SeRemoteShutdownPrivilege** など、失敗監査を有効にすることができます。 |
+| ワークステーション   | いいえ        | IF            | いいえ           | IF               | 成功監査はイベントのボリュームが非常に高く、通常は [機密特権の使用を監査する](audit-sensitive-privilege-use.md) サブカテゴリのイベントほど重要ではないため、お勧めしません。<br>IF – 非機密特権の使用に失敗した試行に関する情報が必要な場合、例えば **SeShutdownPrivilege** や **SeRemoteShutdownPrivilege** など、失敗監査を有効にすることができます。 |
 
-| Computer Type     | General Success | General Failure | Stronger Success | Stronger Failure | Comments                                                                                                                                                                                                                                                                                                                                                                                                            |
-|-------------------|-----------------|-----------------|------------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Domain Controller | No              | IF              | No               | IF               | We do not recommend Success auditing because the volume of events is very high and typically they are not as important as events from [Audit Sensitive Privilege Use](audit-sensitive-privilege-use.md) subcategory.<br>IF – You can enable Failure auditing if you need information about failed attempts to use non-sensitive privileges, for example, **SeShutdownPrivilege** or **SeRemoteShutdownPrivilege**. |
-| Member Server     | No              | IF              | No               | IF               | We do not recommend Success auditing because the volume of events is very high and typically they are not as important as events from [Audit Sensitive Privilege Use](audit-sensitive-privilege-use.md) subcategory.<br>IF – You can enable Failure auditing if you need information about failed attempts to use non-sensitive privileges, for example, **SeShutdownPrivilege** or **SeRemoteShutdownPrivilege**. |
-| Workstation       | No              | IF              | No               | IF               | We do not recommend Success auditing because the volume of events is very high and typically they are not as important as events from [Audit Sensitive Privilege Use](audit-sensitive-privilege-use.md) subcategory.<br>IF – You can enable Failure auditing if you need information about failed attempts to use non-sensitive privileges, for example, **SeShutdownPrivilege** or **SeRemoteShutdownPrivilege**. |
+**イベントリスト:**
 
-**Events List:**
+-   [4673](event-4673.md)(S, F): 特権サービスが呼び出されました。
 
--   [4673](event-4673.md)(S, F): A privileged service was called.
+-   [4674](event-4674.md)(S, F): 特権オブジェクトに対して操作が試みられました。
 
--   [4674](event-4674.md)(S, F): An operation was attempted on a privileged object.
-
--   [4985](event-4985.md)(S): The state of a transaction has changed.
-
-
-
+-   [4985](event-4985.md)(S): トランザクションの状態が変更されました。

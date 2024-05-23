@@ -1,6 +1,6 @@
 ---
-title: 4608(S) Windows is starting up. 
-description: Describes security event 4608(S) Windows is starting up. This event is logged when the LSASS.EXE process starts and the auditing subsystem is initialized.
+title: 4608(S) Windows が起動しています。
+description: LSASS.EXE プロセスが開始され、監査サブシステムが初期化されたときに記録されるセキュリティ イベント 4608(S) Windows が起動していますについて説明します。
 ms.pagetype: security
 ms.mktglfcycl: deploy
 ms.sitesec: library
@@ -13,25 +13,25 @@ ms.author: vinpa
 ms.topic: reference
 ---
 
-# 4608(S): Windows is starting up.
+# 4608(S): Windows が起動しています。
 
 
 <img src="images/event-4608.png" alt="Event 4608 illustration" width="449" height="317" hspace="10" align="top" />
 
-***Subcategory:***&nbsp;[Audit Security State Change](audit-security-state-change.md)
+***サブカテゴリ:***&nbsp;[セキュリティ状態の変更の監査](audit-security-state-change.md)
 
-***Event Description:***
+***イベントの説明:***
 
-This event is logged when LSASS.EXE process starts and the auditing subsystem is initialized.
+このイベントは、LSASS.EXE プロセスが開始され、監査サブシステムが初期化されたときに記録されます。
 
-It typically generates during operating system startup process.
+通常、オペレーティング システムの起動プロセス中に生成されます。
 
 > [!NOTE]
-> For recommendations, see [Security Monitoring Recommendations](#security-monitoring-recommendations) for this event.
+> 推奨事項については、このイベントの[セキュリティ監視の推奨事項](#security-monitoring-recommendations)を参照してください。
 
 <br clear="all">
 
-***Event XML:***
+***イベント XML:***
 ```xml
 - <Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
 - <System>
@@ -55,15 +55,14 @@ It typically generates during operating system startup process.
 
 ```
 
-***Required Server Roles:*** None.
+***必要なサーバー ロール:*** なし。
 
-***Minimum OS Version:*** Windows Server 2008, Windows Vista.
+***最小 OS バージョン:*** Windows Server 2008、Windows Vista。
 
-***Event Versions:*** 0.
+***イベント バージョン:*** 0。
 
-## Security Monitoring Recommendations
+## セキュリティ監視の推奨事項
 
-For 4608(S): Windows is starting up.
+4608(S): Windows が起動しています。
 
--   With this event, you can track system startup events.
-
+-   このイベントを使用して、システムの起動イベントを追跡できます。

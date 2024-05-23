@@ -1,6 +1,6 @@
 ---
-title: Audit account logon events
-description: Determines whether to audit each instance of a user logging on to or logging off from another device in which this device is used to validate the account.
+title: アカウントログオンイベントの監査
+description: このデバイスがアカウントを検証するために使用される場合に、他のデバイスでユーザーがログオンまたはログオフするたびに監査するかどうかを決定します。
 ms.assetid: 84B44181-E325-49A1-8398-AECC3CE0A516
 ms.reviewer:
 ms.author: vinpa
@@ -15,37 +15,34 @@ ms.topic: reference
 ms.date: 09/06/2021
 ---
 
-# Audit account logon events
+# アカウントログオンイベントの監査
 
+このデバイスがアカウントを検証するために使用される場合に、他のデバイスでユーザーがログオンまたはログオフするたびに監査するかどうかを決定します。
 
-Determines whether to audit each instance of a user logging on to or logging off from another device in which this device is used to validate the account.
+このセキュリティ設定は、このコンピューターがアカウントを検証するために使用される場合に、他のコンピューターでユーザーがログオンまたはログオフするたびに監査するかどうかを決定します。アカウントログオンイベントは、ドメインユーザーアカウントがドメインコントローラーで認証されたときに生成されます。このイベントはドメインコントローラーのセキュリティログに記録されます。ログオンイベントは、ローカルユーザーがローカルコンピューターで認証されたときに生成されます。このイベントはローカルのセキュリティログに記録されます。アカウントログオフイベントは生成されません。
 
-This security setting determines whether to audit each instance of a user logging on to or logging off from another computer in which this computer is used to validate the account. Account logon events are generated when a domain user account is authenticated on a domain controller. The event is logged in the domain controller's security log. Logon events are generated when a local user is authenticated on a local computer. The event is logged in the local security log. Account logoff events are not generated.
+このポリシー設定を定義すると、成功の監査、失敗の監査、またはイベントタイプをまったく監査しないかを指定できます。成功の監査は、アカウントログオンの試行が成功したときに監査エントリを生成します。失敗の監査は、アカウントログオンの試行が失敗したときに監査エントリを生成します。
+この値を **監査なし** に設定するには、このポリシー設定の **プロパティ** ダイアログボックスで **これらのポリシー設定を定義する** チェックボックスを選択し、**成功** と **失敗** チェックボックスをクリアします。
 
-If you define this policy setting, you can specify whether to audit successes, audit failures, or not audit the event type at all. Success audits generate an audit entry when an account logon attempt succeeds. Failure audits generate an audit entry when an account logon attempt fails.
-To set this value to **No auditing**, in the **Properties** dialog box for this policy setting, select the **Define these policy settings** check box and clear the **Success** and **Failure** check boxes.
+**デフォルト**: 成功
 
-**Default**: Success
+## この監査設定を構成する
 
-## Configure this audit setting
+コンピューターの構成\\Windowsの設定\\セキュリティの設定\\ローカルポリシー\\監査ポリシーの下にある適切なポリシーを開いて、このセキュリティ設定を構成できます。
 
-You can configure this security setting by opening the appropriate policy under Computer Configuration\\Windows Settings\\Security Settings\\Local Policies\\Audit Policy.
+| ログオンイベント | 説明                                                                                                                          |
+|------------------|--------------------------------------------------------------------------------------------------------------------------------|
+| 672              | 認証サービス (AS) チケットが正常に発行および検証されました。                                                                 |
+| 673              | チケット授与サービス (TGS) チケットが発行されました。                                                                         |
+| 674              | セキュリティプリンシパルがASチケットまたはTGSチケットを更新しました。                                                        |
+| 675              | 事前認証に失敗しました。このイベントは、ユーザーが間違ったパスワードを入力したときにキー配布センター (KDC) で生成されます。   |
+| 676              | 認証チケットの要求に失敗しました。このイベントは、Windows XP または Windows Server 2003 ファミリでは生成されません。          |
+| 677              | TGSチケットが発行されませんでした。このイベントは、Windows XP または Windows Server 2003 ファミリでは生成されません。          |
+| 678              | アカウントが正常にドメインアカウントにマップされました。                                                                      |
+| 681              | ログオン失敗。ドメインアカウントのログオンが試行されました。このイベントは、Windows XP または Windows Server 2003 ファミリでは生成されません。 |
+| 682              | ユーザーが切断されたターミナルサーバーセッションに再接続しました。                                                            |
+| 683              | ユーザーがログオフせずにターミナルサーバーセッションを切断しました。                                                           |
 
-| Logon events | Description                                                                                                                          |
-|--------------|--------------------------------------------------------------------------------------------------------------------------------------|
-| 672          | An authentication service (AS) ticket was successfully issued and validated.                                                         |
-| 673          | A ticket granting service (TGS) ticket was granted.                                                                                  |
-| 674          | A security principal renewed an AS ticket or TGS ticket.                                                                             |
-| 675          | Preauthentication failed. This event is generated on a Key Distribution Center (KDC) when a user types in an incorrect password.     |
-| 676          | Authentication ticket request failed. This event is not generated in Windows XP or in the Windows Server 2003 family.                |
-| 677          | A TGS ticket was not granted. This event is not generated in Windows XP or in the Windows Server 2003 family.                        |
-| 678          | An account was successfully mapped to a domain account.                                                                              |
-| 681          | Logon failure. A domain account logon was attempted. This event is not generated in Windows XP or in the Windows Server 2003 family. |
-| 682          | A user has reconnected to a disconnected terminal server session.                                                                    |
-| 683          | A user disconnected a terminal server session without logging off.                                                                   |
+## 関連トピック
 
-## Related topics
-
-- [Basic security audit policy settings](basic-security-audit-policy-settings.md)
-
-
+- [基本的なセキュリティ監査ポリシー設定](basic-security-audit-policy-settings.md)

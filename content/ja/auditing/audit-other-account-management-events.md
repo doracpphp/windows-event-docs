@@ -1,6 +1,6 @@
 ---
-title: Audit Other Account Management Events 
-description: The Advanced Security Audit policy setting, Audit Other Account Management Events, determines if user account management audit events are generated.
+title: その他のアカウント管理イベントの監査
+description: 高度なセキュリティ監査ポリシー設定である「その他のアカウント管理イベントの監査」は、ユーザーアカウント管理の監査イベントが生成されるかどうかを決定します。
 ms.assetid: 4ce22eeb-a96f-4cf9-a46d-6642961a31d5
 ms.reviewer: 
 manager: aaroncz
@@ -14,28 +14,26 @@ ms.date: 09/06/2021
 ms.topic: reference
 ---
 
-# Audit Other Account Management Events
+# その他のアカウント管理イベントの監査
 
+その他のアカウント管理イベントの監査は、オペレーティングシステムがユーザーアカウント管理の監査イベントを生成するかどうかを決定します。
 
-Audit Other Account Management Events determines whether the operating system generates user account management audit events.
+**イベントボリューム:** すべての種類のコンピュータで通常は低い。
 
-**Event volume:** Typically Low on all types of computers.
+このサブカテゴリでは、次のイベントを監査できます：
 
-This subcategory allows you to audit next events:
+- ユーザーアカウントのパスワードハッシュがアクセスされました。これは、Active Directory 管理ツールのパスワード移行中に発生します。
 
--   The password hash of a user account was accessed. This happens during an Active Directory Management Tool password migration.
+- パスワードポリシーチェック API が呼び出されました。パスワードポリシーチェック API は、アプリケーションがアプリケーション提供のアカウントデータベースまたは単一アカウントに対してパスワードの準拠性をチェックし、パスワードポリシーの複雑さ、エージング、最小長、および履歴再利用要件を満たしていることを確認できるようにします。
 
--   The Password Policy Checking API was called. Password Policy Checking API allows an application to check password compliance against an application-provided account database or single account and verify that passwords meet the complexity, aging, minimum length, and history reuse requirements of a password policy.
-
-| Computer Type     | General Success | General Failure | Stronger Success | Stronger Failure | Comments                                                                                                                                                                                                                                                                                                                                                          |
+| コンピュータの種類 | 一般的な成功 | 一般的な失敗 | 強化された成功 | 強化された失敗 | コメント                                                                                                                                                                                                                                                                                                                                                          |
 |-------------------|-----------------|-----------------|------------------|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Domain Controller | Yes             | No              | Yes              | No               | The only reason to enable Success auditing on domain controllers is to monitor “[4782](event-4782.md)(S): The password hash of an account was accessed.”<br>This subcategory doesn’t have Failure events, so there is no recommendation to enable Failure auditing for this subcategory.                                                             |
-| Member Server     | No              | No              | No               | No               | The only event which is generated on Member Servers is “[4793](event-4793.md)(S): The Password Policy Checking API was called.”, this event is a typical information event with little to no security relevance. <br>This subcategory doesn’t have Failure events, so there is no recommendation to enable Failure auditing for this subcategory. |
-| Workstation       | No              | No              | No               | No               | The only event which is generated on Workstations is “[4793](event-4793.md)(S): The Password Policy Checking API was called.”, this event is a typical information event with little to no security relevance. <br>This subcategory doesn’t have Failure events, so there is no recommendation to enable Failure auditing for this subcategory.   |
+| ドメインコントローラー | はい             | いいえ              | はい              | いいえ               | ドメインコントローラーで成功監査を有効にする唯一の理由は、「[4782](event-4782.md)(S): アカウントのパスワードハッシュがアクセスされました。」を監視するためです。<br>このサブカテゴリには失敗イベントがないため、このサブカテゴリの失敗監査を有効にすることは推奨されません。                                                             |
+| メンバーサーバー     | いいえ              | いいえ              | いいえ              | いいえ               | メンバーサーバーで生成される唯一のイベントは、「[4793](event-4793.md)(S): パスワードポリシーチェック API が呼び出されました。」であり、このイベントはセキュリティ関連性がほとんどない典型的な情報イベントです。 <br>このサブカテゴリには失敗イベントがないため、このサブカテゴリの失敗監査を有効にすることは推奨されません。 |
+| ワークステーション       | いいえ              | いいえ              | いいえ              | いいえ               | ワークステーションで生成される唯一のイベントは、「[4793](event-4793.md)(S): パスワードポリシーチェック API が呼び出されました。」であり、このイベントはセキュリティ関連性がほとんどない典型的な情報イベントです。 <br>このサブカテゴリには失敗イベントがないため、このサブカテゴリの失敗監査を有効にすることは推奨されません。   |
 
-**Events List:**
+**イベントリスト:**
 
--   [4782](event-4782.md)(S): The password hash of an account was accessed.
+-   [4782](event-4782.md)(S): アカウントのパスワードハッシュがアクセスされました。
 
--   [4793](event-4793.md)(S): The Password Policy Checking API was called.
-
+-   [4793](event-4793.md)(S): パスワードポリシーチェックAPIが呼び出されました。

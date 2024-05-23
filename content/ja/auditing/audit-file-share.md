@@ -1,6 +1,6 @@
 ---
-title: Audit File Share 
-description: The Advanced Security Audit policy setting, Audit File Share, determines if the operating system generates audit events when a file share is accessed.
+title: 監査ファイル共有
+description: 高度なセキュリティ監査ポリシー設定である監査ファイル共有は、ファイル共有にアクセスされたときにオペレーティングシステムが監査イベントを生成するかどうかを決定します。
 ms.assetid: 9ea985f8-8936-4b79-abdb-35cbb7138f78
 ms.reviewer: 
 manager: aaroncz
@@ -14,38 +14,36 @@ ms.date: 09/06/2021
 ms.topic: reference
 ---
 
-# Audit File Share
+# 監査ファイル共有
 
+監査ファイル共有を使用すると、ファイル共有に関連するイベント（作成、削除、変更、およびアクセス試行）を監査できます。また、失敗したSMB SPNチェックも表示されます。
 
-Audit File Share allows you to audit events related to file shares: creation, deletion, modification, and access attempts. Also, it shows failed SMB SPN checks.
+共有にはシステムアクセス制御リスト（SACL）がないため、この設定を有効にすると、システム上のすべての共有へのアクセスが監査されます。
 
-There are no system access control lists (SACLs) for shares; therefore, after this setting is enabled, access to all shares on the system will be audited.
+ファイルシステム監査と組み合わせることで、ファイル共有監査は、どのコンテンツがアクセスされたか、リクエストの発信元（IPアドレスとポート）、およびアクセスに使用されたユーザーアカウントを追跡することができます。
 
-Combined with File System auditing, File Share auditing enables you to track what content was accessed, the source (IP address and port) of the request, and the user account that was used for the access.
+**イベントボリューム**:
 
-**Event volume**:
+- ファイルサーバーで高い。
 
--   High on file servers.
+- グループポリシーによって必要とされるSYSVOLネットワークアクセスのため、ドメインコントローラーで高い。
 
--   High on domain controllers because of SYSVOL network access required by Group Policy.
+- メンバーサーバーおよびワークステーションで低い。
 
--   Low on member servers and workstations.
-
-| Computer Type     | General Success | General Failure | Stronger Success | Stronger Failure | Comments                                                                                                                                                                                                                                                                  |
+| コンピュータータイプ | 一般的な成功 | 一般的な失敗 | 強力な成功 | 強力な失敗 | コメント                                                                                                                                                                                                                                                                  |
 |-------------------|-----------------|-----------------|------------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Domain Controller | Yes             | Yes             | Yes              | Yes              | We recommend Success auditing for domain controllers, because it’s important to track deletion, creation, and modification events for network shares.<br>We recommend Failure auditing to track failed SMB SPN checks and failed access attempts to network shares. |
-| Member Server     | Yes             | Yes             | Yes              | Yes              | We recommend Success auditing to track deletion, creation, modification, and access attempts to network share objects.<br>We recommend Failure auditing to track failed SMB SPN checks and failed access attempts to network shares.                                |
-| Workstation       | Yes             | Yes             | Yes              | Yes              | We recommend Success auditing to track deletion, creation, modification and access attempts to network share objects.<br>We recommend Failure auditing to track failed SMB SPN checks and failed access attempts to network shares.                                 |
+| ドメインコントローラー | はい             | はい             | はい              | はい              | ネットワーク共有の削除、作成、および変更イベントを追跡するために、ドメインコントローラーに対して成功監査を推奨します。<br>失敗したSMB SPNチェックおよびネットワーク共有への失敗したアクセス試行を追跡するために、失敗監査を推奨します。 |
+| メンバーサーバー     | はい             | はい             | はい              | はい              | ネットワーク共有オブジェクトの削除、作成、変更、およびアクセス試行を追跡するために、成功監査を推奨します。<br>失敗したSMB SPNチェックおよびネットワーク共有への失敗したアクセス試行を追跡するために、失敗監査を推奨します。                                |
+| ワークステーション       | はい             | はい             | はい              | はい              | ネットワーク共有オブジェクトの削除、作成、変更、およびアクセス試行を追跡するために、成功監査を推奨します。<br>失敗したSMB SPNチェックおよびネットワーク共有への失敗したアクセス試行を追跡するために、失敗監査を推奨します。                                 |
 
-**Events List:**
+**イベントリスト:**
 
--   [5140](event-5140.md)(S, F): A network share object was accessed.
+-   [5140](event-5140.md)(S, F): ネットワーク共有オブジェクトがアクセスされました。
 
--   [5142](event-5142.md)(S): A network share object was added.
+-   [5142](event-5142.md)(S): ネットワーク共有オブジェクトが追加されました。
 
--   [5143](event-5143.md)(S): A network share object was modified.
+-   [5143](event-5143.md)(S): ネットワーク共有オブジェクトが変更されました。
 
--   [5144](event-5144.md)(S): A network share object was deleted.
+-   [5144](event-5144.md)(S): ネットワーク共有オブジェクトが削除されました。
 
--   [5168](event-5168.md)(F): SPN check for SMB/SMB2 failed.
-
+-   [5168](event-5168.md)(F): SMB/SMB2のSPNチェックに失敗しました。

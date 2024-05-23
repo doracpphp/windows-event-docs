@@ -1,6 +1,6 @@
 ---
-title: 4672(S) Special privileges assigned to new logon. 
-description: Describes security event 4672(S) Special privileges assigned to new logon.
+title: 4672(S) 新しいログオンに割り当てられた特権
+description: セキュリティイベント4672(S) 新しいログオンに割り当てられた特権について説明します。
 ms.pagetype: security
 ms.mktglfcycl: deploy
 ms.sitesec: library
@@ -13,50 +13,49 @@ ms.author: vinpa
 ms.topic: reference
 ---
 
-# 4672(S): Special privileges assigned to new logon.
-
+# 4672(S): 新しいログオンに割り当てられた特権
 
 <img src="images/event-4672.png" alt="Event 4672 illustration" width="449" height="503" hspace="10" align="left" />
 </br>
-<b><em>Subcategory:</em></b>&nbsp;<a href="audit-special-logon.md" data-raw-source="[Audit Special Logon](audit-special-logon.md)">Audit Special Logon</a>
+<b><em>サブカテゴリ:</em></b>&nbsp;<a href="audit-special-logon.md" data-raw-source="[Audit Special Logon](audit-special-logon.md)">特別なログオンの監査</a>
 
-***Event Description:***
+***イベントの説明:***
 
-This event generates for new account logons if any of the following sensitive privileges are assigned to the new logon session:
+次のいずれかの機密特権が新しいログオンセッションに割り当てられている場合、このイベントは新しいアカウントのログオンに対して生成されます:
 
--   SeTcbPrivilege - Act as part of the operating system
+-   SeTcbPrivilege - オペレーティングシステムの一部として動作する
 
--   SeBackupPrivilege - Back up files and directories
+-   SeBackupPrivilege - ファイルとディレクトリのバックアップ
 
--   SeCreateTokenPrivilege - Create a token object
+-   SeCreateTokenPrivilege - トークンオブジェクトの作成
 
--   SeDebugPrivilege - Debug programs
+-   SeDebugPrivilege - プログラムのデバッグ
 
--   SeEnableDelegationPrivilege - Enable computer and user accounts to be trusted for delegation
+-   SeEnableDelegationPrivilege - 委任のためにコンピュータおよびユーザーアカウントを信頼できるようにする
 
--   SeAuditPrivilege - Generate security audits
+-   SeAuditPrivilege - セキュリティ監査の生成
 
--   SeImpersonatePrivilege - Impersonate a client after authentication
+-   SeImpersonatePrivilege - 認証後にクライアントを偽装する
 
--   SeLoadDriverPrivilege - Load and unload device drivers
+-   SeLoadDriverPrivilege - デバイスドライバのロードおよびアンロード
 
--   SeSecurityPrivilege - Manage auditing and security log
+-   SeSecurityPrivilege - 監査およびセキュリティログの管理
 
--   SeSystemEnvironmentPrivilege - Modify firmware environment values
+-   SeSystemEnvironmentPrivilege - ファームウェア環境値の変更
 
--   SeAssignPrimaryTokenPrivilege - Replace a process-level token
+-   SeAssignPrimaryTokenPrivilege - プロセスレベルのトークンの置換
 
--   SeRestorePrivilege - Restore files and directories,
+-   SeRestorePrivilege - ファイルおよびディレクトリの復元
 
--   SeTakeOwnershipPrivilege - Take ownership of files or other objects
+-   SeTakeOwnershipPrivilege - ファイルまたは他のオブジェクトの所有権を取得する
 
-You typically will see many of these events in the event log, because every logon of SYSTEM (Local System) account triggers this event.
+このイベントは、SYSTEM（ローカルシステム）アカウントのすべてのログオンがこのイベントをトリガーするため、イベントログに多く表示されることが一般的です。
 
-> **Note**&nbsp;&nbsp;For recommendations, see [Security Monitoring Recommendations](#security-monitoring-recommendations) for this event.
+> **注**&nbsp;&nbsp;推奨事項については、このイベントの[セキュリティ監視の推奨事項](#security-monitoring-recommendations)を参照してください。
 
 <br clear="all">
 
-***Event XML:***
+***イベントXML:***
 ```
 - <Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
 - <System>
@@ -85,64 +84,64 @@ You typically will see many of these events in the event log, because every logo
  </Event>
 ```
 
-***Required Server Roles:*** None.
+***必要なサーバーロール:*** なし。
 
-***Minimum OS Version:*** Windows Server 2008, Windows Vista.
+***最小OSバージョン:*** Windows Server 2008, Windows Vista.
 
-***Event Versions:*** 0.
+***イベントバージョン:*** 0.
 
-***Field Descriptions:***
+***フィールドの説明:***
 
-**Subject:**
+**サブジェクト:**
 
--   **Security ID** \[Type = SID\]**:** SID of account to which special privileges were assigned. Event Viewer automatically tries to resolve SIDs and show the account name. If the SID cannot be resolved, you will see the source data in the event.
+-   **セキュリティID** \[タイプ = SID\]**:** 特別な特権が割り当てられたアカウントのSID。イベントビューアーは自動的にSIDを解決し、アカウント名を表示しようとします。SIDが解決できない場合、イベントにはソースデータが表示されます。
 
-> **Note**&nbsp;&nbsp;A **security identifier (SID)** is a unique value of variable length used to identify a trustee (security principal). Each account has a unique SID that is issued by an authority, such as an Active Directory domain controller, and stored in a security database. Each time a user logs on, the system retrieves the SID for that user from the database and places it in the access token for that user. The system uses the SID in the access token to identify the user in all subsequent interactions with Windows security. When a SID has been used as the unique identifier for a user or group, it cannot ever be used again to identify another user or group. For more information about SIDs, see [Security identifiers](/windows/access-protection/access-control/security-identifiers).
+> **注**&nbsp;&nbsp;**セキュリティ識別子 (SID)** は、信託者（セキュリティプリンシパル）を識別するために使用される可変長の一意の値です。各アカウントには、Active Directoryドメインコントローラーなどの権限によって発行され、セキュリティデータベースに保存される一意のSIDがあります。ユーザーがログオンするたびに、システムはデータベースからそのユーザーのSIDを取得し、そのユーザーのアクセス トークンに配置します。システムは、以降のすべてのWindowsセキュリティとのやり取りでユーザーを識別するために、アクセス トークン内のSIDを使用します。ユーザーまたはグループの一意の識別子としてSIDが使用された場合、それは他のユーザーまたはグループを識別するために再利用されることはありません。SIDの詳細については、[セキュリティ識別子](/windows/access-protection/access-control/security-identifiers)を参照してください。
 
--   **Account Name** \[Type = UnicodeString\]**:** the name of the account to which special privileges were assigned.
+-   **アカウント名** \[タイプ = UnicodeString\]**:** 特別な特権が割り当てられたアカウントの名前。
 
--   **Account Domain** \[Type = UnicodeString\]**:** subject’s domain or computer name. Formats vary, and include the following:
+-   **アカウントドメイン** \[タイプ = UnicodeString\]**:** サブジェクトのドメインまたはコンピュータ名。形式はさまざまで、以下を含みます:
 
-    -   Domain NETBIOS name example: CONTOSO
+    -   ドメインNETBIOS名の例: CONTOSO
 
-    -   Lowercase full domain name: contoso.local
+    -   小文字の完全なドメイン名: contoso.local
 
-    -   Uppercase full domain name: CONTOSO.LOCAL
+    -   大文字の完全なドメイン名: CONTOSO.LOCAL
 
-    -   For some [well-known security principals](/windows/security/identity-protection/access-control/security-identifiers), such as LOCAL SERVICE or ANONYMOUS LOGON, the value of this field is “NT AUTHORITY”.
+    -   LOCAL SERVICEやANONYMOUS LOGONなどの[よく知られたセキュリティプリンシパル](/windows/security/identity-protection/access-control/security-identifiers)の場合、このフィールドの値は「NT AUTHORITY」となります。
 
-    -   For local user accounts, this field will contain the name of the computer or device that this account belongs to, for example: “Win81”.
+    -   ローカルユーザーアカウントの場合、このフィールドにはこのアカウントが属するコンピュータまたはデバイスの名前が含まれます。例: “Win81”。
 
--   **Logon ID** \[Type = HexInt64\]**:** hexadecimal value that can help you correlate this event with recent events that might contain the same Logon ID, for example, “[4624](event-4624.md): An account was successfully logged on.”
+-   **ログオンID** \[タイプ = HexInt64\]**:** このイベントを、同じログオンIDを含む可能性のある最近のイベントと関連付けるのに役立つ16進数の値。例: “[4624](event-4624.md): アカウントが正常にログオンされました。”
 
-**Privileges** \[Type = UnicodeString\]**:** the list of sensitive privileges, assigned to the new logon. The following table contains the list of possible privileges for this event:
+**特権** \[Type = UnicodeString\]**:** 新しいログオンに割り当てられた機密特権のリスト。このイベントに対する可能な特権のリストは以下の通りです:
 
-| Privilege Name                | User Right Group Policy Name                                   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| 特権名                        | ユーザー権利グループポリシー名                                   | 説明                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 |-------------------------------|----------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SeAssignPrimaryTokenPrivilege | Replace a process-level token                                  | Required to assign the [*primary token*](/windows/win32/secgloss/p-gly#_security_primary_token_gly) of a process. <br>With this privilege, the user can initiate a process to replace the default token associated with a started subprocess.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| SeAuditPrivilege              | Generate security audits                                       | With this privilege, the user can add entries to the security log.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| SeBackupPrivilege             | Back up files and directories                                  | -   Required to perform backup operations. <br>With this privilege, the user can bypass file and directory, registry, and other persistent object permissions for the purposes of backing up the system.<br>This privilege causes the system to grant all read access control to any file, regardless of the [*access control list*](/windows/win32/secgloss/a-gly#_security_access_control_list_gly) (ACL) specified for the file. Any access request other than read is still evaluated with the ACL. The following access rights are granted if this privilege is held:<br>READ\_CONTROL<br>ACCESS\_SYSTEM\_SECURITY<br>FILE\_GENERIC\_READ<br>FILE\_TRAVERSE                                                                                                                |
-| SeCreateTokenPrivilege        | Create a token object                                          | Allows a process to create a token which it can then use to get access to any local resources when the process uses NtCreateToken() or other token-creation APIs.<br>When a process requires this privilege, we recommend using the LocalSystem account (which already includes the privilege), rather than creating a separate user account and assigning this privilege to it.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| SeDebugPrivilege              | Debug programs                                                 | Required to debug and adjust the memory of a process owned by another account.<br>With this privilege, the user can attach a debugger to any process or to the kernel. We recommend that SeDebugPrivilege always be granted to Administrators, and only to Administrators. Developers who are debugging their own applications do not need this user right. Developers who are debugging new system components need this user right. This user right provides complete access to sensitive and critical operating system components.                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| SeEnableDelegationPrivilege   | Enable computer and user accounts to be trusted for delegation | Required to mark user and computer accounts as trusted for delegation.<br>With this privilege, the user can set the **Trusted for Deleg**ation setting on a user or computer object.<br>The user or object that is granted this privilege must have write access to the account control flags on the user or computer object. A server process running on a computer (or under a user context) that is trusted for delegation can access resources on another computer using the delegated credentials of a client, as long as the account of the client does not have the **Account cannot be delegated** account control flag set.                                                                                                                                                                                                                      |
-| SeImpersonatePrivilege        | Impersonate a client after authentication                      | With this privilege, the user can impersonate other accounts.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| SeLoadDriverPrivilege         | Load and unload device drivers                                 | Required to load or unload a device driver.<br>With this privilege, the user can dynamically load and unload device drivers or other code in to kernel mode. This user right does not apply to Plug and Play device drivers.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| SeRestorePrivilege            | Restore files and directories                                  | Required to perform restore operations. This privilege causes the system to grant all write access control to any file, regardless of the ACL specified for the file. Any access request other than write is still evaluated with the ACL. Additionally, this privilege enables you to set any valid user or group SID as the owner of a file. The following access rights are granted if this privilege is held:<br>WRITE\_DAC<br>WRITE\_OWNER<br>ACCESS\_SYSTEM\_SECURITY<br>FILE\_GENERIC\_WRITE<br>FILE\_ADD\_FILE<br>FILE\_ADD\_SUBDIRECTORY<br>DELETE<br>With this privilege, the user can bypass file, directory, registry, and other persistent objects permissions when restoring backed up files and directories and determines which users can set any valid security principal as the owner of an object. |
-| SeSecurityPrivilege           | Manage auditing and security log                               | Required to perform a number of security-related functions, such as controlling and viewing audit events in security event log.<br>With this privilege, the user can specify object access auditing options for individual resources, such as files, Active Directory objects, and registry keys.<br>A user with this privilege can also view and clear the security log.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| SeSystemEnvironmentPrivilege  | Modify firmware environment values                             | Required to modify the nonvolatile RAM of systems that use this type of memory to store configuration information.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| SeTakeOwnershipPrivilege      | Take ownership of files or other objects                       | Required to take ownership of an object without being granted discretionary access. This privilege allows the owner value to be set only to those values that the holder may legitimately assign as the owner of an object.<br>With this privilege, the user can take ownership of any securable object in the system, including Active Directory objects, files and folders, printers, registry keys, processes, and threads.                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| SeTcbPrivilege                | Act as part of the operating system                            | This privilege identifies its holder as part of the trusted computer base.<br>This user right allows a process to impersonate any user without authentication. The process can therefore gain access to the same local resources as that user.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| SeAssignPrimaryTokenPrivilege | プロセスレベルのトークンを置き換える                                  | プロセスの[*プライマリトークン*](/windows/win32/secgloss/p-gly#_security_primary_token_gly)を割り当てるために必要です。<br>この特権を持つユーザーは、開始されたサブプロセスに関連付けられたデフォルトのトークンを置き換えるためにプロセスを開始できます。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| SeAuditPrivilege              | セキュリティ監査を生成                                       | この特権を持つユーザーは、セキュリティログにエントリを追加できます。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| SeBackupPrivilege             | ファイルとディレクトリをバックアップ                                  | - バックアップ操作を実行するために必要です。<br>この特権を持つユーザーは、システムをバックアップする目的でファイルやディレクトリ、レジストリ、その他の永続的なオブジェクトの権限をバイパスできます。<br>この特権は、システムがファイルに対して指定された[*アクセス制御リスト*](/windows/win32/secgloss/a-gly#_security_access_control_list_gly) (ACL)に関係なく、すべての読み取りアクセス権を付与する原因となります。読み取り以外のアクセス要求はACLで評価されます。この特権が保持されている場合、以下のアクセス権が付与されます:<br>READ\_CONTROL<br>ACCESS\_SYSTEM\_SECURITY<br>FILE\_GENERIC\_READ<br>FILE\_TRAVERSE                                                                                                                |
+| SeCreateTokenPrivilege        | トークンオブジェクトを作成                                          | プロセスがNtCreateToken()や他のトークン作成APIを使用する際に、任意のローカルリソースにアクセスするためのトークンを作成できるようにします。<br>プロセスがこの特権を必要とする場合、別のユーザーアカウントを作成してこの特権を割り当てるのではなく、LocalSystemアカウント（既にこの特権を含んでいる）を使用することをお勧めします。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| SeDebugPrivilege              | プログラムをデバッグ                                                 | 他のアカウントが所有するプロセスのメモリをデバッグおよび調整するために必要です。<br>この特権を持つユーザーは、任意のプロセスまたはカーネルにデバッガをアタッチできます。SeDebugPrivilegeは常に管理者に付与され、管理者のみに付与されることをお勧めします。自分のアプリケーションをデバッグしている開発者はこのユーザー権利を必要としません。新しいシステムコンポーネントをデバッグしている開発者はこのユーザー権利を必要とします。このユーザー権利は、機密性が高く重要なオペレーティングシステムコンポーネントへの完全なアクセスを提供します。                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| SeEnableDelegationPrivilege   | 委任のために信頼されるコンピュータおよびユーザーアカウントを有効にする | ユーザーおよびコンピュータアカウントを委任のために信頼されるようにマークするために必要です。<br>この特権を持つユーザーは、ユーザーまたはコンピュータオブジェクトに**委任のために信頼される**設定を行うことができます。<br>この特権を付与されたユーザーまたはオブジェクトは、ユーザーまたはコンピュータオブジェクトのアカウント制御フラグに書き込みアクセスを持っている必要があります。委任のために信頼されるコンピュータ（またはユーザーコンテキストで実行されているサーバープロセス）は、クライアントの委任された資格情報を使用して別のコンピュータ上のリソースにアクセスできます。ただし、クライアントのアカウントに**委任できないアカウント**のアカウント制御フラグが設定されていない場合に限ります。                                                                                                                                                                                                                      |
+| SeImpersonatePrivilege        | 認証後にクライアントを偽装する                      | この特権を持つユーザーは、他のアカウントを偽装できます。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| SeLoadDriverPrivilege         | デバイスドライバをロードおよびアンロードする                                 | デバイスドライバをロードまたはアンロードするために必要です。<br>この特権を持つユーザーは、デバイスドライバや他のコードをカーネルモードに動的にロードおよびアンロードできます。このユーザー権利は、プラグアンドプレイデバイスドライバには適用されません。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| SeRestorePrivilege            | ファイルとディレクトリを復元する                                  | 復元操作を実行するために必要です。この特権は、システムがファイルに対して指定されたACLに関係なく、すべての書き込みアクセス権を付与する原因となります。書き込み以外のアクセス要求はACLで評価されます。さらに、この特権は、任意の有効なユーザーまたはグループSIDをファイルの所有者として設定できるようにします。この特権が保持されている場合、以下のアクセス権が付与されます:<br>WRITE\_DAC<br>WRITE\_OWNER<br>ACCESS\_SYSTEM\_SECURITY<br>FILE\_GENERIC\_WRITE<br>FILE\_ADD\_FILE<br>FILE\_ADD\_SUBDIRECTORY<br>DELETE<br>この特権を持つユーザーは、バックアップされたファイルやディレクトリを復元する際にファイル、ディレクトリ、レジストリ、および他の永続的なオブジェクトの権限をバイパスでき、任意の有効なセキュリティプリンシパルをオブジェクトの所有者として設定できるユーザーを決定します。 |
+| SeSecurityPrivilege           | 監査およびセキュリティログを管理する                               | セキュリティイベントログで監査イベントを制御および表示するなど、多くのセキュリティ関連機能を実行するために必要です。<br>この特権を持つユーザーは、ファイル、Active Directoryオブジェクト、およびレジストリキーなどの個々のリソースに対してオブジェクトアクセス監査オプションを指定できます。<br>この特権を持つユーザーは、セキュリティログを表示およびクリアすることもできます。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| SeSystemEnvironmentPrivilege  | ファームウェア環境値を変更する                             | このタイプのメモリを使用して構成情報を保存するシステムの不揮発性RAMを変更するために必要です。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| SeTakeOwnershipPrivilege      | ファイルや他のオブジェクトの所有権を取得する                       | 任意のアクセスを付与されることなくオブジェクトの所有権を取得するために必要です。この特権は、所有者の値を保持者が正当に所有者として割り当てることができる値にのみ設定できるようにします。<br>この特権を持つユーザーは、Active Directoryオブジェクト、ファイルおよびフォルダ、プリンタ、レジストリキー、プロセス、およびスレッドを含むシステム内の任意のセキュリティオブジェクトの所有権を取得できます。                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| SeTcbPrivilege                | オペレーティングシステムの一部として動作する                            | この特権は、その保持者を信頼されたコンピュータベースの一部として識別します。<br>このユーザー権利は、プロセスが認証なしで任意のユーザーを偽装できるようにします。したがって、プロセスはそのユーザーと同じローカルリソースにアクセスできます。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 
-## Security Monitoring Recommendations
+## セキュリティ監視の推奨事項
 
-For 4672(S): Special privileges assigned to new logon.
+4672(S): 新しいログオンに割り当てられた特権。
 
-> **Important**&nbsp;&nbsp;For this event, also see [Appendix A: Security monitoring recommendations for many audit events](appendix-a-security-monitoring-recommendations-for-many-audit-events.md).
+> **重要**&nbsp;&nbsp;このイベントについては、[付録A: 多くの監査イベントに対するセキュリティ監視の推奨事項](appendix-a-security-monitoring-recommendations-for-many-audit-events.md)も参照してください。
 
--   Monitor for this event where “**Subject\\Security ID**” is *not* one of these well-known security principals: LOCAL SYSTEM, NETWORK SERVICE, LOCAL SERVICE, and where “**Subject\\Security ID**” is not an administrative account that is expected to have the listed **Privileges**.
+-   「**Subject\\Security ID**」が、LOCAL SYSTEM、NETWORK SERVICE、LOCAL SERVICEなどのよく知られたセキュリティプリンシパルのいずれでも*ない*場合、また「**Subject\\Security ID**」がリストされた**Privileges**を持つことが予想される管理者アカウントで*ない*場合、このイベントを監視します。
 
--   If you have a list of specific privileges which should never be granted, or granted only to a few accounts (for example, SeDebugPrivilege), use this event to monitor for those “**Privileges**.”
+-   決して付与されるべきでない、または少数のアカウントにのみ付与されるべき特定の特権（例：SeDebugPrivilege）のリストがある場合、このイベントを使用してそれらの「**Privileges**」を監視します。
 
 <!-- -->
 
--   If you are required to monitor any of the sensitive privileges in the [Event Description for this event](event-4672.md), search for those specific privileges in the event.
+-   このイベントの[イベント説明](event-4672.md)に記載されている機密特権のいずれかを監視する必要がある場合、そのイベント内で特定の特権を検索します。

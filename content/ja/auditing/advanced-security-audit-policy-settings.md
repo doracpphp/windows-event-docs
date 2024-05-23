@@ -1,6 +1,6 @@
 ---
-title: Advanced security audit policy settings
-description: This reference for IT professionals provides information about the advanced audit policy settings that are available in Windows and the audit events that they generate.
+title: 高度なセキュリティ監査ポリシー設定
+description: IT プロフェッショナル向けのこのリファレンスは、Windows で利用可能な高度な監査ポリシー設定と、それらが生成する監査イベントに関する情報を提供します。
 ms.assetid: 93b28b92-796f-4036-a53b-8b9e80f9f171
 ms.author: vinpa
 ms.mktglfcycl: deploy
@@ -13,162 +13,162 @@ ms.topic: reference
 ms.date: 09/06/2021
 ---
 
-# Advanced security audit policy settings (Windows 10)
+# 高度なセキュリティ監査ポリシー設定 (Windows 10)
 
-This reference for IT professionals provides information about:
-- The advanced audit policy settings available in Windows
-- The audit events that these settings generate.
+IT プロフェッショナル向けのこのリファレンスは、以下に関する情報を提供します:
+- Windows で利用可能な高度な監査ポリシー設定
+- これらの設定が生成する監査イベント
 
-The security audit policy settings under **Security Settings\\Advanced Audit Policy Configuration** can help your organization audit compliance with important business-related and security-related rules by tracking precisely defined activities, such as:
+**セキュリティ設定\\高度な監査ポリシー構成**の下にあるセキュリティ監査ポリシー設定は、次のような正確に定義された活動を追跡することにより、重要なビジネス関連およびセキュリティ関連のルールに対する組織のコンプライアンスを監査するのに役立ちます:
 
--   A group administrator has modified settings or data on servers that contain finance information.
--   An employee within a defined group has accessed an important file.
--   The correct system access control list (SACL) - as a verifiable safeguard against undetected access - is applied to either of the following:
-    -  every file and folder
-    -  registry key on a computer
-    -  file share.
+- グループ管理者が財務情報を含むサーバーの設定やデータを変更した。
+- 定義されたグループ内の従業員が重要なファイルにアクセスした。
+- 検出されないアクセスに対する検証可能な保護手段として、正しいシステムアクセス制御リスト (SACL) が次のいずれかに適用されている:
+    - すべてのファイルとフォルダー
+    - コンピューター上のレジストリキー
+    - ファイル共有
 
-You can access these audit policy settings through the Local Security Policy snap-in (secpol.msc) on the local computer or by using Group Policy.
+これらの監査ポリシー設定には、ローカルコンピューターのローカルセキュリティポリシースナップイン (secpol.msc) を使用するか、グループポリシーを使用してアクセスできます。
 
-These advanced audit policy settings allow you to select only the behaviors that you want to monitor. You can exclude audit results for the following types of behaviors:
-- That are of little or no concern to you
-- That create an excessive number of log entries.
+これらの高度な監査ポリシー設定により、監視したい動作のみを選択できます。次のような動作の監査結果を除外できます:
+- あなたにとってほとんど関心がない、または全く関心がないもの
+- 過剰な数のログエントリを生成するもの
 
-In addition, because security audit policies can be applied by using domain Group Policy Objects, audit policy settings can be modified, tested, and deployed to selected users and groups with relative simplicity.
-Audit policy settings under **Security Settings\\Advanced Audit Policy Configuration** are available in the following categories:
+さらに、セキュリティ監査ポリシーはドメイングループポリシーオブジェクトを使用して適用できるため、監査ポリシー設定を比較的簡単に変更、テスト、および選択されたユーザーやグループに展開できます。
+**セキュリティ設定\\高度な監査ポリシー構成**の下にある監査ポリシー設定は、次のカテゴリで利用できます:
 
-## Account Logon
+## アカウントログオン
 
-Configuring policy settings in this category can help you document attempts to authenticate account data on a domain controller or on a local Security Accounts Manager (SAM). Unlike Logon and Logoff policy settings and events, Account Logon settings and events focus on the account database that is used. This category includes the following subcategories:
+このカテゴリのポリシー設定を構成することで、ドメインコントローラーまたはローカルのセキュリティアカウントマネージャー (SAM) でアカウントデータの認証を試みた記録を残すことができます。ログオンおよびログオフのポリシー設定やイベントとは異なり、アカウントログオンの設定およびイベントは使用されるアカウントデータベースに焦点を当てています。このカテゴリには次のサブカテゴリが含まれます:
 
--   [Audit Credential Validation](audit-credential-validation.md)
--   [Audit Kerberos Authentication Service](audit-kerberos-authentication-service.md)
--   [Audit Kerberos Service Ticket Operations](audit-kerberos-service-ticket-operations.md)
--   [Audit Other Account Logon Events](audit-other-account-logon-events.md)
+-   [資格情報の検証の監査](audit-credential-validation.md)
+-   [Kerberos 認証サービスの監査](audit-kerberos-authentication-service.md)
+-   [Kerberos サービスチケット操作の監査](audit-kerberos-service-ticket-operations.md)
+-   [その他のアカウントログオンイベントの監査](audit-other-account-logon-events.md)
 
-## Account Management
+## アカウント管理
 
-The security audit policy settings in this category can be used to monitor changes to user and computer accounts and groups. This category includes the following subcategories:
+このカテゴリのセキュリティ監査ポリシー設定は、ユーザーおよびコンピューターアカウントやグループの変更を監視するために使用できます。このカテゴリには次のサブカテゴリが含まれます:
 
--   [Audit Application Group Management](audit-application-group-management.md)
--   [Audit Computer Account Management](audit-computer-account-management.md)
--   [Audit Distribution Group Management](audit-distribution-group-management.md)
--   [Audit Other Account Management Events](audit-other-account-management-events.md)
--   [Audit Security Group Management](audit-security-group-management.md)
--   [Audit User Account Management](audit-user-account-management.md)
+-   [アプリケーショングループ管理の監査](audit-application-group-management.md)
+-   [コンピューターアカウント管理の監査](audit-computer-account-management.md)
+-   [配布グループ管理の監査](audit-distribution-group-management.md)
+-   [その他のアカウント管理イベントの監査](audit-other-account-management-events.md)
+-   [セキュリティグループ管理の監査](audit-security-group-management.md)
+-   [ユーザーアカウント管理の監査](audit-user-account-management.md)
 
-## Detailed Tracking
+## 詳細な追跡
 
-Detailed Tracking security policy settings and audit events can be used for the following purposes:
-- To monitor the activities of individual applications and users on that computer
-- To understand how a computer is being used.
+詳細な追跡セキュリティポリシー設定および監査イベントは、以下の目的で使用できます:
+- 個々のアプリケーションおよびユーザーの活動を監視するため
+- コンピューターの使用方法を理解するため
 
-This category includes the following subcategories:
+このカテゴリには次のサブカテゴリが含まれます:
 
-- [Audit DPAPI Activity](audit-dpapi-activity.md)
-- [Audit PNP activity](audit-pnp-activity.md)
-- [Audit Process Creation](audit-process-creation.md)
-- [Audit Process Termination](audit-process-termination.md)
-- [Audit RPC Events](audit-rpc-events.md)
-- [Audit Token Right Adjusted](audit-token-right-adjusted.md)
+- [DPAPI 活動の監査](audit-dpapi-activity.md)
+- [PNP 活動の監査](audit-pnp-activity.md)
+- [プロセス作成の監査](audit-process-creation.md)
+- [プロセス終了の監査](audit-process-termination.md)
+- [RPC イベントの監査](audit-rpc-events.md)
+- [トークン権利調整の監査](audit-token-right-adjusted.md)
 
-## DS Access
+## DS アクセス
 
-DS Access security audit policy settings provide a detailed audit trail of attempts to access and modify objects in Active Directory Domain Services (AD DS). These audit events are logged only on domain controllers. This category includes the following subcategories:
+DS アクセスセキュリティ監査ポリシー設定は、Active Directory ドメインサービス (AD DS) 内のオブジェクトへのアクセスおよび変更の試行に関する詳細な監査記録を提供します。これらの監査イベントはドメインコントローラーでのみ記録されます。このカテゴリには次のサブカテゴリが含まれます:
 
--   [Audit Detailed Directory Service Replication](audit-detailed-directory-service-replication.md)
--   [Audit Directory Service Access](audit-directory-service-access.md)
--   [Audit Directory Service Changes](audit-directory-service-changes.md)
--   [Audit Directory Service Replication](audit-directory-service-replication.md)
+-   [詳細なディレクトリ サービス レプリケーションの監査](audit-detailed-directory-service-replication.md)
+-   [ディレクトリ サービス アクセスの監査](audit-directory-service-access.md)
+-   [ディレクトリ サービスの変更の監査](audit-directory-service-changes.md)
+-   [ディレクトリ サービス レプリケーションの監査](audit-directory-service-replication.md)
 
-## Logon/Logoff
+## ログオン/ログオフ
 
-Logon/Logoff security policy settings and audit events allow you to track attempts to log on to a computer interactively or over a network. These events are particularly useful for tracking user activity and identifying potential attacks on network resources. This category includes the following subcategories:
+ログオン/ログオフのセキュリティ ポリシー設定と監査イベントにより、コンピューターへのインタラクティブまたはネットワーク経由のログオン試行を追跡できます。これらのイベントは、ユーザーの活動を追跡し、ネットワーク リソースへの潜在的な攻撃を特定するのに特に役立ちます。このカテゴリには、次のサブカテゴリが含まれます:
 
--   [Audit Account Lockout](audit-account-lockout.md)
--   [Audit User/Device Claims](audit-user-device-claims.md)
--   [Audit IPsec Extended Mode](audit-ipsec-extended-mode.md)
--   [Audit Group Membership](audit-group-membership.md)
--   [Audit IPsec Main Mode](audit-ipsec-main-mode.md)
--   [Audit IPsec Quick Mode](audit-ipsec-quick-mode.md)
--   [Audit Logoff](audit-logoff.md)
--   [Audit Logon](audit-logon.md)
--   [Audit Network Policy Server](audit-network-policy-server.md)
--   [Audit Other Logon/Logoff Events](audit-other-logonlogoff-events.md)
--   [Audit Special Logon](audit-special-logon.md)
+-   [アカウント ロックアウトの監査](audit-account-lockout.md)
+-   [ユーザー/デバイス クレームの監査](audit-user-device-claims.md)
+-   [IPsec 拡張モードの監査](audit-ipsec-extended-mode.md)
+-   [グループ メンバーシップの監査](audit-group-membership.md)
+-   [IPsec メイン モードの監査](audit-ipsec-main-mode.md)
+-   [IPsec クイック モードの監査](audit-ipsec-quick-mode.md)
+-   [ログオフの監査](audit-logoff.md)
+-   [ログオンの監査](audit-logon.md)
+-   [ネットワーク ポリシー サーバーの監査](audit-network-policy-server.md)
+-   [その他のログオン/ログオフ イベントの監査](audit-other-logonlogoff-events.md)
+-   [特別なログオンの監査](audit-special-logon.md)
 
-## Object Access
+## オブジェクト アクセス
 
-Object Access policy settings and audit events allow you to track attempts to access specific objects or types of objects on a network or computer. To audit attempts to access a file, directory, registry key, or any other object, enable the appropriate Object Access auditing subcategory for success and/or failure events. For example, the file system subcategory needs to be enabled to audit file operations; the Registry subcategory needs to be enabled to audit registry accesses.
+オブジェクト アクセス ポリシー設定と監査イベントにより、ネットワークまたはコンピューター上の特定のオブジェクトまたはオブジェクトの種類へのアクセス試行を追跡できます。ファイル、ディレクトリ、レジストリ キー、またはその他のオブジェクトへのアクセス試行を監査するには、成功および/または失敗イベントに対して適切なオブジェクト アクセス監査サブカテゴリを有効にします。たとえば、ファイル操作を監査するにはファイル システム サブカテゴリを有効にする必要があり、レジストリ アクセスを監査するにはレジストリ サブカテゴリを有効にする必要があります。
 
-Proving that these audit policies are in effect to an external auditor is more difficult. There is no easy way to verify that the proper SACLs are set on all inherited objects. To address this issue, see [Global Object Access Auditing](#global-object-access-auditing).
+これらの監査ポリシーが外部監査人に対して有効であることを証明するのはより困難です。すべての継承オブジェクトに適切な SACL が設定されていることを確認する簡単な方法はありません。この問題に対処するには、[グローバル オブジェクト アクセス監査](#global-object-access-auditing)を参照してください。
 
-This category includes the following subcategories:
+このカテゴリには、次のサブカテゴリが含まれます:
 
--   [Audit Application Generated](audit-application-generated.md)
--   [Audit Certification Services](audit-certification-services.md)
--   [Audit Detailed File Share](audit-detailed-file-share.md)
--   [Audit File Share](audit-file-share.md)
--   [Audit File System](audit-file-system.md)
--   [Audit Filtering Platform Connection](audit-filtering-platform-connection.md)
--   [Audit Filtering Platform Packet Drop](audit-filtering-platform-packet-drop.md)
--   [Audit Handle Manipulation](audit-handle-manipulation.md)
--   [Audit Kernel Object](audit-kernel-object.md)
--   [Audit Other Object Access Events](audit-other-object-access-events.md)
--   [Audit Registry](audit-registry.md)
--   [Audit Removable Storage](audit-removable-storage.md)
--   [Audit SAM](audit-sam.md)
--   [Audit Central Access Policy Staging](audit-central-access-policy-staging.md)
+-   [アプリケーション生成の監査](audit-application-generated.md)
+-   [認証サービスの監査](audit-certification-services.md)
+-   [詳細ファイル共有の監査](audit-detailed-file-share.md)
+-   [ファイル共有の監査](audit-file-share.md)
+-   [ファイルシステムの監査](audit-file-system.md)
+-   [フィルタリングプラットフォーム接続の監査](audit-filtering-platform-connection.md)
+-   [フィルタリングプラットフォームパケットドロップの監査](audit-filtering-platform-packet-drop.md)
+-   [ハンドル操作の監査](audit-handle-manipulation.md)
+-   [カーネルオブジェクトの監査](audit-kernel-object.md)
+-   [その他のオブジェクトアクセスイベントの監査](audit-other-object-access-events.md)
+-   [レジストリの監査](audit-registry.md)
+-   [リムーバブルストレージの監査](audit-removable-storage.md)
+-   [SAMの監査](audit-sam.md)
+-   [中央アクセスポリシーステージングの監査](audit-central-access-policy-staging.md)
 
-## Policy Change
+## ポリシー変更
 
-Policy Change audit events allow you to track changes to important security policies on a local system or network. Because policies are typically established by administrators to help secure network resources, tracking changes (or its attempts) to these policies is an important aspect of security management for a network. This category includes the following subcategories:
+ポリシー変更の監査イベントは、ローカルシステムやネットワーク上の重要なセキュリティポリシーの変更を追跡することができます。ポリシーは通常、ネットワークリソースを保護するために管理者によって設定されるため、これらのポリシーの変更（または変更の試み）を追跡することは、ネットワークのセキュリティ管理において重要な側面です。このカテゴリには次のサブカテゴリが含まれます：
 
--   [Audit Audit Policy Change](audit-audit-policy-change.md)
--   [Audit Authentication Policy Change](audit-authentication-policy-change.md)
--   [Audit Authorization Policy Change](audit-authorization-policy-change.md)
--   [Audit Filtering Platform Policy Change](audit-filtering-platform-policy-change.md)
--   [Audit MPSSVC Rule-Level Policy Change](audit-mpssvc-rule-level-policy-change.md)
--   [Audit Other Policy Change Events](audit-other-policy-change-events.md)
+-   [監査ポリシー変更の監査](audit-audit-policy-change.md)
+-   [認証ポリシー変更の監査](audit-authentication-policy-change.md)
+-   [認可ポリシー変更の監査](audit-authorization-policy-change.md)
+-   [フィルタリングプラットフォームポリシー変更の監査](audit-filtering-platform-policy-change.md)
+-   [MPSSVCルールレベルポリシー変更の監査](audit-mpssvc-rule-level-policy-change.md)
+-   [その他のポリシー変更イベントの監査](audit-other-policy-change-events.md)
 
-## Privilege Use
+## 特権使用
 
-Permissions on a network are granted for users or computers to complete defined tasks. Privilege Use security policy settings and audit events allow you to track the use of certain permissions on one or more systems. This category includes the following subcategories:
+ネットワーク上の権限は、ユーザーやコンピュータが定義されたタスクを完了するために付与されます。特権使用のセキュリティポリシー設定と監査イベントは、1つまたは複数のシステムで特定の権限の使用を追跡することができます。このカテゴリには次のサブカテゴリが含まれます：
 
--   [Audit Non-Sensitive Privilege Use](audit-non-sensitive-privilege-use.md)
--   [Audit Sensitive Privilege Use](audit-sensitive-privilege-use.md)
--   [Audit Other Privilege Use Events](audit-other-privilege-use-events.md)
+-   [非機密特権使用の監査](audit-non-sensitive-privilege-use.md)
+-   [機密特権使用の監査](audit-sensitive-privilege-use.md)
+-   [その他の特権使用イベントの監査](audit-other-privilege-use-events.md)
 
-## System
+## システム
 
-System security policy settings and audit events allow you to track the following types of system-level changes to a computer:
-- Not included in other categories
-- Have potential security implications.
+システムセキュリティポリシー設定と監査イベントにより、コンピュータに対する以下の種類のシステムレベルの変更を追跡できます:
+- 他のカテゴリに含まれない
+- セキュリティに関する潜在的な影響がある
 
-This category includes the following subcategories:
+このカテゴリには以下のサブカテゴリが含まれます:
 
--   [Audit IPsec Driver](audit-ipsec-driver.md)
--   [Audit Other System Events](audit-other-system-events.md)
--   [Audit Security State Change](audit-security-state-change.md)
--   [Audit Security System Extension](audit-security-system-extension.md)
--   [Audit System Integrity](audit-system-integrity.md)
+-   [IPsec ドライバの監査](audit-ipsec-driver.md)
+-   [その他のシステムイベントの監査](audit-other-system-events.md)
+-   [セキュリティ状態の変更の監査](audit-security-state-change.md)
+-   [セキュリティシステム拡張の監査](audit-security-system-extension.md)
+-   [システムの整合性の監査](audit-system-integrity.md)
 
-## Global Object Access Auditing
+## グローバルオブジェクトアクセス監査
 
-Global Object Access Auditing policy settings allow administrators to define computer system access control lists (SACLs) per object type for the file system or for the registry. The specified SACL is then automatically applied to every object of that type.
-Auditors can prove that every resource in the system is protected by an audit policy. They can do this task by viewing the contents of the Global Object Access Auditing policy settings. For example, if auditors see a policy setting called "Track all changes made by group administrators," they know that this policy is in effect.
+グローバルオブジェクトアクセス監査ポリシー設定により、管理者はファイルシステムまたはレジストリのオブジェクトタイプごとにコンピュータシステムアクセス制御リスト (SACL) を定義できます。指定されたSACLは、そのタイプのすべてのオブジェクトに自動的に適用されます。
+監査人は、システム内のすべてのリソースが監査ポリシーによって保護されていることを証明できます。彼らはグローバルオブジェクトアクセス監査ポリシー設定の内容を確認することでこのタスクを実行できます。例えば、監査人が「グループ管理者によって行われたすべての変更を追跡する」というポリシー設定を見た場合、このポリシーが有効であることがわかります。
 
-Resource SACLs are also useful for diagnostic scenarios. For example, administrators quickly identify which object in a system is denying a user access by:
-- Setting the Global Object Access Auditing policy to log all the activities for a specific user
-- Enabling the policy to track "Access denied" events for the file system or registry can help
+リソースSACLは診断シナリオにも役立ちます。例えば、管理者は次の方法でシステム内のどのオブジェクトがユーザーのアクセスを拒否しているかを迅速に特定できます:
+- 特定のユーザーのすべての活動をログに記録するようにグローバルオブジェクトアクセス監査ポリシーを設定する
+- ファイルシステムまたはレジストリの「アクセス拒否」イベントを追跡するようにポリシーを有効にすることが役立ちます
 
 > [!NOTE]
-> If a file or folder SACL and a Global Object Access Auditing policy setting (or a single registry setting SACL and a Global Object Access Auditing policy setting) are configured on a computer, the effective SACL is derived from combining the file or folder SACL and the Global Object Access Auditing policy. This means that an audit event is generated if an activity matches the file or folder SACL or the Global Object Access Auditing policy.
+> ファイルまたはフォルダのSACLとグローバルオブジェクトアクセス監査ポリシー設定（または単一のレジストリ設定SACLとグローバルオブジェクトアクセス監査ポリシー設定）がコンピュータに設定されている場合、有効なSACLはファイルまたはフォルダのSACLとグローバルオブジェクトアクセス監査ポリシーを組み合わせたものから導き出されます。これは、アクティビティがファイルまたはフォルダのSACLまたはグローバルオブジェクトアクセス監査ポリシーに一致する場合、監査イベントが生成されることを意味します。
 
-This category includes the following subcategories:
--   [File System (Global Object Access Auditing)](file-system-global-object-access-auditing.md)
--   [Registry (Global Object Access Auditing)](registry-global-object-access-auditing.md)
+このカテゴリには以下のサブカテゴリが含まれます:
+-   [ファイルシステム (グローバルオブジェクトアクセス監査)](file-system-global-object-access-auditing.md)
+-   [レジストリ (グローバルオブジェクトアクセス監査)](registry-global-object-access-auditing.md)
 
-## Related topics
+## 関連トピック
 
--   [Basic security audit policy settings](basic-security-audit-policy-settings.md)
+-   [基本的なセキュリティ監査ポリシー設定](basic-security-audit-policy-settings.md)

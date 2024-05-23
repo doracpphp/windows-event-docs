@@ -1,6 +1,6 @@
 ---
-title: Basic security audit policies
-description: Learn about basic security audit policies that specify the categories of security-related events that you want to audit for the needs of your organization.
+title: 基本的なセキュリティ監査ポリシー
+description: 組織のニーズに合わせて監査したいセキュリティ関連イベントのカテゴリを指定する基本的なセキュリティ監査ポリシーについて学びます。
 ms.assetid: 3B678568-7AD7-4734-9BB4-53CF5E04E1D3
 ms.reviewer:
 ms.author: vinpa
@@ -15,32 +15,31 @@ ms.topic: reference
 ms.date: 09/06/2021
 ---
 
-# Basic security audit policies
+# 基本的なセキュリティ監査ポリシー
 
+監査を実施する前に、監査ポリシーを決定する必要があります。基本的な監査ポリシーは、監査したいセキュリティ関連イベントのカテゴリを指定します。このバージョンのWindowsが最初にインストールされたとき、すべての監査カテゴリは無効になっています。さまざまな監査イベントカテゴリを有効にすることで、組織のセキュリティニーズに合った監査ポリシーを実装できます。
 
-Before you implement auditing, you must decide on an auditing policy. A basic audit policy specifies categories of security-related events that you want to audit. When this version of Windows is first installed, all auditing categories are disabled. By enabling various auditing event categories, you can implement an auditing policy that suits the security needs of your organization.
+監査するイベントカテゴリは次のとおりです：
 
-The event categories that you can choose to audit are:
+- アカウントログオンイベントの監査
+- アカウント管理の監査
+- ディレクトリサービスアクセスの監査
+- ログオンイベントの監査
+- オブジェクトアクセスの監査
+- ポリシー変更の監査
+- 特権使用の監査
+- プロセストラッキングの監査
+- システムイベントの監査
 
--   Audit account logon events
--   Audit account management
--   Audit directory service access
--   Audit logon events
--   Audit object access
--   Audit policy change
--   Audit privilege use
--   Audit process tracking
--   Audit system events
+監査ポリシーの一環としてオブジェクトへのアクセスを監査する場合、ドメインコントローラー上のオブジェクトを監査するためにディレクトリサービスアクセスカテゴリを有効にするか、メンバーサーバーまたはワークステーション上のオブジェクトを監査するためにオブジェクトアクセスカテゴリを有効にする必要があります。オブジェクトアクセスカテゴリを有効にした後、各グループまたはユーザーに対して監査したいアクセスの種類を指定できます。
 
-If you choose to audit access to objects as part of your audit policy, you must enable either the audit directory service access category, for auditing objects on a domain controller, or the audit object access category, for auditing objects on a member server or workstation. After you enable the object access category, you can specify the types of access you want to audit for each group or user.
+## このセクションについて
 
-## In this section
-
-| Article | Description |
+| 記事 | 説明 |
 | - | - |
-| [Create a basic audit policy for an event category](create-a-basic-audit-policy-settings-for-an-event-category.md) | By defining auditing settings for specific event categories, you can create an auditing policy that suits the security needs of your organization. On devices that are joined to a domain, auditing settings for the event categories are undefined by default. On domain controllers, auditing is turned on by default. |
-| [Apply a basic audit policy on a file or folder](apply-a-basic-audit-policy-on-a-file-or-folder.md) | You can apply audit policies to individual files and folders on your computer by setting the permission type to record successful or failed access attempts in the security log. |
-| [View the security event log](view-the-security-event-log.md) | The security log records each event as defined by the audit policies you set on each object.|
-| [Basic security audit policy settings](basic-security-audit-policy-settings.md) | Basic security audit policy settings are found under Computer Configuration\Windows Settings\Security Settings\Local Policies\Audit Policy.|
+| [イベントカテゴリの基本的な監査ポリシーを作成する](create-a-basic-audit-policy-settings-for-an-event-category.md) | 特定のイベントカテゴリに対して監査設定を定義することで、組織のセキュリティニーズに合った監査ポリシーを作成できます。ドメインに参加しているデバイスでは、イベントカテゴリの監査設定はデフォルトで未定義です。ドメインコントローラーでは、監査がデフォルトでオンになっています。 |
+| [ファイルまたはフォルダーに基本的な監査ポリシーを適用する](apply-a-basic-audit-policy-on-a-file-or-folder.md) | セキュリティログに成功または失敗したアクセス試行を記録するために、個々のファイルやフォルダーに監査ポリシーを適用できます。 |
+| [セキュリティイベントログを表示する](view-the-security-event-log.md) | セキュリティログは、各オブジェクトに設定した監査ポリシーによって定義された各イベントを記録します。|
+| [基本的なセキュリティ監査ポリシー設定](basic-security-audit-policy-settings.md) | 基本的なセキュリティ監査ポリシー設定は、コンピューターの構成\Windows設定\セキュリティ設定\ローカルポリシー\監査ポリシーの下にあります。|
 
-
+It looks like you haven't pasted the Markdown content yet. Please provide the content you want translated into Japanese.

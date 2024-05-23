@@ -1,6 +1,6 @@
 ---
-title: 1102(S) The audit log was cleared. 
-description: Though you shouldn't normally see it, this event generates every time Windows Security audit log is cleared. This is for event 1102(S).
+title: 1102(S) 監査ログがクリアされました。
+description: 通常は表示されるべきではありませんが、このイベントはWindowsセキュリティ監査ログがクリアされるたびに生成されます。これはイベント1102(S)に関するものです。
 ms.pagetype: security
 ms.mktglfcycl: deploy
 ms.sitesec: library
@@ -13,22 +13,21 @@ ms.author: vinpa
 ms.topic: reference
 ---
 
-# 1102(S): The audit log was cleared.
-
+# 1102(S): 監査ログがクリアされました。
 
 <img src="images/event-1102.png" alt="Event 1102 illustration" width="449" height="336" hspace="10" align="left" />
 
-***Subcategory:***&nbsp;[Other Events](other-events.md)
+***サブカテゴリ:***&nbsp;[その他のイベント](other-events.md)
 
-***Event Description:***
+***イベントの説明:***
 
-This event generates every time Windows Security audit log was cleared.
+このイベントは、Windowsセキュリティ監査ログがクリアされるたびに生成されます。
 
-> **Note**&nbsp;&nbsp;For recommendations, see [Security Monitoring Recommendations](#security-monitoring-recommendations) for this event.
+> **注**&nbsp;&nbsp;推奨事項については、このイベントの[セキュリティ監視の推奨事項](#security-monitoring-recommendations)を参照してください。
 
 <br clear="all">
 
-***Event XML:***
+***イベントXML:***
 ```
 - <Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
 - <System>
@@ -59,41 +58,41 @@ This event generates every time Windows Security audit log was cleared.
 
 ```
 
-***Required Server Roles:*** None.
+***必要なサーバー役割:*** なし。
 
-***Minimum OS Version:*** Windows Server 2008, Windows Vista.
+***最小OSバージョン:*** Windows Server 2008, Windows Vista。
 
-***Event Versions:*** 0.
+***イベントバージョン:*** 0。
 
-***Field Descriptions:***
+***フィールドの説明:***
 
-**Subject:**
+**サブジェクト:**
 
--   **Security ID** \[Type = SID\]**:** SID of account that cleared the system security audit log. Event Viewer automatically tries to resolve SIDs and show the account name. If the SID cannot be resolved, you will see the source data in the event.
+-   **セキュリティID** \[タイプ = SID\]**:** システムセキュリティ監査ログをクリアしたアカウントのSID。イベントビューアーは自動的にSIDを解決し、アカウント名を表示しようとします。SIDが解決できない場合、イベントにはソースデータが表示されます。
 
-> **Note**&nbsp;&nbsp;A **security identifier (SID)** is a unique value of variable length used to identify a trustee (security principal). Each account has a unique SID that is issued by an authority, such as an Active Directory domain controller, and stored in a security database. Each time a user logs on, the system retrieves the SID for that user from the database and places it in the access token for that user. The system uses the SID in the access token to identify the user in all subsequent interactions with Windows security. When a SID has been used as the unique identifier for a user or group, it cannot ever be used again to identify another user or group. For more information about SIDs, see [Security identifiers](/windows/access-protection/access-control/security-identifiers).
+> **注**&nbsp;&nbsp;**セキュリティ識別子 (SID)** は、信託者（セキュリティプリンシパル）を識別するために使用される可変長の一意の値です。各アカウントには、Active Directoryドメインコントローラーなどの権限によって発行され、セキュリティデータベースに保存される一意のSIDがあります。ユーザーがログオンするたびに、システムはデータベースからそのユーザーのSIDを取得し、そのユーザーのアクセス トークンに配置します。システムは、アクセス トークン内のSIDを使用して、以降のすべてのWindowsセキュリティとのやり取りでユーザーを識別します。SIDがユーザーまたはグループの一意の識別子として使用された場合、それは他のユーザーまたはグループを識別するために再利用されることはありません。SIDの詳細については、[セキュリティ識別子](/windows/access-protection/access-control/security-identifiers)を参照してください。
 
--   **Account Name** \[Type = UnicodeString\]**:** the name of the account that cleared the system security audit log.
 
--   **Account Domain** \[Type = UnicodeString\]**:** subject’s domain or computer name. Formats vary, and include the following:
+-   **アカウント名** \[タイプ = UnicodeString\]**:** システムセキュリティ監査ログをクリアしたアカウントの名前。
 
-    -   Domain NETBIOS name example: CONTOSO
+-   **アカウントドメイン** \[タイプ = UnicodeString\]**:** サブジェクトのドメインまたはコンピュータ名。形式はさまざまで、以下のようなものがあります：
 
-    -   Lowercase full domain name: contoso.local
+    -   ドメインNETBIOS名の例: CONTOSO
 
-    -   Uppercase full domain name: CONTOSO.LOCAL
+    -   小文字の完全ドメイン名: contoso.local
 
-    -   For some [well-known security principals](/windows/security/identity-protection/access-control/security-identifiers), such as LOCAL SERVICE or ANONYMOUS LOGON, the value of this field is “NT AUTHORITY”.
+    -   大文字の完全ドメイン名: CONTOSO.LOCAL
 
-    -   For local user accounts, this field will contain the name of the computer or device that this account belongs to, for example: “Win81”.
+    -   一部の[よく知られたセキュリティプリンシパル](/windows/security/identity-protection/access-control/security-identifiers)の場合、例えばLOCAL SERVICEやANONYMOUS LOGON、このフィールドの値は「NT AUTHORITY」となります。
 
--   **Logon ID** \[Type = HexInt64\]**:** hexadecimal value that can help you correlate this event with recent events that might contain the same Logon ID, for example, “[4624](event-4624.md): An account was successfully logged on.”
+    -   ローカルユーザーアカウントの場合、このフィールドにはこのアカウントが属するコンピュータまたはデバイスの名前が含まれます。例えば、「Win81」のように。
 
-## Security Monitoring Recommendations
+-   **ログオンID** \[タイプ = HexInt64\]**:** 16進数の値で、最近のイベントと同じログオンIDを含む可能性のあるイベントと関連付けるのに役立ちます。例えば、「[4624](event-4624.md): アカウントが正常にログオンされました。」
 
-For 1102(S): The audit log was cleared.
+## セキュリティ監視の推奨事項
 
-> **Important**&nbsp;&nbsp;For this event, also see [Appendix A: Security monitoring recommendations for many audit events](appendix-a-security-monitoring-recommendations-for-many-audit-events.md).
+1102(S): 監査ログがクリアされました。
 
--   Typically you should not see this event. There is no need to manually clear the Security event log in most cases. We recommend monitoring this event and investigating why this action was performed.
+> **重要**&nbsp;&nbsp;このイベントについては、[付録A: 多くの監査イベントに対するセキュリティ監視の推奨事項](appendix-a-security-monitoring-recommendations-for-many-audit-events.md)も参照してください。
 
+-   通常、このイベントは表示されないはずです。ほとんどの場合、セキュリティイベントログを手動でクリアする必要はありません。このイベントを監視し、このアクションが実行された理由を調査することをお勧めします。

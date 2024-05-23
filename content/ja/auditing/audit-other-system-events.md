@@ -1,6 +1,6 @@
 ---
-title: Audit Other System Events 
-description: The Advanced Security Audit policy setting, Audit Other System Events, determines if the operating system audits various system events.
+title: 他のシステムイベントの監査
+description: 高度なセキュリティ監査ポリシー設定である「他のシステムイベントの監査」は、オペレーティングシステムがさまざまなシステムイベントを監査するかどうかを決定します。
 ms.assetid: 2401e4cc-d94e-41ec-82a7-e10914295f8b
 ms.reviewer: 
 manager: aaroncz
@@ -14,76 +14,74 @@ ms.date: 09/06/2021
 ms.topic: reference
 ---
 
-# Audit Other System Events
+# 他のシステムイベントの監査
 
- 
-Audit Other System Events contains Windows Firewall Service and Windows Firewall driver start and stop events, failure events for these services and Windows Firewall Service policy processing failures.
+他のシステムイベントの監査には、Windows ファイアウォール サービスおよび Windows ファイアウォール ドライバーの開始および停止イベント、これらのサービスの失敗イベント、および Windows ファイアウォール サービス ポリシー処理の失敗が含まれます。
 
-Audit Other System Events determines whether the operating system audits various system events.
+他のシステムイベントの監査は、オペレーティングシステムがさまざまなシステムイベントを監査するかどうかを決定します。
 
-The system events in this category include:
+このカテゴリのシステムイベントには次のものが含まれます:
 
--   Startup and shutdown of the Windows Firewall service and driver.
+- Windows ファイアウォール サービスおよびドライバーの起動とシャットダウン。
 
--   Security policy processing by the Windows Firewall service.
+- Windows ファイアウォール サービスによるセキュリティ ポリシーの処理。
 
--   Cryptography key file and migration operations.
+- 暗号化キー ファイルおよび移行操作。
 
--   BranchCache events.
+- BranchCache イベント。
 
-**Event volume**: Low.
+**イベントボリューム**: 低。
 
-| Computer Type     | General Success | General Failure | Stronger Success | Stronger Failure | Comments                                                                                                                                               |
-|-------------------|-----------------|-----------------|------------------|------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Domain Controller | Yes             | Yes             | Yes              | Yes              | We recommend enabling Success and Failure auditing because you will be able to get Windows Firewall Service and Windows Firewall Driver status events. |
-| Member Server     | Yes             | Yes             | Yes              | Yes              | We recommend enabling Success and Failure auditing because you will be able to get Windows Firewall Service and Windows Firewall Driver status events. |
-| Workstation       | Yes             | Yes             | Yes              | Yes              | We recommend enabling Success and Failure auditing because you will be able to get Windows Firewall Service and Windows Firewall Driver status events. |
+| コンピューターの種類 | 一般的な成功 | 一般的な失敗 | 強力な成功 | 強力な失敗 | コメント                                                                                                                                               |
+|-----------------------|---------------|---------------|--------------|--------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ドメイン コントローラー | はい          | はい          | はい          | はい          | Windows ファイアウォール サービスおよび Windows ファイアウォール ドライバーのステータス イベントを取得できるため、成功および失敗の監査を有効にすることをお勧めします。 |
+| メンバー サーバー     | はい          | はい          | はい          | はい          | Windows ファイアウォール サービスおよび Windows ファイアウォール ドライバーのステータス イベントを取得できるため、成功および失敗の監査を有効にすることをお勧めします。 |
+| ワークステーション   | はい          | はい          | はい          | はい          | Windows ファイアウォール サービスおよび Windows ファイアウォール ドライバーのステータス イベントを取得できるため、成功および失敗の監査を有効にすることをお勧めします。 |
 
-**Events List:**
+**イベントリスト:**
 
--   [5024](event-5024.md)(S): The Windows Firewall Service has started successfully.
+-   [5024](event-5024.md)(S): Windows ファイアウォール サービスが正常に開始されました。
 
--   [5025](event-5025.md)(S): The Windows Firewall Service has been stopped.
+-   [5025](event-5025.md)(S): Windows ファイアウォール サービスが停止されました。
 
--   [5027](event-5027.md)(F): The Windows Firewall Service was unable to retrieve the security policy from the local storage. The service will continue enforcing the current policy.
+-   [5027](event-5027.md)(F): Windows ファイアウォール サービスはローカル ストレージからセキュリティ ポリシーを取得できませんでした。サービスは現在のポリシーを引き続き適用します。
 
--   [5028](event-5028.md)(F): The Windows Firewall Service was unable to parse the new security policy. The service will continue with currently enforced policy.
+-   [5028](event-5028.md)(F): Windows ファイアウォール サービスは新しいセキュリティ ポリシーを解析できませんでした。サービスは現在適用されているポリシーを引き続き使用します。
 
--   [5029](event-5029.md)(F): The Windows Firewall Service failed to initialize the driver. The service will continue to enforce the current policy.
+-   [5029](event-5029.md)(F): Windows ファイアウォール サービスはドライバーの初期化に失敗しました。サービスは現在のポリシーを引き続き適用します。
 
--   [5030](event-5030.md)(F): The Windows Firewall Service failed to start.
+-   [5030](event-5030.md)(F): Windows ファイアウォール サービスの開始に失敗しました。
 
--   [5032](event-5032.md)(F): Windows Firewall was unable to notify the user that it blocked an application from accepting incoming connections on the network.
+-   [5032](event-5032.md)(F): Windows ファイアウォールは、ネットワーク上で受信接続を受け入れるアプリケーションをブロックしたことをユーザーに通知できませんでした。
 
--   [5033](event-5033.md)(S): The Windows Firewall Driver has started successfully.
+-   [5033](event-5033.md)(S): Windows ファイアウォール ドライバーが正常に開始されました。
 
--   [5034](event-5034.md)(S): The Windows Firewall Driver was stopped.
+-   [5034](event-5034.md)(S): Windows ファイアウォール ドライバーが停止されました。
 
--   [5035](event-5035.md)(F): The Windows Firewall Driver failed to start.
+-   [5035](event-5035.md)(F): Windows ファイアウォール ドライバーの開始に失敗しました。
 
--   [5037](event-5037.md)(F): The Windows Firewall Driver detected critical runtime error. Terminating.
+-   [5037](event-5037.md)(F): Windows ファイアウォール ドライバーが重大なランタイム エラーを検出しました。終了します。
 
--   [5058](event-5058.md)(S, F): Key file operation.
+-   [5058](event-5058.md)(S, F): キーファイル操作。
 
--   [5059](event-5059.md)(S, F): Key migration operation.
+-   [5059](event-5059.md)(S, F): キー移行操作。
 
--   [6400](event-6400.md)(-): BranchCache: Received an incorrectly formatted response while discovering availability of content.
+-   [6400](event-6400.md)(-): BranchCache: コンテンツの可用性を確認中に、形式が正しくない応答を受信しました。
 
--   [6401](event-6401.md)(-): BranchCache: Received invalid data from a peer. Data discarded.
+-   [6401](event-6401.md)(-): BranchCache: ピアから無効なデータを受信しました。データは破棄されました。
 
--   [6402](event-6402.md)(-): BranchCache: The message to the hosted cache offering it data is incorrectly formatted.
+-   [6402](event-6402.md)(-): BranchCache: ホスト キャッシュにデータを提供するメッセージの形式が正しくありません。
 
--   [6403](event-6403.md)(-): BranchCache: The hosted cache sent an incorrectly formatted response to the client.
+-   [6403](event-6403.md)(-): BranchCache: ホスト キャッシュがクライアントに対して形式が正しくない応答を送信しました。
 
--   [6404](event-6404.md)(-): BranchCache: Hosted cache could not be authenticated using the provisioned SSL certificate.
+-   [6404](event-6404.md)(-): BranchCache: プロビジョニングされた SSL 証明書を使用してホスト キャッシュを認証できませんでした。
 
--   [6405](event-6405.md)(-): BranchCache: %2 instance(s) of event id %1 occurred.
+-   [6405](event-6405.md)(-): BranchCache: イベント ID %1 の %2 インスタンスが発生しました。
 
--   [6406](event-6406.md)(-): %1 registered to Windows Firewall to control filtering for the following: %2
+-   [6406](event-6406.md)(-): %1 が次のフィルタリングを制御するために Windows ファイアウォールに登録されました: %2
 
 -   [6407](event-6407.md)(-): 1%
 
--   [6408](event-6408.md)(-): Registered product %1 failed and Windows Firewall is now controlling the filtering for %2
+-   [6408](event-6408.md)(-): 登録された製品 %1 が失敗し、Windows ファイアウォールが %2 のフィルタリングを制御しています
 
--   [6409](event-6408.md)(-): BranchCache: A service connection point object could not be parsed.
-
+-   [6409](event-6408.md)(-): BranchCache: サービス接続ポイントオブジェクトを解析できませんでした。

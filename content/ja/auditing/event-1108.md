@@ -1,6 +1,6 @@
 ---
-title: The event logging service encountered an error 
-description: Describes security event 1108(S) The event logging service encountered an error while processing an incoming event published from %1.
+title: イベント ロギング サービスでエラーが発生しました
+description: セキュリティ イベント 1108(S) イベント ロギング サービスが %1 から公開された受信イベントを処理中にエラーが発生しました。
 ms.pagetype: security
 ms.mktglfcycl: deploy
 ms.sitesec: library
@@ -13,28 +13,27 @@ ms.author: vinpa
 ms.topic: reference
 ---
 
-# 1108(S): The event logging service encountered an error while processing an incoming event published from %1.
-
+# 1108(S): イベント ロギング サービスが %1 から公開された受信イベントを処理中にエラーが発生しました。
 
 <img src="images/event-1108.png" alt="Event 1108 illustration" width="613" height="429" hspace="10" align="left" />
 
-***Subcategory:***&nbsp;[Other Events](other-events.md)
+***サブカテゴリ:***&nbsp;[その他のイベント](other-events.md)
 
-***Event Description:***
+***イベントの説明:***
 
-This event generates when event logging service encountered an error while processing an incoming event.
+このイベントは、イベント ロギング サービスが受信イベントを処理中にエラーが発生したときに生成されます。
 
-It typically generates when logging service will not be able to correctly write the event to the event log or some parameters were not passed to logging service to log the event correctly. You will typically see a defective or incorrect event before 1108.
+通常、ロギング サービスがイベントをイベント ログに正しく書き込めない場合や、イベントを正しく記録するためのパラメーターがロギング サービスに渡されなかった場合に生成されます。通常、1108の前に欠陥のあるまたは不正確なイベントが表示されます。
 
-For example, event 1108 might be generated after an incorrect [4703](event-4703.md) event:
+たとえば、不正確な[4703](event-4703.md)イベントの後にイベント1108が生成されることがあります。
 
 <img src="images/event-4703-partial.png" alt="Event 4703, partial illustration" width="438" height="588" hspace="10" align="left" />
 
-> **Note**&nbsp;&nbsp;For recommendations, see [Security Monitoring Recommendations](#security-monitoring-recommendations) for this event.
+> **注**&nbsp;&nbsp;推奨事項については、このイベントの[セキュリティ監視の推奨事項](#security-monitoring-recommendations)を参照してください。
 
 <br clear="all">
 
-***Event XML:***
+***イベント XML:***
 ```
 - <Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
 - <System>
@@ -64,20 +63,20 @@ For example, event 1108 might be generated after an incorrect [4703](event-4703.
 
 ```
 
-***Required Server Roles:*** None.
+***必要なサーバー ロール:*** なし。
 
-***Minimum OS Version:*** Windows Server 2008 R2, Windows 7.
+***最小 OS バージョン:*** Windows Server 2008 R2、Windows 7。
 
-***Event Versions:*** 0.
+***イベント バージョン:*** 0。
 
-***Field Descriptions:***
+***フィールドの説明:***
 
-**%1** \[Type = UnicodeString\]: the name of [security event source](/windows/win32/eventlog/event-sources) from which event was received for processing. You can see all registered security event source names in this registry path: “HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\EventLog\\Security”. Here is an example:
+**%1** \[タイプ = UnicodeString\]: 処理のためにイベントが受信された[セキュリティ イベント ソース](/windows/win32/eventlog/event-sources)の名前。このレジストリ パスで登録されているすべてのセキュリティ イベント ソース名を確認できます: “HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\EventLog\\Security”。以下はその例です:
 
 <img src="images/subkeys-under-security-key.png" alt="Subkeys under Security key illustration" width="236" height="246" />
 
-## Security Monitoring Recommendations
+## セキュリティ監視の推奨事項
 
-For 1108(S): The event logging service encountered an error while processing an incoming event published from %1.
+1108(S): イベント ログ サービスが %1 から公開された受信イベントの処理中にエラーに遭遇しました。
 
--   We recommend monitoring for all events of this type and checking what the cause of the error was.
+-   このタイプのすべてのイベントを監視し、エラーの原因を確認することをお勧めします。

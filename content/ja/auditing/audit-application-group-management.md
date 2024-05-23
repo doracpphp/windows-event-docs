@@ -1,6 +1,6 @@
 ---
-title: Audit Application Group Management 
-description: The policy setting, Audit Application Group Management, determines if audit events are generated when application group management tasks are performed.
+title: アプリケーショングループ管理の監査
+description: ポリシー設定「アプリケーショングループ管理の監査」は、アプリケーショングループ管理タスクが実行されたときに監査イベントが生成されるかどうかを決定します。
 ms.assetid: 1bcaa41e-5027-4a86-96b7-f04eaf1c0606
 ms.reviewer: 
 manager: aaroncz
@@ -14,36 +14,36 @@ ms.date: 09/06/2021
 ms.topic: reference
 ---
 
-# Audit Application Group Management
+# アプリケーショングループ管理の監査
 
-Audit Application Group Management generates events for actions related to [application groups](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771579(v=ws.11)), such as group creation, modification, addition or removal of group member and some other actions.
+アプリケーショングループ管理の監査は、グループの作成、変更、グループメンバーの追加または削除など、[アプリケーショングループ](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771579(v=ws.11))に関連するアクションのイベントを生成します。
 
-[Application groups](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771579(v=ws.11)) are used by [Authorization Manager](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc726036(v=ws.11)).
+[アプリケーショングループ](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771579(v=ws.11))は、[Authorization Manager](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc726036(v=ws.11))によって使用されます。
 
-Audit Application Group Management subcategory is out of scope of this document, because [Authorization Manager](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc726036(v=ws.11)) is very rarely in use and it is deprecated starting from Windows Server 2012.
+アプリケーショングループ管理の監査サブカテゴリは、このドキュメントの範囲外です。なぜなら、[Authorization Manager](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc726036(v=ws.11))は非常に稀に使用され、Windows Server 2012以降では非推奨となっているためです。
 
-| Computer Type     | General Success | General Failure | Stronger Success | Stronger Failure | Comments                                                |
-|-------------------|-----------------|-----------------|------------------|------------------|---------------------------------------------------------|
-| Domain Controller | -               | -               | -                | -                | This subcategory is outside the scope of this document. |
-| Member Server     | -               | -               | -                | -                | This subcategory is outside the scope of this document. |
-| Workstation       | -               | -               | -                | -                | This subcategory is outside the scope of this document. |
+| コンピューターの種類 | 一般的な成功 | 一般的な失敗 | 強化された成功 | 強化された失敗 | コメント                                                |
+|-----------------------|---------------|---------------|------------------|------------------|---------------------------------------------------------|
+| ドメインコントローラー | -             | -             | -                | -                | このサブカテゴリはこのドキュメントの範囲外です。       |
+| メンバーサーバー       | -             | -             | -                | -                | このサブカテゴリはこのドキュメントの範囲外です。       |
+| ワークステーション     | -             | -             | -                | -                | このサブカテゴリはこのドキュメントの範囲外です。       |
 
-- 4783(S): A basic application group was created.
+- 4783(S): 基本アプリケーショングループが作成されました。
 
-- 4784(S): A basic application group was changed.
+- 4784(S): 基本アプリケーショングループが変更されました。
 
-- 4785(S): A member was added to a basic application group.
+- 4785(S): 基本アプリケーショングループにメンバーが追加されました。
 
-- 4786(S): A member was removed from a basic application group.
+- 4786(S): 基本アプリケーショングループからメンバーが削除されました。
 
-- 4787(S): A non-member was added to a basic application group.
+- 4787(S): 基本アプリケーショングループに非メンバーが追加されました。
 
-- 4788(S): A non-member was removed from a basic application group.
+- 4788(S): 基本アプリケーショングループから非メンバーが削除されました。
 
-- 4789(S): A basic application group was deleted.
+- 4789(S): 基本アプリケーショングループが削除されました。
 
-- 4790(S): An LDAP query group was created.
+- 4790(S): LDAPクエリグループが作成されました。
 
-- 4791(S): An LDAP query group was changed.
+- 4791(S): LDAPクエリグループが変更されました。
 
-- 4792(S): An LDAP query group was deleted.
+- 4792(S): LDAPクエリグループが削除されました。

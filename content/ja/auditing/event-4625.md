@@ -1,6 +1,6 @@
 ---
-title: 4625(F) An account failed to log on. 
-description: Describes security event 4625(F) An account failed to log on. This event is generated if an account logon attempt failed for a locked out account.
+title: 4625(F) アカウントのログオンに失敗しました。
+description: ロックアウトされたアカウントのログオン試行が失敗した場合に生成されるセキュリティイベント4625(F)について説明します。
 ms.pagetype: security
 ms.mktglfcycl: deploy
 ms.sitesec: library
@@ -16,27 +16,26 @@ ms.collection:
 ms.topic: reference
 ---
 
-# 4625(F): An account failed to log on.
-
+# 4625(F): アカウントのログオンに失敗しました。
 
 <img src="images/event-4625.png" alt="Event 4625 illustration" width="449" height="780" hspace="10" align="top" />
 
-***Subcategories:***&nbsp;[Audit Account Lockout](audit-account-lockout.md) and [Audit Logon](audit-logon.md)
+***サブカテゴリ:***&nbsp;[アカウントロックアウトの監査](audit-account-lockout.md) および [ログオンの監査](audit-logon.md)
 
-***Event Description:***
+***イベントの説明:***
 
-This event is logged for any logon failure.
+このイベントは、ログオン失敗時に記録されます。
 
-It generates on the computer where logon attempt was made, for example, if logon attempt was made on user's workstation, then event will be logged on this workstation.
+ログオン試行が行われたコンピュータで生成されます。たとえば、ユーザーのワークステーションでログオン試行が行われた場合、このワークステーションにイベントが記録されます。
 
-This event generates on domain controllers, member servers, and workstations.
+このイベントは、ドメインコントローラー、メンバーサーバー、およびワークステーションで生成されます。
 
 > [!NOTE]
-> For recommendations, see [Security Monitoring Recommendations](#security-monitoring-recommendations) for this event.
+> 推奨事項については、このイベントの[セキュリティ監視の推奨事項](#security-monitoring-recommendations)を参照してください。
 
 <br clear="all">
 
-***Event XML:***
+***イベント XML:***
 ```xml
 - <Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
 - <System>
@@ -81,128 +80,127 @@ This event generates on domain controllers, member servers, and workstations.
  </Event>
 ```
 
-***Required Server Roles:*** None.
+***必要なサーバーの役割:*** なし。
 
-***Minimum OS Version:*** Windows Server 2008, Windows Vista.
+***最小 OS バージョン:*** Windows Server 2008, Windows Vista。
 
-***Event Versions:*** 0.
+***イベントバージョン:*** 0。
 
-***Field Descriptions:***
+***フィールドの説明:***
 
-**Subject:**
+**サブジェクト:**
 
--   **Security ID** \[Type = SID\]**:** SID of account that reported information about logon failure. Event Viewer automatically tries to resolve SIDs and show the account name. If the SID cannot be resolved, you will see the source data in the event.
+-   **セキュリティ ID** \[タイプ = SID\]**:** ログオン失敗に関する情報を報告したアカウントの SID。イベントビューアーは自動的に SID を解決し、アカウント名を表示しようとします。SID を解決できない場合、イベントにソースデータが表示されます。
 
     > [!NOTE]
-    > A **security identifier (SID)** is a unique value of variable length used to identify a trustee (security principal). Each account has a unique SID that is issued by an authority, such as an Active Directory domain controller, and stored in a security database. Each time a user logs on, the system retrieves the SID for that user from the database and places it in the access token for that user. The system uses the SID in the access token to identify the user in all subsequent interactions with Windows security. When a SID has been used as the unique identifier for a user or group, it cannot ever be used again to identify another user or group. For more information about SIDs, see [Security identifiers](/windows/access-protection/access-control/security-identifiers).
+    > **セキュリティ識別子 (SID)** は、トラスティ (セキュリティプリンシパル) を識別するために使用される可変長の一意の値です。各アカウントには、Active Directory ドメインコントローラーなどの権限によって発行され、セキュリティデータベースに保存される一意の SID があります。ユーザーがログオンするたびに、システムはデータベースからそのユーザーの SID を取得し、そのユーザーのアクセス トークンに配置します。システムは、アクセス トークン内の SID を使用して、以降のすべての Windows セキュリティとのやり取りでユーザーを識別します。ユーザーまたはグループの一意の識別子として SID が使用された場合、それ以降は他のユーザーまたはグループを識別するために再利用されることはありません。SID の詳細については、[セキュリティ識別子](/windows/access-protection/access-control/security-identifiers)を参照してください。
 
--   **Account Name** \[Type = UnicodeString\]**:** the name of the account that reported information about logon failure.
+-   **アカウント名** \[タイプ = UnicodeString\]**:** ログオン失敗に関する情報を報告したアカウントの名前。
 
--   **Account Domain** \[Type = UnicodeString\]**:** subject's domain or computer name. Here are some examples of formats:
+-   **アカウントドメイン** \[タイプ = UnicodeString\]**:** サブジェクトのドメインまたはコンピュータ名。以下はフォーマットの例です：
 
-    -   Domain NETBIOS name example: CONTOSO
+    -   ドメイン NETBIOS 名の例: CONTOSO
 
-    -   Lowercase full domain name: contoso.local
+    -   小文字の完全ドメイン名: contoso.local
 
-    -   Uppercase full domain name: CONTOSO.LOCAL
+    -   大文字の完全ドメイン名: CONTOSO.LOCAL
 
-    -   For some [well-known security principals](/windows/security/identity-protection/access-control/security-identifiers), such as LOCAL SERVICE or ANONYMOUS LOGON, the value of this field is "NT AUTHORITY".
+    -   一部の[よく知られたセキュリティプリンシパル](/windows/security/identity-protection/access-control/security-identifiers)の場合、例えば LOCAL SERVICE や ANONYMOUS LOGON、このフィールドの値は "NT AUTHORITY" です。
 
-    -   For local user accounts, this field will contain the name of the computer or device that this account belongs to, for example: "Win81".
+    -   ローカルユーザーアカウントの場合、このフィールドにはこのアカウントが属するコンピュータまたはデバイスの名前が含まれます。例えば: "Win81"。
 
--   **Logon Type** \[Type = UInt32\]**:** the type of logon that was performed. "Table 11. Windows Logon Types" contains the list of possible values for this field.
+-   **ログオンタイプ** \[タイプ = UInt32\]**:** 実行されたログオンのタイプ。"表11. Windowsログオンタイプ" にはこのフィールドの可能な値のリストが含まれています。
 
 
-    <span id="_Ref433822321" class="anchor"></span>**Table 11: Windows Logon Types**
+    <span id="_Ref433822321" class="anchor"></span>**表11: Windowsログオンタイプ**
 
-    | <span id="Windows_Logon_Types" class="anchor"></span>Logon Type | Logon Title       | Description                                                                                                                                                                                                                                                                                                                |
+    | <span id="Windows_Logon_Types" class="anchor"></span>ログオンタイプ | ログオンタイトル       | 説明                                                                                                                                                                                                                                                                                                                |
     |-----------------------------------------------------------------|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | 2                                                               | Interactive       | A user logged on to this computer.                                                                                                                                                                                                                                                                                         |
-    | 3                                                               | Network           | A user or computer logged on to this computer from the network.                                                                                                                                                                                                                                                            |
-    | 4                                                               | Batch             | Batch logon type is used by batch servers, where processes may be executing on behalf of a user without their direct intervention.                                                                                                                                                                                         |
-    | 5                                                               | Service           | A service was started by the Service Control Manager.                                                                                                                                                                                                                                                                      |
-    | 7                                                               | Unlock            | This workstation was unlocked.                                                                                                                                                                                                                                                                                             |
-    | 8                                                               | NetworkCleartext  | A user logged on to this computer from the network. The user's password was passed to the authentication package in its unhashed form. The built-in authentication packages all hash credentials before sending them across the network. The credentials do not traverse the network in plaintext (also called cleartext). |
-    | 9                                                               | NewCredentials    | A caller cloned its current token and specified new credentials for outbound connections. The new logon session has the same local identity, but uses different credentials for other network connections.                                                                                                                 |
-    | 10                                                              | RemoteInteractive | A user logged on to this computer remotely using Terminal Services or Remote Desktop.                                                                                                                                                                                                                                      |
-    | 11                                                              | CachedInteractive | A user logged on to this computer with network credentials that were stored locally on the computer. The domain controller was not contacted to verify the credentials.                                                                                                                                                    |
+    | 2                                                               | インタラクティブ       | ユーザーがこのコンピュータにログオンしました。                                                                                                                                                                                                                                                                                         |
+    | 3                                                               | ネットワーク           | ユーザーまたはコンピュータがネットワークからこのコンピュータにログオンしました。                                                                                                                                                                                                                                                            |
+    | 4                                                               | バッチ             | バッチログオンタイプはバッチサーバーで使用され、プロセスがユーザーの直接の介入なしに実行される場合に使用されます。                                                                                                                                                                                         |
+    | 5                                                               | サービス           | サービスコントロールマネージャによってサービスが開始されました。                                                                                                                                                                                                                                                                      |
+    | 7                                                               | ロック解除            | このワークステーションのロックが解除されました。                                                                                                                                                                                                                                                                                             |
+    | 8                                                               | ネットワーククリアテキスト  | ユーザーがネットワークからこのコンピュータにログオンしました。ユーザーのパスワードはハッシュされていない形式で認証パッケージに渡されました。組み込みの認証パッケージはすべて、資格情報をネットワークに送信する前にハッシュします。資格情報はプレーンテキスト（クリアテキストとも呼ばれる）でネットワークを通過しません。 |
+    | 9                                                               | 新しい資格情報    | 呼び出し元が現在のトークンをクローンし、アウトバウンド接続のために新しい資格情報を指定しました。新しいログオンセッションは同じローカルIDを持ちますが、他のネットワーク接続には異なる資格情報を使用します。                                                                                                                 |
+    | 10                                                              | リモートインタラクティブ | ユーザーがターミナルサービスまたはリモートデスクトップを使用してリモートでこのコンピュータにログオンしました。                                                                                                                                                                                                                                      |
+    | 11                                                              | キャッシュされたインタラクティブ | ユーザーがネットワーク資格情報を使用してこのコンピュータにログオンしましたが、その資格情報はコンピュータにローカルに保存されていました。ドメインコントローラーは資格情報を確認するために連絡されませんでした。                                                                                                                                                    |
 
+**ログオンに失敗したアカウント:**
 
-**Account For Which Logon Failed:**
-
--   **Security ID** \[Type = SID\]**:** SID of the account that was specified in the logon attempt. Event Viewer automatically tries to resolve SIDs and show the account name. If the SID cannot be resolved, you will see the source data in the event.
+-   **セキュリティID** \[タイプ = SID\]**:** ログオン試行で指定されたアカウントのSID。イベントビューアーは自動的にSIDを解決してアカウント名を表示しようとします。SIDが解決できない場合、イベントにソースデータが表示されます。
 
     > [!NOTE]
-    > A **security identifier (SID)** is a unique value of variable length used to identify a trustee (security principal). Each account has a unique SID that is issued by an authority, such as an Active Directory domain controller, and stored in a security database. Each time a user logs on, the system retrieves the SID for that user from the database and places it in the access token for that user. The system uses the SID in the access token to identify the user in all subsequent interactions with Windows security. When a SID has been used as the unique identifier for a user or group, it cannot ever be used again to identify another user or group. For more information about SIDs, see [Security identifiers](/windows/access-protection/access-control/security-identifiers).
+    > **セキュリティ識別子 (SID)** は、信託者（セキュリティプリンシパル）を識別するために使用される可変長の一意の値です。各アカウントには、Active Directoryドメインコントローラーなどの権限によって発行され、セキュリティデータベースに保存される一意のSIDがあります。ユーザーがログオンするたびに、システムはデータベースからそのユーザーのSIDを取得し、そのユーザーのアクセス トークンに配置します。システムは、以降のすべてのWindowsセキュリティとのやり取りでユーザーを識別するために、アクセス トークン内のSIDを使用します。SIDがユーザーまたはグループの一意の識別子として使用された場合、それは他のユーザーまたはグループを識別するために再利用されることはありません。SIDの詳細については、[セキュリティ識別子](/windows/access-protection/access-control/security-identifiers)を参照してください。
 
--   **Account Name** \[Type = UnicodeString\]**:** the name of the account that was specified in the logon attempt.
+-   **アカウント名** \[タイプ = UnicodeString\]**:** ログオン試行で指定されたアカウントの名前。
 
--   **Account Domain** \[Type = UnicodeString\]**:** domain or computer name. Here are some examples of formats:
+-   **アカウント ドメイン** \[タイプ = UnicodeString\]**:** ドメインまたはコンピューター名。以下は形式の例です:
 
-    -   Domain NETBIOS name example: CONTOSO
+    -   ドメイン NETBIOS 名の例: CONTOSO
 
-    -   Lowercase full domain name: contoso.local
+    -   小文字の完全なドメイン名: contoso.local
 
-    -   Uppercase full domain name: CONTOSO.LOCAL
+    -   大文字の完全なドメイン名: CONTOSO.LOCAL
 
-    -   For some [well-known security principals](/windows/security/identity-protection/access-control/security-identifiers), such as LOCAL SERVICE or ANONYMOUS LOGON, the value of this field is "NT AUTHORITY".
+    -   LOCAL SERVICE や ANONYMOUS LOGON などの[よく知られたセキュリティプリンシパル](/windows/security/identity-protection/access-control/security-identifiers)の場合、このフィールドの値は "NT AUTHORITY" です。
 
-    -   For local user accounts, this field will contain the name of the computer or device that this account belongs to, for example: "Win81".
+    -   ローカルユーザーアカウントの場合、このフィールドにはこのアカウントが属するコンピューターまたはデバイスの名前が含まれます。例: "Win81"。
 
--   **Logon ID** \[Type = HexInt64\]**:** hexadecimal value that can help you correlate this event with recent events that might contain the same Logon ID, for example, "[4624](event-4624.md): An account was successfully logged on."
+-   **ログオンID** \[タイプ = HexInt64\]**:** このイベントを、同じログオンIDを含む可能性のある最近のイベントと関連付けるのに役立つ16進数の値。例: "[4624](event-4624.md): アカウントが正常にログオンされました。"
 
-**Failure Information:**
+**失敗情報:**
 
--   **Failure Reason** \[Type = UnicodeString\]**:** textual explanation of **Status** field value. For this event, it typically has "**Account locked out**" value.
+-   **失敗理由** \[タイプ = UnicodeString\]**:** **ステータス**フィールド値のテキストによる説明。このイベントでは、通常「**アカウントがロックアウトされました**」という値を持ちます。
 
--   **Status** \[Type = HexInt32\]**:** the reason why logon failed. For this event, it typically has "**0xC0000234**" value.
+-   **ステータス** \[タイプ = HexInt32\]**:** ログオンが失敗した理由。このイベントでは、通常「**0xC0000234**」という値を持ちます。
 
--   **Sub Status** \[Type = HexInt32\]**:** additional information about logon failure.
+-   **サブステータス** \[タイプ = HexInt32\]**:** ログオン失敗に関する追加情報。
 
 > [!NOTE]
-> For more information about various Status or Sub Status codes, see [NTSTATUS Values](/openspecs/windows_protocols/ms-erref/596a1078-e883-4972-9bbc-49e60bebca55).
+> さまざまなステータスまたはサブステータスコードの詳細については、[NTSTATUS 値](/openspecs/windows_protocols/ms-erref/596a1078-e883-4972-9bbc-49e60bebca55)を参照してください。
 
-**Process Information:**
+**プロセス情報:**
 
--   **Caller Process ID** \[Type = Pointer\]: hexadecimal Process ID of the process that attempted the logon. Process ID (PID) is a number used by the operating system to uniquely identify an active process. To see the PID for a specific process you can, for example, use Task Manager (Details tab, PID column):<br/><br/>
+-   **呼び出し元プロセスID** \[タイプ = ポインタ\]: ログオンを試みたプロセスの16進数のプロセスID。プロセスID (PID) は、オペレーティングシステムがアクティブなプロセスを一意に識別するために使用する番号です。特定のプロセスのPIDを確認するには、例えばタスクマネージャー（詳細タブ、PID列）を使用します:<br/><br/>
 
-    <img src="images/task-manager.png" alt="Task manager illustration" width="585" height="375" />
+    <img src="images/task-manager.png" alt="タスクマネージャーのイラスト" width="585" height="375" />
 
-    If you convert the hexadecimal value to decimal, you can compare it to the values in Task Manager.
+    16進数の値を10進数に変換すると、タスクマネージャーの値と比較できます。
 
-    You can also correlate this process ID with a process ID in other events, for example, "[4688](event-4688.md): A new process has been created" **Process Information\\New Process ID**.
+    また、このプロセスIDを他のイベントのプロセスIDと関連付けることもできます。例えば、「[4688](event-4688.md): 新しいプロセスが作成されました」**プロセス情報\\新しいプロセスID**。
 
--   **Caller Process Name** \[Type = UnicodeString\]**:** full path and the name of the executable for the process.
+-   **呼び出し元プロセス名** \[タイプ = UnicodeString\]**:** プロセスの実行可能ファイルのフルパスと名前。
 
-**Network Information:**
+**ネットワーク情報:**
 
--   **Workstation Name** \[Type = UnicodeString\]**:** machine name from which logon attempt was performed.
+-   **ワークステーション名** \[タイプ = UnicodeString\]**:** ログオン試行が行われたマシンの名前。
 
--   **Source Network Address** \[Type = UnicodeString\]**:** IP address of machine from which logon attempt was performed.
+-   **ソースネットワークアドレス** \[タイプ = UnicodeString\]**:** ログオン試行が行われたマシンのIPアドレス。
 
-    -   IPv6 address or ::ffff:IPv4 address of a client.
+    -   クライアントのIPv6アドレスまたは::ffff:IPv4アドレス。
 
-    -   ::1 or 127.0.0.1 means localhost.
+    -   ::1または127.0.0.1はローカルホストを意味します。
 
--   **Source Port** \[Type = UnicodeString\]: source port that was used for logon attempt from remote machine.
+-   **ソースポート** \[タイプ = UnicodeString\]: リモートマシンからのログオン試行に使用されたソースポート。
 
-    -   0 for interactive logons.
+    -   インタラクティブログオンの場合は0。
 
-**Detailed Authentication Information:**
+**詳細な認証情報:**
 
--   **Logon Process** \[Type = UnicodeString\]**:** the name of the trusted logon process that was used for the logon attempt. See event "[4611](event-4611.md): A trusted logon process has been registered with the Local Security Authority" description for more information.
+-   **ログオンプロセス** \[タイプ = UnicodeString\]**:** ログオン試行に使用された信頼されたログオンプロセスの名前。詳細については、イベント「[4611](event-4611.md): ローカルセキュリティ機関に信頼されたログオンプロセスが登録されました」の説明を参照してください。
 
--   **Authentication Package** \[Type = UnicodeString\]**:** The name of the authentication package that was used for the logon authentication process. Default packages loaded on LSA startup are located in "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Lsa\\OSConfig" registry key. Other packages can be loaded at runtime. When a new package is loaded a "[4610](event-4610.md): An authentication package has been loaded by the Local Security Authority" (typically for NTLM) or "[4622](event-4622.md): A security package has been loaded by the Local Security Authority" (typically for Kerberos) event is logged to indicate that a new package has been loaded along with the package name. The most common authentication packages are:
+-   **認証パッケージ** \[種類 = UnicodeString\]**:** ログオン認証プロセスで使用された認証パッケージの名前。LSAの起動時にロードされるデフォルトのパッケージは、"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Lsa\\OSConfig" レジストリキーにあります。他のパッケージは実行時にロードすることができます。新しいパッケージがロードされると、"[4610](event-4610.md): ローカルセキュリティ機関によって認証パッケージがロードされました"（通常はNTLM用）または"[4622](event-4622.md): ローカルセキュリティ機関によってセキュリティパッケージがロードされました"（通常はKerberos用）イベントが記録され、新しいパッケージがロードされたこととそのパッケージ名が示されます。最も一般的な認証パッケージは次のとおりです：
 
-    -   **NTLM** – NTLM-family Authentication
+    -   **NTLM** – NTLMファミリー認証
 
-    -   **Kerberos** – Kerberos authentication.
+    -   **Kerberos** – Kerberos認証
 
-    -   **Negotiate** – the Negotiate security package selects between Kerberos and NTLM protocols. Negotiate selects Kerberos unless it cannot be used by one of the systems involved in the authentication or the calling application did not provide sufficient information to use Kerberos.
+    -   **Negotiate** – Negotiateセキュリティパッケージは、KerberosとNTLMプロトコルの間で選択します。Negotiateは、認証に関与するシステムのいずれかがKerberosを使用できない場合や、呼び出しアプリケーションがKerberosを使用するための十分な情報を提供しなかった場合を除き、Kerberosを選択します。
 
--   **Transited Services** \[Type = UnicodeString\] \[Kerberos-only\]**:** the list of transmitted services. Transmitted services are populated if the logon was a result of a S4U (Service For User) logon process. S4U is a Microsoft extension to the Kerberos Protocol to allow an application service to obtain a Kerberos service ticket on behalf of a user – most commonly done by a front-end website to access an internal resource on behalf of a user. For more information about S4U, see <https://msdn.microsoft.com/library/cc246072.aspx>
+-   **転送されたサービス** \[種類 = UnicodeString\] \[Kerberosのみ\]**:** 転送されたサービスのリスト。転送されたサービスは、S4U（Service For User）ログオンプロセスの結果としてログオンが行われた場合に入力されます。S4Uは、アプリケーションサービスがユーザーに代わってKerberosサービスチケットを取得できるようにするためのMicrosoftの拡張機能であり、最も一般的にはフロントエンドのウェブサイトがユーザーに代わって内部リソースにアクセスするために行われます。S4Uの詳細については、<https://msdn.microsoft.com/library/cc246072.aspx> を参照してください。
 
--   **Package Name (NTLM only)** \[Type = UnicodeString\]**:** The name of the LAN Manager subpackage ([NTLM-family](/openspecs/windows_protocols/ms-nlmp/c50a85f0-5940-42d8-9e82-ed206902e919) protocol name) that was used during the logon attempt. Possible values are:
+-   **パッケージ名 (NTLMのみ)** \[種類 = UnicodeString\]**:** ログオン試行中に使用されたLAN Managerサブパッケージ（[NTLMファミリー](/openspecs/windows_protocols/ms-nlmp/c50a85f0-5940-42d8-9e82-ed206902e919) プロトコル名）の名前。考えられる値は次のとおりです：
 
     -   "NTLM V1"
 
@@ -210,61 +208,63 @@ This event generates on domain controllers, member servers, and workstations.
 
     -   "LM"
 
-        Only populated if "**Authentication Package" = "NTLM"**.
+        **"認証パッケージ" = "NTLM"** の場合にのみ入力されます。
 
--   **Key Length** \[Type = UInt32\]**:** the length of [NTLM Session Security](/openspecs/windows_protocols/ms-nlmp/99d90ff4-957f-4c8a-80e4-5bfe5a9a9832) key. Typically, it has a length of 128 bits or 56 bits. This parameter is always 0 if **"Authentication Package" = "Kerberos"**, because it is not applicable for Kerberos protocol. This field will also have "0" value if Kerberos was negotiated using **Negotiate** authentication package.
+-   **キーの長さ** \[種類 = UInt32\]**:** [NTLMセッションセキュリティ](/openspecs/windows_protocols/ms-nlmp/99d90ff4-957f-4c8a-80e4-5bfe5a9a9832) キーの長さ。通常、128ビットまたは56ビットの長さです。このパラメータは、**"認証パッケージ" = "Kerberos"** の場合は常に0です。これは、Kerberosプロトコルには適用されないためです。また、**Negotiate** 認証パッケージを使用してKerberosがネゴシエートされた場合も、このフィールドは "0" の値を持ちます。
 
-## Security Monitoring Recommendations
+## セキュリティ監視の推奨事項
 
-For 4625(F): An account failed to log on.
+4625(F): アカウントのログオンに失敗しました。
 
 > [!IMPORTANT]
-> For this event, also see [Appendix A: Security monitoring recommendations for many audit events](appendix-a-security-monitoring-recommendations-for-many-audit-events.md).
+> このイベントについては、[付録A: 多くの監査イベントに対するセキュリティ監視の推奨事項](appendix-a-security-monitoring-recommendations-for-many-audit-events.md)も参照してください。
 
--   If you have a pre-defined "**Process Name**" for the process reported in this event, monitor all events with "**Process Name**" not equal to your defined value.
+- このイベントで報告されたプロセスの「**プロセス名**」が事前に定義されたものである場合、「**プロセス名**」が定義された値と異なるすべてのイベントを監視します。
 
--   You can monitor to see if "**Process Name**" is not in a standard folder (for example, not in **System32** or **Program Files**) or is in a restricted folder (for example, **Temporary Internet Files**).
+- 「**プロセス名**」が標準フォルダー（例えば、**System32**や**Program Files**）にないか、制限されたフォルダー（例えば、**Temporary Internet Files**）にあるかを監視することができます。
 
 <!-- -->
 
--   If you have a pre-defined list of restricted substrings or words in process names (for example, "**mimikatz**" or "**cain.exe**"), check for these substrings in "**Process Name**."
+- プロセス名に制限されたサブストリングや単語（例えば、「**mimikatz**」や「**cain.exe**」）のリストが事前に定義されている場合、「**プロセス名**」にこれらのサブストリングが含まれているかを確認します。
 
--   If **Subject\\Account Name** is a name of service account or user account, it may be useful to investigate whether that account is allowed (or expected) to request logon for **Account For Which Logon Failed\\Security ID**.
+- **Subject\\Account Name**がサービスアカウントやユーザーアカウントの名前である場合、そのアカウントが**Account For Which Logon Failed\\Security ID**のログオン要求を許可されているか（または期待されているか）を調査することが有用です。
 
--   To monitor for a mismatch between the logon type and the account that uses it (for example, if **Logon Type** 4-Batch or 5-Service is used by a member of a domain administrative group), monitor **Logon Type** in this event.
+- ログオンタイプとそれを使用するアカウントの不一致を監視するために（例えば、**Logon Type** 4-バッチまたは5-サービスがドメイン管理グループのメンバーによって使用されている場合）、このイベントの**Logon Type**を監視します。
 
--   If you have a high-value domain or local account for which you need to monitor every lockout, monitor all [4625](event-4625.md) events with the **"Subject\\Security ID"** that corresponds to the account.
+- すべてのロックアウトを監視する必要がある高価値のドメインまたはローカルアカウントがある場合、そのアカウントに対応する**"Subject\\Security ID"**を持つすべての[4625](event-4625.md)イベントを監視します。
 
--   We recommend monitoring all [4625](event-4625.md) events for local accounts, because these accounts typically should not be locked out. Monitoring is especially relevant for critical servers, administrative workstations, and other high-value assets.
+- ローカルアカウントは通常ロックアウトされるべきではないため、すべての[4625](event-4625.md)イベントを監視することをお勧めします。監視は特に重要なサーバー、管理用ワークステーション、およびその他の高価値資産に関連します。
 
--   We recommend monitoring all [4625](event-4625.md) events for service accounts, because these accounts should not be locked out or prevented from functioning. Monitoring is especially relevant for critical servers, administrative workstations, and other high value assets.
+- サービスアカウントはロックアウトされたり機能が停止されたりするべきではないため、すべての[4625](event-4625.md)イベントを監視することをお勧めします。監視は特に重要なサーバー、管理用ワークステーション、およびその他の高価値資産に関連します。
 
--   If your organization restricts logons in the following ways, you can use this event to monitor accordingly:
+- 組織が以下の方法でログオンを制限している場合、このイベントを使用して適切に監視することができます。
 
-    -   If the **"Account For Which Logon Failed \\Security ID"** should never be used to log on from the specific **Network Information\\Workstation Name**.
+    -   **"Account For Which Logon Failed \\Security ID"** が特定の **Network Information\\Workstation Name** からのログオンに使用されるべきでない場合。
 
-    -   If a specific account, such as a service account, should only be used from your internal IP address list (or some other list of IP addresses). In this case, you can monitor for **Network Information\\Source Network Address** and compare the network address with your list of IP addresses.
+    -   サービスアカウントなどの特定のアカウントが内部のIPアドレスリスト（または他のIPアドレスリスト）からのみ使用されるべき場合。この場合、**Network Information\\Source Network Address** を監視し、ネットワークアドレスをIPアドレスリストと比較します。
 
-    -   If a particular version of NTLM is always used in your organization. In this case, you can use this event to monitor **Package Name (NTLM only)**, for example, to find events where **Package Name (NTLM only)** does not equal **NTLM V2**.
+    -   組織内で特定のバージョンのNTLMが常に使用されている場合。この場合、このイベントを使用して **Package Name (NTLM only)** を監視し、例えば **Package Name (NTLM only)** が **NTLM V2** と等しくないイベントを見つけます。
 
-    -   If NTLM is not used in your organization, or should not be used by a specific account (**New Logon\\Security ID**). In this case, monitor for all events where **Authentication Package** is NTLM.
+    -   組織内でNTLMが使用されていない、または特定のアカウント（**New Logon\\Security ID**）によって使用されるべきでない場合。この場合、**Authentication Package** がNTLMであるすべてのイベントを監視します。
 
-    -   If the **Authentication Package** is NTLM. In this case, monitor for **Key Length** not equal to 128, because all Windows operating systems starting with Windows 2000 support 128-bit Key Length.
+    -   **Authentication Package** がNTLMである場合。この場合、**Key Length** が128と等しくないことを監視します。すべてのWindowsオペレーティングシステムはWindows 2000以降、128ビットのキー長をサポートしています。
 
-    -   If **Logon Process** is not from a trusted logon processes list.
+    -   **Logon Process** が信頼されたログオンプロセスリストにない場合。
 
--   Monitor for all events with the fields and values in the following table:
+-   以下の表のフィールドと値を持つすべてのイベントを監視します：
 
-    |  Field                                                                         | Value to monitor for                                                                                                                                                                                |
+    |  フィールド                                                                         | 監視する値                                                                                                                                                                                |
     |----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | **Failure Information\\Status** or <br>**Failure Information\\Sub Status** | 0XC000005E – "There are currently no logon servers available to service the logon request." <br>This issue is typically not a security issue, but it can be an infrastructure or availability issue. |
-    | **Failure Information\\Status** or <br>**Failure Information\\Sub Status** | 0xC0000064 – "User logon with misspelled or bad user account". <br>Especially if you get several of these events in a row, it can be a sign of a user enumeration attack.                             |
-    | **Failure Information\\Status** or <br>**Failure Information\\Sub Status** | 0xC000006A – "User logon with misspelled or bad password" for critical accounts or service accounts. <br>Especially watch for a number of such events in a row.                               |
-    | **Failure Information\\Status** or <br>**Failure Information\\Sub Status** | 0XC000006D – "This is either due to a bad username or authentication information" for critical accounts or service accounts. <br>Especially watch for a number of such events in a row.       |
-    | **Failure Information\\Status** or <br>**Failure Information\\Sub Status** | 0xC000006F – "User logon outside authorized hours".                                                                                                                                                 |
-    | **Failure Information\\Status** or <br>**Failure Information\\Sub Status** | 0xC0000070 – "User logon from unauthorized workstation".                                                                                                                                            |
-    | **Failure Information\\Status** or <br>**Failure Information\\Sub Status** | 0xC0000072 – "User logon to account disabled by administrator".                                                                                                                                     |
-    | **Failure Information\\Status** or <br>**Failure Information\\Sub Status** | 0XC000015B – "The user has not been granted the requested logon type (aka logon right) at this machine".                                                                                            |
-    | **Failure Information\\Status** or <br>**Failure Information\\Sub Status** | 0XC0000192 – "An attempt was made to logon, but the Netlogon service was not started". <br>This issue is typically not a security issue but it can be an infrastructure or availability issue.      |
-    | **Failure Information\\Status** or <br>**Failure Information\\Sub Status** | 0xC0000193 – "User logon with expired account".                                                                                                                                                     |
-    | **Failure Information\\Status** or <br>**Failure Information\\Sub Status** | 0XC0000413 – "Logon Failure: The machine you are logging onto is protected by an authentication firewall. The specified account is not allowed to authenticate to the machine".                     |
+    | **Failure Information\\Status** または <br>**Failure Information\\Sub Status** | 0XC000005E – "現在、ログオン要求を処理するログオンサーバーが利用できません。" <br>この問題は通常、セキュリティの問題ではなく、インフラストラクチャや可用性の問題である可能性があります。 |
+    | **Failure Information\\Status** または <br>**Failure Information\\Sub Status** | 0xC0000064 – "ユーザーのログオンが誤ったユーザーアカウントで行われました。" <br>特にこれらのイベントが連続して発生する場合、ユーザー列挙攻撃の兆候である可能性があります。                             |
+    | **Failure Information\\Status** または <br>**Failure Information\\Sub Status** | 0xC000006A – "重要なアカウントまたはサービスアカウントの誤ったパスワードでのユーザーのログオン。" <br>特にこのようなイベントが連続して発生する場合に注意してください。                               |
+    | **Failure Information\\Status** または <br>**Failure Information\\Sub Status** | 0XC000006D – "これは、誤ったユーザー名または認証情報によるものです。" 重要なアカウントまたはサービスアカウントの場合。 <br>特にこのようなイベントが連続して発生する場合に注意してください。       |
+    | **Failure Information\\Status** または <br>**Failure Information\\Sub Status** | 0xC000006F – "許可された時間外のユーザーのログオン。"                                                                                                                                                 |
+    | **Failure Information\\Status** または <br>**Failure Information\\Sub Status** | 0xC0000070 – "許可されていないワークステーションからのユーザーのログオン。"                                                                                                                                            |
+    | **Failure Information\\Status** または <br>**Failure Information\\Sub Status** | 0xC0000072 – "管理者によって無効にされたアカウントへのユーザーのログオン。"                                                                                                                                     |
+    | **Failure Information\\Status** または <br>**Failure Information\\Sub Status** | 0XC000015B – "このマシンで要求されたログオンタイプ（別名ログオン権限）がユーザーに付与されていません。"                                                                                            |
+    | **Failure Information\\Status** または <br>**Failure Information\\Sub Status** | 0XC0000192 – "ログオンしようとしましたが、Netlogonサービスが開始されていませんでした。" <br>この問題は通常、セキュリティの問題ではなく、インフラストラクチャや可用性の問題である可能性があります。      |
+    | **Failure Information\\Status** または <br>**Failure Information\\Sub Status** | 0xC0000193 – "期限切れのアカウントでのユーザーのログオン。"                                                                                                                                                     |
+    | **Failure Information\\Status** または <br>**Failure Information\\Sub Status** | 0XC0000413 – "ログオン失敗：ログオンしようとしているマシンは認証ファイアウォールで保護されています。指定されたアカウントはこのマシンに認証することが許可されていません。"                     |
+
+It seems like you haven't pasted the Markdown content yet. Please provide the content you want to be translated into Japanese.

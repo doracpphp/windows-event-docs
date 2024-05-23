@@ -1,6 +1,6 @@
 ---
-title: Audit Directory Service Replication 
-description: Audit Directory Service Replication is a policy setting that decides if audit events are created when replication between two domain controllers begins or ends.
+title: ディレクトリ サービス レプリケーションの監査
+description: ディレクトリ サービス レプリケーションの監査は、2 つのドメイン コントローラー間のレプリケーションが開始または終了したときに監査イベントが作成されるかどうかを決定するポリシー設定です。
 ms.assetid: b95d296c-7993-4e8d-8064-a8bbe284bd56
 ms.reviewer: 
 manager: aaroncz
@@ -14,22 +14,20 @@ ms.date: 09/06/2021
 ms.topic: reference
 ---
 
-# Audit Directory Service Replication
+# ディレクトリ サービス レプリケーションの監査
 
+ディレクトリ サービス レプリケーションの監査は、2 つのドメイン コントローラー間のレプリケーションが開始および終了したときに、オペレーティング システムが監査イベントを生成するかどうかを決定します。
 
-Audit Directory Service Replication determines whether the operating system generates audit events when replication between two domain controllers begins and ends.
+**イベント ボリューム**: ドメイン コントローラーで中程度。
 
-**Event volume**: Medium on domain controllers.
+| コンピューターの種類 | 一般的な成功 | 一般的な失敗 | 強い成功 | 強い失敗 | コメント                                                                                                                                                                                                                   |
+|-----------------------|---------------|---------------|------------|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ドメイン コントローラー | いいえ        | いいえ        | IF         | IF         | IF - このサブカテゴリのイベントは通常、情報提供を目的としており、これらのイベントを使用して悪意のある活動を検出することは困難です。主に Active Directory レプリケーションのトラブルシューティングに使用されます。 |
+| メンバー サーバー     | いいえ        | いいえ        | いいえ     | いいえ     | このサブカテゴリはドメイン コントローラーでのみ意味があります。                                                                                                                                                           |
+| ワークステーション   | いいえ        | いいえ        | いいえ     | いいえ     | このサブカテゴリはドメイン コントローラーでのみ意味があります。                                                                                                                                                           |
 
-| Computer Type     | General Success | General Failure | Stronger Success | Stronger Failure | Comments                                                                                                                                                                                                            |
-|-------------------|-----------------|-----------------|------------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Domain Controller | No              | No              | IF               | IF               | IF - Events in this subcategory typically have an informational purpose and it is difficult to detect any malicious activity using these events. It’s mainly used for Active Directory replication troubleshooting. |
-| Member Server     | No              | No              | No               | No               | This subcategory makes sense only on domain controllers.                                                                                                                                                            |
-| Workstation       | No              | No              | No               | No               | This subcategory makes sense only on domain controllers.                                                                                                                                                            |
+**イベントリスト:**
 
-**Events List:**
+-   [4932](event-4932.md)(S): Active Directory 名前付けコンテキストのレプリカの同期が開始されました。
 
--   [4932](event-4932.md)(S): Synchronization of a replica of an Active Directory naming context has begun.
-
--   [4933](event-4933.md)(S, F): Synchronization of a replica of an Active Directory naming context has ended.
-
+-   [4933](event-4933.md)(S, F): Active Directory 名前付けコンテキストのレプリカの同期が終了しました。

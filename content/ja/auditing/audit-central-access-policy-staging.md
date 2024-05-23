@@ -1,6 +1,6 @@
 ---
-title: Audit Central Access Policy Staging 
-description: The Advanced Security Audit policy setting, Audit Central Access Policy Staging, determines permissions on a Central Access Policy.
+title: 中央アクセスポリシーステージングの監査
+description: 高度なセキュリティ監査ポリシー設定である「中央アクセスポリシーステージングの監査」は、中央アクセスポリシーにおける権限を決定します。
 ms.assetid: D9BB11CE-949A-4B48-82BF-30DC5E6FC67D
 ms.reviewer: 
 manager: aaroncz
@@ -14,26 +14,26 @@ ms.date: 09/06/2021
 ms.topic: reference
 ---
 
-# Audit Central Access Policy Staging
+# 中央アクセスポリシーステージングの監査
 
-Audit Central Access Policy Staging allows you to audit access requests where a permission granted or denied by a proposed policy differs from the current central access policy on an object.
+中央アクセスポリシーステージングの監査を使用すると、提案されたポリシーによって許可または拒否された権限が、オブジェクトの現在の中央アクセスポリシーと異なる場合にアクセス要求を監査できます。
 
-If you configure this policy setting, an audit event is generated each time a user accesses an object and the permission granted by the current central access policy on the object differs from that granted by the proposed policy. The resulting audit event is generated as follows:
+このポリシー設定を構成すると、ユーザーがオブジェクトにアクセスするたびに、オブジェクトの現在の中央アクセスポリシーによって許可された権限が提案されたポリシーによって許可された権限と異なる場合に監査イベントが生成されます。生成される監査イベントは次のとおりです：
 
--   Success audits, when configured, record access attempts when the current central access policy grants access, but the proposed policy denies access.
+- 成功監査が構成されている場合、現在の中央アクセスポリシーがアクセスを許可し、提案されたポリシーがアクセスを拒否する場合にアクセス試行を記録します。
 
--   Failure audits, when configured, record access attempts when:
+- 失敗監査が構成されている場合、次の状況でアクセス試行を記録します：
 
-    -   The current central access policy does not grant access, but the proposed policy grants access.
+    - 現在の中央アクセスポリシーがアクセスを許可せず、提案されたポリシーがアクセスを許可する場合。
 
-    -   A principal requests the maximum access rights they are allowed and the access rights granted by the current central access policy are different than the access rights granted by the proposed policy.
+    - プリンシパルが許可されている最大のアクセス権を要求し、現在の中央アクセスポリシーによって許可されたアクセス権が提案されたポリシーによって許可されたアクセス権と異なる場合。
 
-| Computer Type     | General Success | General Failure | Stronger Success | Stronger Failure | Comments                                                                                                                                                                                                                                                                                                                     |
+| コンピューターの種類 | 一般的な成功 | 一般的な失敗 | 強力な成功 | 強力な失敗 | コメント                                                                                                                                                                                                                                                                                                                     |
 |-------------------|-----------------|-----------------|------------------|------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Domain Controller | IF              | No              | IF               | No               | IF - Enable this subcategory if you need to test or troubleshoot Dynamic Access Control Proposed [Central Access Policies](/windows-server/identity/solution-guides/scenario--central-access-policy).<br>This subcategory doesn’t have Failure events, so there is no recommendation to enable Failure auditing for this subcategory. |
-| Member Server     | IF              | No              | IF               | No               | IF - Enable this subcategory if you need to test or troubleshoot Dynamic Access Control Proposed [Central Access Policies](/windows-server/identity/solution-guides/scenario--central-access-policy).<br>This subcategory doesn’t have Failure events, so there is no recommendation to enable Failure auditing for this subcategory. |
-| Workstation       | IF              | No              | IF               | No               | IF - Enable this subcategory if you need to test or troubleshoot Dynamic Access Control Proposed [Central Access Policies](/windows-server/identity/solution-guides/scenario--central-access-policy).<br>This subcategory doesn’t have Failure events, so there is no recommendation to enable Failure auditing for this subcategory. |
+| ドメインコントローラー | IF              | No              | IF               | No               | IF - 動的アクセス制御提案のテストやトラブルシューティングが必要な場合、このサブカテゴリを有効にします [中央アクセスポリシー](/windows-server/identity/solution-guides/scenario--central-access-policy).<br>このサブカテゴリには失敗イベントがないため、このサブカテゴリの失敗監査を有効にする推奨事項はありません。 |
+| メンバーサーバー     | IF              | No              | IF               | No               | IF - 動的アクセス制御提案のテストやトラブルシューティングが必要な場合、このサブカテゴリを有効にします [中央アクセスポリシー](/windows-server/identity/solution-guides/scenario--central-access-policy).<br>このサブカテゴリには失敗イベントがないため、このサブカテゴリの失敗監査を有効にする推奨事項はありません。 |
+| ワークステーション       | IF              | No              | IF               | No               | IF - 動的アクセス制御提案のテストやトラブルシューティングが必要な場合、このサブカテゴリを有効にします [中央アクセスポリシー](/windows-server/identity/solution-guides/scenario--central-access-policy).<br>このサブカテゴリには失敗イベントがないため、このサブカテゴリの失敗監査を有効にする推奨事項はありません。 |
 
-**Events List:**
+**イベントリスト:**
 
--   [4818](event-4818.md)(S): Proposed Central Access Policy does not grant the same access permissions as the current Central Access Policy.
+-   [4818](event-4818.md)(S): 提案された中央アクセスポリシーは、現在の中央アクセスポリシーと同じアクセス権限を付与していません。

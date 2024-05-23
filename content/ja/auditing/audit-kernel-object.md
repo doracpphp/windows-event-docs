@@ -1,6 +1,6 @@
 ---
-title: Audit Kernel Object 
-description: The policy setting, Audit Kernel Object, decides if user attempts to access the system kernel (which includes mutexes and semaphores) generate audit events.
+title: カーネルオブジェクトの監査
+description: ポリシー設定「カーネルオブジェクトの監査」は、ユーザーがシステムカーネル（ミューテックスやセマフォを含む）にアクセスしようとしたときに監査イベントを生成するかどうかを決定します。
 ms.assetid: 75619d8b-b1eb-445b-afc9-0f9053be97fb
 ms.reviewer: 
 manager: aaroncz
@@ -14,31 +14,30 @@ ms.date: 09/06/2021
 ms.topic: reference
 ---
 
-# Audit Kernel Object
+# カーネルオブジェクトの監査
 
+カーネルオブジェクトの監査は、ユーザーがシステムカーネル（ミューテックスやセマフォを含む）にアクセスしようとしたときに、オペレーティングシステムが監査イベントを生成するかどうかを決定します。
 
-Audit Kernel Object determines whether the operating system generates audit events when users attempt to access the system kernel, which includes mutexes and semaphores.
+一致するシステムアクセス制御リスト ([SACL](/windows/win32/secauthz/access-control-lists)) を持つカーネルオブジェクトのみがセキュリティ監査イベントを生成します。生成される監査は通常、開発者にとってのみ有用です。
 
-Only kernel objects with a matching system access control list ([SACL](/windows/win32/secauthz/access-control-lists)) generate security audit events. The audits generated are usually useful only to developers.
+通常、カーネルオブジェクトには、AuditBaseObjects または AuditBaseDirectories 監査オプションが有効になっている場合にのみ SACL が付与されます。
 
-Typically, kernel objects are given SACLs only if the AuditBaseObjects or AuditBaseDirectories auditing options are enabled.
+「[監査: グローバルシステムオブジェクトのアクセスを監査する](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj852233(v=ws.11))」ポリシー設定は、カーネルオブジェクトのデフォルトの SACL を制御します。
 
-The “[Audit: Audit the access of global system objects](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj852233(v=ws.11))” policy setting controls the default SACL of kernel objects.
+**イベントボリューム**: 高。
 
-**Event volume**: High.
-
-| Computer Type     | General Success | General Failure | Stronger Success | Stronger Failure | Comments                                                                                                                                                                                                                                                                                                               |
+| コンピュータの種類 | 一般的な成功 | 一般的な失敗 | 強化された成功 | 強化された失敗 | コメント                                                                                                                                                                                                                                                                                                               |
 |-------------------|-----------------|-----------------|------------------|------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Domain Controller | No              | No              | No               | No               | Typically Kernel object auditing events have little to no security relevance and are hard to parse or analyze. Also, the volume of these events is typically very high. <br>There is no recommendation to enable this subcategory, unless you know exactly what you need to monitor at the Kernel objects level. |
-| Member Server     | No              | No              | No               | No               | Typically Kernel object auditing events have little to no security relevance and are hard to parse or analyze. Also, the volume of these events is typically very high. <br>There is no recommendation to enable this subcategory, unless you know exactly what you need to monitor at the Kernel objects level. |
-| Workstation       | No              | No              | No               | No               | Typically Kernel object auditing events have little to no security relevance and are hard to parse or analyze. Also, the volume of these events is typically very high. <br>There is no recommendation to enable this subcategory, unless you know exactly what you need to monitor at the Kernel objects level. |
+| ドメインコントローラー | いいえ              | いいえ              | いいえ               | いいえ               | 通常、カーネルオブジェクトの監査イベントはセキュリティ関連性がほとんどなく、解析や分析が難しいです。また、これらのイベントのボリュームは通常非常に高いです。 <br>カーネルオブジェクトレベルで監視する必要がある場合を除き、このサブカテゴリを有効にすることは推奨されません。 |
+| メンバーサーバー     | いいえ              | いいえ              | いいえ               | いいえ               | 通常、カーネルオブジェクトの監査イベントはセキュリティ関連性がほとんどなく、解析や分析が難しいです。また、これらのイベントのボリュームは通常非常に高いです。 <br>カーネルオブジェクトレベルで監視する必要がある場合を除き、このサブカテゴリを有効にすることは推奨されません。 |
+| ワークステーション       | いいえ              | いいえ              | いいえ               | いいえ               | 通常、カーネルオブジェクトの監査イベントはセキュリティ関連性がほとんどなく、解析や分析が難しいです。また、これらのイベントのボリュームは通常非常に高いです。 <br>カーネルオブジェクトレベルで監視する必要がある場合を除き、このサブカテゴリを有効にすることは推奨されません。 |
 
-**Events List:**
+**イベントリスト:**
 
--   [4656](event-4656.md)(S, F): A handle to an object was requested.
+-   [4656](event-4656.md)(S, F): オブジェクトへのハンドルが要求されました。
 
--   [4658](event-4658.md)(S): The handle to an object was closed.
+-   [4658](event-4658.md)(S): オブジェクトへのハンドルが閉じられました。
 
--   [4660](event-4660.md)(S): An object was deleted.
+-   [4660](event-4660.md)(S): オブジェクトが削除されました。
 
--   [4663](event-4663.md)(S): An attempt was made to access an object.
+-   [4663](event-4663.md)(S): オブジェクトへのアクセスが試みられました。

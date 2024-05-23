@@ -1,6 +1,6 @@
 ---
-title: 4634(S) An account was logged off. 
-description: Describes security event 4634(S) An account was logged off. This event is generated when a logon session is terminated and no longer exists.
+title: 4634(S) アカウントがログオフされました。
+description: セキュリティイベント 4634(S) アカウントがログオフされました。ログオンセッションが終了し、存在しなくなったときに生成されるイベントです。
 ms.pagetype: security
 ms.mktglfcycl: deploy
 ms.sitesec: library
@@ -13,28 +13,27 @@ ms.author: vinpa
 ms.topic: reference
 ---
 
-# 4634(S): An account was logged off.
-
+# 4634(S): アカウントがログオフされました。
 
 <img src="images/event-4634.png" alt="Event 4634 illustration" width="449" height="431" hspace="10" align="left" />
 
-***Subcategory:***&nbsp;[Audit Logoff](audit-logoff.md)
+***サブカテゴリ:***&nbsp;[ログオフの監査](audit-logoff.md)
 
-***Event Description:***
+***イベントの説明:***
 
-This event shows that logon session was terminated and no longer exists.
+このイベントは、ログオンセッションが終了し、存在しなくなったことを示します。
 
-The main difference between “[4647](event-4647.md): User initiated logoff.” and 4634 event is that 4647 event is generated when logoff procedure was initiated by specific account using logoff function, and 4634 event shows that session was terminated and no longer exists.
+「[4647](event-4647.md): ユーザーがログオフを開始しました。」イベントと4634イベントの主な違いは、4647イベントは特定のアカウントがログオフ機能を使用してログオフ手続きを開始したときに生成され、4634イベントはセッションが終了し、存在しなくなったことを示します。
 
-4647 is more typical for **Interactive** and **RemoteInteractive** logon types when user was logged off using standard methods. You will typically see both 4647 and 4634 events when logoff procedure was initiated by user.
+4647は、ユーザーが標準的な方法でログオフしたときに、**インタラクティブ**および**リモートインタラクティブ**ログオンタイプに対してより典型的です。ユーザーがログオフ手続きを開始したときには、通常、4647および4634の両方のイベントが表示されます。
 
-It may be positively correlated with a “[4624](event-4624.md): An account was successfully logged on.” event using the **Logon ID** value. Logon IDs are only unique between reboots on the same computer.
+これは、**ログオンID**値を使用して「[4624](event-4624.md): アカウントが正常にログオンされました。」イベントと正の相関があるかもしれません。ログオンIDは、同じコンピューターの再起動間でのみ一意です。
 
-> **Note**&nbsp;&nbsp;For recommendations, see [Security Monitoring Recommendations](#security-monitoring-recommendations) for this event.
+> **注**&nbsp;&nbsp;推奨事項については、このイベントの[セキュリティ監視の推奨事項](#security-monitoring-recommendations)を参照してください。
 
 <br clear="all">
 
-***Event XML:***
+***イベントXML:***
 ```
 - <Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
 - <System>
@@ -64,55 +63,54 @@ It may be positively correlated with a “[4624](event-4624.md): An account was 
 
 ```
 
-***Required Server Roles:*** None.
+***必要なサーバー役割:*** なし。
 
-***Minimum OS Version:*** Windows Server 2008, Windows Vista.
+***最小OSバージョン:*** Windows Server 2008, Windows Vista。
 
-***Event Versions:*** 0.
+***イベントバージョン:*** 0。
 
-***Field Descriptions:***
+***フィールドの説明:***
 
-**Subject:**
+**サブジェクト:**
 
--   **Security ID** \[Type = SID\]**:** SID of account that was logged off. Event Viewer automatically tries to resolve SIDs and show the account name. If the SID cannot be resolved, you will see the source data in the event.
+-   **セキュリティID** \[タイプ = SID\]**:** ログオフされたアカウントのSID。イベントビューアーは自動的にSIDを解決してアカウント名を表示しようとします。SIDが解決できない場合、イベントにはソースデータが表示されます。
 
-> **Note**&nbsp;&nbsp;A **security identifier (SID)** is a unique value of variable length used to identify a trustee (security principal). Each account has a unique SID that is issued by an authority, such as an Active Directory domain controller, and stored in a security database. Each time a user logs on, the system retrieves the SID for that user from the database and places it in the access token for that user. The system uses the SID in the access token to identify the user in all subsequent interactions with Windows security. When a SID has been used as the unique identifier for a user or group, it cannot ever be used again to identify another user or group. For more information about SIDs, see [Security identifiers](/windows/access-protection/access-control/security-identifiers).
+> **注**&nbsp;&nbsp;**セキュリティ識別子 (SID)** は、トラスティ（セキュリティプリンシパル）を識別するために使用される可変長の一意の値です。各アカウントには、Active Directoryドメインコントローラーなどの権限によって発行され、セキュリティデータベースに保存される一意のSIDがあります。ユーザーがログオンするたびに、システムはデータベースからそのユーザーのSIDを取得し、そのユーザーのアクセストークンに配置します。システムは、アクセストークン内のSIDを使用して、以降のすべてのWindowsセキュリティとのやり取りでユーザーを識別します。SIDがユーザーまたはグループの一意の識別子として使用された場合、それは他のユーザーまたはグループを識別するために再び使用されることはありません。SIDの詳細については、[セキュリティ識別子](/windows/access-protection/access-control/security-identifiers)を参照してください。
 
--   **Account Name** \[Type = UnicodeString\]**:** the name of the account that was logged off.
+-   **アカウント名** \[タイプ = UnicodeString\]**:** ログオフされたアカウントの名前。
 
--   **Account Domain** \[Type = UnicodeString\]**:** subject’s domain or computer name. Formats vary, and include the following:
+-   **アカウントドメイン** \[タイプ = UnicodeString\]**:** サブジェクトのドメインまたはコンピュータ名。形式は以下のように異なります：
 
-    -   Domain NETBIOS name example: CONTOSO
+    -   ドメインのNETBIOS名の例: CONTOSO
 
-    -   Lowercase full domain name: contoso.local
+    -   小文字の完全なドメイン名: contoso.local
 
-    -   Uppercase full domain name: CONTOSO.LOCAL
+    -   大文字の完全なドメイン名: CONTOSO.LOCAL
 
-    -   For some [well-known security principals](/windows/security/identity-protection/access-control/security-identifiers), such as LOCAL SERVICE or ANONYMOUS LOGON, the value of this field is “NT AUTHORITY”.
+    -   LOCAL SERVICEやANONYMOUS LOGONなどの[よく知られたセキュリティプリンシパル](/windows/security/identity-protection/access-control/security-identifiers)の場合、このフィールドの値は「NT AUTHORITY」となります。
 
-    -   For local user accounts, this field will contain the name of the computer or device that this account belongs to, for example: “Win81”.
+    -   ローカルユーザーアカウントの場合、このフィールドにはこのアカウントが属するコンピュータまたはデバイスの名前が含まれます。例: “Win81”。
 
--   **Logon ID** \[Type = HexInt64\]**:** hexadecimal value that can help you correlate this event with recent events that might contain the same Logon ID, for example, “[4624](event-4624.md): An account was successfully logged on.”
+-   **ログオンID** \[タイプ = HexInt64\]**:** 16進数の値で、最近のイベントと同じログオンIDを含む可能性のあるイベントとこのイベントを関連付けるのに役立ちます。例: “[4624](event-4624.md): アカウントが正常にログオンされました。”
 
-**Logon Type** \[Type = UInt32\]**:** the type of logon which was used. The table below contains the list of possible values for this field:
+**ログオンタイプ** \[タイプ = UInt32\]**:** 使用されたログオンのタイプ。以下の表には、このフィールドの可能な値のリストが含まれています：
 
-| Logon Type | Logon Title       | Description                                                                                                                                                                                                                                                                                                                |
+| ログオンタイプ | ログオンタイトル       | 説明                                                                                                                                                                                                                                                                                                                |
 |------------|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 2          | Interactive       | A user logged on to this computer.                                                                                                                                                                                                                                                                                         |
-| 3          | Network           | A user or computer logged on to this computer from the network.                                                                                                                                                                                                                                                            |
-| 4          | Batch             | Batch logon type is used by batch servers, where processes may be executing on behalf of a user without their direct intervention.                                                                                                                                                                                         |
-| 5          | Service           | A service was started by the Service Control Manager.                                                                                                                                                                                                                                                                      |
-| 7          | Unlock            | This workstation was unlocked.                                                                                                                                                                                                                                                                                             |
-| 8          | NetworkCleartext  | A user logged on to this computer from the network. The user's password was passed to the authentication package in its unhashed form. The built-in authentication packages all hash credentials before sending them across the network. The credentials do not traverse the network in plaintext (also called cleartext). |
-| 9          | NewCredentials    | A caller cloned its current token and specified new credentials for outbound connections. The new logon session has the same local identity, but uses different credentials for other network connections.                                                                                                                 |
-| 10         | RemoteInteractive | A user logged on to this computer remotely using Terminal Services or Remote Desktop.                                                                                                                                                                                                                                      |
-| 11         | CachedInteractive | A user logged on to this computer with network credentials that were stored locally on the computer. The domain controller was not contacted to verify the credentials.                                                                                                                                                    |
+| 2          | インタラクティブ       | ユーザーがこのコンピュータにログオンしました。                                                                                                                                                                                                                                                                                         |
+| 3          | ネットワーク           | ユーザーまたはコンピュータがネットワークからこのコンピュータにログオンしました。                                                                                                                                                                                                                                                            |
+| 4          | バッチ             | バッチログオンタイプは、ユーザーの直接の介入なしにプロセスが実行されるバッチサーバーで使用されます。                                                                                                                                                                                         |
+| 5          | サービス           | サービスコントロールマネージャによってサービスが開始されました。                                                                                                                                                                                                                                                                      |
+| 7          | ロック解除            | このワークステーションのロックが解除されました。                                                                                                                                                                                                                                                                                             |
+| 8          | ネットワーククリアテキスト  | ユーザーがネットワークからこのコンピュータにログオンしました。ユーザーのパスワードはハッシュされていない形式で認証パッケージに渡されました。組み込みの認証パッケージはすべて、資格情報をネットワークに送信する前にハッシュします。資格情報はプレーンテキスト（クリアテキストとも呼ばれる）でネットワークを通過しません。 |
+| 9          | 新しい資格情報    | 呼び出し元が現在のトークンをクローンし、アウトバウンド接続のために新しい資格情報を指定しました。新しいログオンセッションは同じローカルIDを持ちますが、他のネットワーク接続には異なる資格情報を使用します。                                                                                                                 |
+| 10         | リモートインタラクティブ | ユーザーがターミナルサービスまたはリモートデスクトップを使用してリモートでこのコンピュータにログオンしました。                                                                                                                                                                                                                                      |
+| 11         | キャッシュされたインタラクティブ | ユーザーがネットワーク資格情報を使用してこのコンピュータにログオンしましたが、その資格情報はコンピュータにローカルに保存されていました。ドメインコントローラは資格情報を確認するために連絡されませんでした。                                                                                                                                                    |
 
-## Security Monitoring Recommendations
+## セキュリティ監視の推奨事項
 
-For 4634(S): An account was logged off.
+4634(S): アカウントがログオフされました。
 
-> **Important**&nbsp;&nbsp;For this event, also see [Appendix A: Security monitoring recommendations for many audit events](appendix-a-security-monitoring-recommendations-for-many-audit-events.md).
+> **重要**&nbsp;&nbsp;このイベントについては、[付録A: 多くの監査イベントに対するセキュリティ監視の推奨事項](appendix-a-security-monitoring-recommendations-for-many-audit-events.md)も参照してください。
 
--   If a particular **Logon Type** should not be used by a particular account (for example if **Logon Type** 4-Batch or 5-Service is used by a member of a domain administrative group), monitor this event for such actions.
-
+- 特定の**ログオンタイプ**が特定のアカウントによって使用されるべきでない場合（例えば、ドメイン管理グループのメンバーが**ログオンタイプ**4-バッチまたは5-サービスを使用する場合）、そのようなアクションについてこのイベントを監視します。

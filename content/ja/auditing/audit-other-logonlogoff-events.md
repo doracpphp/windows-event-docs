@@ -1,6 +1,6 @@
 ---
-title: Audit Other Logon/Logoff Events 
-description: The Advanced Security Audit policy setting, Audit Other Logon/Logoff Events, determines if Windows generates audit events for other logon or logoff events.
+title: その他のログオン/ログオフイベントの監査
+description: 高度なセキュリティ監査ポリシー設定である「その他のログオン/ログオフイベントの監査」は、Windowsがその他のログオンまたはログオフイベントの監査イベントを生成するかどうかを決定します。
 ms.assetid: 76d987cd-1917-4907-a739-dd642609a458
 ms.reviewer: 
 manager: aaroncz
@@ -14,53 +14,52 @@ ms.date: 09/06/2021
 ms.topic: reference
 ---
 
-# Audit Other Logon/Logoff Events
+# その他のログオン/ログオフイベントの監査
 
+その他のログオン/ログオフイベントの監査は、Windowsがその他のログオンまたはログオフイベントの監査イベントを生成するかどうかを決定します。
 
-Audit Other Logon/Logoff Events determines whether Windows generates audit events for other logon or logoff events.
+これらのその他のログオンまたはログオフイベントには以下が含まれます：
 
-These other logon or logoff events include:
+- リモートデスクトップセッションが接続または切断される。
 
--   A Remote Desktop session connects or disconnects.
+- ワークステーションがロックまたはアンロックされる。
 
--   A workstation is locked or unlocked.
+- スクリーンセーバーが起動または解除される。
 
--   A screen saver is invoked or dismissed.
+- リプレイ攻撃が検出される。このイベントは、同一の情報を持つKerberosリクエストが2回受信されたことを示します。この状態はネットワークの誤設定によっても引き起こされる可能性があります。
 
--   A replay attack is detected. This event indicates that a Kerberos request was received twice with identical information. This condition could also be caused by network misconfiguration.
+- ユーザーがワイヤレスネットワークへのアクセスを許可される。これはユーザーアカウントまたはコンピューターアカウントのいずれかです。
 
--   A user is granted access to a wireless network. It can be either a user account or the computer account.
+- ユーザーが有線802.1xネットワークへのアクセスを許可される。これはユーザーアカウントまたはコンピューターアカウントのいずれかです。
 
--   A user is granted access to a wired 802.1x network. It can be either a user account or the computer account.
+ログオンイベントは、ユーザーの活動を理解し、潜在的な攻撃を検出するために不可欠です。
 
-Logon events are essential to understanding user activity and detecting potential attacks.
+**イベントボリューム**: 低。
 
-**Event volume**: Low.
+| コンピューターの種類 | 一般的な成功 | 一般的な失敗 | 強化された成功 | 強化された失敗 | コメント                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+|-----------------------|---------------|---------------|------------------|------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ドメインコントローラー | はい          | はい          | はい              | はい              | Kerberosリプレイ攻撃、ターミナルセッションの接続および切断アクション、ネットワーク認証イベント、およびその他のいくつかのイベントを追跡するために、成功監査を推奨します。これらのイベントのボリュームは通常非常に低いです。<br>失敗イベントは、要求された資格情報の[CredSSP](/openspecs/windows_protocols/ms-cssp/85f57821-40bb-46aa-bfcb-ba9590b8fc30)委任がポリシーによって許可されなかった場合に表示されます。これらのイベントのボリュームは非常に低く、通常はこれらのイベントを取得することはありません。 |
+| メンバーサーバー     | はい          | はい          | はい              | はい              | ターミナルセッションの接続および切断アクション、ネットワーク認証イベント、およびその他のいくつかのイベントを追跡するために、成功監査を推奨します。これらのイベントのボリュームは通常非常に低いです。<br>失敗イベントは、要求された資格情報の[CredSSP](/openspecs/windows_protocols/ms-cssp/85f57821-40bb-46aa-bfcb-ba9590b8fc30)委任がポリシーによって許可されなかった場合に表示されます。これらのイベントのボリュームは非常に低く、通常はこれらのイベントを取得することはありません。                          |
+| ワークステーション   | はい          | はい          | はい              | はい              | ターミナルセッションの接続および切断アクション、ネットワーク認証イベント、およびその他のいくつかのイベントを追跡するために、成功監査を推奨します。これらのイベントのボリュームは通常非常に低いです。<br>失敗イベントは、要求された資格情報の[CredSSP](/openspecs/windows_protocols/ms-cssp/85f57821-40bb-46aa-bfcb-ba9590b8fc30)委任がポリシーによって許可されなかった場合に表示されます。これらのイベントのボリュームは非常に低く、通常はこれらのイベントを取得することはありません。                          |
 
-| Computer Type     | General Success | General Failure | Stronger Success | Stronger Failure | Comments                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-|-------------------|-----------------|-----------------|------------------|------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Domain Controller | Yes             | Yes             | Yes              | Yes              | We recommend Success auditing, to track possible Kerberos replay attacks, terminal session connect and disconnect actions, network authentication events, and some other events. Volume of these events is typically very low.<br>Failure events will show you when requested credentials [CredSSP](/openspecs/windows_protocols/ms-cssp/85f57821-40bb-46aa-bfcb-ba9590b8fc30) delegation was disallowed by policy. The volume of these events is very low—typically you will not get any of these events. |
-| Member Server     | Yes             | Yes             | Yes              | Yes              | We recommend Success auditing, to track possible terminal session connect and disconnect actions, network authentication events, and some other events. Volume of these events is typically very low.<br>Failure events will show you when requested credentials [CredSSP](/openspecs/windows_protocols/ms-cssp/85f57821-40bb-46aa-bfcb-ba9590b8fc30) delegation was disallowed by policy. The volume of these events is very low—typically you will not get any of these events.                          |
-| Workstation       | Yes             | Yes             | Yes              | Yes              | We recommend Success auditing, to track possible terminal session connect and disconnect actions, network authentication events, and some other events. Volume of these events is typically very low.<br>Failure events will show you when requested credentials [CredSSP](/openspecs/windows_protocols/ms-cssp/85f57821-40bb-46aa-bfcb-ba9590b8fc30) delegation was disallowed by policy. The volume of these events is very low—typically you will not get any of these events.                          |
+**イベントリスト:**
 
-**Events List:**
+-   [4649](event-4649.md)(S): リプレイ攻撃が検出されました。
 
--   [4649](event-4649.md)(S): A replay attack was detected.
+-   [4778](event-4778.md)(S): セッションがウィンドウステーションに再接続されました。
 
--   [4778](event-4778.md)(S): A session was reconnected to a Window Station.
+-   [4779](event-4779.md)(S): セッションがウィンドウステーションから切断されました。
 
--   [4779](event-4779.md)(S): A session was disconnected from a Window Station.
+-   [4800](event-4800.md)(S): ワークステーションがロックされました。
 
--   [4800](event-4800.md)(S): The workstation was locked.
+-   [4801](event-4801.md)(S): ワークステーションのロックが解除されました。
 
--   [4801](event-4801.md)(S): The workstation was unlocked.
+-   [4802](event-4802.md)(S): スクリーンセーバーが起動されました。
 
--   [4802](event-4802.md)(S): The screen saver was invoked.
+-   [4803](event-4803.md)(S): スクリーンセーバーが解除されました。
 
--   [4803](event-4803.md)(S): The screen saver was dismissed.
+-   [5378](event-5378.md)(F): 要求された資格情報の委任がポリシーによって拒否されました。
 
--   [5378](event-5378.md)(F): The requested credentials delegation was disallowed by policy.
+-   [5632](event-5632.md)(S): ワイヤレスネットワークへの認証要求が行われました。
 
--   [5632](event-5632.md)(S): A request was made to authenticate to a wireless network.
-
--   [5633](event-5633.md)(S): A request was made to authenticate to a wired network.
+-   [5633](event-5633.md)(S): 有線ネットワークへの認証要求が行われました。

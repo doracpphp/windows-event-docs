@@ -1,6 +1,6 @@
 ---
-title: Audit Handle Manipulation 
-description: The Advanced Security Audit policy setting, Audit Handle Manipulation, determines if audit events are generated when a handle to an object is opened or closed.
+title: ハンドル操作の監査
+description: 高度なセキュリティ監査ポリシー設定であるハンドル操作の監査は、オブジェクトへのハンドルが開かれたり閉じられたりしたときに監査イベントが生成されるかどうかを決定します。
 ms.assetid: 1fbb004a-ccdc-4c80-b3da-a4aa7a9f4091
 ms.reviewer: 
 manager: aaroncz
@@ -14,23 +14,22 @@ ms.date: 09/06/2021
 ms.topic: reference
 ---
 
-# Audit Handle Manipulation
+# ハンドル操作の監査
 
+ハンドル操作の監査は、[ファイルシステムの監査](audit-file-system.md)、[カーネルオブジェクトの監査](audit-kernel-object.md)、[レジストリの監査](audit-registry.md)、[リムーバブルストレージの監査](audit-removable-storage.md)、および [SAM の監査](audit-sam.md) のサブカテゴリで「4658: オブジェクトのハンドルが閉じられました」を生成し、オブジェクトのハンドルの複製および閉じるアクションを表示します。
 
-Audit Handle Manipulation enables generation of “4658: The handle to an object was closed” in [Audit File System](audit-file-system.md), [Audit Kernel Object](audit-kernel-object.md), [Audit Registry](audit-registry.md), [Audit Removable Storage](audit-removable-storage.md) and [Audit SAM](audit-sam.md) subcategories, and shows object’s handle duplication and close actions.
+**イベントボリューム**: 高。
 
-**Event volume**: High.
+| コンピュータの種類 | 一般的な成功 | 一般的な失敗 | 強化された成功 | 強化された失敗 | コメント |
+|-------------------|--------------|--------------|----------------|----------------|----------|
+| ドメインコントローラー | いいえ         | いいえ         | いいえ           | いいえ           | 通常、オブジェクトハンドルの複製や閉鎖に関する情報はセキュリティ上の関連性がほとんどなく、解析や分析が困難です。<br>オブジェクトのハンドルレベルで監視する必要が明確でない限り、成功または失敗の監査のためにこのサブカテゴリを有効にすることは推奨されません。 |
+| メンバーサーバー     | いいえ         | いいえ         | いいえ           | いいえ           | 通常、オブジェクトハンドルの複製や閉鎖に関する情報はセキュリティ上の関連性がほとんどなく、解析や分析が困難です。<br>オブジェクトのハンドルレベルで監視する必要が明確でない限り、成功または失敗の監査のためにこのサブカテゴリを有効にすることは推奨されません。 |
+| ワークステーション   | いいえ         | いいえ         | いいえ           | いいえ           | 通常、オブジェクトハンドルの複製や閉鎖に関する情報はセキュリティ上の関連性がほとんどなく、解析や分析が困難です。<br>オブジェクトのハンドルレベルで監視する必要が明確でない限り、成功または失敗の監査のためにこのサブカテゴリを有効にすることは推奨されません。 |
 
-| Computer Type     | General Success | General Failure | Stronger Success | Stronger Failure | Comments |
-|-------------------|-----------------|-----------------|------------------|------------------|----------|
-| Domain Controller | No              | No              | No               | No               | Typically, information about the duplication or closing of an object handle has little to no security relevance and is hard to parse or analyze.<br>There is no recommendation to enable this subcategory for Success or Failure auditing, unless you know exactly what you need to monitor in Object’s Handles level. |
-| Member Server     | No              | No              | No               | No               | Typically, information about the duplication or closing of an object handle has little to no security relevance and is hard to parse or analyze.<br>There is no recommendation to enable this subcategory for Success or Failure auditing, unless you know exactly what you need to monitor in Object’s Handles level. |
-| Workstation       | No              | No              | No               | No               | Typically, information about the duplication or closing of an object handle has little to no security relevance and is hard to parse or analyze.<br>There is no recommendation to enable this subcategory for Success or Failure auditing, unless you know exactly what you need to monitor in Object’s Handles level. |
+**イベントリスト:**
 
-**Events List:**
+- [4658](event-4658.md)(S): オブジェクトのハンドルが閉じられました。
 
-- [4658](event-4658.md)(S): The handle to an object was closed.
+- [4690](event-4690.md)(S): オブジェクトのハンドルを複製しようとしました。
 
-- [4690](event-4690.md)(S): An attempt was made to duplicate a handle to an object.
-
-- 4658(S): The handle to an object was closed. For a description of the event, see _[4658](event-4658.md)(S): The handle to an object was closed._ in the Audit File System subcategory. This event doesn’t generate in the Audit Handle Manipulation subcategory, but you can use this subcategory to enable it.
+- 4658(S): オブジェクトのハンドルが閉じられました。イベントの説明については、_Audit File System_ サブカテゴリの _[4658](event-4658.md)(S): オブジェクトのハンドルが閉じられました_ を参照してください。このイベントは _Audit Handle Manipulation_ サブカテゴリでは生成されませんが、このサブカテゴリを使用して有効にすることができます。

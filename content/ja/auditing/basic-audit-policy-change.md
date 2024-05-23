@@ -1,6 +1,6 @@
 ---
-title: Audit policy change
-description: Determines whether to audit every incident of a change to user rights assignment policies, audit policies, or trust policies.
+title: 監査ポリシーの変更
+description: ユーザー権利割り当てポリシー、監査ポリシー、または信頼ポリシーの変更のたびに監査するかどうかを決定します。
 ms.assetid: 1025A648-6B22-4C85-9F47-FE0897F1FA31
 ms.reviewer:
 ms.author: vinpa
@@ -15,50 +15,47 @@ ms.topic: reference
 ms.date: 09/06/2021
 ---
 
-# Audit policy change
+# 監査ポリシーの変更
 
+ユーザー権利割り当てポリシー、監査ポリシー、または信頼ポリシーの変更のたびに監査するかどうかを決定します。
 
-Determines whether to audit every incident of a change to user rights assignment policies, audit policies, or trust policies.
+このポリシー設定を定義すると、成功の監査、失敗の監査、またはイベントタイプの監査を行わないかを指定できます。成功の監査は、ユーザー権利割り当てポリシー、監査ポリシー、または信頼ポリシーの変更が成功したときに監査エントリを生成します。失敗の監査は、ユーザー権利割り当てポリシー、監査ポリシー、または信頼ポリシーの変更が失敗したときに監査エントリを生成します。
 
-If you define this policy setting, you can specify whether to audit successes, audit failures, or not audit the event type at all. Success audits generate an audit entry when a change to user rights assignment policies, audit policies, or trust policies is successful. Failure audits generate an audit entry when a change to user rights assignment policies, audit policies, or trust policies fails.
+この値を **監査なし** に設定するには、このポリシー設定の **プロパティ** ダイアログボックスで、**これらのポリシー設定を定義する** チェックボックスを選択し、**成功** と **失敗** チェックボックスをクリアします。
 
-To set this value to **No auditing**, in the **Properties** dialog box for this policy setting, select the **Define these policy settings** check box and clear the **Success** and **Failure** check boxes.
+**デフォルト:**
 
-**Default:**
+- ドメインコントローラーで成功。
+- メンバーサーバーで監査なし。
 
--   Success on domain controllers.
--   No auditing on member servers.
+## この監査設定を構成する
 
-## Configure this audit setting
+このセキュリティ設定は、コンピューターの構成\\Windows 設定\\セキュリティ設定\\ローカル ポリシー\\監査ポリシーで構成できます。
 
-You can configure this security setting under Computer Configuration\\Windows Settings\\Security Settings\\Local Policies\\Audit Policy.
-
-| Policy change events | Description |
+| ポリシー変更イベント | 説明 |
 | - | - |
-| 608 | A user right was assigned.|
-| 609 | A user right was removed. |
-| 610 | A trust relationship with another domain was created.|
-| 611 | A trust relationship with another domain was removed.|
-| 612 | An audit policy was changed.|
-| 613 | An Internet Protocol security (IPSec) policy agent started.|
-| 614 | An IPSec policy agent was disabled. |
-| 615 | An IPSec policy agent changed. |
-| 616 | An IPSec policy agent encountered a potentially serious failure.|
-| 617 | A Kerberos policy changed. |
-| 618 | Encrypted Data Recovery policy changed.|
-| 620 | A trust relationship with another domain was modified.|
-| 621 | System access was granted to an account. |
-| 622 | System access was removed from an account.|
-| 623 | Per user auditing policy was set for a user.|
-| 625 | Per user audit policy was refreshed. |
-| 768 | A collision was detected between a namespace element in one forest and a namespace element in another forest.<br>**Note**  When a namespace element in one forest overlaps a namespace element in another forest, it can lead to ambiguity in resolving a name belonging to one of the namespace elements. This overlap is also called a collision. Not all parameters are valid for each entry type. For example, fields such as DNS name, NetBIOS name, and SID are not valid for an entry of type 'TopLevelName'.|
-| 769 | Trusted forest information was added.<br>**Note:**  This event message is generated when forest trust information is updated and one or more entries are added. One event message is generated per added, deleted, or modified entry. If multiple entries are added, deleted, or modified in a single update of the forest trust information, all the generated event messages have a single unique identifier called an operation ID. This allows you to determine that the multiple generated event messages are the result of a single operation. Not all parameters are valid for each entry type. For example, parameters such as DNS name, NetBIOS name and SID are not valid for an entry of type &quot;TopLevelName&quot;.|
-| 770 | Trusted forest information was deleted.<br>**Note:**  This event message is generated when forest trust information is updated and one or more entries are added. One event message is generated per added, deleted, or modified entry. If multiple entries are added, deleted, or modified in a single update of the forest trust information, all the generated event messages have a single unique identifier called an operation ID. This allows you to determine that the multiple generated event messages are the result of a single operation. Not all parameters are valid for each entry type. For example, parameters such as DNS name, NetBIOS name and SID are not valid for an entry of type &quot;TopLevelName&quot;.|
-| 771 | Trusted forest information was modified.<br>**Note:**  This event message is generated when forest trust information is updated and one or more entries are added. One event message is generated per added, deleted, or modified entry. If multiple entries are added, deleted, or modified in a single update of the forest trust information, all the generated event messages have a single unique identifier called an operation ID. This allows you to determine that the multiple generated event messages are the result of a single operation. Not all parameters are valid for each entry type. For example, parameters such as DNS name, NetBIOS name and SID are not valid for an entry of type &quot;TopLevelName&quot;.|
-| 805 | The event log service read the security log configuration for a session.
+| 608 | ユーザー権利が割り当てられました。|
+| 609 | ユーザー権利が削除されました。 |
+| 610 | 他のドメインとの信頼関係が作成されました。|
+| 611 | 他のドメインとの信頼関係が削除されました。|
+| 612 | 監査ポリシーが変更されました。|
+| 613 | インターネットプロトコルセキュリティ (IPSec) ポリシーエージェントが開始されました。|
+| 614 | IPSec ポリシーエージェントが無効になりました。 |
+| 615 | IPSec ポリシーエージェントが変更されました。 |
+| 616 | IPSec ポリシーエージェントが潜在的に重大な障害に遭遇しました。|
+| 617 | Kerberos ポリシーが変更されました。 |
+| 618 | 暗号化データ回復ポリシーが変更されました。|
+| 620 | 他のドメインとの信頼関係が変更されました。|
+| 621 | アカウントにシステムアクセスが付与されました。 |
+| 622 | アカウントからシステムアクセスが削除されました。|
+| 623 | ユーザーごとの監査ポリシーがユーザーに設定されました。|
+| 625 | ユーザーごとの監査ポリシーが更新されました。 |
+| 768 | 1つのフォレスト内の名前空間要素と別のフォレスト内の名前空間要素の間で衝突が検出されました。<br>**注**  1つのフォレスト内の名前空間要素が別のフォレスト内の名前空間要素と重複すると、名前空間要素の1つに属する名前の解決に曖昧さが生じる可能性があります。この重複は衝突とも呼ばれます。すべてのパラメーターが各エントリタイプに対して有効であるわけではありません。たとえば、DNS名、NetBIOS名、およびSIDなどのフィールドは、「TopLevelName」タイプのエントリには有効ではありません。|
+| 769 | 信頼されたフォレスト情報が追加されました。<br>**注:**  このイベントメッセージは、フォレスト信頼情報が更新され、1つ以上のエントリが追加されたときに生成されます。追加、削除、または変更されたエントリごとに1つのイベントメッセージが生成されます。フォレスト信頼情報の単一の更新で複数のエントリが追加、削除、または変更された場合、生成されたすべてのイベントメッセージには、操作IDと呼ばれる一意の識別子が1つあります。これにより、複数の生成されたイベントメッセージが単一の操作の結果であることを判断できます。すべてのパラメーターが各エントリタイプに対して有効であるわけではありません。たとえば、DNS名、NetBIOS名、およびSIDなどのパラメーターは、「TopLevelName」タイプのエントリには有効ではありません。|
+| 770 | 信頼されたフォレスト情報が削除されました。<br>**注:**  このイベントメッセージは、フォレスト信頼情報が更新され、1つ以上のエントリが追加されたときに生成されます。追加、削除、または変更されたエントリごとに1つのイベントメッセージが生成されます。フォレスト信頼情報の単一の更新で複数のエントリが追加、削除、または変更された場合、生成されたすべてのイベントメッセージには、操作IDと呼ばれる一意の識別子が1つあります。これにより、複数の生成されたイベントメッセージが単一の操作の結果であることを判断できます。すべてのパラメーターが各エントリタイプに対して有効であるわけではありません。たとえば、DNS名、NetBIOS名、およびSIDなどのパラメーターは、「TopLevelName」タイプのエントリには有効ではありません。|
+| 771 | 信頼されたフォレスト情報が変更されました。<br>**注:**  このイベントメッセージは、フォレスト信頼情報が更新され、1つ以上のエントリが追加されたときに生成されます。追加、削除、または変更されたエントリごとに1つのイベントメッセージが生成されます。フォレスト信頼情報の単一の更新で複数のエントリが追加、削除、または変更された場合、生成されたすべてのイベントメッセージには、操作IDと呼ばれる一意の識別子が1つあります。これにより、複数の生成されたイベントメッセージが単一の操作の結果であることを判断できます。すべてのパラメーターが各エントリタイプに対して有効であるわけではありません。たとえば、DNS名、NetBIOS名、およびSIDなどのパラメーターは、「TopLevelName」タイプのエントリには有効ではありません。|
+| 805 | イベントログサービスがセッションのセキュリティログ構成を読み取りました。|
 
-## Related topics
+## 関連トピック
 
-- [Basic security audit policy settings](basic-security-audit-policy-settings.md)
-
-
+- [基本的なセキュリティ監査ポリシー設定](basic-security-audit-policy-settings.md)

@@ -1,6 +1,6 @@
 ---
-title: 4612(S) Internal resources allocated for the queuing of audit messages have been exhausted, leading to the loss of some audits. 
-description: Describes security event 4612(S) Internal resources allocated for the queuing of audit messages have been exhausted, leading to the loss of some audits.
+title: 4612(S) 監査メッセージのキューイングのために割り当てられた内部リソースが枯渇し、一部の監査が失われました。
+description: 監査メッセージのキューイングのために割り当てられた内部リソースが枯渇し、一部の監査が失われたことを示すセキュリティイベント4612(S)について説明します。
 ms.pagetype: security
 ms.mktglfcycl: deploy
 ms.sitesec: library
@@ -13,32 +13,30 @@ ms.author: vinpa
 ms.topic: reference
 ---
 
-# 4612(S): Internal resources allocated for the queuing of audit messages have been exhausted, leading to the loss of some audits.
+# 4612(S): 監査メッセージのキューイングのために割り当てられた内部リソースが枯渇し、一部の監査が失われました。
 
+このイベントは、監査キューが満杯になり、イベントを破棄する必要がある場合に生成されます。これは、セキュリティイベントがディスクに書き込まれる速度よりも速く生成される場合に最も一般的に発生します。
 
-This event is generated when audit queues are filled and events must be discarded. This most commonly occurs when security events are being generated faster than they are being written to disk.
+このイベントは、イベントログサービスが停止している場合や、イベントログが満杯でイベントの保持が無効になっている場合には生成されません。
 
-This event doesn't generate when the event log service is stopped or event log is full and events retention is disabled.
+このドキュメントには、このイベントの例はありません。
 
-There is no example of this event in this document.
+***サブカテゴリ:***&nbsp;[監査システムの整合性](audit-system-integrity.md)
 
-***Subcategory:***&nbsp;[Audit System Integrity](audit-system-integrity.md)
+***イベントスキーマ:***
 
-***Event Schema:***
+*監査メッセージのキューイングのために割り当てられた内部リソースが枯渇し、一部の監査が失われました。*
 
-*Internal resources allocated for the queuing of audit messages have been exhausted, leading to the loss of some audits.*
+*破棄された監査メッセージの数: %1*
 
-*Number of audit messages discarded: %1*
+*このイベントは、監査キューが満杯になり、イベントを破棄する必要がある場合に生成されます。これは、セキュリティイベントがディスクに書き込まれる速度よりも速く生成される場合、またはイベントログサービスが停止している場合など、監査システムがイベントログへの接続を失った場合に最も一般的に発生します。*
 
-*This event is generated when audit queues are filled and events must be discarded. This most commonly occurs when security events are being generated faster than they are being written to disk, or when the auditing system loses connectivity to the event log, such as when the event log service is stopped.*
+***必要なサーバー役割:*** なし。
 
-***Required Server Roles:*** None.
+***最小OSバージョン:*** Windows Server 2008, Windows Vista。
 
-***Minimum OS Version:*** Windows Server 2008, Windows Vista.
+***イベントバージョン:*** 0。
 
-***Event Versions:*** 0.
+## セキュリティ監視の推奨事項
 
-## Security Monitoring Recommendations
-
--   This event can be a sign of hardware issues or lack of system resources (for example, RAM). We recommend monitoring this event and investigating the reason for the condition.
-
+-   このイベントは、ハードウェアの問題やシステムリソースの不足（例えば、RAM）の兆候である可能性があります。このイベントを監視し、その状態の理由を調査することをお勧めします。

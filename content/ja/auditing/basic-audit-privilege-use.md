@@ -1,6 +1,6 @@
 ---
-title: Audit privilege use
-description: Determines whether to audit each instance of a user exercising a user right.
+title: 特権使用の監査
+description: ユーザーがユーザー権利を行使する各インスタンスを監査するかどうかを決定します。
 ms.assetid: C5C6DAAF-8B58-4DFB-B1CE-F0675AE0E9F8
 ms.reviewer:
 ms.author: vinpa
@@ -15,39 +15,36 @@ ms.topic: reference
 ms.date: 09/06/2021
 ---
 
-# Audit privilege use
+# 特権使用の監査
 
+ユーザーがユーザー権利を行使する各インスタンスを監査するかどうかを決定します。
 
-Determines whether to audit each instance of a user exercising a user right.
+このポリシー設定を定義すると、成功の監査、失敗の監査、またはこの種類のイベントをまったく監査しないかを指定できます。成功の監査は、ユーザー権利の行使が成功したときに監査エントリを生成します。失敗の監査は、ユーザー権利の行使が失敗したときに監査エントリを生成します。
 
-If you define this policy setting, you can specify whether to audit successes, audit failures, or not audit this type of event at all. Success audits generate an audit entry when the exercise of a user right succeeds. Failure audits generate an audit entry when the exercise of a user right fails.
+この値を **監査なし** に設定するには、このポリシー設定の **プロパティ** ダイアログボックスで、これらのポリシー設定を定義するチェックボックスを選択し、**成功** と **失敗** のチェックボックスをクリアします。
 
-To set this value to **No auditing**, in the **Properties** dialog box for this policy setting, select the Define these policy settings check box and clear the **Success** and **Failure** check boxes.
+**デフォルト:** 監査なし。
 
-**Default:** No auditing.
+次のユーザー権利の使用については、**特権使用の監査** に対して成功の監査または失敗の監査が指定されていても、監査は生成されません。これらのユーザー権利の監査を有効にすると、セキュリティログに多くのイベントが生成され、コンピューターのパフォーマンスに影響を与える可能性があります。次のユーザー権利を監査するには、**FullPrivilegeAuditing** レジストリキーを有効にします。
 
-Audits are not generated for use of the following user rights, even if success audits or failure audits are specified for **Audit privilege use**. Enabling auditing of these user rights tend to generate many events in the security log which may impede your computer's performance. To audit the following user rights, enable the **FullPrivilegeAuditing** registry key.
+-   トラバースチェックのバイパス
+-   プログラムのデバッグ
+-   トークンオブジェクトの作成
+-   プロセスレベルのトークンの置換
+-   セキュリティ監査の生成
+-   ファイルとディレクトリのバックアップ
+-   ファイルとディレクトリの復元
 
--   Bypass traverse checking
--   Debug programs
--   Create a token object
--   Replace process level token
--   Generate security audits
--   Back up files and directories
--   Restore files and directories
+## この監査設定を構成する
 
-## Configure this audit setting
+このセキュリティ設定は、コンピューターの構成\\Windowsの設定\\セキュリティの設定\\ローカルポリシー\\監査ポリシーで構成できます。
 
-You can configure this security setting under Computer Configuration\\Windows Settings\\Security Settings\\Local Policies\\Audit Policy.
-
-| Privilege use events | Description |
+| 特権使用イベント | 説明 |
 | - | - |
-| 576 | Specified privileges were added to a user's access token.<br>**Note:**  This event is generated when the user logs on.|
-| 577 | A user attempted to perform a privileged system service operation. |
-| 578 | Privileges were used on an already open handle to a protected object. |
+| 576 | 指定された特権がユーザーのアクセス トークンに追加されました。<br>**注:**  このイベントは、ユーザーがログオンしたときに生成されます。|
+| 577 | ユーザーが特権のあるシステムサービス操作を実行しようとしました。 |
+| 578 | 保護されたオブジェクトへの既に開かれているハンドルで特権が使用されました。 |
 
-## Related topics
+## 関連トピック
 
-- [Basic security audit policy settings](basic-security-audit-policy-settings.md)
-
-
+- [基本的なセキュリティ監査ポリシー設定](basic-security-audit-policy-settings.md)

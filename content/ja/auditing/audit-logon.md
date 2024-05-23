@@ -1,6 +1,6 @@
 ---
-title: Audit Logon 
-description: The Advanced Security Audit policy setting, Audit Logon, determines if audit events are generated when a user attempts to log on to a computer.
+title: ログオンの監査
+description: 高度なセキュリティ監査ポリシー設定である「ログオンの監査」は、ユーザーがコンピューターにログオンしようとしたときに監査イベントが生成されるかどうかを決定します。
 ms.assetid: ca968d03-7d52-48c4-ba0e-2bcd2937231b
 ms.reviewer: 
 manager: aaroncz
@@ -14,42 +14,40 @@ ms.date: 09/06/2021
 ms.topic: reference
 ---
 
-# Audit Logon
+# ログオンの監査
 
+ログオンの監査は、ユーザーがコンピューターにログオンしようとしたときにオペレーティングシステムが監査イベントを生成するかどうかを決定します。
 
-Audit Logon determines whether the operating system generates audit events when a user attempts to log on to a computer.
+これらのイベントはログオンセッションの作成に関連しており、アクセスされたコンピューターで発生します。インタラクティブなログオンの場合、イベントはログオンしたコンピューターで生成されます。共有リソースへのアクセスなどのネットワークログオンの場合、イベントはアクセスされたリソースをホストするコンピューターで生成されます。
 
-These events are related to the creation of logon sessions and occur on the computer that was accessed. For an interactive logon, events are generated on the computer that was logged on to. For a network logon, such as accessing a share, events are generated on the computer that hosts the resource that was accessed.
+次のイベントが記録されます：
 
-The following events are recorded:
+- ログオンの成功と失敗。
 
--   Logon success and failure.
+- 明示的な資格情報を使用したログオン試行。このイベントは、プロセスが明示的にそのアカウントの資格情報を指定してアカウントにログオンしようとしたときに生成されます。これは、スケジュールされたタスクなどのバッチ構成や、**RunAs** コマンドを使用する場合に最も一般的に発生します。
 
--   Logon attempts by using explicit credentials. This event is generated when a process attempts to log on an account by explicitly specifying that account's credentials. This most commonly occurs in batch configurations such as scheduled tasks, or when using the **RunAs** command.
+- セキュリティ識別子 (SID) がフィルタリングされます。
 
--   Security identifiers (SIDs) are filtered.
+ログオンイベントは、ユーザーの活動を追跡し、潜在的な攻撃を検出するために不可欠です。
 
-Logon events are essential to tracking user activity and detecting potential attacks.
+**イベントボリューム**：
 
-**Event volume**:
+- クライアントコンピューターでは低。
 
--   Low on a client computer.
+- ドメインコントローラーやネットワークサーバーでは中。
 
--   Medium on a domain controllers or network servers.
+| コンピューターの種類 | 一般的な成功 | 一般的な失敗 | 強化された成功 | 強化された失敗 | コメント                                                                                                                                                                                                                                                          |
+|-----------------------|---------------|---------------|------------------|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ドメインコントローラー | はい          | はい          | はい             | はい             | 例えば、ログオンの監査イベントは、どのアカウントが、いつ、どのログオンタイプを使用して、どのマシンからこのマシンにログオンしたかについての情報を提供します。<br>失敗イベントは、失敗したログオン試行とその理由を示します。 |
+| メンバーサーバー     | はい          | はい          | はい             | はい             | 例えば、ログオンの監査イベントは、どのアカウントが、いつ、どのログオンタイプを使用して、どのマシンからこのマシンにログオンしたかについての情報を提供します。<br>失敗イベントは、失敗したログオン試行とその理由を示します。 |
+| ワークステーション   | はい          | はい          | はい             | はい             | 例えば、ログオンの監査イベントは、どのアカウントが、いつ、どのログオンタイプを使用して、どのマシンからこのマシンにログオンしたかについての情報を提供します。<br>失敗イベントは、失敗したログオン試行とその理由を示します。 |
 
-| Computer Type     | General Success | General Failure | Stronger Success | Stronger Failure | Comments                                                                                                                                                                                                                                                          |
-|-------------------|-----------------|-----------------|------------------|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Domain Controller | Yes             | Yes             | Yes              | Yes              | Audit Logon events, for example, will give you information about which account, when, using which Logon Type, from which machine logged on to this machine.<br>Failure events will show you failed logon attempts and the reason why these attempts failed. |
-| Member Server     | Yes             | Yes             | Yes              | Yes              | Audit Logon events, for example, will give you information about which account, when, using which Logon Type, from which machine logged on to this machine.<br>Failure events will show you failed logon attempts and the reason why these attempts failed. |
-| Workstation       | Yes             | Yes             | Yes              | Yes              | Audit Logon events, for example, will give you information about which account, when, using which Logon Type, from which machine logged on to this machine.<br>Failure events will show you failed logon attempts and the reason why these attempts failed. |
+**イベントリスト:**
 
-**Events List:**
+-   [4624](event-4624.md)(S): アカウントのログオンに成功しました。
 
--   [4624](event-4624.md)(S): An account was successfully logged on.
+-   [4625](event-4625.md)(F): アカウントのログオンに失敗しました。
 
--   [4625](event-4625.md)(F): An account failed to log on.
+-   [4648](event-4648.md)(S): 明示的な資格情報を使用してログオンが試行されました。
 
--   [4648](event-4648.md)(S): A logon was attempted using explicit credentials.
-
--   [4675](event-4675.md)(S): SIDs were filtered.
-
+-   [4675](event-4675.md)(S): SIDがフィルタリングされました。

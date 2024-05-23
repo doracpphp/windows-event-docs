@@ -1,6 +1,6 @@
 ---
-title: Audit Security State Change 
-description: The policy setting, Audit Security State Change, which determines whether Windows generates audit events for changes in the security state of a system.
+title: 監査セキュリティ状態の変更
+description: システムのセキュリティ状態の変更に対して Windows が監査イベントを生成するかどうかを決定するポリシー設定、監査セキュリティ状態の変更。
 ms.assetid: decb3218-a67d-4efa-afc0-337c79a89a2d
 ms.reviewer: 
 manager: aaroncz
@@ -14,27 +14,25 @@ ms.date: 09/06/2021
 ms.topic: reference
 ---
 
-# Audit Security State Change
+# 監査セキュリティ状態の変更
 
+監査セキュリティ状態の変更には、Windows の起動、回復、およびシャットダウンイベント、およびシステム時間の変更に関する情報が含まれます。
 
-Audit Security State Change contains Windows startup, recovery, and shutdown events, and information about changes in system time.
+**イベントボリューム**: 低。
 
-**Event volume**: Low.
+| コンピューターの種類 | 一般的な成功 | 一般的な失敗 | 強化された成功 | 強化された失敗 | コメント                                                                                                                                                                                                                                                      |
+|-----------------------|---------------|---------------|----------------|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ドメインコントローラー | はい          | いいえ        | はい           | いいえ         | このサブカテゴリのイベントのボリュームは非常に低く、すべて重要なイベントであり、セキュリティに関連しています。 <br>このサブカテゴリには失敗イベントがないため、失敗監査を有効にすることは推奨されません。 |
+| メンバーサーバー     | はい          | いいえ        | はい           | いいえ         | このサブカテゴリのイベントのボリュームは非常に低く、すべて重要なイベントであり、セキュリティに関連しています。 <br>このサブカテゴリには失敗イベントがないため、失敗監査を有効にすることは推奨されません。 |
+| ワークステーション   | はい          | いいえ        | はい           | いいえ         | このサブカテゴリのイベントのボリュームは非常に低く、すべて重要なイベントであり、セキュリティに関連しています。 <br>このサブカテゴリには失敗イベントがないため、失敗監査を有効にすることは推奨されません。 |
 
-| Computer Type     | General Success | General Failure | Stronger Success | Stronger Failure | Comments                                                                                                                                                                                                                                                      |
-|-------------------|-----------------|-----------------|------------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Domain Controller | Yes             | No              | Yes              | No               | The volume of events in this subcategory is very low and all of them are important events and have security relevance. <br>This subcategory doesn’t have Failure events, so there is no recommendation to enable Failure auditing for this subcategory. |
-| Member Server     | Yes             | No              | Yes              | No               | The volume of events in this subcategory is very low and all of them are important events and have security relevance. <br>This subcategory doesn’t have Failure events, so there is no recommendation to enable Failure auditing for this subcategory. |
-| Workstation       | Yes             | No              | Yes              | No               | The volume of events in this subcategory is very low and all of them are important events and have security relevance. <br>This subcategory doesn’t have Failure events, so there is no recommendation to enable Failure auditing for this subcategory. |
+**イベントリスト:**
 
-**Events List:**
+-   [4608](event-4608.md)(S): Windowsが起動しています。
 
--   [4608](event-4608.md)(S): Windows is starting up.
+-   [4616](event-4616.md)(S): システム時刻が変更されました。
 
--   [4616](event-4616.md)(S): The system time was changed.
-
--   [4621](event-4621.md)(S): Administrator recovered system from CrashOnAuditFail.
+-   [4621](event-4621.md)(S): 管理者がCrashOnAuditFailからシステムを復旧しました。
 
 >[!NOTE]
->Event **4609(S): Windows is shutting down** doesn't currently generate. It is a defined event, but it is never invoked by the operating system.
-
+>イベント **4609(S): Windowsがシャットダウンしています** は現在生成されません。これは定義されたイベントですが、オペレーティングシステムによって呼び出されることはありません。

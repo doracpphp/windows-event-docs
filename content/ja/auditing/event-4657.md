@@ -1,6 +1,6 @@
 ---
-title: 4657(S) A registry value was modified. 
-description: Describes security event 4657(S) A registry value was modified. This event is generated when a registry key value is modified.
+title: 4657(S) レジストリ値が変更されました。
+description: セキュリティイベント 4657(S) レジストリ値が変更されました。レジストリキーの値が変更されたときに生成されるイベントです。
 ms.pagetype: security
 ms.mktglfcycl: deploy
 ms.sitesec: library
@@ -13,24 +13,23 @@ ms.author: vinpa
 ms.topic: reference
 ---
 
-# 4657(S): A registry value was modified.
-
+# 4657(S): レジストリ値が変更されました。
 
 <img src="images/event-4657.png" alt="Event 4657 illustration" width="449" height="570" hspace="10" align="left" />
 
-***Subcategory:***&nbsp;[Audit Registry](audit-registry.md)
+***サブカテゴリ:***&nbsp;[監査レジストリ](audit-registry.md)
 
-***Event Description:***
+***イベントの説明:***
 
-This event generates when a registry key ***value*** was modified. It doesn’t generate when a registry key was modified.
+このイベントは、レジストリキーの***値***が変更されたときに生成されます。レジストリキーが変更されたときには生成されません。
 
-This event generates only if “Set Value" auditing is set in registry key’s [SACL](/windows/win32/secauthz/access-control-lists).
+このイベントは、レジストリキーの[SACL](/windows/win32/secauthz/access-control-lists)に「値の設定」監査が設定されている場合にのみ生成されます。
 
-> **Note**&nbsp;&nbsp;For recommendations, see [Security Monitoring Recommendations](#security-monitoring-recommendations) for this event.
+> **注**&nbsp;&nbsp;推奨事項については、このイベントの[セキュリティ監視の推奨事項](#security-monitoring-recommendations)を参照してください。
 
 <br clear="all">
 
-***Event XML:***
+***イベント XML:***
 ```
 - <Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
 - <System>
@@ -69,45 +68,45 @@ This event generates only if “Set Value" auditing is set in registry key’s [
 
 ```
 
-***Required Server Roles:*** None.
+***必要なサーバー役割:*** なし。
 
-***Minimum OS Version:*** Windows Server 2008, Windows Vista.
+***最小 OS バージョン:*** Windows Server 2008, Windows Vista。
 
-***Event Versions:*** 0.
+***イベントバージョン:*** 0。
 
-***Field Descriptions:***
+***フィールドの説明:***
 
-**Subject:**
+**サブジェクト:**
 
--   **Security ID** \[Type = SID\]**:** SID of account that requested the “modify registry value” operation. Event Viewer automatically tries to resolve SIDs and show the account name. If the SID cannot be resolved, you will see the source data in the event.
+-   **セキュリティ ID** \[タイプ = SID\]**:** 「レジストリ値の変更」操作を要求したアカウントの SID。イベントビューアーは自動的に SID を解決し、アカウント名を表示しようとします。SID を解決できない場合、イベントにソースデータが表示されます。
 
-> **Note**&nbsp;&nbsp;A **security identifier (SID)** is a unique value of variable length used to identify a trustee (security principal). Each account has a unique SID that is issued by an authority, such as an Active Directory domain controller, and stored in a security database. Each time a user logs on, the system retrieves the SID for that user from the database and places it in the access token for that user. The system uses the SID in the access token to identify the user in all subsequent interactions with Windows security. When a SID has been used as the unique identifier for a user or group, it cannot ever be used again to identify another user or group. For more information about SIDs, see [Security identifiers](/windows/access-protection/access-control/security-identifiers).
+> **注**&nbsp;&nbsp;**セキュリティ識別子 (SID)** は、トラスティ (セキュリティプリンシパル) を識別するために使用される可変長の一意の値です。各アカウントには、Active Directory ドメインコントローラーなどの権限によって発行され、セキュリティデータベースに保存される一意の SID があります。ユーザーがログオンするたびに、システムはデータベースからそのユーザーの SID を取得し、そのユーザーのアクセストークンに配置します。システムは、アクセストークン内の SID を使用して、以降のすべての Windows セキュリティとのやり取りでユーザーを識別します。SID がユーザーまたはグループの一意の識別子として使用された場合、それは他のユーザーまたはグループを識別するために再利用されることはありません。SID についての詳細は、[セキュリティ識別子](/windows/access-protection/access-control/security-identifiers)を参照してください。
 
--   **Account Name** \[Type = UnicodeString\]**:** the name of the account that requested the “modify registry value” operation.
+-   **アカウント名** \[タイプ = UnicodeString\]**:** 「レジストリ値の変更」操作を要求したアカウントの名前。
 
--   **Account Domain** \[Type = UnicodeString\]**:** subject’s domain or computer name. Formats vary, and include the following:
+-   **アカウントドメイン** \[タイプ = UnicodeString\]**:** サブジェクトのドメインまたはコンピュータ名。形式は以下のように異なります：
 
-    -   Domain NETBIOS name example: CONTOSO
+    -   ドメインのNETBIOS名の例: CONTOSO
 
-    -   Lowercase full domain name: contoso.local
+    -   小文字の完全なドメイン名: contoso.local
 
-    -   Uppercase full domain name: CONTOSO.LOCAL
+    -   大文字の完全なドメイン名: CONTOSO.LOCAL
 
-    -   For some [well-known security principals](/windows/security/identity-protection/access-control/security-identifiers), such as LOCAL SERVICE or ANONYMOUS LOGON, the value of this field is “NT AUTHORITY”.
+    -   LOCAL SERVICEやANONYMOUS LOGONなどの[よく知られたセキュリティプリンシパル](/windows/security/identity-protection/access-control/security-identifiers)の場合、このフィールドの値は「NT AUTHORITY」となります。
 
-    -   For local user accounts, this field will contain the name of the computer or device that this account belongs to, for example: “Win81”.
+    -   ローカルユーザーアカウントの場合、このフィールドにはこのアカウントが属するコンピュータまたはデバイスの名前が含まれます。例：「Win81」。
 
--   **Logon ID** \[Type = HexInt64\]**:** hexadecimal value that can help you correlate this event with recent events that might contain the same Logon ID, for example, “[4624](event-4624.md): An account was successfully logged on.”
+-   **ログオンID** \[タイプ = HexInt64\]**:** 16進数の値で、最近のイベントと同じログオンIDを含む可能性のあるイベントとこのイベントを関連付けるのに役立ちます。例：「[4624](event-4624.md): アカウントが正常にログオンされました。」
 
-**Object:**
+**オブジェクト:**
 
--   **Object Name** \[Type = UnicodeString\]: full path and name of the registry key which value was modified. The format is: \\REGISTRY\\HIVE\\PATH where:
+-   **オブジェクト名** \[タイプ = UnicodeString\]: 値が変更されたレジストリキーのフルパスと名前。形式は \\REGISTRY\\HIVE\\PATH です。ここで：
 
     -   HIVE:
 
         -   HKEY\_LOCAL\_MACHINE = \\REGISTRY\\MACHINE
 
-        -   HKEY\_CURRENT\_USER = \\REGISTRY\\USER\\\[USER\_SID\], where \[USER\_SID\] is the SID of current user.
+        -   HKEY\_CURRENT\_USER = \\REGISTRY\\USER\\\[USER\_SID\]、ここで\[USER\_SID\]は現在のユーザーのSIDです。
 
         -   HKEY\_CLASSES\_ROOT = \\REGISTRY\\MACHINE\\SOFTWARE\\Classes
 
@@ -115,65 +114,65 @@ This event generates only if “Set Value" auditing is set in registry key’s [
 
         -   HKEY\_CURRENT\_CONFIG = \\REGISTRY\\MACHINE\\SYSTEM\\ControlSet001\\Hardware Profiles\\Current
 
-    -   PATH – path to the registry key.
+    -   PATH – レジストリキーへのパス。
 
--   **Object Value Name** \[Type = UnicodeString\]**:** the name of modified registry key value.
+-   **オブジェクト値の名前** \[タイプ = UnicodeString\]**:** 変更されたレジストリキーの値の名前。
 
--   **Handle ID** \[Type = Pointer\]: hexadecimal value of a handle to **Object Name**. This field can help you correlate this event with other events that might contain the same Handle ID, for example, “[4656](event-4656.md): A handle to an object was requested.” This parameter might not be captured in the event, and in that case appears as “0x0”.
+-   **ハンドルID** \[タイプ = Pointer\]: **オブジェクト名**へのハンドルの16進数の値。このフィールドは、同じハンドルIDを含む可能性のある他のイベントとこのイベントを関連付けるのに役立ちます。例：「[4656](event-4656.md): オブジェクトへのハンドルが要求されました。」このパラメータはイベントでキャプチャされない場合があり、その場合は「0x0」と表示されます。
 
--   **Operation Type** \[Type = UnicodeString\]**:** the type of performed operation with registry key value. Most common operations are:
+-   **操作タイプ** \[Type = UnicodeString\]**:** レジストリキー値に対して実行された操作のタイプ。最も一般的な操作は以下の通りです：
 
-    -   New registry value created
+    -   新しいレジストリ値が作成されました
 
-    -   Registry value deleted
+    -   レジストリ値が削除されました
 
-    -   Existing registry value modified
+    -   既存のレジストリ値が変更されました
 
-**Process Information:**
+**プロセス情報:**
 
--   **Process ID** \[Type = Pointer\]: hexadecimal Process ID of the process through which the registry key value was modified. Process ID (PID) is a number used by the operating system to uniquely identify an active process. To see the PID for a specific process you can, for example, use Task Manager (Details tab, PID column):
+-   **プロセスID** \[Type = Pointer\]: レジストリキー値が変更されたプロセスの16進数のプロセスID。プロセスID (PID) は、オペレーティングシステムがアクティブなプロセスを一意に識別するために使用する番号です。特定のプロセスのPIDを確認するには、例えばタスクマネージャー（詳細タブ、PID列）を使用できます：
 
-    <img src="images/task-manager.png" alt="Task manager illustration" width="585" height="375" />
+    <img src="images/task-manager.png" alt="タスクマネージャーのイラスト" width="585" height="375" />
 
-    If you convert the hexadecimal value to decimal, you can compare it to the values in Task Manager.
+    16進数の値を10進数に変換すると、タスクマネージャーの値と比較できます。
 
-    You can also correlate this process ID with a process ID in other events, for example, “[4688](event-4688.md): A new process has been created” **Process Information\\New Process ID**.
+    また、このプロセスIDを他のイベントのプロセスIDと関連付けることもできます。例えば、"[4688](event-4688.md): 新しいプロセスが作成されました" **プロセス情報\\新しいプロセスID**。
 
--   **Process Name** \[Type = UnicodeString\]**:** full path and the name of the executable for the process.
+-   **プロセス名** \[Type = UnicodeString\]**:** プロセスの実行可能ファイルのフルパスと名前。
 
-**Change Information:**
+**変更情報:**
 
--   **Old Value Type** \[Type = UnicodeString\]**:** old type of changed registry key value. Registry key value types:
+-   **旧値タイプ** \[Type = UnicodeString\]**:** 変更されたレジストリキー値の旧タイプ。レジストリキー値のタイプ：
 
-| Value Type      | Description             |
+| 値タイプ        | 説明                     |
 |-----------------|-------------------------|
-| REG\_SZ         | String                  |
-| REG\_BINARY     | Binary                  |
-| REG\_DWORD      | DWORD (32-bit) Value    |
-| REG\_QWORD      | QWORD (64-bit) Value    |
-| REG\_MULTI\_SZ  | Multi-String Value      |
-| REG\_EXPAND\_SZ | Expandable String Value |
+| REG\_SZ         | 文字列                   |
+| REG\_BINARY     | バイナリ                 |
+| REG\_DWORD      | DWORD (32ビット) 値      |
+| REG\_QWORD      | QWORD (64ビット) 値      |
+| REG\_MULTI\_SZ  | 複数文字列値             |
+| REG\_EXPAND\_SZ | 展開可能な文字列値       |
 
--   **Old Value** \[Type = UnicodeString\]: old value for changed registry key value.
+-   **旧値** \[Type = UnicodeString\]: 変更されたレジストリキー値の旧値。
 
--   **New Value Type** \[Type = UnicodeString\]**:** new type of changed registry key value. See table above for possible values.
+-   **新値タイプ** \[Type = UnicodeString\]**:** 変更されたレジストリキー値の新タイプ。可能な値については上記の表を参照してください。
 
--   **New Value** \[Type = UnicodeString\]: new value for changed registry key value.
+-   **新値** \[Type = UnicodeString\]: 変更されたレジストリキー値の新値。
 
-## Security Monitoring Recommendations
+## セキュリティ監視の推奨事項
 
-For 4657(S): A registry value was modified.
+4657(S): レジストリ値が変更されました。
 
-> **Important**&nbsp;&nbsp;For this event, also see [Appendix A: Security monitoring recommendations for many audit events](appendix-a-security-monitoring-recommendations-for-many-audit-events.md).
+> **重要**&nbsp;&nbsp;このイベントについては、[付録A: 多くの監査イベントに対するセキュリティ監視の推奨事項](appendix-a-security-monitoring-recommendations-for-many-audit-events.md)も参照してください。
 
--   If you have a pre-defined “**Process Name**” for the process reported in this event, monitor all events with “**Process Name**” not equal to your defined value.
+-   このイベントで報告されたプロセスに対して事前に定義された「**プロセス名**」がある場合、定義された値と異なる「**プロセス名**」のすべてのイベントを監視します。
 
--   You can monitor to see if “**Process Name**” is not in a standard folder (for example, not in **System32** or **Program Files**) or is in a restricted folder (for example, **Temporary Internet Files**).
+-   「**プロセス名**」が標準フォルダ（例えば、**System32**や**Program Files**）にない、または制限されたフォルダ（例えば、**Temporary Internet Files**）にあるかどうかを監視できます。
 
 <!-- -->
 
--   If you have a pre-defined list of restricted substrings or words in process names (for example, “**mimikatz**” or “**cain.exe**”), check for these substrings in “**Process Name**.”
+-   プロセス名に含まれる制限された部分文字列や単語（例えば、「**mimikatz**」や「**cain.exe**」）の事前定義リストがある場合、「**プロセス名**」にこれらの部分文字列が含まれているかどうかを確認します。
 
--   If **Object Name** is a sensitive or critical registry key for which you need to monitor any modification of its values, monitor all [4657](event-4657.md) events.
+-   **オブジェクト名**が、その値の変更を監視する必要がある機密または重要なレジストリキーである場合、すべての[4657](event-4657.md)イベントを監視します。
 
--   If **Object Name** has specific values (**Object Value Name**) and you need to monitor modifications of these values, monitor for all [4657](event-4657.md) events.
+-   **オブジェクト名**に特定の値（**オブジェクト値名**）があり、これらの値の変更を監視する必要がある場合、すべての[4657](event-4657.md)イベントを監視します。

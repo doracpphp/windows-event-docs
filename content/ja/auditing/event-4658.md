@@ -1,6 +1,6 @@
 ---
-title: 4658(S) The handle to an object was closed. 
-description: Describes security event 4658(S) The handle to an object was closed. This event is generated when the handle to an object is closed.
+title: 4658(S) オブジェクトのハンドルが閉じられました。
+description: オブジェクトのハンドルが閉じられたときに生成されるセキュリティイベント4658(S)について説明します。このイベントは、オブジェクトのハンドルが閉じられたときに生成されます。
 ms.pagetype: security
 ms.mktglfcycl: deploy
 ms.sitesec: library
@@ -13,26 +13,25 @@ ms.author: vinpa
 ms.topic: reference
 ---
 
-# 4658(S): The handle to an object was closed.
-
+# 4658(S): オブジェクトのハンドルが閉じられました。
 
 <img src="images/event-4658.png" alt="Event 4658 illustration" width="449" height="463" hspace="10" align="left" />
 
-***Subcategories:***&nbsp;[Audit File System](audit-file-system.md), [Audit Handle Manipulation](audit-handle-manipulation.md), [Audit Kernel Object](audit-kernel-object.md), [Audit Registry](audit-registry.md), and [Audit Removable Storage](audit-removable-storage.md)
+***サブカテゴリ:***&nbsp;[ファイルシステムの監査](audit-file-system.md)、[ハンドル操作の監査](audit-handle-manipulation.md)、[カーネルオブジェクトの監査](audit-kernel-object.md)、[レジストリの監査](audit-registry.md)、および[リムーバブルストレージの監査](audit-removable-storage.md)
 
-***Event Description:***
+***イベントの説明:***
 
-This event generates when the handle to an object is closed. The object could be a file system, kernel, or registry object, or a file system object on removable storage or a device.
+このイベントは、オブジェクトのハンドルが閉じられたときに生成されます。オブジェクトはファイルシステム、カーネル、レジストリオブジェクト、またはリムーバブルストレージやデバイス上のファイルシステムオブジェクトである可能性があります。
 
-This event generates only if Success auditing is enabled for [Audit Handle Manipulation](audit-handle-manipulation.md) subcategory.
+このイベントは、[ハンドル操作の監査](audit-handle-manipulation.md)サブカテゴリの成功監査が有効になっている場合にのみ生成されます。
 
-Typically this event is needed if you need to know how long the handle to the object was open. Otherwise, it might not have any security relevance.
+通常、このイベントはオブジェクトのハンドルがどれくらいの期間開いていたかを知る必要がある場合に必要です。それ以外の場合、セキュリティ上の関連性はないかもしれません。
 
-> **Note**&nbsp;&nbsp;For recommendations, see [Security Monitoring Recommendations](#security-monitoring-recommendations) for this event.
+> **注**&nbsp;&nbsp;推奨事項については、このイベントの[セキュリティ監視の推奨事項](#security-monitoring-recommendations)を参照してください。
 
 <br clear="all">
 
-***Event XML:***
+***イベント XML:***
 ```
 - <Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
 - <System>
@@ -65,69 +64,68 @@ Typically this event is needed if you need to know how long the handle to the ob
 
 ```
 
-***Required Server Roles:*** None.
+***必要なサーバーの役割:*** なし。
 
-***Minimum OS Version:*** Windows Server 2008, Windows Vista.
+***最小 OS バージョン:*** Windows Server 2008、Windows Vista。
 
-***Event Versions:*** 0.
+***イベントバージョン:*** 0。
 
-***Field Descriptions:***
+***フィールドの説明:***
 
-**Subject:**
+**サブジェクト:**
 
--   **Security ID** \[Type = SID\]**:** SID of account that requested the “close object’s handle” operation. Event Viewer automatically tries to resolve SIDs and show the account name. If the SID cannot be resolved, you will see the source data in the event.
+-   **セキュリティ ID** \[タイプ = SID\]**:** 「オブジェクトのハンドルを閉じる」操作を要求したアカウントのSID。イベントビューアーは自動的にSIDを解決してアカウント名を表示しようとします。SIDが解決できない場合、イベントにソースデータが表示されます。
 
-> **Note**&nbsp;&nbsp;A **security identifier (SID)** is a unique value of variable length used to identify a trustee (security principal). Each account has a unique SID that is issued by an authority, such as an Active Directory domain controller, and stored in a security database. Each time a user logs on, the system retrieves the SID for that user from the database and places it in the access token for that user. The system uses the SID in the access token to identify the user in all subsequent interactions with Windows security. When a SID has been used as the unique identifier for a user or group, it cannot ever be used again to identify another user or group. For more information about SIDs, see [Security identifiers](/windows/access-protection/access-control/security-identifiers).
+> **注**&nbsp;&nbsp;**セキュリティ識別子 (SID)** は、トラスティ（セキュリティプリンシパル）を識別するために使用される可変長の一意の値です。各アカウントには、Active Directoryドメインコントローラーなどの権限によって発行され、セキュリティデータベースに保存される一意のSIDがあります。ユーザーがログオンするたびに、システムはデータベースからそのユーザーのSIDを取得し、そのユーザーのアクセス トークンに配置します。システムは、アクセス トークン内のSIDを使用して、以降のすべてのWindowsセキュリティとのやり取りでユーザーを識別します。SIDがユーザーまたはグループの一意の識別子として使用された場合、それは他のユーザーまたはグループを識別するために再び使用されることはありません。SIDの詳細については、[セキュリティ識別子](/windows/access-protection/access-control/security-identifiers)を参照してください。
 
--   **Account Name** \[Type = UnicodeString\]**:** the name of the account that requested the “close object’s handle” operation.
+-   **アカウント名** \[タイプ = UnicodeString\]**:** “オブジェクトのハンドルを閉じる”操作を要求したアカウントの名前。
 
--   **Account Domain** \[Type = UnicodeString\]**:** subject’s domain or computer name. Formats vary, and include the following:
+-   **アカウントドメイン** \[タイプ = UnicodeString\]**:** サブジェクトのドメインまたはコンピュータ名。形式はさまざまで、以下を含みます：
 
-    -   Domain NETBIOS name example: CONTOSO
+    -   ドメイン NETBIOS 名の例: CONTOSO
 
-    -   Lowercase full domain name: contoso.local
+    -   小文字の完全なドメイン名: contoso.local
 
-    -   Uppercase full domain name: CONTOSO.LOCAL
+    -   大文字の完全なドメイン名: CONTOSO.LOCAL
 
-    -   For some [well-known security principals](/windows/security/identity-protection/access-control/security-identifiers), such as LOCAL SERVICE or ANONYMOUS LOGON, the value of this field is “NT AUTHORITY”.
+    -   一部の[よく知られたセキュリティプリンシパル](/windows/security/identity-protection/access-control/security-identifiers)の場合、例えば LOCAL SERVICE や ANONYMOUS LOGON、このフィールドの値は “NT AUTHORITY” です。
 
-    -   For local user accounts, this field will contain the name of the computer or device that this account belongs to, for example: “Win81”.
+    -   ローカルユーザーアカウントの場合、このフィールドにはこのアカウントが属するコンピュータまたはデバイスの名前が含まれます。例えば: “Win81”。
 
--   **Logon ID** \[Type = HexInt64\]**:** hexadecimal value that can help you correlate this event with recent events that might contain the same Logon ID, for example, “[4624](event-4624.md): An account was successfully logged on.”
+-   **ログオンID** \[タイプ = HexInt64\]**:** 16進数の値で、同じログオンIDを含む最近のイベントとこのイベントを関連付けるのに役立ちます。例えば、“[4624](event-4624.md): アカウントが正常にログオンされました。”
 
-**Object**:
+**オブジェクト**:
 
--   **Object Server** \[Type = UnicodeString\]: has “**Security**” value for this event.
+-   **オブジェクトサーバー** \[タイプ = UnicodeString\]: このイベントの値は “**Security**” です。
 
--   **Handle ID** \[Type = Pointer\]: hexadecimal value of a handle to **Object Name**. This field can help you correlate this event with other events that might contain the same Handle ID, for example, “[4663](event-4663.md)(S): An attempt was made to access an object.” This parameter might not be captured in the event, and in that case appears as “0x0”.
+-   **ハンドルID** \[タイプ = Pointer\]: **オブジェクト名**へのハンドルの16進数値。このフィールドは、同じハンドルIDを含む他のイベントとこのイベントを関連付けるのに役立ちます。例えば、“[4663](event-4663.md)(S): オブジェクトにアクセスしようとしました。” このパラメータはイベントでキャプチャされない場合があり、その場合は “0x0” と表示されます。
 
-**Process Information:**
+**プロセス情報:**
 
--   **Process ID** \[Type = Pointer\]: hexadecimal Process ID of the process that requested that the handle be closed. Process ID (PID) is a number used by the operating system to uniquely identify an active process. To see the PID for a specific process you can, for example, use Task Manager (Details tab, PID column):
+-   **プロセスID** \[タイプ = Pointer\]: ハンドルを閉じることを要求したプロセスの16進数プロセスID。プロセスID (PID) は、オペレーティングシステムがアクティブなプロセスを一意に識別するために使用する番号です。特定のプロセスのPIDを確認するには、例えばタスクマネージャー（詳細タブ、PID列）を使用できます：
 
-    <img src="images/task-manager.png" alt="Task manager illustration" width="585" height="375" />
+    <img src="images/task-manager.png" alt="タスクマネージャーのイラスト" width="585" height="375" />
 
-    If you convert the hexadecimal value to decimal, you can compare it to the values in Task Manager.
+    16進数の値を10進数に変換すると、タスクマネージャーの値と比較できます。
 
-    You can also correlate this process ID with a process ID in other events, for example, “[4688](event-4688.md): A new process has been created” **Process Information\\New Process ID**.
+    また、このプロセスIDを他のイベントのプロセスIDと関連付けることもできます。例えば、“[4688](event-4688.md): 新しいプロセスが作成されました” **プロセス情報\\新しいプロセスID**。
 
--   **Process Name** \[Type = UnicodeString\]**:** full path and the name of the executable for the process.
+-   **プロセス名** \[Type = UnicodeString\]**:** プロセスの実行可能ファイルのフルパスと名前。
 
-## Security Monitoring Recommendations
+## セキュリティ監視の推奨事項
 
-For 4658(S): The handle to an object was closed.
+4658(S): オブジェクトのハンドルが閉じられました。
 
-> **Important**&nbsp;&nbsp;For this event, also see [Appendix A: Security monitoring recommendations for many audit events](appendix-a-security-monitoring-recommendations-for-many-audit-events.md).
+> **重要**&nbsp;&nbsp;このイベントについては、[付録A: 多くの監査イベントに対するセキュリティ監視の推奨事項](appendix-a-security-monitoring-recommendations-for-many-audit-events.md)も参照してください。
 
--   Typically this event has little to no security relevance and is hard to parse or analyze. There is no recommendation for this event, unless you know exactly what you need to monitor with it.
+-   通常、このイベントはセキュリティ関連性がほとんどなく、解析や分析が難しいです。特定の監視対象が明確でない限り、このイベントに対する推奨事項はありません。
 
--   This event can be used to track all actions or operations related to a specific object handle.
+-   このイベントは、特定のオブジェクトハンドルに関連するすべてのアクションや操作を追跡するために使用できます。
 
--   If you have a pre-defined “**Process Name**” for the process reported in this event, monitor all events with “**Process Name**” not equal to your defined value.
+-   このイベントで報告されたプロセスの「**プロセス名**」が事前に定義されたものである場合、定義された値と異なる「**プロセス名**」のすべてのイベントを監視します。
 
--   You can monitor to see if “**Process Name**” is not in a standard folder (for example, not in **System32** or **Program Files**) or is in a restricted folder (for example, **Temporary Internet Files**).
+-   「**プロセス名**」が標準フォルダ（例：**System32** や **Program Files**）にない、または制限されたフォルダ（例：**Temporary Internet Files**）にあるかどうかを監視できます。
 
 <!-- -->
 
--   If you have a pre-defined list of restricted substrings or words in process names (for example, “**mimikatz**” or “**cain.exe**”), check for these substrings in “**Process Name**.”
-
+-   プロセス名に含まれる制限されたサブストリングや単語の事前定義リスト（例：「**mimikatz**」や「**cain.exe**」）がある場合、「**プロセス名**」にこれらのサブストリングが含まれているかどうかを確認します。

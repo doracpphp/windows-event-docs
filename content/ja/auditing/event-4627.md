@@ -1,6 +1,6 @@
 ---
-title: 4627(S) Group membership information. 
-description: Describes security event 4627(S) Group membership information. This event is generated with event 4624(S) An account was successfully logged on.
+title: 4627(S) グループメンバーシップ情報
+description: セキュリティイベント 4627(S) グループメンバーシップ情報について説明します。このイベントは、イベント 4624(S) アカウントが正常にログオンされましたと共に生成されます。
 ms.pagetype: security
 ms.mktglfcycl: deploy
 ms.sitesec: library
@@ -13,27 +13,26 @@ ms.author: vinpa
 ms.topic: reference
 ---
 
-# 4627(S): Group membership information.
-
+# 4627(S): グループメンバーシップ情報
 
 <img src="images/event-4627.png" alt="Event 4627 illustration" width="554" height="896" hspace="10" align="left" />
 
-***Subcategory:***&nbsp;[Audit Group Membership](audit-group-membership.md)
+***サブカテゴリ:***&nbsp;[グループメンバーシップの監査](audit-group-membership.md)
 
-***Event Description:***
+***イベントの説明:***
 
-This event generates with “[4624](event-4624.md)(S): An account was successfully logged on” and shows the list of groups that the logged-on account belongs to.
+このイベントは「[4624](event-4624.md)(S): アカウントが正常にログオンされました」と共に生成され、ログオンしたアカウントが所属するグループのリストを表示します。
 
-You must also enable the Success audit for [Audit Logon](audit-logon.md) subcategory to get this event.
+このイベントを取得するには、[ログオンの監査](audit-logon.md)サブカテゴリの成功監査も有効にする必要があります。
 
-Multiple events are generated if the group membership information cannot fit in a single security audit event.
+グループメンバーシップ情報が1つのセキュリティ監査イベントに収まらない場合、複数のイベントが生成されます。
 
 > [!NOTE]
-> For recommendations, see [Security Monitoring Recommendations](#security-monitoring-recommendations) for this event.
+> 推奨事項については、このイベントの[セキュリティ監視の推奨事項](#security-monitoring-recommendations)を参照してください。
 
 <br clear="all">
 
-***Event XML:***
+***イベント XML:***
 
 ```xml
 - <Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
@@ -71,88 +70,87 @@ Multiple events are generated if the group membership information cannot fit in 
 
 ```
 
-***Required Server Roles:*** None.
+***必要なサーバーロール:*** なし。
 
-***Minimum OS Version:*** Windows Server 2016, Windows 10.
+***最小 OS バージョン:*** Windows Server 2016, Windows 10。
 
-***Event Versions:*** 0.
+***イベントバージョン:*** 0。
 
-***Field Descriptions:***
+***フィールドの説明:***
 
-**Subject:**
+**サブジェクト:**
 
--   **Security ID** \[Type = SID\]**:** SID of account that reported information about successful logon or invokes it. Event Viewer automatically tries to resolve SIDs and show the account name. If the SID cannot be resolved, you will see the source data in the event.
+-   **セキュリティ ID** \[タイプ = SID\]**:** 成功したログオンについて情報を報告したアカウントの SID またはそれを呼び出すアカウントの SID。イベントビューアーは自動的に SID を解決し、アカウント名を表示しようとします。SID が解決できない場合、イベントにはソースデータが表示されます。
 
     > [!NOTE]
-    >  A **security identifier (SID)** is a unique value of variable length used to identify a trustee (security principal). Each account has a unique SID that is issued by an authority, such as an Active Directory domain controller, and stored in a security database. Each time a user logs on, the system retrieves the SID for that user from the database and places it in the access token for that user. The system uses the SID in the access token to identify the user in all subsequent interactions with Windows security. When a SID has been used as the unique identifier for a user or group, it cannot ever be used again to identify another user or group. For more information about SIDs, see [Security identifiers](/windows/access-protection/access-control/security-identifiers).
+    >  **セキュリティ識別子 (SID)** は、信託者 (セキュリティプリンシパル) を識別するために使用される可変長の一意の値です。各アカウントには、Active Directory ドメインコントローラーなどの権限によって発行され、セキュリティデータベースに保存される一意の SID があります。ユーザーがログオンするたびに、システムはデータベースからそのユーザーの SID を取得し、そのユーザーのアクセス トークンに配置します。システムは、アクセス トークン内の SID を使用して、以降のすべての Windows セキュリティとのやり取りでユーザーを識別します。SID がユーザーまたはグループの一意の識別子として使用された場合、それは他のユーザーまたはグループを識別するために再利用されることはありません。SID の詳細については、[セキュリティ識別子](/windows/access-protection/access-control/security-identifiers)を参照してください。
 
--   **Account Name** \[Type = UnicodeString\]**:** the name of the account that reported information about successful logon or invokes it.
+-   **アカウント名** \[タイプ = UnicodeString\]**:** 成功したログオンについて情報を報告したアカウントの名前、またはそれを呼び出すアカウントの名前。
 
--   **Account Domain** \[Type = UnicodeString\]**:** subject’s domain or computer name. Formats vary, and include the following:
+-   **アカウントドメイン** \[タイプ = UnicodeString\]**:** サブジェクトのドメインまたはコンピュータ名。形式は以下のように異なります：
 
-    -   Domain NETBIOS name example: CONTOSO
+    -   ドメインのNETBIOS名の例: CONTOSO
 
-    -   Lowercase full domain name: contoso.local
+    -   小文字の完全なドメイン名: contoso.local
 
-    -   Uppercase full domain name: CONTOSO.LOCAL
+    -   大文字の完全なドメイン名: CONTOSO.LOCAL
 
-    -   For some [well-known security principals](/windows/security/identity-protection/access-control/security-identifiers), such as LOCAL SERVICE or ANONYMOUS LOGON, the value of this field is “NT AUTHORITY”.
+    -   一部の[よく知られたセキュリティプリンシパル](/windows/security/identity-protection/access-control/security-identifiers)の場合、例えばLOCAL SERVICEやANONYMOUS LOGON、このフィールドの値は「NT AUTHORITY」となります。
 
-    -   For local user accounts, this field will contain the name of the computer or device that this account belongs to, for example: “Win81”.
+    -   ローカルユーザーアカウントの場合、このフィールドにはこのアカウントが属するコンピュータまたはデバイスの名前が含まれます。例えば、「Win81」。
 
--   **Logon ID** \[Type = HexInt64\]**:** hexadecimal value that can help you correlate this event with recent events that might contain the same Logon ID, for example, “[4672](event-4672.md)(S): Special privileges assigned to new logon.”
+-   **ログオンID** \[タイプ = HexInt64\]**:** 16進数の値で、このイベントを最近のイベントと関連付けるのに役立ちます。同じログオンIDを含む可能性のあるイベント、例えば「[4672](event-4672.md)(S): 新しいログオンに割り当てられた特権」。
 
--   **Logon Type** \[Type = UInt32\]**:** the type of logon which was performed. The table below contains the list of possible values for this field:
+-   **ログオンタイプ** \[タイプ = UInt32\]**:** 実行されたログオンのタイプ。以下の表には、このフィールドの可能な値のリストが含まれています：
 
-| Logon Type | Logon Title | Description |
+| ログオンタイプ | ログオンタイトル       | 説明 |
 |------------|-------------------|----------------------|
-| 2          | Interactive       | A user logged on to this computer.                                                                                                                                                                                                                                                                                         |
-| 3          | Network           | A user or computer logged on to this computer from the network.                                                                                                                                                                                                                                                            |
-| 4          | Batch             | Batch logon type is used by batch servers, where processes may be executing on behalf of a user without their direct intervention.                                                                                                                                                                                         |
-| 5          | Service           | A service was started by the Service Control Manager.                                                                                                                                                                                                                                                                      |
-| 7          | Unlock            | This workstation was unlocked.                                                                                                                                                                                                                                                                                             |
-| 8          | NetworkCleartext  | A user logged on to this computer from the network. The user's password was passed to the authentication package in its unhashed form. The built-in authentication packages all hash credentials before sending them across the network. The credentials do not traverse the network in plaintext (also called cleartext). |
-| 9          | NewCredentials    | A caller cloned its current token and specified new credentials for outbound connections. The new logon session has the same local identity, but uses different credentials for other network connections.                                                                                                                 |
-| 10         | RemoteInteractive | A user logged on to this computer remotely using Terminal Services or Remote Desktop.                                                                                                                                                                                                                                      |
-| 11         | CachedInteractive | A user logged on to this computer with network credentials that were stored locally on the computer. The domain controller was not contacted to verify the credentials.                                                                                                                                                    |
+| 2          | インタラクティブ       | ユーザーがこのコンピュータにログオンしました。                                                                                                                                                                                                                                                                                         |
+| 3          | ネットワーク           | ユーザーまたはコンピュータがネットワークからこのコンピュータにログオンしました。                                                                                                                                                                                                                                                            |
+| 4          | バッチ             | バッチログオンタイプは、ユーザーの直接の介入なしにプロセスが実行されるバッチサーバーで使用されます。                                                                                                                                                                                         |
+| 5          | サービス           | サービスコントロールマネージャによってサービスが開始されました。                                                                                                                                                                                                                                                                      |
+| 7          | ロック解除            | このワークステーションのロックが解除されました。                                                                                                                                                                                                                                                                                             |
+| 8          | ネットワーククリアテキスト  | ユーザーがネットワークからこのコンピュータにログオンしました。ユーザーのパスワードはハッシュされていない形式で認証パッケージに渡されました。組み込みの認証パッケージはすべて、資格情報をネットワークに送信する前にハッシュします。資格情報はプレーンテキスト（クリアテキストとも呼ばれる）でネットワークを通過しません。 |
+| 9          | 新しい資格情報    | 呼び出し元が現在のトークンをクローンし、アウトバウンド接続のために新しい資格情報を指定しました。新しいログオンセッションは同じローカルIDを持ちますが、他のネットワーク接続には異なる資格情報を使用します。                                                                                                                 |
+| 10         | リモートインタラクティブ | ユーザーがターミナルサービスまたはリモートデスクトップを使用してリモートでこのコンピュータにログオンしました。                                                                                                                                                                                                                                      |
+| 11         | キャッシュされたインタラクティブ | ユーザーがローカルに保存されたネットワーク資格情報を使用してこのコンピュータにログオンしました。ドメインコントローラーは資格情報を確認するために連絡されませんでした。                                                                                                                                                    |
 
-**New Logon:**
+**新しいログオン:**
 
--   **Security ID** \[Type = SID\]**:** SID of account for which logon was performed. Event Viewer automatically tries to resolve SIDs and show the account name. If the SID cannot be resolved, you will see the source data in the event.
+-   **セキュリティID** \[タイプ = SID\]**:** ログオンが実行されたアカウントのSID。イベントビューアーは自動的にSIDを解決し、アカウント名を表示しようとします。SIDが解決できない場合、イベントにソースデータが表示されます。
 
     > [!NOTE]
-    > A **security identifier (SID)** is a unique value of variable length used to identify a trustee (security principal). Each account has a unique SID that is issued by an authority, such as an Active Directory domain controller, and stored in a security database. Each time a user logs on, the system retrieves the SID for that user from the database and places it in the access token for that user. The system uses the SID in the access token to identify the user in all subsequent interactions with Windows security. When a SID has been used as the unique identifier for a user or group, it cannot ever be used again to identify another user or group. For more information about SIDs, see [Security identifiers](/windows/access-protection/access-control/security-identifiers).
+    > **セキュリティ識別子 (SID)** は、信託者（セキュリティプリンシパル）を識別するために使用される可変長の一意の値です。各アカウントには、Active Directoryドメインコントローラーなどの権限によって発行され、セキュリティデータベースに保存される一意のSIDがあります。ユーザーがログオンするたびに、システムはデータベースからそのユーザーのSIDを取得し、そのユーザーのアクセス トークンに配置します。システムは、以降のすべてのWindowsセキュリティとのやり取りでユーザーを識別するために、アクセス トークン内のSIDを使用します。SIDがユーザーまたはグループの一意の識別子として使用された場合、それは他のユーザーまたはグループを識別するために再利用されることはありません。SIDの詳細については、[セキュリティ識別子](/windows/access-protection/access-control/security-identifiers)を参照してください。
 
--   **Account Name** \[Type = UnicodeString\]**:** the name of the account for which logon was performed.
+-   **アカウント名** \[タイプ = UnicodeString\]**:** ログオンが実行されたアカウントの名前。
 
--   **Account Domain** \[Type = UnicodeString\]**:** subject’s domain or computer name. Formats vary, and include the following:
+-   **アカウント ドメイン** \[タイプ = UnicodeString\]**:** サブジェクトのドメインまたはコンピュータ名。形式はさまざまで、以下を含みます:
 
-    -   Domain NETBIOS name example: CONTOSO
+    -   ドメイン NETBIOS 名の例: CONTOSO
 
-    -   Lowercase full domain name: contoso.local
+    -   小文字の完全なドメイン名: contoso.local
 
-    -   Uppercase full domain name: CONTOSO.LOCAL
+    -   大文字の完全なドメイン名: CONTOSO.LOCAL
 
-    -   For some [well-known security principals](/windows/security/identity-protection/access-control/security-identifiers), such as LOCAL SERVICE or ANONYMOUS LOGON, the value of this field is “NT AUTHORITY”.
+    -   LOCAL SERVICEやANONYMOUS LOGONなどの[よく知られたセキュリティプリンシパル](/windows/security/identity-protection/access-control/security-identifiers)の場合、このフィールドの値は「NT AUTHORITY」となります。
 
-    -   For local user accounts, this field will contain the name of the computer or device that this account belongs to, for example: “Win81”.
+    -   ローカルユーザーアカウントの場合、このフィールドにはこのアカウントが属するコンピュータまたはデバイスの名前が含まれます。例: “Win81”。
 
--   **Logon ID** \[Type = HexInt64\]**:** hexadecimal value that can help you correlate this event with recent events that might contain the same Logon ID, for example, “[4672](event-4672.md)(S): Special privileges assigned to new logon.”
+-   **ログオンID** \[タイプ = HexInt64\]**:** このイベントを、同じログオンIDを含む最近のイベントと関連付けるのに役立つ16進数の値。例: “[4672](event-4672.md)(S): 新しいログオンに割り当てられた特権”。
 
-**Event in sequence** \[Type = UInt32\]**: I**f is there is not enough space in one event to put all groups, you will see “**1 of N**” in this field and additional events will be generated. Typically this field has “**1 of 1**” value.
+**シーケンス内のイベント** \[タイプ = UInt32\]**:** すべてのグループを1つのイベントに収めるのに十分なスペースがない場合、このフィールドに「**1 of N**」が表示され、追加のイベントが生成されます。通常、このフィールドの値は「**1 of 1**」です。
 
-**Group Membership** \[Type = UnicodeString\]**:** the list of group SIDs which logged account belongs to (member of). Event Viewer automatically tries to resolve SIDs and show the account name. If the SID cannot be resolved, you will see the source data in the event.
+**グループメンバーシップ** \[タイプ = UnicodeString\]**:** ログオンしたアカウントが所属するグループのSIDのリスト。イベントビューアーは自動的にSIDを解決し、アカウント名を表示しようとします。SIDが解決できない場合、イベントにはソースデータが表示されます。
 
-## Security Monitoring Recommendations
+## セキュリティ監視の推奨事項
 
-For 4627(S): Group membership information.
+4627(S): グループメンバーシップ情報について。
 
 > [!IMPORTANT]
-> For this event, also see [Appendix A: Security monitoring recommendations for many audit events](appendix-a-security-monitoring-recommendations-for-many-audit-events.md).
+> このイベントについては、[付録A: 多くの監査イベントに対するセキュリティ監視の推奨事項](appendix-a-security-monitoring-recommendations-for-many-audit-events.md)も参照してください。
 
--   Typically this action is reported by the NULL SID account, so we recommend reporting all events with **“Subject\\Security ID”** not equal “**NULL SID**”.
+- 通常、このアクションはNULL SIDアカウントによって報告されるため、**「Subject\\Security ID」**が「**NULL SID**」と等しくないすべてのイベントを報告することをお勧めします。
 
 <!-- -->
 
--   If you need to track that a member of a specific group logged on to a computer, check the “**Group Membership**” field.
-
+- 特定のグループのメンバーがコンピュータにログオンしたことを追跡する必要がある場合は、「**グループメンバーシップ**」フィールドを確認してください。

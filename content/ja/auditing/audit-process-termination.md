@@ -1,6 +1,6 @@
 ---
-title: Audit Process Termination 
-description: The Advanced Security Audit policy setting, Audit Process Termination, determines if audit events are generated when an attempt is made to end a process.
+title: プロセス終了の監査
+description: 高度なセキュリティ監査ポリシー設定「プロセス終了の監査」は、プロセスを終了しようとしたときに監査イベントが生成されるかどうかを決定します。
 ms.assetid: 65d88e53-14aa-48a4-812b-557cebbf9e50
 ms.reviewer: 
 manager: aaroncz
@@ -14,24 +14,22 @@ ms.date: 09/06/2021
 ms.topic: reference
 ---
 
-# Audit Process Termination
+# プロセス終了の監査
 
+プロセス終了の監査は、プロセスが終了したときにオペレーティングシステムが監査イベントを生成するかどうかを決定します。
 
-Audit Process Termination determines whether the operating system generates audit events when process has exited.
+成功の監査は成功した試行を記録し、失敗の監査は失敗した試行を記録します。
 
-Success audits record successful attempts and Failure audits record unsuccessful attempts.
+このポリシー設定は、ユーザーの活動を追跡し、コンピューターの使用方法を理解するのに役立ちます。
 
-This policy setting can help you track user activity and understand how the computer is used.
+**イベントボリューム**: システムの使用状況に応じて低から中。
 
-**Event volume**: Low to Medium, depending on system usage.
+| コンピューターの種類 | 一般的な成功 | 一般的な失敗 | 強化された成功 | 強化された失敗 | コメント                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+|-----------------------|---------------|---------------|------------------|------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ドメインコントローラー | いいえ        | いいえ        | IF               | いいえ           | IF - このサブカテゴリは通常、[プロセス作成の監査](audit-process-creation.md)サブカテゴリほど重要ではありません。このサブカテゴリを使用すると、例えば、[4688](event-4688.md)イベントと関連付けてプロセスがどのくらいの期間実行されたかの情報を取得できます。<br>一部のコンピューターで実行される重要なプロセスのリストがある場合、このサブカテゴリを有効にしてこれらの重要なプロセスの終了を監視できます。<br>このサブカテゴリには失敗イベントがないため、失敗の監査を有効にすることは推奨されません。 |
+| メンバーサーバー     | いいえ        | いいえ        | IF               | いいえ           | IF - このサブカテゴリは通常、[プロセス作成の監査](audit-process-creation.md)サブカテゴリほど重要ではありません。このサブカテゴリを使用すると、例えば、[4688](event-4688.md)イベントと関連付けてプロセスがどのくらいの期間実行されたかの情報を取得できます。<br>一部のコンピューターで実行される重要なプロセスのリストがある場合、このサブカテゴリを有効にしてこれらの重要なプロセスの終了を監視できます。<br>このサブカテゴリには失敗イベントがないため、失敗の監査を有効にすることは推奨されません。 |
+| ワークステーション   | いいえ        | いいえ        | IF               | いいえ           | IF - このサブカテゴリは通常、[プロセス作成の監査](audit-process-creation.md)サブカテゴリほど重要ではありません。このサブカテゴリを使用すると、例えば、[4688](event-4688.md)イベントと関連付けてプロセスがどのくらいの期間実行されたかの情報を取得できます。<br>一部のコンピューターで実行される重要なプロセスのリストがある場合、このサブカテゴリを有効にしてこれらの重要なプロセスの終了を監視できます。<br>このサブカテゴリには失敗イベントがないため、失敗の監査を有効にすることは推奨されません。 |
 
-| Computer Type     | General Success | General Failure | Stronger Success | Stronger Failure | Comments                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-|-------------------|-----------------|-----------------|------------------|------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Domain Controller | No              | No              | IF               | No               | IF - This subcategory typically is not as important as [Audit Process Creation](audit-process-creation.md) subcategory. Using this subcategory you can, for example get information about for how long process was run in correlation with [4688](event-4688.md) event. <br>If you have a list of critical processes that run on some computers, you can enable this subcategory to monitor for termination of these critical processes. <br>This subcategory doesn’t have Failure events, so there is no recommendation to enable Failure auditing for this subcategory. |
-| Member Server     | No              | No              | IF               | No               | IF - This subcategory typically is not as important as [Audit Process Creation](audit-process-creation.md) subcategory. Using this subcategory you can, for example get information about for how long process was run in correlation with [4688](event-4688.md) event. <br>If you have a list of critical processes that run on some computers, you can enable this subcategory to monitor for termination of these critical processes. <br>This subcategory doesn’t have Failure events, so there is no recommendation to enable Failure auditing for this subcategory. |
-| Workstation       | No              | No              | IF               | No               | IF - This subcategory typically is not as important as [Audit Process Creation](audit-process-creation.md) subcategory. Using this subcategory you can, for example get information about for how long process was run in correlation with [4688](event-4688.md) event. <br>If you have a list of critical processes that run on some computers, you can enable this subcategory to monitor for termination of these critical processes. <br>This subcategory doesn’t have Failure events, so there is no recommendation to enable Failure auditing for this subcategory. |
+**イベントリスト:**
 
-**Events List:**
-
--   [4689](event-4689.md)(S): A process has exited.
-
+-   [4689](event-4689.md)(S): プロセスが終了しました。

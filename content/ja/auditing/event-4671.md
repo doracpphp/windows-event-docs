@@ -1,6 +1,6 @@
 ---
-title: 4671(-) An application attempted to access a blocked ordinal through the TBS. 
-description: Describes security event 4671(-) An application attempted to access a blocked ordinal through the TBS.
+title: 4671(-) アプリケーションがTBSを通じてブロックされたオーディナルにアクセスしようとしました。
+description: セキュリティイベント4671(-) アプリケーションがTBSを通じてブロックされたオーディナルにアクセスしようとしました、について説明します。
 ms.pagetype: security
 ms.mktglfcycl: deploy
 ms.sitesec: library
@@ -13,10 +13,11 @@ ms.author: vinpa
 ms.topic: reference
 ---
 
-# 4671(-): An application attempted to access a blocked ordinal through the TBS.
+# 4671(-): アプリケーションがTBSを通じてブロックされたオーディナルにアクセスしようとしました。
 
 *
-Currently this event doesn’t generate. It is a defined event, but it is never invoked by the operating system.
+現在、このイベントは生成されません。定義されたイベントですが、オペレーティングシステムによって呼び出されることはありません。
 
-***Subcategory:***&nbsp;[Audit Other Object Access Events](audit-other-object-access-events.md)
+***サブカテゴリ:***&nbsp;[その他のオブジェクトアクセスイベントの監査](audit-other-object-access-events.md)
+
 

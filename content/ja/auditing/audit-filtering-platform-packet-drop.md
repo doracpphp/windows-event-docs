@@ -1,6 +1,6 @@
 ---
-title: Audit Filtering Platform Packet Drop 
-description: The policy setting, Audit Filtering Platform Packet Drop, determines if audit events are generated when packets are dropped by the Windows Filtering Platform.
+title: 監査フィルタリングプラットフォームパケットドロップ
+description: ポリシー設定「監査フィルタリングプラットフォームパケットドロップ」は、Windowsフィルタリングプラットフォームによってパケットがドロップされたときに監査イベントが生成されるかどうかを決定します。
 ms.assetid: 95457601-68d1-4385-af20-87916ddab906
 ms.reviewer: 
 manager: aaroncz
@@ -14,25 +14,24 @@ ms.date: 09/06/2021
 ms.topic: reference
 ---
 
-# Audit Filtering Platform Packet Drop
+# 監査フィルタリングプラットフォームパケットドロップ
 
+監査フィルタリングプラットフォームパケットドロップは、[Windowsフィルタリングプラットフォーム](/windows/win32/fwp/windows-filtering-platform-start-page)によってパケットがドロップされたときにオペレーティングシステムが監査イベントを生成するかどうかを決定します。
 
-Audit Filtering Platform Packet Drop determines whether the operating system generates audit events when packets are dropped by the [Windows Filtering Platform](/windows/win32/fwp/windows-filtering-platform-start-page).
+Windowsフィルタリングプラットフォーム（WFP）は、独立系ソフトウェアベンダー（ISV）がTCP/IPパケットをフィルタリングおよび変更し、接続を監視または承認し、インターネットプロトコルセキュリティ（IPsec）で保護されたトラフィックをフィルタリングし、リモートプロシージャコール（RPC）をフィルタリングできるようにします。
 
-Windows Filtering Platform (WFP) enables independent software vendors (ISVs) to filter and modify TCP/IP packets, monitor or authorize connections, filter Internet Protocol security (IPsec)-protected traffic, and filter remote procedure calls (RPCs).
+高いパケットドロップ率は、ネットワーク上のコンピュータへの不正アクセスの試みがあったことを示している*可能性があります*。
 
-A high rate of dropped packets *may* indicate that there have been attempts to gain unauthorized access to computers on your network.
+**イベントボリューム**: 高。
 
-**Event volume**: High.
-
-| Computer Type     | General Success | General Failure | Stronger Success | Stronger Failure | Comments                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| コンピュータの種類 | 一般的な成功 | 一般的な失敗 | 強化された成功 | 強化された失敗 | コメント                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 |-------------------|-----------------|-----------------|------------------|------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Domain Controller | No              | No              | No               | No               | Failure events volume typically is very high for this subcategory and typically used for troubleshooting. If you need to monitor blocked connections, it is better to use “[5157](event-5157.md)(F): The Windows Filtering Platform has blocked a connection,” because it contains almost the same information and generates per-connection, not per-packet.<br>There is no recommendation to enable Success auditing, because Success events in this subcategory rarely occur. |
-| Member Server     | No              | No              | No               | No               | Failure events volume typically is very high for this subcategory and typically used for troubleshooting. If you need to monitor blocked connections, it is better to use “[5157](event-5157.md)(F): The Windows Filtering Platform has blocked a connection,” because it contains almost the same information and generates per-connection, not per-packet.<br>There is no recommendation to enable Success auditing, because Success events in this subcategory rarely occur. |
-| Workstation       | No              | No              | No               | No               | Failure events volume typically is very high for this subcategory and typically used for troubleshooting. If you need to monitor blocked connections, it is better to use “[5157](event-5157.md)(F): The Windows Filtering Platform has blocked a connection,” because it contains almost the same information and generates per-connection, not per-packet.<br>There is no recommendation to enable Success auditing, because Success events in this subcategory rarely occur. |
+| ドメインコントローラー | いいえ              | いいえ              | いいえ               | いいえ               | このサブカテゴリの失敗イベントのボリュームは通常非常に高く、通常はトラブルシューティングに使用されます。ブロックされた接続を監視する必要がある場合は、「[5157](event-5157.md)(F): Windowsフィルタリングプラットフォームが接続をブロックしました」を使用する方が良いです。これはほぼ同じ情報を含み、パケットごとではなく接続ごとに生成されます。<br>このサブカテゴリで成功監査を有効にすることは推奨されません。成功イベントはこのサブカテゴリではほとんど発生しないためです。 |
+| メンバーサーバー     | いいえ              | いいえ              | いいえ               | いいえ               | このサブカテゴリの失敗イベントのボリュームは通常非常に高く、通常はトラブルシューティングに使用されます。ブロックされた接続を監視する必要がある場合は、「[5157](event-5157.md)(F): Windowsフィルタリングプラットフォームが接続をブロックしました」を使用する方が良いです。これはほぼ同じ情報を含み、パケットごとではなく接続ごとに生成されます。<br>このサブカテゴリで成功監査を有効にすることは推奨されません。成功イベントはこのサブカテゴリではほとんど発生しないためです。 |
+| ワークステーション       | いいえ              | いいえ              | いいえ               | いいえ               | このサブカテゴリの失敗イベントのボリュームは通常非常に高く、通常はトラブルシューティングに使用されます。ブロックされた接続を監視する必要がある場合は、「[5157](event-5157.md)(F): Windowsフィルタリングプラットフォームが接続をブロックしました」を使用する方が良いです。これはほぼ同じ情報を含み、パケットごとではなく接続ごとに生成されます。<br>このサブカテゴリで成功監査を有効にすることは推奨されません。成功イベントはこのサブカテゴリではほとんど発生しないためです。 |
 
-**Events List:**
+**イベントリスト:**
 
--   [5152](event-5152.md)(F): The Windows Filtering Platform blocked a packet.
+-   [5152](event-5152.md)(F): Windows フィルタリング プラットフォームがパケットをブロックしました。
 
--   [5153](event-5153.md)(S): A more restrictive Windows Filtering Platform filter has blocked a packet.
+-   [5153](event-5153.md)(S): より制限の厳しい Windows フィルタリング プラットフォーム フィルターがパケットをブロックしました。

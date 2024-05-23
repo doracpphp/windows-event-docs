@@ -1,6 +1,6 @@
 ---
-title: Audit Kerberos Authentication Service 
-description: The policy setting Audit Kerberos Authentication Service decides if audit events are generated for Kerberos authentication ticket-granting ticket (TGT) requests
+title: Kerberos 認証サービスの監査
+description: ポリシー設定「Kerberos 認証サービスの監査」は、Kerberos 認証チケット授与チケット (TGT) 要求に対して監査イベントを生成するかどうかを決定します
 ms.assetid: 990dd6d9-1a1f-4cce-97ba-5d7e0a7db859
 ms.reviewer: 
 manager: aaroncz
@@ -14,28 +14,26 @@ ms.date: 09/06/2021
 ms.topic: reference
 ---
 
-# Audit Kerberos Authentication Service
+# Kerberos 認証サービスの監査
 
+Kerberos 認証サービスの監査は、Kerberos 認証チケット授与チケット (TGT) 要求に対して監査イベントを生成するかどうかを決定します。
 
-Audit Kerberos Authentication Service determines whether to generate audit events for Kerberos authentication ticket-granting ticket (TGT) requests.
+このポリシー設定を構成すると、Kerberos 認証 TGT 要求後に監査イベントが生成されます。成功の監査は成功した試行を記録し、失敗の監査は失敗した試行を記録します。
 
-If you configure this policy setting, an audit event is generated after a Kerberos authentication TGT request. Success audits record successful attempts and Failure audits record unsuccessful attempts.
+**イベントボリューム**: Kerberos キーディストリビューションセンターサーバーで高い。
 
-**Event volume**: High on Kerberos Key Distribution Center servers.
+このサブカテゴリには、発行された TGT と失敗した TGT 要求に関するイベントが含まれます。また、ユーザーのパスワードが間違っている場合やパスワードが期限切れの場合に、失敗した事前認証に関するイベントも含まれます。
 
-This subcategory contains events about issued TGTs and failed TGT requests. It also contains events about failed Pre-Authentications, due to wrong user password or when the user’s password has expired.
-
-| Computer Type     | General Success | General Failure | Stronger Success | Stronger Failure | Comments                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| コンピューターの種類 | 一般的な成功 | 一般的な失敗 | 強化された成功 | 強化された失敗 | コメント                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 |-------------------|-----------------|-----------------|------------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Domain Controller | Yes             | Yes             | Yes              | Yes              | We recommend Success auditing, because you will see all Kerberos Authentication requests (TGT requests), which are a part of domain account logons. Also, you can see the IP address from which this account requested a TGT, when TGT was requested, which encryption type was used and so on.<br>We recommend Failure auditing, because you will see all failed requests with wrong password, username, revoked certificate, and so on. You will also be able to detect Kerberos issues or possible attack attempts. <br>Expected volume is high on domain controllers. |
-| Member Server     | No              | No              | No               | No               | This subcategory makes sense only on domain controllers.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| Workstation       | No              | No              | No               | No               | This subcategory makes sense only on domain controllers.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| ドメインコントローラー | はい             | はい             | はい              | はい              | 成功の監査を推奨します。これにより、ドメインアカウントのログオンの一部であるすべての Kerberos 認証要求 (TGT 要求) を確認できます。また、このアカウントが TGT を要求した IP アドレス、TGT が要求された時刻、使用された暗号化タイプなどを確認できます。<br>失敗の監査を推奨します。これにより、間違ったパスワード、ユーザー名、取り消された証明書などによるすべての失敗した要求を確認できます。また、Kerberos の問題や攻撃の試みを検出することもできます。<br>ドメインコントローラーでは予想されるボリュームが高いです。 |
+| メンバーサーバー     | いいえ              | いいえ              | いいえ               | いいえ               | このサブカテゴリはドメインコントローラーでのみ意味があります。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| ワークステーション       | いいえ              | いいえ              | いいえ               | いいえ               | このサブカテゴリはドメインコントローラーでのみ意味があります。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 
-**Events List:**
+**イベントリスト:**
 
--   [4768](event-4768.md)(S, F): A Kerberos authentication ticket (TGT) was requested.
+-   [4768](event-4768.md)(S, F): Kerberos 認証チケット (TGT) が要求されました。
 
--   [4771](event-4771.md)(F): Kerberos pre-authentication failed.
+-   [4771](event-4771.md)(F): Kerberos 事前認証に失敗しました。
 
--   [4772](event-4772.md)(F): A Kerberos authentication ticket request failed.
-
+-   [4772](event-4772.md)(F): Kerberos 認証チケット要求に失敗しました。

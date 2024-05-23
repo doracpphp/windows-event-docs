@@ -1,6 +1,6 @@
 ---
-title: Audit Certification Services 
-description: The policy setting, Audit Certification Services, decides if events are generated when Active Directory Certificate Services (ADA CS) operations are performed.
+title: 監査認証サービス
+description: ポリシー設定「監査認証サービス」は、Active Directory 証明書サービス (AD CS) の操作が実行されたときにイベントが生成されるかどうかを決定します。
 ms.assetid: cdefc34e-fb1f-4eff-b766-17713c5a1b03
 ms.reviewer: 
 manager: aaroncz
@@ -14,104 +14,104 @@ ms.date: 09/06/2021
 ms.topic: reference
 ---
 
-# Audit Certification Services
+# 監査認証サービス
 
-Audit Certification Services determines whether the operating system generates events when Active Directory Certificate Services (AD CS) operations are performed.
+監査認証サービスは、Active Directory 証明書サービス (AD CS) の操作が実行されたときにオペレーティング システムがイベントを生成するかどうかを決定します。
 
-Examples of AD CS operations include:
+AD CS 操作の例には次のものが含まれます。
 
--   AD CS starts, shuts down, is backed up, or is restored.
+-   AD CS の開始、シャットダウン、バックアップ、または復元。
 
--   Certificate revocation list (CRL)-related tasks are performed.
+-   証明書失効リスト (CRL) に関連するタスクの実行。
 
--   Certificates are requested, issued, or revoked.
+-   証明書の要求、発行、または失効。
 
--   Certificate manager settings for AD CS are changed.
+-   AD CS の証明書マネージャー設定の変更。
 
--   The configuration and properties of the certification authority (CA) are changed.
+-   認証局 (CA) の構成およびプロパティの変更。
 
--   AD CS templates are modified.
+-   AD CS テンプレートの変更。
 
--   Certificates are imported.
+-   証明書のインポート。
 
--   A CA certificate is published to Active Directory Domain Services.
+-   CA 証明書の Active Directory ドメイン サービスへの公開。
 
--   Security permissions for AD CS role services are modified.
+-   AD CS ロール サービスのセキュリティ許可の変更。
 
--   Keys are archived, imported, or retrieved.
+-   キーのアーカイブ、インポート、または取得。
 
--   The OCSP Responder Service is started or stopped.
+-   OCSP レスポンダー サービスの開始または停止。
 
-Monitoring these operational events is important to ensure that AD CS role services are functioning properly.
+これらの操作イベントを監視することは、AD CS ロール サービスが適切に機能していることを確認するために重要です。
 
-**Event volume: Low to medium on servers that provide AD CS role services.**
+**イベント ボリューム: AD CS ロール サービスを提供するサーバーでは低から中。**
 
-Role-specific subcategories are outside the scope of this document.
+ロール固有のサブカテゴリはこのドキュメントの範囲外です。
 
-| Computer Type     | General Success | General Failure | Stronger Success | Stronger Failure | Comments                                                                                                                                                                                                                        |
-|-------------------|-----------------|-----------------|------------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Domain Controller | IF              | IF              | IF               | IF               | IF – if a server has the [Active Directory Certificate Services](/windows/deployment/deploy-whats-new) (AD CS) role installed and you need to monitor AD CS related events, enable this subcategory. |
-| Member Server     | IF              | IF              | IF               | IF               | IF – if a server has the [Active Directory Certificate Services](/windows/deployment/deploy-whats-new) (AD CS) role installed and you need to monitor AD CS related events, enable this subcategory. |
-| Workstation       | No              | No              | No               | No               | [Active Directory Certificate Services](/windows/deployment/deploy-whats-new) (AD CS) role cannot be installed on client OS.                                                                         |
+| コンピューターの種類 | 一般的な成功 | 一般的な失敗 | 強力な成功 | 強力な失敗 | コメント                                                                                                                                                                                                                        |
+|-----------------------|---------------|---------------|--------------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ドメイン コントローラー | IF            | IF            | IF           | IF           | IF – サーバーに [Active Directory 証明書サービス](/windows/deployment/deploy-whats-new) (AD CS) ロールがインストールされており、AD CS 関連のイベントを監視する必要がある場合、このサブカテゴリを有効にします。 |
+| メンバー サーバー     | IF            | IF            | IF           | IF           | IF – サーバーに [Active Directory 証明書サービス](/windows/deployment/deploy-whats-new) (AD CS) ロールがインストールされており、AD CS 関連のイベントを監視する必要がある場合、このサブカテゴリを有効にします。 |
+| ワークステーション   | No            | No            | No           | No           | [Active Directory 証明書サービス](/windows/deployment/deploy-whats-new) (AD CS) ロールはクライアント OS にインストールできません。                                                                         |
 
-- 4868: The certificate manager denied a pending certificate request.
+- 4868: 証明書マネージャーが保留中の証明書要求を拒否しました。
 
-- 4869: Certificate Services received a resubmitted certificate request.
+- 4869: 証明書サービスが再提出された証明書要求を受け取りました。
 
-- 4870: Certificate Services revoked a certificate.
+- 4870: 証明書サービスが証明書を失効させました。
 
-- 4871: Certificate Services received a request to publish the certificate revocation list (CRL).
+- 4871: 証明書サービスが証明書失効リスト（CRL）の公開要求を受け取りました。
 
-- 4872: Certificate Services published the certificate revocation list (CRL).
+- 4872: 証明書サービスが証明書失効リスト（CRL）を公開しました。
 
-- 4873: A certificate request extension changed.
+- 4873: 証明書要求の拡張が変更されました。
 
-- 4874: One or more certificate request attributes changed.
+- 4874: 1つ以上の証明書要求属性が変更されました。
 
-- 4875: Certificate Services received a request to shut down.
+- 4875: 証明書サービスがシャットダウン要求を受け取りました。
 
-- 4876: Certificate Services backup started.
+- 4876: 証明書サービスのバックアップが開始されました。
 
-- 4877: Certificate Services backup completed.
+- 4877: 証明書サービスのバックアップが完了しました。
 
-- 4878: Certificate Services restore started.
+- 4878: 証明書サービスの復元が開始されました。
 
-- 4879: Certificate Services restore completed.
+- 4879: 証明書サービスの復元が完了しました。
 
-- 4880: Certificate Services started.
+- 4880: 証明書サービスが開始されました。
 
-- 4881: Certificate Services stopped.
+- 4881: 証明書サービスが停止されました。
 
-- 4882: The security permissions for Certificate Services changed.
+- 4882: 証明書サービスのセキュリティ権限が変更されました。
 
-- 4883: Certificate Services retrieved an archived key.
+- 4883: 証明書サービスがアーカイブされたキーを取得しました。
 
-- 4884: Certificate Services imported a certificate into its database.
+- 4884: 証明書サービスが証明書をデータベースにインポートしました。
 
-- 4885: The audit filter for Certificate Services changed.
+- 4885: 証明書サービスの監査フィルターが変更されました。
 
-- 4886: Certificate Services received a certificate request.
+- 4886: 証明書サービスが証明書要求を受け取りました。
 
-- 4887: Certificate Services approved a certificate request and issued a certificate.
+- 4887: 証明書サービスが証明書要求を承認し、証明書を発行しました。
 
-- 4888: Certificate Services denied a certificate request.
+- 4888: 証明書サービスが証明書要求を拒否しました。
 
-- 4889: Certificate Services set the status of a certificate request to pending.
+- 4889: 証明書サービスが証明書要求のステータスを保留中に設定しました。
 
-- 4890: The certificate manager settings for Certificate Services changed.
+- 4890: 証明書サービスの証明書マネージャー設定が変更されました。
 
-- 4891: A configuration entry changed in Certificate Services.
+- 4891: 証明書サービスの構成エントリが変更されました。
 
-- 4892: A property of Certificate Services changed.
+- 4892: 証明書サービスのプロパティが変更されました。
 
-- 4893: Certificate Services archived a key.
+- 4893: 証明書サービスがキーをアーカイブしました。
 
-- 4894: Certificate Services imported and archived a key.
+- 4894: 証明書サービスがキーをインポートしてアーカイブしました。
 
-- 4895: Certificate Services published the CA certificate to Active Directory Domain Services.
+- 4895: 証明書サービスがCA証明書をActive Directoryドメインサービスに公開しました。
 
-- 4896: One or more rows have been deleted from the certificate database.
+- 4896: 証明書データベースから1つ以上の行が削除されました。
 
-- 4897: Role separation enabled.
+- 4897: ロール分離が有効になりました。
 
-- 4898: Certificate Services loaded a template.
+- 4898: 証明書サービスがテンプレートをロードしました。

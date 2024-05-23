@@ -1,6 +1,6 @@
 ---
-title: Audit Authentication Policy Change 
-description: The Advanced Security Audit policy setting, Audit Authentication Policy Change, determines if audit events are generated when authentication policy is changed.
+title: 認証ポリシー変更の監査
+description: 高度なセキュリティ監査ポリシー設定である「認証ポリシー変更の監査」は、認証ポリシーが変更されたときに監査イベントが生成されるかどうかを決定します。
 ms.assetid: aa9cea7a-aadf-47b7-b704-ac253b8e79be
 ms.reviewer: 
 manager: aaroncz
@@ -14,63 +14,62 @@ ms.date: 09/06/2021
 ms.topic: reference
 ---
 
-# Audit Authentication Policy Change
+# 認証ポリシー変更の監査
 
-Audit Authentication Policy Change determines whether the operating system generates audit events when changes are made to authentication policy.
+認証ポリシー変更の監査は、認証ポリシーが変更されたときにオペレーティングシステムが監査イベントを生成するかどうかを決定します。
 
-Changes made to authentication policy include:
+認証ポリシーに対する変更には以下が含まれます：
 
--   Creation, modification, and removal of forest and domain trusts.
+- フォレストおよびドメイン信頼の作成、変更、および削除。
 
--   Changes to Kerberos policy under Computer Configuration\\Windows Settings\\Security Settings\\Account Policies\\Kerberos Policy.
+- コンピューターの構成\\Windows 設定\\セキュリティ設定\\アカウントポリシー\\Kerberos ポリシーの変更。
 
--   When any of the following user logon rights is granted to a user or group:
+- 次のユーザーログオン権限のいずれかがユーザーまたはグループに付与されたとき：
 
-    -   Access this computer from the network
+    - ネットワークからこのコンピューターにアクセス
 
-    -   Allow logon locally
+    - ローカルでのログオンを許可
 
-    -   Allow logon through Remote Desktop
+    - リモートデスクトップ経由でのログオンを許可
 
-    -   Logon as a batch job
+    - バッチジョブとしてログオン
 
-    -   Logon as a service
+    - サービスとしてログオン
 
--   Namespace collision, such as when an added trust collides with an existing namespace name.
+- 追加された信頼が既存の名前空間名と衝突するなどの名前空間の衝突。
 
-This setting is useful for tracking changes in domain-level and forest-level trust and privileges that are granted to user accounts or groups.
+この設定は、ドメインレベルおよびフォレストレベルの信頼と、ユーザーアカウントまたはグループに付与された特権の変更を追跡するのに役立ちます。
 
-**Event volume**: Low.
+**イベントボリューム**: 低。
 
-| Computer Type     | General Success | General Failure | Stronger Success | Stronger Failure | Comments                                                                                                                                                                                                                                                                                                                                                                                    |
-|-------------------|-----------------|-----------------|------------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Domain Controller | Yes             | No              | Yes              | No               | On domain controllers, it is important to enable Success audit for this subcategory to be able to get information related to operations with domain and forest trusts, changes in Kerberos policy and some other events included in this subcategory.<br>This subcategory doesn’t have Failure events, so there is no recommendation to enable Failure auditing for this subcategory. |
-| Member Server     | Yes             | No              | Yes              | No               | On member servers it is important to enable Success audit for this subcategory to be able to get information related to changes in user logon rights policies and password policy changes.<br>This subcategory doesn’t have Failure events, so there is no recommendation to enable Failure auditing for this subcategory.                                                            |
-| Workstation       | Yes             | No              | Yes              | No               | On workstations it is important to enable Success audit for this subcategory to be able to get information related to changes in user logon rights policies and password policy changes.<br>This subcategory doesn’t have Failure events, so there is no recommendation to enable Failure auditing for this subcategory.                                                              |
+| コンピューターの種類 | 一般的な成功 | 一般的な失敗 | 強力な成功 | 強力な失敗 | コメント                                                                                                                                                                                                                                                                                                                                                                                    |
+|-----------------------|---------------|---------------|--------------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ドメインコントローラー | はい          | いいえ        | はい         | いいえ       | ドメインコントローラーでは、このサブカテゴリの成功監査を有効にして、ドメインおよびフォレスト信頼に関連する操作、Kerberos ポリシーの変更、およびこのサブカテゴリに含まれるその他のイベントに関する情報を取得することが重要です。<br>このサブカテゴリには失敗イベントがないため、失敗監査を有効にすることは推奨されません。 |
+| メンバーサーバー     | はい          | いいえ        | はい         | いいえ       | メンバーサーバーでは、このサブカテゴリの成功監査を有効にして、ユーザーログオン権限ポリシーの変更およびパスワードポリシーの変更に関する情報を取得することが重要です。<br>このサブカテゴリには失敗イベントがないため、失敗監査を有効にすることは推奨されません。                                                            |
+| ワークステーション   | はい          | いいえ        | はい         | いいえ       | ワークステーションでは、このサブカテゴリの成功監査を有効にして、ユーザーログオン権限ポリシーの変更およびパスワードポリシーの変更に関する情報を取得することが重要です。<br>このサブカテゴリには失敗イベントがないため、失敗監査を有効にすることは推奨されません。                                                              |
 
-**Events List:**
+**イベントリスト:**
 
--   [4670](event-4670.md)(S): Permissions on an object were changed
+-   [4670](event-4670.md)(S): オブジェクトの権限が変更されました
 
--   [4706](event-4706.md)(S): A new trust was created to a domain.
+-   [4706](event-4706.md)(S): ドメインへの新しい信頼が作成されました。
 
--   [4707](event-4707.md)(S): A trust to a domain was removed.
+-   [4707](event-4707.md)(S): ドメインへの信頼が削除されました。
 
--   [4716](event-4716.md)(S): Trusted domain information was modified.
+-   [4716](event-4716.md)(S): 信頼されたドメイン情報が変更されました。
 
--   [4713](event-4713.md)(S): Kerberos policy was changed.
+-   [4713](event-4713.md)(S): Kerberosポリシーが変更されました。
 
--   [4717](event-4717.md)(S): System security access was granted to an account.
+-   [4717](event-4717.md)(S): アカウントにシステムセキュリティアクセスが付与されました。
 
--   [4718](event-4718.md)(S): System security access was removed from an account.
+-   [4718](event-4718.md)(S): アカウントからシステムセキュリティアクセスが削除されました。
 
--   [4739](event-4739.md)(S): Domain Policy was changed.
+-   [4739](event-4739.md)(S): ドメインポリシーが変更されました。
 
--   [4864](event-4864.md)(S): A namespace collision was detected.
+-   [4864](event-4864.md)(S): 名前空間の衝突が検出されました。
 
--   [4865](event-4865.md)(S): A trusted forest information entry was added.
+-   [4865](event-4865.md)(S): 信頼されたフォレスト情報エントリが追加されました。
 
--   [4866](event-4866.md)(S): A trusted forest information entry was removed.
+-   [4866](event-4866.md)(S): 信頼されたフォレスト情報エントリが削除されました。
 
--   [4867](event-4867.md)(S): A trusted forest information entry was modified.
-
+-   [4867](event-4867.md)(S): 信頼されたフォレスト情報エントリが変更されました。

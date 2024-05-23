@@ -1,6 +1,6 @@
 ---
-title: 4649(S) A replay attack was detected. 
-description: Describes security event 4649(S) A replay attack was detected. This event is generated when a KRB_AP_ERR_REPEAT Kerberos response is sent to the client.
+title: 4649(S) リプレイ攻撃が検出されました。
+description: セキュリティ イベント 4649(S) リプレイ攻撃が検出されました。KRB_AP_ERR_REPEAT Kerberos 応答がクライアントに送信されたときに生成されるイベントです。
 ms.pagetype: security
 ms.mktglfcycl: deploy
 ms.sitesec: library
@@ -13,68 +13,66 @@ ms.author: vinpa
 ms.topic: reference
 ---
 
-# 4649(S): A replay attack was detected.
+# 4649(S): リプレイ攻撃が検出されました。
 
+このイベントは、**KRB\_AP\_ERR\_REPEAT** Kerberos 応答がクライアントに送信されたときにドメイン コントローラーで生成されます。
 
-This event generates on domain controllers when **KRB\_AP\_ERR\_REPEAT** Kerberos response was sent to the client.
+ドメイン コントローラーは、最近受信したチケットの情報をキャッシュします。サーバー名、クライアント名、時刻、および Authenticator のマイクロ秒フィールドがキャッシュ内の最近見たエントリと一致する場合、KRB\_AP\_ERR\_REPEAT を返します。詳細は [RFC-1510](http://www.ietf.org/rfc/rfc1510.txt) を参照してください。この原因の一つとして、クライアントとサーバー間のネットワーク デバイスが誤って構成され、同じパケットが繰り返し送信されることが考えられます。
 
-Domain controllers cache information from recently received tickets. If the server name, client name, time, and microsecond fields from the Authenticator match recently seen entries in the cache, it will return KRB\_AP\_ERR\_REPEAT. You can read more about this in [RFC-1510](http://www.ietf.org/rfc/rfc1510.txt). One potential cause for this is a misconfigured network device between the client and server that could send the same packet(s) repeatedly.
+このドキュメントには、このイベントの例はありません。
 
-There is no example of this event in this document.
+***サブカテゴリ:***&nbsp;[その他のログオン/ログオフ イベントの監査](audit-other-logonlogoff-events.md)
 
-***Subcategory:***&nbsp;[Audit Other Logon/Logoff Events](audit-other-logonlogoff-events.md)
+***イベント スキーマ:***
 
-***Event Schema:***
+*リプレイ攻撃が検出されました。*
 
-*A replay attack was detected.*
+*サブジェクト:*
 
-*Subject:*
-
-> *Security ID:%1*
+> *セキュリティ ID:%1*
 >
-> *Account Name:%2*
+> *アカウント名:%2*
 >
-> *Account Domain:%3*
+> *アカウント ドメイン:%3*
 >
-> *Logon ID:%4*
+> *ログオン ID:%4*
 
-*Credentials Which Were Replayed:*
+*リプレイされた資格情報:*
 
-> *Account Name:%5*
+> *アカウント名:%5*
 >
-> *Account Domain:%6*
+> *アカウント ドメイン:%6*
 
-*Process Information:*
+*プロセス情報:*
 
-> *Process ID:%12*
+> *プロセス ID:%12*
 >
-> *Process Name:%13*
+> *プロセス名:%13*
 
-*Network Information:*
+*ネットワーク情報:*
 
-> *Workstation Name:%10*
+> *ワークステーション名:%10*
 
-*Detailed Authentication Information:*
+*詳細な認証情報:*
 
-> *Request Type:%7*
+> *要求タイプ:%7*
 >
-> *Logon Process:%8*
+> *ログオン プロセス:%8*
 >
-> *Authentication Package:%9*
+> *認証パッケージ:%9*
 >
-> *Transited Services:%11*
+> *通過サービス:%11*
 
-*This event indicates that a Kerberos replay attack was detected- a request was received twice with identical information. This condition could be caused by network misconfiguration."*
+*このイベントは、Kerberos リプレイ攻撃が検出されたことを示します。つまり、同一の情報を持つ要求が2回受信されました。この状態はネットワークの誤設定によって引き起こされる可能性があります。*
 
-***Required Server Roles:*** Active Directory domain controller.
+***必要なサーバー ロール:*** Active Directory ドメイン コントローラー。
 
-***Minimum OS Version:*** Windows Server 2008.
+***最小 OS バージョン:*** Windows Server 2008。
 
-***Event Versions:*** 0.
+***イベント バージョン:*** 0。
 
-## Security Monitoring Recommendations
+## セキュリティ監視の推奨事項
 
-For 4649(S): A replay attack was detected.
+4649(S): リプレイ攻撃が検出されました。
 
--   This event can be a sign of Kerberos replay attack or, among other things, network device configuration or routing problems. In both cases, we recommend triggering an alert and investigating the reason the event was generated.
-
+-   このイベントは、Kerberosリプレイ攻撃の兆候であるか、その他のネットワークデバイスの設定やルーティングの問題を示している可能性があります。どちらの場合でも、アラートをトリガーし、イベントが生成された理由を調査することをお勧めします。

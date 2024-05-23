@@ -1,6 +1,6 @@
 ---
-title: Audit RPC Events 
-description: Audit RPC Events is an audit policy setting that determines if audit events are generated when inbound remote procedure call (RPC) connections are made.
+title: RPC イベントの監査 
+description: RPC イベントの監査は、インバウンドのリモート プロシージャ コール (RPC) 接続が行われたときに監査イベントが生成されるかどうかを決定する監査ポリシー設定です。
 ms.assetid: 868aec2d-93b4-4bc8-a150-941f88838ba6
 ms.reviewer: 
 manager: aaroncz
@@ -14,18 +14,16 @@ ms.date: 09/06/2021
 ms.topic: reference
 ---
 
-# Audit RPC Events
+# RPC イベントの監査
 
+RPC イベントの監査は、インバウンドのリモート プロシージャ コール (RPC) 接続が行われたときにオペレーティング システムが監査イベントを生成するかどうかを決定します。
 
-Audit RPC Events determines whether the operating system generates audit events when inbound remote procedure call (RPC) connections are made.
+| コンピューターの種類 | 一般的な成功 | 一般的な失敗 | 強化された成功 | 強化された失敗 | コメント                                     |
+|-----------------------|---------------|---------------|------------------|------------------|----------------------------------------------|
+| ドメイン コントローラー | いいえ        | いいえ        | いいえ           | いいえ           | このサブカテゴリのイベントはまれに発生します。 |
+| メンバー サーバー     | いいえ        | いいえ        | いいえ           | いいえ           | このサブカテゴリのイベントはまれに発生します。 |
+| ワークステーション   | いいえ        | いいえ        | いいえ           | いいえ           | このサブカテゴリのイベントはまれに発生します。 |
 
-| Computer Type     | General Success | General Failure | Stronger Success | Stronger Failure | Comments                                 |
-|-------------------|-----------------|-----------------|------------------|------------------|------------------------------------------|
-| Domain Controller | No              | No              | No               | No               | Events in this subcategory occur rarely. |
-| Member Server     | No              | No              | No               | No               | Events in this subcategory occur rarely. |
-| Workstation       | No              | No              | No               | No               | Events in this subcategory occur rarely. |
+**イベント リスト:**
 
-**Events List:**
-
--   [5712](event-5712.md)(S): A Remote Procedure Call (RPC) was attempted.
-
+-   [5712](event-5712.md)(S): リモート プロシージャ コール (RPC) が試行されました。

@@ -1,6 +1,6 @@
 ---
-title: Audit Other Object Access Events 
-description: The policy setting, Audit Other Object Access Events, determines if audit events are generated for the management of Task Scheduler jobs or COM+ objects.
+title: 他のオブジェクトアクセスイベントの監査
+description: ポリシー設定「他のオブジェクトアクセスイベントの監査」は、タスクスケジューラのジョブやCOM+オブジェクトの管理に関する監査イベントが生成されるかどうかを決定します。
 ms.assetid: b9774595-595d-4199-b0c5-8dbc12b6c8b2
 ms.reviewer: 
 manager: aaroncz
@@ -14,42 +14,40 @@ ms.date: 09/06/2021
 ms.topic: reference
 ---
 
-# Audit Other Object Access Events
+# 他のオブジェクトアクセスイベントの監査
 
+他のオブジェクトアクセスイベントの監査を使用すると、スケジュールされたタスク、COM+オブジェクト、および間接オブジェクトアクセス要求の操作を監視できます。
 
-Audit Other Object Access Events allows you to monitor operations with scheduled tasks, COM+ objects and indirect object access requests.
+**イベントボリューム**: 低。
 
-**Event volume**: Low.
+| コンピューターの種類 | 一般的な成功 | 一般的な失敗 | 強化された成功 | 強化された失敗 | コメント                                                                                                                                                           |
+|-----------------------|---------------|---------------|------------------|------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ドメインコントローラー | はい          | はい          | はい             | はい             | スケジュールされたタスクイベントのため、まず成功の監査を推奨します。<br>ICMP DoS攻撃の可能性に関するイベントを取得するために失敗の監査を推奨します。 |
+| メンバーサーバー     | はい          | はい          | はい             | はい             | スケジュールされたタスクイベントのため、まず成功の監査を推奨します。<br>ICMP DoS攻撃の可能性に関するイベントを取得するために失敗の監査を推奨します。 |
+| ワークステーション   | はい          | はい          | はい             | はい             | スケジュールされたタスクイベントのため、まず成功の監査を推奨します。<br>ICMP DoS攻撃の可能性に関するイベントを取得するために失敗の監査を推奨します。 |
 
-| Computer Type     | General Success | General Failure | Stronger Success | Stronger Failure | Comments                                                                                                                                                           |
-|-------------------|-----------------|-----------------|------------------|------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Domain Controller | Yes             | Yes             | Yes              | Yes              | We recommend Success auditing first of all because of scheduled tasks events.<br>We recommend Failure auditing to get events about possible ICMP DoS attack. |
-| Member Server     | Yes             | Yes             | Yes              | Yes              | We recommend Success auditing first of all because of scheduled tasks events.<br>We recommend Failure auditing to get events about possible ICMP DoS attack. |
-| Workstation       | Yes             | Yes             | Yes              | Yes              | We recommend Success auditing first of all because of scheduled tasks events.<br>We recommend Failure auditing to get events about possible ICMP DoS attack. |
+**イベントリスト:**
 
-**Events List:**
+-   [4671](event-4671.md)(-): アプリケーションがTBSを通じてブロックされたオーディナルにアクセスしようとしました。
 
--   [4671](event-4671.md)(-): An application attempted to access a blocked ordinal through the TBS.
+-   [4691](event-4691.md)(S): オブジェクトへの間接アクセスが要求されました。
 
--   [4691](event-4691.md)(S): Indirect access to an object was requested.
+-   [5148](event-5148.md)(F): Windows フィルタリング プラットフォームが DoS 攻撃を検出し、防御モードに入りました。この攻撃に関連するパケットは破棄されます。
 
--   [5148](event-5148.md)(F): The Windows Filtering Platform has detected a DoS attack and entered a defensive mode; packets associated with this attack will be discarded.
+-   [5149](event-5149.md)(F): DoS 攻撃が収まり、通常の処理が再開されました。
 
--   [5149](event-5149.md)(F): The DoS attack has subsided and normal processing is being resumed.
+-   [4698](event-4698.md)(S): スケジュールされたタスクが作成されました。
 
--   [4698](event-4698.md)(S): A scheduled task was created.
+-   [4699](event-4699.md)(S): スケジュールされたタスクが削除されました。
 
--   [4699](event-4699.md)(S): A scheduled task was deleted.
+-   [4700](event-4700.md)(S): スケジュールされたタスクが有効化されました。
 
--   [4700](event-4700.md)(S): A scheduled task was enabled.
+-   [4701](event-4701.md)(S): スケジュールされたタスクが無効化されました。
 
--   [4701](event-4701.md)(S): A scheduled task was disabled.
+-   [4702](event-4702.md)(S): スケジュールされたタスクが更新されました。
 
--   [4702](event-4702.md)(S): A scheduled task was updated.
+-   [5888](event-5888.md)(S): COM+ カタログ内のオブジェクトが変更されました。
 
--   [5888](event-5888.md)(S): An object in the COM+ Catalog was modified.
+-   [5889](event-5889.md)(S): COM+ カタログからオブジェクトが削除されました。
 
--   [5889](event-5889.md)(S): An object was deleted from the COM+ Catalog.
-
--   [5890](event-5890.md)(S): An object was added to the COM+ Catalog.
-
+-   [5890](event-5890.md)(S): COM+ カタログにオブジェクトが追加されました。

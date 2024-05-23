@@ -1,6 +1,6 @@
 ---
-title: Audit Application Generated 
-description: The policy setting, Audit Application Generated, determines if audit events are generated when applications attempt to use the Windows Auditing APIs.
+title: 監査アプリケーション生成
+description: ポリシー設定「監査アプリケーション生成」は、アプリケーションがWindows監査APIを使用しようとしたときに監査イベントが生成されるかどうかを決定します。
 ms.assetid: 6c58a365-b25b-42b8-98ab-819002e31871
 ms.reviewer: 
 manager: aaroncz
@@ -14,24 +14,24 @@ ms.date: 09/06/2021
 ms.topic: reference
 ---
 
-# Audit Application Generated
+# 監査アプリケーション生成
 
-Audit Application Generated generates events for actions related to Authorization Manager [applications](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770563(v=ws.11)).
+監査アプリケーション生成は、Authorization Manager [アプリケーション](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770563(v=ws.11))に関連するアクションのイベントを生成します。
 
-Audit Application Generated subcategory is out of scope of this document, because [Authorization Manager](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc726036(v=ws.11)) is very rarely in use and it is deprecated starting from Windows Server 2012.
+監査アプリケーション生成のサブカテゴリは、このドキュメントの範囲外です。なぜなら、[Authorization Manager](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc726036(v=ws.11))は非常に稀に使用され、Windows Server 2012から非推奨となっているためです。
 
-| Computer Type     | General Success | General Failure | Stronger Success | Stronger Failure | Comments |
+| コンピューターの種類 | 一般的な成功 | 一般的な失敗 | 強力な成功 | 強力な失敗 | コメント |
 |-------------------|-----------------|-----------------|------------------|------------------|----------|
-| Domain Controller | IF              | IF              | IF               | IF               | IF – if you use [Authorization Manager](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc726036(v=ws.11)) in your environment and you need to monitor events related to Authorization Manager [applications](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770563(v=ws.11)), enable this subcategory. |
-| Member Server     | IF              | IF              | IF               | IF               | IF – if you use [Authorization Manager](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc726036(v=ws.11)) in your environment and you need to monitor events related to Authorization Manager [applications](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770563(v=ws.11)), enable this subcategory. |
-| Workstation       | IF              | IF              | IF               | IF               | IF – if you use [Authorization Manager](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc726036(v=ws.11)) in your environment and you need to monitor events related to Authorization Manager [applications](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770563(v=ws.11)), enable this subcategory. |
+| ドメインコントローラー | IF              | IF              | IF               | IF               | IF – 環境で[Authorization Manager](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc726036(v=ws.11))を使用し、Authorization Manager [アプリケーション](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770563(v=ws.11))に関連するイベントを監視する必要がある場合、このサブカテゴリを有効にします。 |
+| メンバーサーバー     | IF              | IF              | IF               | IF               | IF – 環境で[Authorization Manager](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc726036(v=ws.11))を使用し、Authorization Manager [アプリケーション](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770563(v=ws.11))に関連するイベントを監視する必要がある場合、このサブカテゴリを有効にします。 |
+| ワークステーション       | IF              | IF              | IF               | IF               | IF – 環境で[Authorization Manager](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc726036(v=ws.11))を使用し、Authorization Manager [アプリケーション](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770563(v=ws.11))に関連するイベントを監視する必要がある場合、このサブカテゴリを有効にします。 |
 
-**Events List:**
+**イベントリスト:**
 
-- 4665: An attempt was made to create an application client context.
+- 4665: アプリケーションクライアントコンテキストの作成が試みられました。
 
-- 4666: An application attempted an operation.
+- 4666: アプリケーションが操作を試みました。
 
-- 4667: An application client context was deleted.
+- 4667: アプリケーションクライアントコンテキストが削除されました。
 
-- 4668: An application was initialized.
+- 4668: アプリケーションが初期化されました。

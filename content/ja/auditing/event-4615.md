@@ -1,6 +1,6 @@
 ---
-title: 4615(S) Invalid use of LPC port. 
-description: Describes security event 4615(S) Invalid use of LPC port. It appears that the Invalid use of LPC port event never occurs.
+title: 4615(S) LPCポートの無効な使用。
+description: セキュリティイベント4615(S) LPCポートの無効な使用について説明します。LPCポートの無効な使用イベントは発生しないようです。
 ms.pagetype: security
 ms.mktglfcycl: deploy
 ms.sitesec: library
@@ -13,46 +13,44 @@ ms.author: vinpa
 ms.topic: reference
 ---
 
-# 4615(S): Invalid use of LPC port.
+# 4615(S): LPCポートの無効な使用。
 
+このイベントは発生しないようです。
 
-It appears that this event never occurs.
+***サブカテゴリ:***&nbsp;[システム整合性の監査](audit-system-integrity.md)
 
-***Subcategory:***&nbsp;[Audit System Integrity](audit-system-integrity.md)
+***イベントスキーマ:***
 
-***Event Schema:***
+*LPCポートの無効な使用。*
 
-*Invalid use of LPC port.*
+*サブジェクト:*
 
-*Subject:*
-
-> *Security ID%1*
+> *セキュリティID%1*
 >
-> *Account Name:%2*
+> *アカウント名:%2*
 >
-> *Account Domain:%3*
+> *アカウントドメイン:%3*
 >
-> *Logon ID:%4*
+> *ログオンID:%4*
 
-*Process Information:*
+*プロセス情報:*
 
 > *PID:%7*
 >
-> *Name:%8*
+> *名前:%8*
 
-*Invalid Use:%5*
+*無効な使用:%5*
 
-*LPC Server Port Name:%6*
+*LPCサーバーポート名:%6*
 
-*Windows Local Security Authority (LSA) communicates with the Windows kernel using Local Procedure Call (LPC) ports. If you see this event, an application has inadvertently or intentionally accessed this port which is reserved exclusively for LSA’s use. The application (process) should be investigated to ensure that it is not attempting to tamper with this communications channel."*
+*Windowsローカルセキュリティ機関 (LSA) は、ローカルプロシージャコール (LPC) ポートを使用してWindowsカーネルと通信します。このイベントが表示された場合、アプリケーションが誤ってまたは意図的にこのポートにアクセスしたことを示します。このポートはLSA専用に予約されています。アプリケーション（プロセス）を調査して、この通信チャネルを改ざんしようとしていないことを確認する必要があります。*
 
-***Required Server Roles:*** None.
+***必要なサーバーロール:*** なし。
 
-***Minimum OS Version:*** Windows Server 2008, Windows Vista.
+***最小OSバージョン:*** Windows Server 2008, Windows Vista。
 
-***Event Versions:*** 0.
+***イベントバージョン:*** 0。
 
-## Security Monitoring Recommendations
+## セキュリティ監視の推奨事項
 
--   There is no recommendation for this event in this document.
-
+-   このドキュメントには、このイベントに対する推奨事項はありません。

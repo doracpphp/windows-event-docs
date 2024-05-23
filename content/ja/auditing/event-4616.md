@@ -1,6 +1,6 @@
 ---
-title: 4616(S) The system time was changed. 
-description: Describes security event 4616(S) The system time was changed. This event is generated every time system time is changed.
+title: 4616(S) システム時刻が変更されました。
+description: システム時刻が変更されるたびに生成されるセキュリティイベント4616(S)について説明します。
 ms.pagetype: security
 ms.mktglfcycl: deploy
 ms.sitesec: library
@@ -13,27 +13,26 @@ ms.author: vinpa
 ms.topic: reference
 ---
 
-# 4616(S): The system time was changed.
-
+# 4616(S): システム時刻が変更されました。
 
 <img src="images/event-4616.png" alt="Event 4616 illustration" width="522" height="518" hspace="10" align="top" />
 
-***Subcategory:***&nbsp;[Audit Security State Change](audit-security-state-change.md)
+***サブカテゴリ:***&nbsp;[セキュリティ状態変更の監査](audit-security-state-change.md)
 
-***Event Description:***
+***イベントの説明:***
 
-This event generates every time system time was changed.
+このイベントはシステム時刻が変更されるたびに生成されます。
 
-This event is always logged regardless of the "Audit Security State Change" sub-category setting.
+このイベントは「セキュリティ状態変更の監査」サブカテゴリの設定に関係なく常に記録されます。
 
-You will typically see these events with “**Subject\\Security ID**” = “**LOCAL SERVICE**”, these are normal time correction actions.
+通常、これらのイベントは「**Subject\\Security ID**」が「**LOCAL SERVICE**」であることが多く、これは正常な時刻修正アクションです。
 
 > [!NOTE]
-> For recommendations, see [Security Monitoring Recommendations](#security-monitoring-recommendations) for this event.
+> 推奨事項については、このイベントの[セキュリティ監視の推奨事項](#security-monitoring-recommendations)を参照してください。
 
 <br clear="all">
 
-***Event XML:***
+***イベント XML:***
 ```xml
 - <Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
 - <System>
@@ -66,111 +65,110 @@ You will typically see these events with “**Subject\\Security ID**” = “**L
 
 ```
 
-***Required Server Roles:*** None.
+***必要なサーバー役割:*** なし。
 
-***Minimum OS Version:*** Windows Server 2008, Windows Vista.
+***最小 OS バージョン:*** Windows Server 2008, Windows Vista。
 
-***Event Versions:***
+***イベントバージョン:***
 
--   0 - Windows Server 2008, Windows Vista.
+-   0 - Windows Server 2008, Windows Vista。
 
--   1 - Windows Server 2008 R2, Windows 7.
+-   1 - Windows Server 2008 R2, Windows 7。
 
-    -   Added “Process Information” section.
+    -   「プロセス情報」セクションが追加されました。
 
-***Field Descriptions:***
+***フィールドの説明:***
 
-**Subject:**
+**サブジェクト:**
 
--   **Security ID** \[Type = SID\]**:** SID of account that requested the “change system time” operation. Event Viewer automatically tries to resolve SIDs and show the account name. If the SID cannot be resolved, you will see the source data in the event.
+-   **セキュリティ ID** \[タイプ = SID\]**:** 「システム時刻の変更」操作を要求したアカウントのSID。イベントビューアーは自動的にSIDを解決し、アカウント名を表示しようとします。SIDが解決できない場合、イベントにはソースデータが表示されます。
 
     > [!NOTE]
-    > A **security identifier (SID)** is a unique value of variable length used to identify a trustee (security principal). Each account has a unique SID that is issued by an authority, such as an Active Directory domain controller, and stored in a security database. Each time a user logs on, the system retrieves the SID for that user from the database and places it in the access token for that user. The system uses the SID in the access token to identify the user in all subsequent interactions with Windows security. When a SID has been used as the unique identifier for a user or group, it cannot ever be used again to identify another user or group. For more information about SIDs, see [Security identifiers](/windows/access-protection/access-control/security-identifiers).
+    > **セキュリティ識別子 (SID)** は、信託者（セキュリティプリンシパル）を識別するために使用される可変長の一意の値です。各アカウントには、Active Directoryドメインコントローラーなどの権限によって発行され、セキュリティデータベースに保存される一意のSIDがあります。ユーザーがログオンするたびに、システムはデータベースからそのユーザーのSIDを取得し、そのユーザーのアクセストークンに配置します。システムはアクセストークン内のSIDを使用して、以降のすべてのWindowsセキュリティとのやり取りでユーザーを識別します。SIDがユーザーまたはグループの一意の識別子として使用された場合、それは他のユーザーまたはグループを識別するために再利用されることはありません。SIDの詳細については、[セキュリティ識別子](/windows/access-protection/access-control/security-identifiers)を参照してください。
 
--   **Account Name** \[Type = UnicodeString\]**:** the name of the account that requested the “change system time” operation.
+-   **アカウント名** \[タイプ = UnicodeString\]**:** 「システム時間の変更」操作を要求したアカウントの名前。
 
--   **Account Domain** \[Type = UnicodeString\]**:** subject’s domain or computer name. Formats vary, and include the following:
+-   **アカウントドメイン** \[タイプ = UnicodeString\]**:** サブジェクトのドメインまたはコンピュータ名。形式は以下のように異なります：
 
-    -   Domain NETBIOS name example: CONTOSO
+    -   ドメインのNETBIOS名の例: CONTOSO
 
-    -   Lowercase full domain name: contoso.local
+    -   小文字の完全なドメイン名: contoso.local
 
-    -   Uppercase full domain name: CONTOSO.LOCAL
+    -   大文字の完全なドメイン名: CONTOSO.LOCAL
 
-    -   For some [well-known security principals](/windows/security/identity-protection/access-control/security-identifiers), such as LOCAL SERVICE or ANONYMOUS LOGON, the value of this field is “NT AUTHORITY”.
+    -   LOCAL SERVICEやANONYMOUS LOGONなどの[よく知られたセキュリティプリンシパル](/windows/security/identity-protection/access-control/security-identifiers)の場合、このフィールドの値は「NT AUTHORITY」となります。
 
-    -   For local user accounts, this field will contain the name of the computer or device that this account belongs to, for example: “Win81”.
+    -   ローカルユーザーアカウントの場合、このフィールドにはこのアカウントが属するコンピュータまたはデバイスの名前が含まれます。例: 「Win81」。
 
--   **Logon ID** \[Type = HexInt64\]**:** hexadecimal value that can help you correlate this event with recent events that might contain the same Logon ID, for example, “[4624](event-4624.md): An account was successfully logged on.”
+-   **ログオンID** \[タイプ = HexInt64\]**:** 16進数の値で、最近のイベントと同じログオンIDを含む可能性のあるイベントとこのイベントを関連付けるのに役立ちます。例: 「[4624](event-4624.md): アカウントが正常にログオンされました。」
 
-**Process Information** \[Version 1\]**:**
+**プロセス情報** \[バージョン 1\]**:**
 
--   **Process ID** \[Type = Pointer\] \[Version 1\]: hexadecimal Process ID of the process that changed the system time. Process ID (PID) is a number used by the operating system to uniquely identify an active process. To see the PID for a specific process you can, for example, use Task Manager (Details tab, PID column):
+-   **プロセスID** \[タイプ = Pointer\] \[バージョン 1\]: システム時間を変更したプロセスの16進数のプロセスID。プロセスID（PID）は、オペレーティングシステムがアクティブなプロセスを一意に識別するために使用する番号です。特定のプロセスのPIDを確認するには、例えばタスクマネージャー（詳細タブ、PID列）を使用できます：
 
-    <img src="images/task-manager.png" alt="Task manager illustration" width="585" height="375" />
+    <img src="images/task-manager.png" alt="タスクマネージャーのイラスト" width="585" height="375" />
 
-    If you convert the hexadecimal value to decimal, you can compare it to the values in Task Manager.
+    16進数の値を10進数に変換すると、タスクマネージャーの値と比較できます。
 
-    You can also correlate this process ID with a process ID in other events, for example, “[4688](event-4688.md): A new process has been created” **Process Information\\New Process ID**.
+    また、このプロセスIDを他のイベントのプロセスIDと関連付けることもできます。例: 「[4688](event-4688.md): 新しいプロセスが作成されました」 **プロセス情報\\新しいプロセスID**。
 
--   **Name** \[Type = UnicodeString\] \[Version 1\]**:** full path and the name of the executable for the process.
+-   **名前** \[タイプ = UnicodeString\] \[バージョン 1\]**:** プロセスの実行可能ファイルのフルパスと名前。
 
-**Previous Time** \[Type = FILETIME\]: previous time in ***UTC*** time zone. The format is **YYYY-MM-DDThh:mm:ss.nnnnnnnZ**:
+**以前の時間** \[タイプ = FILETIME\]: ***UTC***タイムゾーンの以前の時間。形式は**YYYY-MM-DDThh:mm:ss.nnnnnnnZ**です：
 
--   Y - years
+-   Y - 年
 
--   M - months
+-   M - 月
 
--   D - days
+-   D - 日
 
--   T - the beginning of the time element, as specified in [ISO 8601](http://www.iso.org/iso/home/standards/iso8601.htm).
+-   T - [ISO 8601](http://www.iso.org/iso/home/standards/iso8601.htm)で指定されている時間要素の開始。
 
--   h - hours
+-   h - 時間
 
--   m - minutes
+-   m - 分
 
--   s - seconds
+-   s - 秒
 
--   n - fractional seconds
+-   n - 小数秒
 
--   Z - the zone designator for the zero UTC offset. "09:30 UTC" is therefore represented as "09:30Z". "14:45:15 UTC" would be "14:45:15Z".
+-   Z - ゼロUTCオフセットのゾーン指定子。「09:30 UTC」は「09:30Z」と表されます。「14:45:15 UTC」は「14:45:15Z」となります。
 
-**New Time** \[Type = FILETIME\]: new time that was set in ***UTC*** time zone. The format is **YYYY-MM-DDThh:mm:ss.nnnnnnnZ**:
+**新しい時間** \[Type = FILETIME\]: ***UTC***タイムゾーンで設定された新しい時間。形式は**YYYY-MM-DDThh:mm:ss.nnnnnnnZ**です：
 
--   Y - years
+-   Y - 年
 
--   M - months
+-   M - 月
 
--   D - days
+-   D - 日
 
--   T - the beginning of the time element, as specified in [ISO 8601](http://www.iso.org/iso/home/standards/iso8601.htm).
+-   T - [ISO 8601](http://www.iso.org/iso/home/standards/iso8601.htm)で指定された時間要素の開始。
 
--   h - hours
+-   h - 時間
 
--   m - minutes
+-   m - 分
 
--   s - seconds
+-   s - 秒
 
--   n - fractional seconds
+-   n - 小数秒
 
--   Z - the zone designator for the zero UTC offset. "09:30 UTC" is therefore represented as "09:30Z". "14:45:15 UTC" would be "14:45:15Z".
+-   Z - ゼロUTCオフセットのゾーン指定子。「09:30 UTC」は「09:30Z」と表されます。「14:45:15 UTC」は「14:45:15Z」となります。
 
-## Security Monitoring Recommendations
+## セキュリティ監視の推奨事項
 
-For 4616(S): The system time was changed.
+4616(S): システム時間が変更されました。
 
 > [!IMPORTANT]
-> For this event, also see [Appendix A: Security monitoring recommendations for many audit events](appendix-a-security-monitoring-recommendations-for-many-audit-events.md).
+> このイベントについては、[付録A: 多くの監査イベントのためのセキュリティ監視の推奨事項](appendix-a-security-monitoring-recommendations-for-many-audit-events.md)も参照してください。
 
--   Report all “**Subject\\Security ID**” not equals **“LOCAL SERVICE”**, which means that the time change was not made by Windows Time service.
+-   「**Subject\\Security ID**」が**「LOCAL SERVICE」**と等しくないすべてのレポートを報告します。これは、時間変更がWindows Timeサービスによって行われなかったことを意味します。
 
--   Report all “**Process Information\\Name**” not equals **“C:\\Windows\\System32\\svchost.exe”** (path to svchost.exe can be different, you can search for “svchost.exe” substring), which means that the time change was not made by Windows Time service.
+-   「**Process Information\\Name**」が**「C:\\Windows\\System32\\svchost.exe」**と等しくないすべてのレポートを報告します（svchost.exeへのパスは異なる場合があります。「svchost.exe」の部分文字列を検索できます）。これは、時間変更がWindows Timeサービスによって行われなかったことを意味します。
 
 <!-- -->
 
--   <span id="Reccomendations_Process_Name" class="anchor"></span>If you have a pre-defined “**Process Name**” for the process reported in this event, monitor all events with “**Process Name**” not equal to your defined value.
+-   <span id="Reccomendations_Process_Name" class="anchor"></span>このイベントで報告されたプロセスの「**Process Name**」が事前に定義された値と等しくないすべてのイベントを監視します。
 
--   You can monitor to see if “**Process Name**” is not in a standard folder (for example, not in **System32** or **Program Files**) or is in a restricted folder (for example, **Temporary Internet Files**).
+-   「**Process Name**」が標準フォルダ（例えば、**System32**や**Program Files**）にないか、制限されたフォルダ（例えば、**Temporary Internet Files**）にあるかを監視できます。
 
--   If you have a pre-defined list of restricted substrings or words in process names (for example, “**mimikatz**” or “**cain.exe**”), check for these substrings in “**Process Name**.”
-
+-   プロセス名に制限された部分文字列や単語（例えば、「**mimikatz**」や「**cain.exe**」）のリストが事前に定義されている場合、「**Process Name**」にこれらの部分文字列が含まれているかを確認します。

@@ -1,6 +1,6 @@
 ---
-title: Audit system events
-description: Determines whether to audit when a user restarts or shuts down the computer or when an event occurs that affects either the system security or the security log.
+title: システムイベントの監査
+description: ユーザーがコンピューターを再起動またはシャットダウンしたとき、またはシステムセキュリティやセキュリティログに影響を与えるイベントが発生したときに監査するかどうかを決定します。
 ms.assetid: BF27588C-2AA7-4365-A4BF-3BB377916447
 ms.reviewer:
 ms.author: vinpa
@@ -15,38 +15,36 @@ ms.topic: reference
 ms.date: 09/06/2021
 ---
 
-# Audit system events
+# システムイベントの監査
 
+ユーザーがコンピューターを再起動またはシャットダウンしたとき、またはシステムセキュリティやセキュリティログに影響を与えるイベントが発生したときに監査するかどうかを決定します。
 
-Determines whether to audit when a user restarts or shuts down the computer or when an event occurs that affects either the system security or the security log.
+このポリシー設定を定義すると、成功の監査、失敗の監査、またはイベントタイプをまったく監査しないかを指定できます。成功の監査は、ログオン試行が成功したときに監査エントリを生成します。失敗の監査は、ログオン試行が失敗したときに監査エントリを生成します。
 
-If you define this policy setting, you can specify whether to audit successes, audit failures, or not audit the event type at all. Success audits generate an audit entry when a logon attempt succeeds. Failure audits generate an audit entry when a logon attempt fails.
+この値を **監査なし** に設定するには、このポリシー設定の **プロパティ** ダイアログボックスで **これらのポリシー設定を定義する** チェックボックスを選択し、**成功** と **失敗** チェックボックスをクリアします。
 
-To set this value to **No auditing**, in the **Properties** dialog box for this policy setting, select the **Define these policy settings** check box and clear the **Success** and **Failure** check boxes.
+**デフォルト:**
 
-**Default:**
+- ドメインコントローラーでは成功。
+- メンバーサーバーでは監査なし。
 
--   Success on domain controllers.
--   No auditing on member servers.
+## この監査設定を構成する
 
-## Configure this audit setting
+コンピューターの構成\\Windowsの設定\\セキュリティの設定\\ローカルポリシー\\監査ポリシーの下にある適切なポリシーを開いて、このセキュリティ設定を構成できます。
 
-You can configure this security setting by opening the appropriate policy under Computer Configuration\\Windows Settings\\Security Settings\\Local Policies\\Audit Policy.
-
-| Logon events | Description |
+| ログオンイベント | 説明 |
 | - | - |
-| 512 | Windows is starting up. |
-| 513 | Windows is shutting down. |
-| 514 | An authentication package was loaded by the Local Security Authority.|
-| 515 | A trusted logon process has registered with the Local Security Authority.|
-| 516 | Internal resources allocated for the queuing of security event messages have been exhausted, leading to the loss of some security event messages.|
-| 517 | The audit log was cleared. |
-| 518 | A notification package was loaded by the Security Accounts Manager.|
-| 519 | A process is using an invalid local procedure call (LPC) port in an attempt to impersonate a client and reply or read from or write to a client address space.|
-| 520 | The system time was changed.<br>**Note:**  This audit normally appears twice.|
+| 512 | Windowsが起動しています。 |
+| 513 | Windowsがシャットダウンしています。 |
+| 514 | 認証パッケージがローカルセキュリティ機関によって読み込まれました。|
+| 515 | 信頼されたログオンプロセスがローカルセキュリティ機関に登録されました。|
+| 516 | セキュリティイベントメッセージのキューイングのために割り当てられた内部リソースが枯渇し、一部のセキュリティイベントメッセージが失われました。|
+| 517 | 監査ログがクリアされました。 |
+| 518 | 通知パッケージがセキュリティアカウントマネージャーによって読み込まれました。|
+| 519 | プロセスが無効なローカルプロシージャコール（LPC）ポートを使用して、クライアントを偽装し、クライアントアドレス空間から読み取りまたは書き込みを試みています。|
+| 520 | システム時間が変更されました。<br>**注:**  この監査は通常2回表示されます。|
 
-## Related topics
+## 関連トピック
 
-- [Basic security audit policy settings](basic-security-audit-policy-settings.md)
- 
- 
+- [基本的なセキュリティ監査ポリシー設定](basic-security-audit-policy-settings.md)
+

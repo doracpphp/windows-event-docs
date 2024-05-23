@@ -1,6 +1,6 @@
 ---
-title: Audit PNP Activity 
-description: The advanced security audit policy setting, Audit PNP Activity, determines when plug and play detects an external device.
+title: PNPアクティビティの監査
+description: 高度なセキュリティ監査ポリシー設定であるPNPアクティビティの監査は、プラグアンドプレイが外部デバイスを検出したときに決定します。
 ms.assetid: A3D87B3B-EBBE-442A-953B-9EB75A5F600E
 ms.reviewer: 
 manager: aaroncz
@@ -14,34 +14,32 @@ ms.date: 09/06/2021
 ms.topic: reference
 ---
 
-# Audit PNP Activity
+# PNPアクティビティの監査
 
+PNPアクティビティの監査は、プラグアンドプレイが外部デバイスを検出したときに決定します。
 
-Audit PNP Activity determines when Plug and Play detects an external device.
+PnP監査イベントは、システムハードウェアの変更を追跡するために使用でき、変更が行われたマシンにログが記録されます。例えば、キーボードがコンピュータに接続されたときに、PnPイベントがトリガーされます。
 
-A PnP audit event can be used to track down changes in system hardware and will be logged on the machine where the change took place. For example, when a keyboard is plugged into a computer, a PnP event is triggered.
+**イベントボリューム**: コンピュータの使用方法によって異なります。通常は低いです。
 
-**Event volume**: Varies, depending on how the computer is used. Typically Low.
-
-| Computer Type     | General Success | General Failure | Stronger Success | Stronger Failure | Comments                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| コンピュータの種類 | 一般的な成功 | 一般的な失敗 | 強力な成功 | 強力な失敗 | コメント                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 |-------------------|-----------------|-----------------|------------------|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Domain Controller | Yes             | No              | Yes              | No               | This subcategory will help identify when and which Plug and Play device was attached, enabled, disabled or restricted by device installation policy. <br>You can track, for example, whether a USB flash drive or stick was attached to a domain controller, which is typically not allowed. <br>This subcategory doesn’t have Failure events, so there is no recommendation to enable Failure auditing for this subcategory. |
-| Member Server     | Yes             | No              | Yes              | No               | This subcategory will help identify when and which Plug and Play device was attached, enabled, disabled or restricted by device installation policy. <br>You can track, for example, whether a USB flash drive or stick was attached to a critical server, which is typically not allowed. <br>This subcategory doesn’t have Failure events, so there is no recommendation to enable Failure auditing for this subcategory.   |
-| Workstation       | Yes             | No              | Yes              | No               | This subcategory will help identify when and which Plug and Play device was attached, enabled, disabled or restricted by device installation policy. <br>You can track, for example, whether a USB flash drive or stick was attached to an administrative workstation or VIP workstation. <br>This subcategory doesn’t have Failure events, so there is no recommendation to enable Failure auditing for this subcategory.    |
+| ドメインコントローラー | はい             | いいえ              | はい              | いいえ               | このサブカテゴリは、どのプラグアンドプレイデバイスが接続、有効、無効、またはデバイスインストールポリシーによって制限されたかを特定するのに役立ちます。 <br>例えば、通常は許可されていないドメインコントローラーにUSBフラッシュドライブやスティックが接続されたかどうかを追跡できます。 <br>このサブカテゴリには失敗イベントがないため、このサブカテゴリの失敗監査を有効にすることは推奨されません。 |
+| メンバーサーバー     | はい             | いいえ              | はい              | いいえ               | このサブカテゴリは、どのプラグアンドプレイデバイスが接続、有効、無効、またはデバイスインストールポリシーによって制限されたかを特定するのに役立ちます。 <br>例えば、通常は許可されていない重要なサーバーにUSBフラッシュドライブやスティックが接続されたかどうかを追跡できます。 <br>このサブカテゴリには失敗イベントがないため、このサブカテゴリの失敗監査を有効にすることは推奨されません。   |
+| ワークステーション       | はい             | いいえ              | はい              | いいえ               | このサブカテゴリは、どのプラグアンドプレイデバイスが接続、有効、無効、またはデバイスインストールポリシーによって制限されたかを特定するのに役立ちます。 <br>例えば、管理用ワークステーションやVIPワークステーションにUSBフラッシュドライブやスティックが接続されたかどうかを追跡できます。 <br>このサブカテゴリには失敗イベントがないため、このサブカテゴリの失敗監査を有効にすることは推奨されません。    |
 
-**Events List:**
+**イベントリスト:**
 
--   [6416](event-6416.md)(S): A new external device was recognized by the System
+-   [6416](event-6416.md)(S): システムによって新しい外部デバイスが認識されました
 
--   [6419](event-6419.md)(S): A request was made to disable a device
+-   [6419](event-6419.md)(S): デバイスを無効にするリクエストがありました
 
--   [6420](event-6420.md)(S): A device was disabled.
+-   [6420](event-6420.md)(S): デバイスが無効になりました。
 
--   [6421](event-6421.md)(S): A request was made to enable a device.
+-   [6421](event-6421.md)(S): デバイスを有効にするリクエストがありました。
 
--   [6422](event-6422.md)(S): A device was enabled.
+-   [6422](event-6422.md)(S): デバイスが有効になりました。
 
--   [6423](event-6423.md)(S): The installation of this device is forbidden by system policy.
+-   [6423](event-6423.md)(S): システムポリシーにより、このデバイスのインストールは禁止されています。
 
--   [6424](event-6424.md)(S): The installation of this device was allowed, after having previously been forbidden by policy.
-
+-   [6424](event-6424.md)(S): ポリシーによって以前は禁止されていたデバイスのインストールが許可されました。

@@ -1,6 +1,6 @@
 ---
-title: Basic audit directory service access
-description: Determines whether to audit the event of a user accessing an Active Directory object that has its own system access control list (SACL) specified.
+title: ディレクトリ サービス アクセスの監査
+description: ユーザーがシステム アクセス制御リスト (SACL) を指定した Active Directory オブジェクトにアクセスするイベントを監査するかどうかを決定します。
 ms.assetid: 52F02EED-3CFE-4307-8D06-CF1E27693D09
 ms.reviewer:
 ms.author: vinpa
@@ -15,33 +15,31 @@ ms.topic: reference
 ms.date: 09/06/2021
 ---
 
-# Audit directory service access
+# ディレクトリ サービス アクセスの監査
+
+ユーザーがシステム アクセス制御リスト (SACL) を指定した Active Directory オブジェクトにアクセスするイベントを監査するかどうかを決定します。
+
+デフォルトでは、この値はデフォルト ドメイン コントローラー グループ ポリシー オブジェクト (GPO) で監査なしに設定されており、ワークステーションおよびサーバーでは未定義のままであり、意味を持ちません。
+
+このポリシー設定を定義すると、成功の監査、失敗の監査、またはイベント タイプの監査を行わないかを指定できます。成功の監査は、ユーザーが SACL を指定した Active Directory オブジェクトに正常にアクセスしたときに監査エントリを生成します。失敗の監査は、ユーザーが SACL を指定した Active Directory オブジェクトにアクセスしようとして失敗したときに監査エントリを生成します。この値を **監査なし** に設定するには、このポリシー設定の **プロパティ** ダイアログ ボックスで **これらのポリシー設定を定義する** チェック ボックスを選択し、**成功** および **失敗** チェック ボックスをクリアします。
+> **注:**  Active Directory オブジェクトに SACL を設定するには、そのオブジェクトの **プロパティ** ダイアログ ボックスの **セキュリティ** タブを使用します。これはオブジェクト アクセスの監査と同じですが、ファイル システムおよびレジストリ オブジェクトには適用されず、Active Directory オブジェクトにのみ適用されます。
+
+**デフォルト:**
+
+- ドメイン コントローラーで成功。
+- メンバー サーバーでは未定義。
+
+## この監査設定を構成する
+
+このセキュリティ設定は、コンピューターの構成\\Windows 設定\\セキュリティ設定\\ローカル ポリシー\\監査ポリシーの下で構成できます。
+
+ディレクトリ サービス アクセス イベントは 1 つだけであり、オブジェクト アクセス セキュリティ イベント メッセージ 566 と同一です。
 
 
-Determines whether to audit the event of a user accessing an Active Directory object that has its own system access control list (SACL) specified.
-
-By default, this value is set to no auditing in the Default Domain Controller Group Policy object (GPO), and it remains undefined for workstations and servers where it has no meaning.
-
-If you define this policy setting, you can specify whether to audit successes, audit failures, or not audit the event type at all. Success audits generate an audit entry when a user successfully accesses an Active Directory object that has a SACL specified. Failure audits generate an audit entry when a user unsuccessfully attempts to access an Active Directory object that has a SACL specified. To set this value to **No auditing,** in the **Properties** dialog box for this policy setting, select the **Define these policy settings** check box and clear the **Success** and **Failure** check boxes.
-> **Note:**  You can set a SACL on an Active Directory object by using the **Security** tab in that object's **Properties** dialog box. This is the same as Audit object access, except that it applies only to Active Directory objects and not to file system and registry objects.
-
-**Default:**
-
--   Success on domain controllers.
--   Undefined for a member server.
-
-## Configure this audit setting
-
-You can configure this security setting under Computer Configuration\\Windows Settings\\Security Settings\\Local Policies\\Audit Policy.
-
-There is only one directory service access event, which is identical to the Object Access security event message 566.
-
-| Directory service access events | Description                            |
+| ディレクトリ サービス アクセス イベント | 説明                                    |
 |---------------------------------|----------------------------------------|
-| 566                             | A generic object operation took place. |
+| 566                             | 一般的なオブジェクト操作が行われました。 |
 
-## Related topics
+## 関連トピック
 
-- [Basic security audit policy settings](basic-security-audit-policy-settings.md)
-
-
+- [基本的なセキュリティ監査ポリシー設定](basic-security-audit-policy-settings.md)

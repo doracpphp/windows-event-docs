@@ -1,6 +1,6 @@
 ---
-title: Audit Sensitive Privilege Use 
-description: The policy setting, Audit Sensitive Privilege Use, determines if the operating system generates audit events when sensitive privileges (user rights) are used.
+title: 機密特権の使用を監査する
+description: ポリシー設定「機密特権の使用を監査する」は、機密特権（ユーザー権利）が使用されたときにオペレーティングシステムが監査イベントを生成するかどうかを決定します。
 ms.assetid: 915abf50-42d2-45f6-9fd1-e7bd201b193d
 ms.reviewer: 
 manager: aaroncz
@@ -14,58 +14,57 @@ ms.date: 09/06/2021
 ms.topic: reference
 ---
 
-# Audit Sensitive Privilege Use
+# 機密特権の使用を監査する
 
+機密特権の使用を監査するには、機密特権の使用を示すイベントが含まれます。以下は機密特権のリストです：
 
-Audit Sensitive Privilege Use contains events that show the usage of sensitive privileges. This is the list of sensitive privileges:
+-   オペレーティングシステムの一部として動作する
 
--   Act as part of the operating system
+-   ファイルとディレクトリをバックアップする
 
--   Back up files and directories
+-   ファイルとディレクトリを復元する
 
--   Restore files and directories
+-   トークンオブジェクトを作成する
 
--   Create a token object
+-   プログラムをデバッグする
 
--   Debug programs
+-   委任のためにコンピュータおよびユーザーアカウントを信頼できるようにする
 
--   Enable computer and user accounts to be trusted for delegation
+-   セキュリティ監査を生成する
 
--   Generate security audits
+-   認証後にクライアントを偽装する
 
--   Impersonate a client after authentication
+-   デバイスドライバをロードおよびアンロードする
 
--   Load and unload device drivers
+-   監査およびセキュリティログを管理する
 
--   Manage auditing and security log
+-   ファームウェア環境値を変更する
 
--   Modify firmware environment values
+-   プロセスレベルのトークンを置き換える
 
--   Replace a process-level token
+-   ファイルまたは他のオブジェクトの所有権を取得する
 
--   Take ownership of files or other objects
+「ファイルとディレクトリをバックアップする」と「ファイルとディレクトリを復元する」の2つの特権の使用は、コンピュータまたはデバイスで「[監査: バックアップおよび復元特権の使用を監査する](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj852206(v=ws.11))」グループポリシー設定が有効になっている場合にのみイベントを生成します。このグループポリシー設定は、記録されるイベントの数が多いため、有効にすることは推奨しません。
 
-The use of two privileges, “Back up files and directories” and “Restore files and directories,” generate events only if the “[Audit: Audit the use of Backup and Restore privilege](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj852206(v=ws.11))” Group Policy setting is enabled on the computer or device. We do not recommend enabling this Group Policy setting because of the high number of events recorded.
+このサブカテゴリには、ファイルシステムトランザクションマネージャからの情報イベントも含まれます。
 
-This subcategory also contains informational events from the file system Transaction Manager.
+このポリシー設定を構成すると、機密特権要求が行われたときに監査イベントが生成されます。成功監査は成功した試行を記録し、失敗監査は失敗した試行を記録します。
 
-If you configure this policy setting, an audit event is generated when sensitive privilege requests are made. Success audits record successful attempts, and failure audits record unsuccessful attempts.
+**イベントボリューム**: 高。
 
-**Event volume**: High.
-
-| Computer Type     | General Success | General Failure | Stronger Success | Stronger Failure | Comments                                                                                                                                      |
+| コンピュータの種類 | 一般的な成功 | 一般的な失敗 | 強化された成功 | 強化された失敗 | コメント                                                                                                                                      |
 |-------------------|-----------------|-----------------|------------------|------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
-| Domain Controller | Yes             | Yes             | Yes              | Yes              | We recommend tracking Success and Failure for this subcategory of events, especially if the sensitive privileges were used by a user account. |
-| Member Server     | Yes             | Yes             | Yes              | Yes              | We recommend tracking Success and Failure for this subcategory of events, especially if the sensitive privileges were used by a user account. |
-| Workstation       | Yes             | Yes             | Yes              | Yes              | We recommend tracking Success and Failure for this subcategory of events, especially if the sensitive privileges were used by a user account. |
+| ドメインコントローラ | はい             | はい             | はい              | はい              | 特にユーザーアカウントによって機密特権が使用された場合、このサブカテゴリのイベントの成功と失敗を追跡することをお勧めします。 |
+| メンバーサーバー     | はい             | はい             | はい              | はい              | 特にユーザーアカウントによって機密特権が使用された場合、このサブカテゴリのイベントの成功と失敗を追跡することをお勧めします。 |
+| ワークステーション   | はい             | はい             | はい              | はい              | 特にユーザーアカウントによって機密特権が使用された場合、このサブカテゴリのイベントの成功と失敗を追跡することをお勧めします。 |
 
-**Events List:**
+**イベントリスト:**
 
--   [4673](event-4673.md)(S, F): A privileged service was called.
+-   [4673](event-4673.md)(S, F): 特権サービスが呼び出されました。
 
--   [4674](event-4674.md)(S, F): An operation was attempted on a privileged object.
+-   [4674](event-4674.md)(S, F): 特権オブジェクトに対して操作が試みられました。
 
--   [4985](event-4985.md)(S): The state of a transaction has changed.
+-   [4985](event-4985.md)(S): トランザクションの状態が変更されました。
 
 >[!NOTE] 
-> The event “[4985](event-4985.md)(S): The state of a transaction has changed" from [Audit File System](audit-file-system.md) subcategory also generates in this subcategory. See description of event [4985](event-4985.md) in [Audit File System](audit-file-system.md) subcategory.
+> [監査ファイルシステム](audit-file-system.md)サブカテゴリのイベント「[4985](event-4985.md)(S): トランザクションの状態が変更されました」もこのサブカテゴリで生成されます。イベント[4985](event-4985.md)の説明については、[監査ファイルシステム](audit-file-system.md)サブカテゴリを参照してください。

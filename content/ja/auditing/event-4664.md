@@ -1,6 +1,6 @@
 ---
-title: 4664(S) An attempt was made to create a hard link. 
-description: Describes security event 4664(S) An attempt was made to create a hard link.
+title: 4664(S) ハードリンクの作成が試みられました。
+description: セキュリティイベント 4664(S) ハードリンクの作成が試みられました。について説明します。
 ms.pagetype: security
 ms.mktglfcycl: deploy
 ms.sitesec: library
@@ -13,22 +13,21 @@ ms.author: vinpa
 ms.topic: reference
 ---
 
-# 4664(S): An attempt was made to create a hard link.
-
+# 4664(S): ハードリンクの作成が試みられました。
 
 <img src="images/event-4664.png" alt="Event 4664 illustration" width="449" height="419" hspace="10" align="left" />
 
-***Subcategory:***&nbsp;[Audit File System](audit-file-system.md)
+***サブカテゴリ:***&nbsp;[ファイルシステムの監査](audit-file-system.md)
 
-***Event Description:***
+***イベントの説明:***
 
-This event generates when an NTFS hard link was successfully created.
+このイベントは、NTFSハードリンクが正常に作成されたときに生成されます。
 
-> **Note**&nbsp;&nbsp;For recommendations, see [Security Monitoring Recommendations](#security-monitoring-recommendations) for this event.
+> **注**&nbsp;&nbsp;推奨事項については、このイベントの[セキュリティ監視の推奨事項](#security-monitoring-recommendations)を参照してください。
 
 <br clear="all">
 
-***Event XML:***
+***イベント XML:***
 ```
 - <Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
 - <System>
@@ -60,51 +59,50 @@ This event generates when an NTFS hard link was successfully created.
 
 ```
 
-***Required Server Roles:*** None.
+***必要なサーバー役割:*** なし。
 
-***Minimum OS Version:*** Windows Server 2008, Windows Vista.
+***最小 OS バージョン:*** Windows Server 2008, Windows Vista。
 
-***Event Versions:*** 0.
+***イベントバージョン:*** 0。
 
-***Field Descriptions:***
+***フィールドの説明:***
 
-**Subject:**
+**サブジェクト:**
 
--   **Security ID** \[Type = SID\]**:** SID of account that made an attempt to create the hard link. Event Viewer automatically tries to resolve SIDs and show the account name. If the SID cannot be resolved, you will see the source data in the event.
+-   **セキュリティ ID** \[タイプ = SID\]**:** ハードリンクの作成を試みたアカウントのSID。イベントビューアーは自動的にSIDを解決してアカウント名を表示しようとします。SIDが解決できない場合、イベントにソースデータが表示されます。
 
-> **Note**&nbsp;&nbsp;A **security identifier (SID)** is a unique value of variable length used to identify a trustee (security principal). Each account has a unique SID that is issued by an authority, such as an Active Directory domain controller, and stored in a security database. Each time a user logs on, the system retrieves the SID for that user from the database and places it in the access token for that user. The system uses the SID in the access token to identify the user in all subsequent interactions with Windows security. When a SID has been used as the unique identifier for a user or group, it cannot ever be used again to identify another user or group. For more information about SIDs, see [Security identifiers](/windows/access-protection/access-control/security-identifiers).
+> **注**&nbsp;&nbsp;**セキュリティ識別子 (SID)** は、信託者 (セキュリティプリンシパル) を識別するために使用される可変長の一意の値です。各アカウントには、Active Directoryドメインコントローラーなどの権限によって発行され、セキュリティデータベースに保存される一意のSIDがあります。ユーザーがログオンするたびに、システムはデータベースからそのユーザーのSIDを取得し、そのユーザーのアクセス トークンに配置します。システムは、以降のすべてのWindowsセキュリティとのやり取りでユーザーを識別するために、アクセス トークン内のSIDを使用します。ユーザーまたはグループの一意の識別子としてSIDが使用された場合、それは他のユーザーまたはグループを識別するために再利用されることはありません。SIDの詳細については、[セキュリティ識別子](/windows/access-protection/access-control/security-identifiers)を参照してください。
 
--   **Account Name** \[Type = UnicodeString\]**:** the name of the account that made an attempt to create the hard link.
+-   **アカウント名** \[タイプ = UnicodeString\]**:** ハードリンクの作成を試みたアカウントの名前。
 
--   **Account Domain** \[Type = UnicodeString\]**:** subject’s domain or computer name. Formats vary, and include the following:
+-   **アカウントドメイン** \[タイプ = UnicodeString\]**:** サブジェクトのドメインまたはコンピュータ名。形式は以下のように異なります：
 
-    -   Domain NETBIOS name example: CONTOSO
+    -   ドメインのNETBIOS名の例: CONTOSO
 
-    -   Lowercase full domain name: contoso.local
+    -   小文字の完全なドメイン名: contoso.local
 
-    -   Uppercase full domain name: CONTOSO.LOCAL
+    -   大文字の完全なドメイン名: CONTOSO.LOCAL
 
-    -   For some [well-known security principals](/windows/security/identity-protection/access-control/security-identifiers), such as LOCAL SERVICE or ANONYMOUS LOGON, the value of this field is “NT AUTHORITY”.
+    -   LOCAL SERVICEやANONYMOUS LOGONなどの[よく知られたセキュリティプリンシパル](/windows/security/identity-protection/access-control/security-identifiers)の場合、このフィールドの値は「NT AUTHORITY」となります。
 
-    -   For local user accounts, this field will contain the name of the computer or device that this account belongs to, for example: “Win81”.
+    -   ローカルユーザーアカウントの場合、このフィールドにはこのアカウントが属するコンピュータまたはデバイスの名前が含まれます。例：「Win81」。
 
--   **Logon ID** \[Type = HexInt64\]**:** hexadecimal value that can help you correlate this event with recent events that might contain the same Logon ID, for example, “[4624](event-4624.md): An account was successfully logged on.”
+-   **ログオンID** \[タイプ = HexInt64\]**:** 16進数の値で、同じログオンIDを含む最近のイベントとこのイベントを関連付けるのに役立ちます。例：「[4624](event-4624.md): アカウントが正常にログオンされました。」
 
-**Link Information:**
+**リンク情報:**
 
--   **File Name** \[Type = UnicodeString\]**:** the name of a file or folder that new hard link refers to.
+-   **ファイル名** \[タイプ = UnicodeString\]**:** 新しいハードリンクが参照するファイルまたはフォルダの名前。
 
--   **Link Name** \[Type = UnicodeString\]**:** full path name with new hard link file name.
+-   **リンク名** \[タイプ = UnicodeString\]**:** 新しいハードリンクファイル名を含むフルパス名。
 
--   **Transaction ID** \[Type = GUID\]: unique GUID of the transaction. This field can help you correlate this event with other events that might contain the same **Transaction ID**, such as “[4660](event-4660.md)(S): An object was deleted.”
+-   **トランザクションID** \[タイプ = GUID\]: トランザクションの一意のGUID。このフィールドは、同じ**トランザクションID**を含む他のイベントとこのイベントを関連付けるのに役立ちます。例：「[4660](event-4660.md)(S): オブジェクトが削除されました。」
 
-    This parameter might not be captured in the event, and in that case appears as “{00000000-0000-0000-0000-000000000000}”.
+    このパラメータはイベントでキャプチャされない場合があり、その場合は「{00000000-0000-0000-0000-000000000000}」として表示されます。
 
-> **Note**&nbsp;&nbsp;**GUID** is an acronym for 'Globally Unique Identifier'. It is a 128-bit integer number used to identify resources, activities or instances.
+> **注**&nbsp;&nbsp;**GUID**は「Globally Unique Identifier」の略です。リソース、アクティビティ、またはインスタンスを識別するために使用される128ビットの整数です。
 
-## Security Monitoring Recommendations
+## セキュリティ監視の推奨事項
 
-For 4664(S): An attempt was made to create a hard link.
+4664(S): ハードリンクの作成が試みられました。
 
--   We recommend monitoring for any [4664](event-4664.md) event, because this action is not typical for normal operating system behavior and can be a sign of malicious activity.
-
+-   [4664](event-4664.md)イベントを監視することをお勧めします。このアクションは通常のオペレーティングシステムの動作には典型的ではなく、悪意のある活動の兆候である可能性があるためです。

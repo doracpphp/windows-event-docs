@@ -1,6 +1,6 @@
 ---
-title: 4670(S) Permissions on an object were changed. 
-description: Describes security event 4670(S) Permissions on an object were changed.
+title: 4670(S) オブジェクトの権限が変更されました。
+description: セキュリティイベント 4670(S) オブジェクトの権限が変更されました。
 ms.pagetype: security
 ms.mktglfcycl: deploy
 ms.sitesec: library
@@ -13,26 +13,25 @@ ms.author: vinpa
 ms.topic: reference
 ---
 
-# 4670(S): Permissions on an object were changed.
-
+# 4670(S): オブジェクトの権限が変更されました。
 
 <img src="images/event-4670.png" alt="Event 4670 illustration" width="449" height="605" hspace="10" align="left" />
 
-***Subcategories:***&nbsp;[Audit File System](audit-file-system.md), [Audit Registry](audit-registry.md), [Audit Authentication Policy Change](audit-authentication-policy-change.md), and [Audit Authorization Policy Change](audit-authorization-policy-change.md)
+***サブカテゴリ:***&nbsp;[ファイルシステムの監査](audit-file-system.md)、[レジストリの監査](audit-registry.md)、[認証ポリシー変更の監査](audit-authentication-policy-change.md)、および[認可ポリシー変更の監査](audit-authorization-policy-change.md)
 
-***Event Description:***
+***イベントの説明:***
 
-This event generates when the permissions for an object are changed. The object could be a file system, registry, or security token object.
+このイベントは、オブジェクトの権限が変更されたときに生成されます。オブジェクトはファイルシステム、レジストリ、またはセキュリティトークンオブジェクトである可能性があります。
 
-This event does not generate if the [SACL](/windows/win32/secauthz/access-control-lists) (Auditing ACL) was changed.
+[SACL](/windows/win32/secauthz/access-control-lists) (監査ACL) が変更された場合、このイベントは生成されません。
 
-Before this event can generate, certain ACEs might need to be set in the object’s [SACL](/windows/win32/secauthz/access-control-lists). For example, for a file system object, it generates only if “Change Permissions" and/or "Take Ownership” are set in the object’s SACL. For a registry key, it generates only if “Write DAC" and/or "Write Owner” are set in the object’s SACL.
+このイベントが生成される前に、オブジェクトの[SACL](/windows/win32/secauthz/access-control-lists)に特定のACEが設定されている必要があります。例えば、ファイルシステムオブジェクトの場合、「権限の変更」および/または「所有権の取得」がオブジェクトのSACLに設定されている場合にのみ生成されます。レジストリキーの場合、「DACの書き込み」および/または「所有者の書き込み」がオブジェクトのSACLに設定されている場合にのみ生成されます。
 
-> **Note**&nbsp;&nbsp;For recommendations, see [Security Monitoring Recommendations](#security-monitoring-recommendations) for this event.
+> **注**&nbsp;&nbsp;推奨事項については、このイベントの[セキュリティ監視の推奨事項](#security-monitoring-recommendations)を参照してください。
 
 <br clear="all">
 
-***Event XML:***
+***イベント XML:***
 ```
 - <Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
 - <System>
@@ -68,206 +67,208 @@ Before this event can generate, certain ACEs might need to be set in the object�
  </Event>
 ```
 
-***Required Server Roles:*** None.
+***必要なサーバーロール:*** なし。
 
-***Minimum OS Version:*** Windows Server 2008, Windows Vista.
+***最小 OS バージョン:*** Windows Server 2008、Windows Vista。
 
-***Event Versions:*** 0.
+***イベントバージョン:*** 0。
 
-***Field Descriptions:***
+***フィールドの説明:***
 
-**Subject:**
+**サブジェクト:**
 
--   **Security ID** \[Type = SID\]**:** SID of account that requested the “change object’s permissions” operation. Event Viewer automatically tries to resolve SIDs and show the account name. If the SID cannot be resolved, you will see the source data in the event.
+-   **セキュリティ ID** \[タイプ = SID\]**:** 「オブジェクトの権限変更」操作を要求したアカウントのSID。イベントビューアーは自動的にSIDを解決し、アカウント名を表示しようとします。SIDが解決できない場合、イベントにソースデータが表示されます。
 
-> **Note**&nbsp;&nbsp;A **security identifier (SID)** is a unique value of variable length used to identify a trustee (security principal). Each account has a unique SID that is issued by an authority, such as an Active Directory domain controller, and stored in a security database. Each time a user logs on, the system retrieves the SID for that user from the database and places it in the access token for that user. The system uses the SID in the access token to identify the user in all subsequent interactions with Windows security. When a SID has been used as the unique identifier for a user or group, it cannot ever be used again to identify another user or group. For more information about SIDs, see [Security identifiers](/windows/access-protection/access-control/security-identifiers).
+> **注**&nbsp;&nbsp;**セキュリティ識別子 (SID)** は、トラスティ (セキュリティプリンシパル) を識別するために使用される可変長の一意の値です。各アカウントには、Active Directory ドメイン コントローラーなどの権限によって発行され、セキュリティ データベースに保存される一意の SID があります。ユーザーがログオンするたびに、システムはデータベースからそのユーザーの SID を取得し、そのユーザーのアクセス トークンに配置します。システムは、アクセス トークン内の SID を使用して、以降のすべての Windows セキュリティとのやり取りでユーザーを識別します。SID がユーザーまたはグループの一意の識別子として使用された場合、それは他のユーザーまたはグループを識別するために再び使用されることはありません。SID の詳細については、[セキュリティ識別子](/windows/access-protection/access-control/security-identifiers) を参照してください。
 
--   **Account Name** \[Type = UnicodeString\]**:** the name of the account that requested the “change object’s permissions” operation.
+-   **アカウント名** \[型 = UnicodeString\]**:** 「オブジェクトの権限変更」操作を要求したアカウントの名前。
 
--   **Account Domain** \[Type = UnicodeString\]**:** subject’s domain or computer name. Formats vary, and include the following:
+-   **アカウント ドメイン** \[型 = UnicodeString\]**:** サブジェクトのドメインまたはコンピューター名。形式はさまざまで、次のようなものが含まれます:
 
-    -   Domain NETBIOS name example: CONTOSO
+    -   ドメイン NETBIOS 名の例: CONTOSO
 
-    -   Lowercase full domain name: contoso.local
+    -   小文字の完全なドメイン名: contoso.local
 
-    -   Uppercase full domain name: CONTOSO.LOCAL
+    -   大文字の完全なドメイン名: CONTOSO.LOCAL
 
-    -   For some [well-known security principals](/windows/security/identity-protection/access-control/security-identifiers), such as LOCAL SERVICE or ANONYMOUS LOGON, the value of this field is “NT AUTHORITY”.
+    -   LOCAL SERVICE や ANONYMOUS LOGON などの[よく知られたセキュリティ プリンシパル](/windows/security/identity-protection/access-control/security-identifiers)の場合、このフィールドの値は「NT AUTHORITY」となります。
 
-    -   For local user accounts, this field will contain the name of the computer or device that this account belongs to, for example: “Win81”.
+    -   ローカル ユーザー アカウントの場合、このフィールドには、このアカウントが属するコンピューターまたはデバイスの名前が含まれます。例: 「Win81」。
 
--   **Logon ID** \[Type = HexInt64\]**:** hexadecimal value that can help you correlate this event with recent events that might contain the same Logon ID, for example, “[4624](event-4624.md): An account was successfully logged on.”
+-   **ログオン ID** \[型 = HexInt64\]**:** 最近のイベントとこのイベントを関連付けるのに役立つ 16 進数値。たとえば、「[4624](event-4624.md): アカウントのログオンに成功しました。」など。
 
-**Object**:
+**オブジェクト**:
 
--   **Object Server** \[Type = UnicodeString\]: has “**Security**” value for this event.
+-   **オブジェクト サーバー** \[型 = UnicodeString\]: このイベントの「**セキュリティ**」値を持ちます。
 
--   **Object Type** \[Type = UnicodeString\]: The type of an object that was accessed during the operation.
+-   **オブジェクト タイプ** \[型 = UnicodeString\]: 操作中にアクセスされたオブジェクトのタイプ。
 
-    The following table contains the list of the most common **Object Types**:
+    次の表には、最も一般的な**オブジェクト タイプ**のリストが含まれています:
 
-| Directory               | Event        | Timer                | Device       |
+| ディレクトリ           | イベント     | タイマー             | デバイス     |
 |-------------------------|--------------|----------------------|--------------|
-| Mutant                  | Type         | File                 | Token        |
-| Thread                  | Section      | WindowStation        | DebugObject  |
-| FilterCommunicationPort | EventPair    | Driver               | IoCompletion |
-| Controller              | SymbolicLink | WmiGuid              | Process      |
-| Profile                 | Desktop      | KeyedEvent           | Adapter      |
-| Key                     | WaitablePort | Callback             | Semaphore    |
-| Job                     | Port         | FilterConnectionPort | ALPC Port    |
+| ミュータント            | タイプ       | ファイル             | トークン     |
+| スレッド                | セクション   | ウィンドウステーション | デバッグオブジェクト |
+| フィルター通信ポート    | イベントペア | ドライバー           | Ioコンプリション |
+| コントローラー          | シンボリックリンク | WmiGuid          | プロセス     |
+| プロファイル            | デスクトップ | キードイベント       | アダプター   |
+| キー                    | 待機可能ポート | コールバック         | セマフォ     |
+| ジョブ                  | ポート       | フィルター接続ポート | ALPCポート   |
 
--   **Object Name** \[Type = UnicodeString\]: name and other identifying information for the object for which permissions were changed. For example, for a file, the path would be included. For Token objects, this field typically equals “-“.
+-   **オブジェクト名** \[タイプ = UnicodeString\]: 権限が変更されたオブジェクトの名前およびその他の識別情報。例えば、ファイルの場合はパスが含まれます。トークンオブジェクトの場合、このフィールドは通常「-」となります。
 
--   **Handle ID** \[Type = Pointer\]: hexadecimal value of a handle to **Object Name**. This field can help you correlate this event with other events that might contain the same Handle ID, for example, “[4663](event-4663.md)(S): An attempt was made to access an object.” This parameter might not be captured in the event, and in that case appears as “0x0”.
+-   **ハンドルID** \[タイプ = ポインタ\]: **オブジェクト名**へのハンドルの16進数値。このフィールドは、同じハンドルIDを含む可能性のある他のイベントとこのイベントを関連付けるのに役立ちます。例えば、「[4663](event-4663.md)(S): オブジェクトへのアクセスが試みられました。」このパラメータはイベントでキャプチャされない場合があり、その場合は「0x0」と表示されます。
 
-**Process:**
+**プロセス:**
 
--   **Process ID** \[Type = Pointer\]: hexadecimal Process ID of the process through which the permissions were changed. Process ID (PID) is a number used by the operating system to uniquely identify an active process. To see the PID for a specific process you can, for example, use Task Manager (Details tab, PID column):
+-   **プロセスID** \[タイプ = ポインタ\]: 権限が変更されたプロセスの16進数プロセスID。プロセスID (PID) は、オペレーティングシステムがアクティブなプロセスを一意に識別するために使用する番号です。特定のプロセスのPIDを確認するには、例えばタスクマネージャー（詳細タブ、PID列）を使用できます。
 
-    <img src="images/task-manager.png" alt="Task manager illustration" width="585" height="375" />
+    <img src="images/task-manager.png" alt="タスクマネージャーのイラスト" width="585" height="375" />
 
-    If you convert the hexadecimal value to decimal, you can compare it to the values in Task Manager.
+    16進数値を10進数に変換すると、タスクマネージャーの値と比較できます。
 
-    You can also correlate this process ID with a process ID in other events, for example, “[4688](event-4688.md): A new process has been created” **Process Information\\New Process ID**.
+    また、このプロセスIDを他のイベントのプロセスIDと関連付けることもできます。例えば、「[4688](event-4688.md): 新しいプロセスが作成されました」 **プロセス情報\\新しいプロセスID**。
 
--   **Process Name** \[Type = UnicodeString\]**:** full path and the name of the executable for the process.
+-   **プロセス名** \[タイプ = UnicodeString\]**:** プロセスの実行ファイルのフルパスと名前。
 
-**Permissions Change:**
+**権限の変更:**
 
--   **Original Security Descriptor** \[Type = UnicodeString\]**:** the old Security Descriptor Definition Language (SDDL) value for the object.
+-   **元のセキュリティ記述子** \[タイプ = UnicodeString\]**:** オブジェクトの古いセキュリティ記述子定義言語 (SDDL) 値。
 
--   **New Security Descriptor** \[Type = UnicodeString\]**:** the new Security Descriptor Definition Language (SDDL) value for the object.
+-   **新しいセキュリティ記述子** \[タイプ = UnicodeString\]**:** オブジェクトの新しいセキュリティ記述子定義言語 (SDDL) 値。
 
-> **Note**&nbsp;&nbsp;The **Security Descriptor Definition Language (SDDL)** defines string elements for enumerating information contained in the security descriptor.
+> **注**&nbsp;&nbsp;**セキュリティ記述子定義言語 (SDDL)** は、セキュリティ記述子に含まれる情報を列挙するための文字列要素を定義します。
 > 
-> Example:
+> 例:
 > 
 > *O*:BA*G*:SY*D*:(D;;0xf0007;;;AN)(D;;0xf0007;;;BG)(A;;0xf0007;;;SY)(A;;0×7;;;BA)*S*:ARAI(AU;SAFA;DCLCRPCRSDWDWO;;;WD)
 > 
-> - *O*: = Owner. SID of specific security principal, or reserved (pre-defined) value, for example: BA (BUILTIN\_ADMINISTRATORS), WD (Everyone), SY (LOCAL\_SYSTEM), etc. 
-> See the list of possible values in the table below:
+> - *O*: = 所有者。特定のセキュリティプリンシパルのSID、または予約済み（事前定義された）値。例: BA (BUILTIN\_ADMINISTRATORS)、WD (Everyone)、SY (LOCAL\_SYSTEM) など。可能な値のリストは以下の表を参照してください:
 
-| Value | Description                          | Value | Description                     |
-|-------|--------------------------------------|-------|---------------------------------|
-| "AO"  | Account operators                    | "PA"  | Group Policy administrators     |
-| "RU"  | Alias to allow previous Windows 2000 | "IU"  | Interactively logged-on user    |
-| "AN"  | Anonymous logon                      | "LA"  | Local administrator             |
-| "AU"  | Authenticated users                  | "LG"  | Local guest                     |
-| "BA"  | Built-in administrators              | "LS"  | Local service account           |
-| "BG"  | Built-in guests                      | "SY"  | Local system                    |
-| "BO"  | Backup operators                     | "NU"  | Network logon user              |
-| "BU"  | Built-in users                       | "NO"  | Network configuration operators |
-| "CA"  | Certificate server administrators    | "NS"  | Network service account         |
-| "CG"  | Creator group                        | "PO"  | Printer operators               |
-| "CO"  | Creator owner                        | "PS"  | Personal self                   |
-| "DA"  | Domain administrators                | "PU"  | Power users                     |
-| "DC"  | Domain computers                     | "RS"  | RAS servers group               |
-| "DD"  | Domain controllers                   | "RD"  | Terminal server users           |
-| "DG"  | Domain guests                        | "RE"  | Replicator                      |
-| "DU"  | Domain users                         | "RC"  | Restricted code                 |
-| "EA"  | Enterprise administrators            | "SA"  | Schema administrators           |
-| "ED"  | Enterprise domain controllers        | "SO"  | Server operators                |
-| "WD"  | Everyone                             | "SU"  | Service logon user              |
+| 値    | 説明                                   | 値    | 説明                             |
+|-------|----------------------------------------|-------|----------------------------------|
+| "AO"  | アカウントオペレーター                 | "PA"  | グループポリシー管理者           |
+| "RU"  | 以前のWindows 2000を許可するエイリアス | "IU"  | 対話的にログオンしたユーザー     |
+| "AN"  | 匿名ログオン                           | "LA"  | ローカル管理者                   |
+| "AU"  | 認証されたユーザー                     | "LG"  | ローカルゲスト                   |
+| "BA"  | 組み込み管理者                         | "LS"  | ローカルサービスアカウント       |
+| "BG"  | 組み込みゲスト                         | "SY"  | ローカルシステム                 |
+| "BO"  | バックアップオペレーター               | "NU"  | ネットワークログオンユーザー     |
+| "BU"  | 組み込みユーザー                       | "NO"  | ネットワーク構成オペレーター     |
+| "CA"  | 証明書サーバー管理者                   | "NS"  | ネットワークサービスアカウント   |
+| "CG"  | クリエーターグループ                   | "PO"  | プリンターオペレーター           |
+| "CO"  | クリエーターオーナー                   | "PS"  | 個人自身                         |
+| "DA"  | ドメイン管理者                         | "PU"  | パワーユーザー                   |
+| "DC"  | ドメインコンピューター                 | "RS"  | RASサーバーグループ              |
+| "DD"  | ドメインコントローラー                 | "RD"  | ターミナルサーバーユーザー       |
+| "DG"  | ドメインゲスト                         | "RE"  | レプリケーター                   |
+| "DU"  | ドメインユーザー                       | "RC"  | 制限付きコード                   |
+| "EA"  | エンタープライズ管理者                 | "SA"  | スキーマ管理者                   |
+| "ED"  | エンタープライズドメインコントローラー | "SO"  | サーバーオペレーター             |
+| "WD"  | すべてのユーザー                       | "SU"  | サービストログオンユーザー       |
 
-- *G*: = Primary Group.
-- *D*: = DACL Entries.
-- *S*: = SACL Entries.
+- *G*: = プライマリグループ。
+- *D*: = DACLエントリ。
+- *S*: = SACLエントリ。
 
-*DACL/SACL entry format:* entry\_type:inheritance\_flags(ace\_type;ace\_flags;rights;object\_guid;inherit\_object\_guid;account\_sid)
+*DACL/SACLエントリ形式:* entry\_type:inheritance\_flags(ace\_type;ace\_flags;rights;object\_guid;inherit\_object\_guid;account\_sid)
 
-Example: D:(A;;FA;;;WD)
+例: D:(A;;FA;;;WD)
 
 - entry\_type:
 
-“D” - DACL
+「D」 - DACL
 
-“S” - SACL
+「S」 - SACL
 
 - inheritance\_flags:
 
-"P” - SDDL\_PROTECTED, Inheritance from containers that are higher in the folder hierarchy are blocked.
+「P」 - SDDL\_PROTECTED、フォルダ階層の上位にあるコンテナからの継承がブロックされます。
 
-"AI" - SDDL\_AUTO\_INHERITED, Inheritance is allowed, assuming that "P" Is not also set.
+「AI」 - SDDL\_AUTO\_INHERITED、継承が許可されます。ただし、「P」が設定されていない場合に限ります。
 
-"AR" - SDDL\_AUTO\_INHERIT\_REQ, Child objects inherit permissions from this object.
+「AR」 - SDDL\_AUTO\_INHERIT\_REQ、子オブジェクトはこのオブジェクトから権限を継承します。
 
 - ace\_type:
 
-"A" - ACCESS ALLOWED
+「A」 - アクセス許可
 
-"D" - ACCESS DENIED
+「D」 - アクセス拒否
 
-"OA" - OBJECT ACCESS ALLOWED: only applies to a subset of the object(s).
+「OA」 - オブジェクトアクセス許可: オブジェクトのサブセットにのみ適用されます。
 
-"OD" - OBJECT ACCESS DENIED: only applies to a subset of the object(s).
+「OD」 - オブジェクトアクセス拒否: オブジェクトのサブセットにのみ適用されます。
 
-"AU" - SYSTEM AUDIT
+「AU」 - システム監査
 
-"A" - SYSTEM ALARM
+「A」 - システムアラーム
 
-"OU" - OBJECT SYSTEM AUDIT
+「OU」 - オブジェクトシステム監査
 
-"OL" - OBJECT SYSTEM ALARM
+「OL」 - オブジェクトシステムアラーム
 
 - ace\_flags:
 
-"CI" - CONTAINER INHERIT: Child objects that are containers, such as directories, inherit the ACE as an explicit ACE.
+「CI」 - コンテナ継承: ディレクトリなどのコンテナである子オブジェクトは、ACEを明示的なACEとして継承します。
 
-"OI" - OBJECT INHERIT: Child objects that are not containers inherit the ACE as an explicit ACE.
+「OI」 - オブジェクト継承: コンテナでない子オブジェクトは、ACEを明示的なACEとして継承します。
 
-"NP" - NO PROPAGATE: only immediate children inherit this ace.
+「NP」 - 継承しない: 直接の子オブジェクトのみがこのACEを継承します。
 
-"IO" - INHERITANCE ONLY: ace doesn’t apply to this object, but may affect children via inheritance.
+「IO」 - 継承のみ: ACEはこのオブジェクトには適用されませんが、継承を通じて子オブジェクトに影響を与える可能性があります。
 
-"ID" - ACE IS INHERITED
+「ID」 - ACEが継承されました
 
-"SA" - SUCCESSFUL ACCESS AUDIT
+「SA」 - 成功したアクセス監査
 
-"FA" - FAILED ACCESS AUDIT
-- rights: A hexadecimal string which denotes the access mask or reserved value, for example: FA (File All Access), FX (File Execute), FW (File Write), etc.
+「FA」 - 失敗したアクセス監査
 
-| Value                      | Description                     | Value                | Description              |
-|----------------------------|---------------------------------|----------------------|--------------------------|
-| Generic access rights      | Directory service access rights |
-| "GA"                       | GENERIC ALL                     | "RC"                 | Read Permissions         |
-| "GR"                       | GENERIC READ                    | "SD"                 | Delete                   |
-| "GW"                       | GENERIC WRITE                   | "WD"                 | Modify Permissions       |
-| "GX"                       | GENERIC EXECUTE                 | "WO"                 | Modify Owner             |
-| File access rights         |                                 | "RP"                 | Read All Properties      |
-| "FA"                       | FILE ALL ACCESS                 | "WP"                 | Write All Properties     |
-| "FR"                       | FILE GENERIC READ               | "CC"                 | Create All Child Objects |
-| "FW"                       | FILE GENERIC WRITE              | "DC"                 | Delete All Child Objects |
-| "FX"                       | FILE GENERIC EXECUTE            | "LC"                 | List Contents            |
-| Registry key access rights |                                 | "SW"                 | Self Write               |
-| "KA"                       | KEY ALL ACCESS                  | "LO"                 | List Object              |
-| "KR"                       | KEY READ                        | "DT"                 | Delete Subtree           |
-| "KW"                       | KEY WRITE                       | "CR"                 | All Extended Rights      |
-| "KX"                       | KEY EXECUTE                     |                      |                          |
+- rights: アクセスマスクまたは予約値を示す16進文字列。例: FA (ファイル全アクセス)、FX (ファイル実行)、FW (ファイル書き込み) など。
+
+| 値                        | 説明                             | 値                  | 説明                      |
+|---------------------------|----------------------------------|---------------------|---------------------------|
+| 一般的なアクセス権        | ディレクトリサービスアクセス権   |
+| 「GA」                    | 一般全アクセス                   | 「RC」              | 読み取り権限              |
+| 「GR」                    | 一般読み取り                     | 「SD」              | 削除                      |
+| 「GW」                    | 一般書き込み                     | 「WD」              | 権限の変更                |
+| 「GX」                    | 一般実行                         | 「WO」              | 所有者の変更              |
+| ファイルアクセス権        |                                  | 「RP」              | すべてのプロパティの読み取り |
+| 「FA」                    | ファイル全アクセス               | 「WP」              | すべてのプロパティの書き込み |
+| 「FR」                    | ファイル一般読み取り             | 「CC」              | すべての子オブジェクトの作成 |
+| 「FW」                    | ファイル一般書き込み             | 「DC」              | すべての子オブジェクトの削除 |
+| 「FX」                    | ファイル一般実行                 | 「LC」              | コンテンツのリスト         |
+| レジストリキーアクセス権  |                                  | 「SW」              | 自己書き込み               |
+| 「KA」                    | キー全アクセス                   | 「LO」              | オブジェクトのリスト       |
+| 「KR」                    | キー読み取り                     | 「DT」              | サブツリーの削除           |
+| 「KW」                    | キー書き込み                     | 「CR」              | すべての拡張権限           |
+| 「KX」                    | キー実行                         |                     |                           |
 
 - object\_guid: N/A
 - inherit\_object\_guid: N/A
-- account\_sid: SID of specific security principal, or reserved value, for example: AN (Anonymous), WD (Everyone), SY (LOCAL\_SYSTEM), etc. See the table above for more details.
+- account\_sid: 特定のセキュリティプリンシパルのSID、または予約された値、例えば: AN (匿名)、WD (全員)、SY (LOCAL\_SYSTEM)など。詳細は上記の表を参照してください。
 
-For more information about SDDL syntax, see these articles: <https://msdn.microsoft.com/library/cc230374.aspx>, <https://msdn.microsoft.com/library/windows/hardware/aa374892(v=vs.85).aspx>.
+SDDL構文の詳細については、次の記事を参照してください: <https://msdn.microsoft.com/library/cc230374.aspx>, <https://msdn.microsoft.com/library/windows/hardware/aa374892(v=vs.85).aspx>.
 
-## Security Monitoring Recommendations
+## セキュリティ監視の推奨事項
 
-For 4670(S): Permissions on an object were changed.
+4670(S): オブジェクトの権限が変更されました。
 
-For token objects, this is typically an informational event, and at the same time it is difficult to identify which token's permission were changed. For token objects, there are no monitoring recommendations for this event in this document.
+トークンオブジェクトの場合、これは通常情報提供のイベントであり、同時にどのトークンの権限が変更されたかを特定するのは困難です。このドキュメントでは、トークンオブジェクトに対するこのイベントの監視推奨事項はありません。
 
-For file system and registry objects, the following recommendations apply.
+ファイルシステムおよびレジストリオブジェクトについては、以下の推奨事項が適用されます。
 
-> **Important**&nbsp;&nbsp;For this event, also see [Appendix A: Security monitoring recommendations for many audit events](appendix-a-security-monitoring-recommendations-for-many-audit-events.md).
+> **重要**&nbsp;&nbsp;このイベントについては、[付録A: 多くの監査イベントに対するセキュリティ監視の推奨事項](appendix-a-security-monitoring-recommendations-for-many-audit-events.md)も参照してください。
 
--   If you have a pre-defined “**Process Name**” for the process reported in this event, monitor all events with “**Process Name**” not equal to your defined value.
+-   このイベントで報告されたプロセスの「**プロセス名**」が事前に定義されたものである場合、定義された値と異なる「**プロセス名**」のすべてのイベントを監視します。
 
--   You can monitor to see if “**Process Name**” is not in a standard folder (for example, not in **System32** or **Program Files**) or is in a restricted folder (for example, **Temporary Internet Files**).
+-   「**プロセス名**」が標準フォルダ（例えば、**System32**や**Program Files**）にないか、制限されたフォルダ（例えば、**Temporary Internet Files**）にあるかを監視することができます。
 
 <!-- -->
 
-- If you have a pre-defined list of restricted substrings or words in process names (for example, “**mimikatz**” or “**cain.exe**”), check for these substrings in “**Process Name**.”
+- プロセス名に制限されたサブストリングや単語のリスト（例えば、「**mimikatz**」や「**cain.exe**」）がある場合、「**プロセス名**」にこれらのサブストリングが含まれているかを確認します。
 
-- If you have critical registry objects for which you need to monitor all modifications (especially permissions changes and owner changes), monitor for the specific **Object\\Object Name.**
+- すべての変更（特に権限の変更や所有者の変更）を監視する必要がある重要なレジストリオブジェクトがある場合、特定の**Object\\Object Name**を監視します。
 
-- If you have high-value computers for which you need to monitor all changes for all or specific objects (for example, file system or registry objects), monitor for all [4670](event-4670.md) events on these computers<b>.</b> For example, you could monitor the **ntds.dit** file on domain controllers.
+- すべてのオブジェクトまたは特定のオブジェクト（例えば、ファイルシステムやレジストリオブジェクト）のすべての変更を監視する必要がある高価値のコンピュータがある場合、これらのコンピュータ上のすべての[4670](event-4670.md)イベントを監視します。例えば、ドメインコントローラ上の**ntds.dit**ファイルを監視することができます。
+
+It looks like you haven't pasted the Markdown content yet. Please provide the content you want translated into Japanese.

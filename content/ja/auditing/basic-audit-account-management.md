@@ -1,6 +1,6 @@
 ---
-title: Audit account management
-description: Determines whether to audit each event of account management on a device.
+title: アカウント管理の監査
+description: デバイス上の各アカウント管理イベントを監査するかどうかを決定します。
 ms.assetid: 369197E1-7E0E-45A4-89EA-16D91EF01689
 ms.reviewer:
 ms.author: vinpa
@@ -15,78 +15,73 @@ ms.topic: reference
 ms.date: 09/06/2021
 ---
 
-# Audit account management
+# アカウント管理の監査
 
+デバイス上の各アカウント管理イベントを監査するかどうかを決定します。
 
-Determines whether to audit each event of account management on a device.
+アカウント管理イベントの例には以下が含まれます：
 
-Examples of account management events include:
+- ユーザーアカウントまたはグループが作成、変更、または削除されました。
+- ユーザーアカウントが名前変更、無効化、または有効化されました。
+- パスワードが設定または変更されました。
 
--   A user account or group is created, changed, or deleted.
--   A user account is renamed, disabled, or enabled.
--   A password is set or changed.
+このポリシー設定を定義すると、成功の監査、失敗の監査、またはイベントタイプを全く監査しないかを指定できます。成功の監査は、アカウント管理イベントが成功するたびに監査エントリを生成します。失敗の監査は、アカウント管理イベントが失敗するたびに監査エントリを生成します。この値を **監査なし** に設定するには、このポリシー設定の **プロパティ** ダイアログボックスで、これらのポリシー設定を定義するチェックボックスを選択し、**成功** と **失敗** のチェックボックスをクリアします。
 
-If you define this policy setting, you can specify whether to audit successes, audit failures, or not audit the event type at all. Success audits generate an audit entry when any account management event succeeds. Failure audits generate an audit entry when any account management event fails. To
-set this value to **No auditing**, in the **Properties** dialog box for this policy setting, select the Define these policy settings check box and clear the **Success** and **Failure** check boxes.
+**デフォルト:**
 
-**Default:**
+- ドメインコントローラーでの成功。
+- メンバーサーバーでの監査なし。
 
--   Success on domain controllers.
--   No auditing on member servers.
+## この監査設定を構成する
 
-## Configure this audit setting
+コンピュータの構成\\Windowsの設定\\セキュリティの設定\\ローカルポリシー\\監査ポリシーの下で適切なポリシーを開くことで、このセキュリティ設定を構成できます。
 
-You can configure this security setting by opening the appropriate policy under Computer Configuration\\Windows Settings\\Security Settings\\Local Policies\\Audit Policy.
-
-
-| Account management events | Description |
+| アカウント管理イベント | 説明 |
 | :-----------------------: | :---------- |
-| 4720 | A user account was created.      |
-| 4723 | A user password was changed.     |
-| 4724 | A user password was set.         |
-| 4726 | A user account was deleted.      |
-| 4727 | A global group was created.      |
-| 4728 | A member was added to a global group. |
-| 4729 | A member was removed from a global group. |
-| 4730 | A global group was deleted. |
-| 4731 | A new local group was created. |
-| 4732 | A member was added to a local group. |
-| 4733 | A member was removed from a local group. |
-| 4734 | A local group was deleted.          |
-| 4735 | A local group account was changed.  |
-| 4737 | A global group account was changed. |
-| 4738 | A user account was changed. |
-| 4739 | A domain policy was modified. |
-| 4740 | A user account was auto locked. |
-| 4741 | A computer account was created. |
-| 4742 | A computer account was changed. |
-| 4743 | A computer account was deleted. |
-| 4744 | A local security group with security disabled was created.<br> **Note:**  SECURITY_DISABLED in the formal name means that this group cannot be used to grant permissions in access checks |
-| 4745 | A local security group with security disabled was changed. |
-| 4746 | A member was added to a security-disabled local security group. |
-| 4747 | A member was removed from a security-disabled local security group. |
-| 4748 | A security-disabled local group was deleted. |
-| 4749 | A security-disabled global group was created. |
-| 4750 | A security-disabled global group was changed. |
-| 4751 | A member was added to a security-disabled global group. |
-| 4752 | A member was removed from a security-disabled global group. |
-| 4753 | A security-disabled global group was deleted. |
-| 4754 | A security-enabled universal group was created. |
-| 4755 | A security-enabled universal group was changed. |
-| 4756 | A member was added to a security-enabled universal group. |
-| 4757 | A member was removed from a security-enabled universal group. |
-| 4758 | A security-enabled universal group was deleted. |
-| 4759 | A security-disabled universal group was created. |
-| 4760 | A security-disabled universal group was changed. |
-| 4761 | A member was added to a security-disabled universal group. |
-| 4762 | A member was removed from a security-disabled universal group. |
-| 4763 | A security-disabled universal group was deleted. |
-| 4764 | A group type was changed. |
-| 4780 | Set the security descriptor of members of administrative groups. |
-|  685 | Set the security descriptor of members of administrative groups.<br> **Note:**  Every 60 minutes on a domain controller a background thread searches all members of administrative groups (such as domain, enterprise, and schema administrators) and applies a fixed security descriptor on them. This event is logged. |
+| 4720 | ユーザーアカウントが作成されました。 |
+| 4723 | ユーザーパスワードが変更されました。 |
+| 4724 | ユーザーパスワードが設定されました。 |
+| 4726 | ユーザーアカウントが削除されました。 |
+| 4727 | グローバルグループが作成されました。 |
+| 4728 | メンバーがグローバルグループに追加されました。 |
+| 4729 | メンバーがグローバルグループから削除されました。 |
+| 4730 | グローバルグループが削除されました。 |
+| 4731 | 新しいローカルグループが作成されました。 |
+| 4732 | メンバーがローカルグループに追加されました。 |
+| 4733 | メンバーがローカルグループから削除されました。 |
+| 4734 | ローカルグループが削除されました。 |
+| 4735 | ローカルグループアカウントが変更されました。 |
+| 4737 | グローバルグループアカウントが変更されました。 |
+| 4738 | ユーザーアカウントが変更されました。 |
+| 4739 | ドメインポリシーが変更されました。 |
+| 4740 | ユーザーアカウントが自動的にロックされました。 |
+| 4741 | コンピュータアカウントが作成されました。 |
+| 4742 | コンピュータアカウントが変更されました。 |
+| 4743 | コンピュータアカウントが削除されました。 |
+| 4744 | セキュリティが無効なローカルセキュリティグループが作成されました。<br> **注:**  公式名のSECURITY_DISABLEDは、このグループがアクセスチェックで権限を付与するために使用できないことを意味します。 |
+| 4745 | セキュリティが無効なローカルセキュリティグループが変更されました。 |
+| 4746 | メンバーがセキュリティが無効なローカルセキュリティグループに追加されました。 |
+| 4747 | メンバーがセキュリティが無効なローカルセキュリティグループから削除されました。 |
+| 4748 | セキュリティが無効なローカルグループが削除されました。 |
+| 4749 | セキュリティが無効なグローバルグループが作成されました。 |
+| 4750 | セキュリティが無効なグローバルグループが変更されました。 |
+| 4751 | メンバーがセキュリティが無効なグローバルグループに追加されました。 |
+| 4752 | メンバーがセキュリティが無効なグローバルグループから削除されました。 |
+| 4753 | セキュリティが無効なグローバルグループが削除されました。 |
+| 4754 | セキュリティが有効なユニバーサルグループが作成されました。 |
+| 4755 | セキュリティが有効なユニバーサルグループが変更されました。 |
+| 4756 | メンバーがセキュリティが有効なユニバーサルグループに追加されました。 |
+| 4757 | メンバーがセキュリティが有効なユニバーサルグループから削除されました。 |
+| 4758 | セキュリティが有効なユニバーサルグループが削除されました。 |
+| 4759 | セキュリティが無効なユニバーサルグループが作成されました。 |
+| 4760 | セキュリティが無効なユニバーサルグループが変更されました。 |
+| 4761 | メンバーがセキュリティが無効なユニバーサルグループに追加されました。 |
+| 4762 | メンバーがセキュリティが無効なユニバーサルグループから削除されました。 |
+| 4763 | セキュリティが無効なユニバーサルグループが削除されました。 |
+| 4764 | グループタイプが変更されました。 |
+| 4780 | 管理グループのメンバーのセキュリティ記述子を設定します。 |
+|  685 | 管理グループのメンバーのセキュリティ記述子を設定します。<br> **注:**  ドメインコントローラー上で60分ごとにバックグラウンドスレッドがすべての管理グループ（ドメイン、エンタープライズ、およびスキーマ管理者など）のメンバーを検索し、固定されたセキュリティ記述子を適用します。このイベントが記録されます。 |
 
-## Related topics
+## 関連トピック
 
-- [Basic security audit policy settings](basic-security-audit-policy-settings.md)
-
-
+- [基本的なセキュリティ監査ポリシー設定](basic-security-audit-policy-settings.md)
