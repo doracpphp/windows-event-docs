@@ -1,6 +1,6 @@
 ---
 title: 4624(S) アカウントが正常にログオンされました。
-description: Describes security event 4624(S) An account was successfully logged on.
+description: セキュリティイベント 4624(S) アカウントが正常にログオンされました を説明します。
 ms.pagetype: security
 ms.mktglfcycl: deploy
 ms.sitesec: library
@@ -14,23 +14,22 @@ ms.collection: tier3
 ms.topic: reference
 ---
 
-# 4624(S) アカウントが正常にログオンされました。
-
+# 4624(S): アカウントが正常にログオンされました。 {/*examples*/}
 
 <img src="images/event-4624.png" alt="Event 4624 illustration" width="438" height="668" hspace="10" />
 
-***Subcategory:***&nbsp;[Audit Logon](audit-logon.md)
+***サブカテゴリ:***&nbsp;[ログオンの監査](audit-logon.md)
 
-***Event Description:***
+***イベントの説明:***
 
-This event generates when a logon session is created (on destination machine). It generates on the computer that was accessed, where the session was created.
+このイベントは、ログオンセッションが作成されたときに生成されます（宛先マシン上）。セッションが作成されたコンピュータで生成されます。
 
 > [!NOTE]
-> For recommendations, see [Security Monitoring Recommendations](#security-monitoring-recommendations) for this event.
+> 推奨事項については、このイベントの[セキュリティ監視の推奨事項](#security-monitoring-recommendations)を参照してください。
 
 <br clear="all">
 
-***Event XML:***
+***イベント XML:***
 ```xml
 <?xml version="1.0"?>
 <Event
@@ -83,190 +82,190 @@ This event generates when a logon session is created (on destination machine). I
 </Event>
 ```
 
-***Required Server Roles:*** None.
+***必要なサーバー役割:*** なし。
 
-***Minimum OS Version:*** Windows Server 2008, Windows Vista.
+***最小 OS バージョン:*** Windows Server 2008, Windows Vista。
 
-***Event Versions:***
+***イベントバージョン:***
 
-- 0 - Windows Server 2008, Windows Vista.
+- 0 - Windows Server 2008, Windows Vista。
 
-- 1 - Windows Server 2012, Windows 8.
+- 1 - Windows Server 2012, Windows 8。
 
-  - Added "Impersonation Level" field.
+  - 「偽装レベル」フィールドが追加されました。
 
-- 2 - Windows 10.
+- 2 - Windows 10。
 
-    - Added "Logon Information:" section.
+    - 「ログオン情報:」セクションが追加されました。
 
-    - **Logon Type** moved to "Logon Information:" section.
+    - **ログオンタイプ**が「ログオン情報:」セクションに移動しました。
 
-    - Added "Restricted Admin Mode" field.
+    - 「制限付き管理者モード」フィールドが追加されました。
 
-    - Added "Virtual Account" field.
+    - 「仮想アカウント」フィールドが追加されました。
 
-    - Added "Elevated Token" field.
+    - 「昇格トークン」フィールドが追加されました。
 
-    - Added "Linked Logon ID" field.
+    - 「リンクされたログオン ID」フィールドが追加されました。
 
-    - Added "Network Account Name" field.
+    - 「ネットワークアカウント名」フィールドが追加されました。
 
-    - Added "Network Account Domain" field.
+    - 「ネットワークアカウントドメイン」フィールドが追加されました。
 
-***Field Descriptions:***
+***フィールドの説明:***
 
-**Subject:**
+**サブジェクト:**
 
-- **Security ID** [Type = SID]**:** SID of account that reported information about successful logon or invokes it. Event Viewer automatically tries to resolve SIDs and show the account name. If the SID can't be resolved, you'll see the source data in the event.
+- **セキュリティ ID** [タイプ = SID]**:** 成功したログオンについて報告したアカウントの SID またはそれを呼び出すアカウントの SID。イベントビューアーは自動的に SID を解決し、アカウント名を表示しようとします。SID を解決できない場合、イベントにはソースデータが表示されます。
 
-    This field can also contain no subject user information, but the NULL Sid "S-1-0-0" and no user or domain information.
+    このフィールドには、サブジェクトユーザー情報が含まれない場合もありますが、NULL Sid「S-1-0-0」とユーザーまたはドメイン情報が含まれない場合もあります。
 
   > [!NOTE]
-  > A **security identifier (SID)** is a unique value of variable length used to identify a trustee (security principal). Each account has a unique SID that is issued by an authority, such as an Active Directory domain controller, and stored in a security database. Each time a user logs on, the system retrieves the SID for that user from the database and places it in the access token for that user. The system uses the SID in the access token to identify the user in all subsequent interactions with Windows security. When a SID has been used as the unique identifier for a user or group, it can't ever be used again to identify another user or group. For more information about SIDs, see [Security identifiers](/windows/access-protection/access-control/security-identifiers).
+  > **セキュリティ識別子 (SID)** は、信託者 (セキュリティプリンシパル) を識別するために使用される可変長の一意の値です。各アカウントには、Active Directory ドメインコントローラーなどの権限によって発行され、セキュリティデータベースに保存される一意の SID があります。ユーザーがログオンするたびに、システムはデータベースからそのユーザーの SID を取得し、そのユーザーのアクセス トークンに配置します。システムは、以降のすべての Windows セキュリティとのやり取りで、アクセス トークン内の SID を使用してユーザーを識別します。SID がユーザーまたはグループの一意の識別子として使用された場合、それは他のユーザーまたはグループを識別するために再び使用されることはありません。SID の詳細については、[セキュリティ識別子](/windows/access-protection/access-control/security-identifiers) を参照してください。
 
-- **Account Name** [Type = UnicodeString]**:** the name of the account that reported information about successful logon.
+- **アカウント名** [タイプ = UnicodeString]**:** 成功したログオンに関する情報を報告したアカウントの名前。
 
-- **Account Domain** [Type = UnicodeString]**:** subject's domain or computer name. Formats vary, and include the following information:
+- **アカウントドメイン** [タイプ = UnicodeString]**:** サブジェクトのドメインまたはコンピュータ名。形式はさまざまで、以下の情報が含まれます：
 
-    - Domain NETBIOS name example: CONTOSO
+    - ドメイン NETBIOS 名の例: CONTOSO
 
-    - Lowercase full domain name: contoso.local
+    - 小文字の完全なドメイン名: contoso.local
 
-    - Uppercase full domain name: CONTOSO.LOCAL
+    - 大文字の完全なドメイン名: CONTOSO.LOCAL
 
-    - For some [well-known security principals](/windows/security/identity-protection/access-control/security-identifiers), such as LOCAL SERVICE or ANONYMOUS LOGON, the value of this field is "NT AUTHORITY".
+    - LOCAL SERVICE や ANONYMOUS LOGON などの[よく知られたセキュリティプリンシパル](/windows/security/identity-protection/access-control/security-identifiers)の場合、このフィールドの値は "NT AUTHORITY" です。
 
-    - For local user accounts, this field contains the name of the computer or device that this account belongs to, for example: `Win81`.
+    - ローカルユーザーアカウントの場合、このフィールドにはこのアカウントが属するコンピュータまたはデバイスの名前が含まれます。例: `Win81`。
 
-- **Logon ID** [Type = HexInt64]**:** hexadecimal value that can help you correlate this event with recent events that might contain the same Logon ID, for example, "[4672](event-4672.md)(S): Special privileges assigned to new logon."
+- **ログオンID** [タイプ = HexInt64]**:** 16進数の値で、最近のイベントと同じログオンIDを含む可能性のあるイベントとこのイベントを関連付けるのに役立ちます。例: "[4672](event-4672.md)(S): 新しいログオンに特権が割り当てられました。"
 
-**Logon Information** [Version 2]**:**
+**ログオン情報** [バージョン 2]**:**
 
-- **Logon Type** [Version 0, 1, 2] [Type = UInt32]**:** the type of logon that happened. The following table contains the list of possible values for this field.
+- **ログオンタイプ** [バージョン 0, 1, 2] [タイプ = UInt32]**:** 発生したログオンのタイプ。このフィールドの可能な値のリストは以下の表に含まれています。
 
-## Logon types and descriptions
+## ログオンタイプと説明
 
-| Logon Type | Logon Title         | Description                                                                                                                                                                                                                                                                                                                |
+| ログオンタイプ | ログオンタイトル       | 説明                                                                                                                                                                                                                                                                                                                |
 |:----------:|---------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|  `0`       | `System`            | Used only by the System account, for example at system startup.                                                                                                                                                                                                                                                            |
-|  `2`       | `Interactive`       | A user logged on to this computer.                                                                                                                                                                                                                                                                                         |
-|  `3`       | `Network`           | A user or computer logged on to this computer from the network.                                                                                                                                                                                                                                                            |
-|  `4`       | `Batch`             | Batch logon type is used by batch servers, where processes can be run on behalf of a user without their direct intervention.                                                                                                                                                                                         |
-|  `5`       | `Service`           | The Service Control Manager started a service.                                                                                                                                                                                                                                                                      |
-|  `7`       | `Unlock`            | This workstation was unlocked.                                                                                                                                                                                                                                                                                             |
-|  `8`       | `NetworkCleartext`  | A user logged on to this computer from the network. The user's password was passed to the authentication package in its unhashed form. The built-in authentication packages all hash credentials before sending them across the network. The credentials don't traverse the network in plaintext (also called cleartext). |
-|  `9`       | `NewCredentials`    | A caller cloned its current token and specified new credentials for outbound connections. The new logon session has the same local identity, but uses different credentials for other network connections.                                                                                                                 |
-| `10`       | `RemoteInteractive` | A user logged on to this computer remotely using Terminal Services or Remote Desktop.                                                                                                                                                                                                                                      |
-| `11`       | `CachedInteractive` | A user logged on to this computer with network credentials that were stored locally on the computer. The domain controller wasn't contacted to verify the credentials.                                                                                                                                                    |
-| `12`       | `CachedRemoteInteractive` | Same as RemoteInteractive. This type is used for internal auditing.                                                                                                                                                                                                                                                        |
-| `13`       | `CachedUnlock` | Workstation logon.                                                                                                                                                                                                                                                                                                             |
+|  `0`       | `システム`            | システムアカウントのみが使用します。例えばシステム起動時。                                                                                                                                                                                                                                                            |
+|  `2`       | `インタラクティブ`       | ユーザーがこのコンピュータにログオンしました。                                                                                                                                                                                                                                                                                         |
+|  `3`       | `ネットワーク`           | ユーザーまたはコンピュータがネットワークからこのコンピュータにログオンしました。                                                                                                                                                                                                                                                            |
+|  `4`       | `バッチ`             | バッチログオンタイプはバッチサーバーで使用され、ユーザーの直接の介入なしにプロセスを実行できます。                                                                                                                                                                                         |
+|  `5`       | `サービス`           | サービスコントロールマネージャーがサービスを開始しました。                                                                                                                                                                                                                                                                      |
+|  `7`       | `ロック解除`            | このワークステーションがロック解除されました。                                                                                                                                                                                                                                                                                             |
+|  `8`       | `ネットワーククリアテキスト`  | ユーザーがネットワークからこのコンピュータにログオンしました。ユーザーのパスワードはハッシュされていない形式で認証パッケージに渡されました。組み込みの認証パッケージはすべて、資格情報をネットワークに送信する前にハッシュします。資格情報はプレーンテキスト（クリアテキストとも呼ばれます）でネットワークを通過しません。 |
+|  `9`       | `新しい資格情報`    | 呼び出し元が現在のトークンをクローンし、アウトバウンド接続のために新しい資格情報を指定しました。新しいログオンセッションは同じローカルIDを持ちますが、他のネットワーク接続には異なる資格情報を使用します。                                                                                                                 |
+| `10`       | `リモートインタラクティブ` | ユーザーがターミナルサービスまたはリモートデスクトップを使用してリモートでこのコンピュータにログオンしました。                                                                                                                                                                                                                                      |
+| `11`       | `キャッシュされたインタラクティブ` | ユーザーがネットワーク資格情報を使用してこのコンピュータにログオンしましたが、その資格情報はコンピュータにローカルに保存されていました。ドメインコントローラーは資格情報を確認するために連絡されませんでした。                                                                                                                                                    |
+| `12`       | `キャッシュされたリモートインタラクティブ` | リモートインタラクティブと同じです。このタイプは内部監査に使用されます。                                                                                                                                                                                                                                                        |
+| `13`       | `キャッシュされたロック解除` | ワークステーションログオン。                                                                                                                                                                                                                                                                                                             |
 
-- **Restricted Admin Mode** [Version 2] [Type = UnicodeString]**:** Only populated for **RemoteInteractive** logon type sessions. This value is a Yes/No flag indicating if the credentials provided were passed using Restricted Admin mode. Restricted Admin mode was added in Windows 8.1 and Windows Server 2012 R2, but this flag was added to the event in Windows 10.
+- **制限付き管理者モード** [バージョン 2] [タイプ = UnicodeString]**:** **RemoteInteractive** ログオンタイプのセッションにのみ設定されます。この値は、提供された資格情報が制限付き管理者モードを使用して渡されたかどうかを示す Yes/No フラグです。制限付き管理者モードは Windows 8.1 および Windows Server 2012 R2 で追加されましたが、このフラグは Windows 10 のイベントに追加されました。
 
-    Reference: <https://blogs.technet.com/b/kfalde/archive/2013/08/14/restricted-admin-mode-for-rdp-in-windows-8-1-2012-r2.aspx>.
+    参考: <https://blogs.technet.com/b/kfalde/archive/2013/08/14/restricted-admin-mode-for-rdp-in-windows-8-1-2012-r2.aspx>.
 
-    If not a **RemoteInteractive** logon, then this value is the string: `-`
+    **RemoteInteractive** ログオンでない場合、この値は文字列 `-` です。
 
-- **Virtual Account** [Version 2] [Type = UnicodeString]**:** a "Yes" or "No" flag, which indicates if the account is a virtual account (for example, "[Managed Service Account](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd560633(v=ws.10))"), which was introduced in Windows 7 and Windows Server 2008 R2 to identify the account that a given Service uses, instead of just using "NetworkService".
+- **仮想アカウント** [バージョン 2] [タイプ = UnicodeString]**:** アカウントが仮想アカウント（例えば、"[Managed Service Account](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd560633(v=ws.10))"）であるかどうかを示す "Yes" または "No" フラグです。仮想アカウントは Windows 7 および Windows Server 2008 R2 で導入され、特定のサービスが使用するアカウントを識別するために使用されます。
 
-- **Elevated Token** [Version 2] [Type = UnicodeString]**:** a "Yes" or "No" flag. If "Yes", then the session this event represents is elevated and has administrator privileges.
+- **昇格トークン** [バージョン 2] [タイプ = UnicodeString]**:** "Yes" または "No" フラグです。"Yes" の場合、このイベントが表すセッションは昇格されており、管理者権限を持っています。
 
-**Impersonation Level** [Version 1, 2] [Type = UnicodeString]: can have one of these four values:
+**偽装レベル** [バージョン 1, 2] [タイプ = UnicodeString]: 次の4つの値のいずれかを持つことができます:
 
-- SecurityAnonymous (displayed as **empty string**): The server process can't obtain identification information about the client, and it can't impersonate the client. It's defined with no value given, and thus, by ANSI C rules, defaults to a value of zero.
+- SecurityAnonymous (表示は **空の文字列**): サーバープロセスはクライアントの識別情報を取得できず、クライアントを偽装することもできません。値が指定されていないため、ANSI C の規則によりデフォルトでゼロの値になります。
 
-- SecurityIdentification (displayed as "**Identification**"): The server process can obtain information about the client, such as security identifiers and privileges, but it can't impersonate the client. This value is useful for servers that export their own objects, for example, database products that export tables and views. Using the retrieved client-security information, the server can make access-validation decisions without being able to use other services that are using the client's security context.
+- SecurityIdentification (表示は "**Identification**"): サーバープロセスはセキュリティ識別子や特権などのクライアント情報を取得できますが、クライアントを偽装することはできません。この値は、独自のオブジェクトをエクスポートするサーバーに役立ちます。例えば、テーブルやビューをエクスポートするデータベース製品などです。取得したクライアントのセキュリティ情報を使用して、サーバーはアクセス検証の決定を行うことができますが、クライアントのセキュリティコンテキストを使用する他のサービスを使用することはできません。
 
-- SecurityImpersonation (displayed as "**Impersonation**"): The server process can impersonate the client's security context on its local system. The server can't impersonate the client on remote systems. This type is the most common.
+- SecurityImpersonation (表示は "**Impersonation**"): サーバープロセスはローカルシステム上でクライアントのセキュリティコンテキストを偽装できます。サーバーはリモートシステム上でクライアントを偽装することはできません。このタイプが最も一般的です。
 
-- SecurityDelegation (displayed as "**Delegation**"): The server process can impersonate the client's security context on remote systems.
+- SecurityDelegation (表示名 "**Delegation**"): サーバープロセスはリモートシステム上でクライアントのセキュリティコンテキストを偽装することができます。
 
-**New Logon:**
+**新しいログオン:**
 
-- **Security ID** [Type = SID]**:** SID of account for which logon was performed. Event Viewer automatically tries to resolve SIDs and show the account name. If the SID can't be resolved, you'll see the source data in the event.
+- **セキュリティID** [Type = SID]**:** ログオンが実行されたアカウントのSID。イベントビューアーは自動的にSIDを解決し、アカウント名を表示しようとします。SIDが解決できない場合、イベントにソースデータが表示されます。
 
   > [!NOTE]
-  > A **security identifier (SID)** is a unique value of variable length used to identify a trustee (security principal). Each account has a unique SID that is issued by an authority, such as an Active Directory domain controller, and stored in a security database. Each time a user logs on, the system retrieves the SID for that user from the database and places it in the access token for that user. The system uses the SID in the access token to identify the user in all subsequent interactions with Windows security. When a SID has been used as the unique identifier for a user or group, it cannot ever be used again to identify another user or group. For more information about SIDs, see [Security identifiers](/windows/access-protection/access-control/security-identifiers).
+  > **セキュリティ識別子 (SID)** は、信託者（セキュリティプリンシパル）を識別するために使用される可変長の一意の値です。各アカウントには、Active Directoryドメインコントローラーなどの権限によって発行され、セキュリティデータベースに保存される一意のSIDがあります。ユーザーがログオンするたびに、システムはデータベースからそのユーザーのSIDを取得し、そのユーザーのアクセス トークンに配置します。システムは、後続のすべてのWindowsセキュリティとのやり取りでユーザーを識別するために、アクセス トークン内のSIDを使用します。ユーザーまたはグループの一意の識別子としてSIDが使用された場合、それは他のユーザーまたはグループを識別するために再び使用されることはありません。SIDの詳細については、[セキュリティ識別子](/windows/access-protection/access-control/security-identifiers)を参照してください。
 
-- **Account Name** [Type = UnicodeString]**:** the name of the account for which logon was performed.
+- **アカウント名** [Type = UnicodeString]**:** ログオンが実行されたアカウントの名前。
 
-- **Account Domain** [Type = UnicodeString]**:** subject's domain or computer name. Formats vary, and include the following information:
+- **アカウント ドメイン** [Type = UnicodeString]**:** サブジェクトのドメインまたはコンピューター名。形式はさまざまで、次の情報が含まれます:
 
-    - Domain NETBIOS name example: CONTOSO
+    - ドメイン NETBIOS 名の例: CONTOSO
 
-    - Lowercase full domain name: contoso.local
+    - 小文字の完全なドメイン名: contoso.local
 
-    - Uppercase full domain name: CONTOSO.LOCAL
+    - 大文字の完全なドメイン名: CONTOSO.LOCAL
 
-    - For some [well-known security principals](/windows/security/identity-protection/access-control/security-identifiers), such as LOCAL SERVICE or ANONYMOUS LOGON, the value of this field is "NT AUTHORITY".
+    - LOCAL SERVICE や ANONYMOUS LOGON などの[よく知られたセキュリティプリンシパル](/windows/security/identity-protection/access-control/security-identifiers)の場合、このフィールドの値は "NT AUTHORITY" です。
 
-    - For local user accounts, this field contains the name of the computer or device that this account belongs to, for example: `Win81`.
+    - ローカルユーザーアカウントの場合、このフィールドにはこのアカウントが属するコンピューターまたはデバイスの名前が含まれます。例: `Win81`.
 
-- **Logon ID** [Type = HexInt64]**:** hexadecimal value that can help you correlate this event with recent events that might contain the same Logon ID, for example, "[4672](event-4672.md)(S): Special privileges assigned to new logon."
+- **ログオンID** [Type = HexInt64]**:** このイベントを最近のイベントと関連付けるのに役立つ16進数の値。例えば、"[4672](event-4672.md)(S): 新しいログオンに割り当てられた特権。"
 
-- **Linked Logon ID** [Version 2] [Type = HexInt64]**:** A hexadecimal value of the paired logon session. If there's no other logon session associated with this logon session, then the value is "**0x0**".
+- **リンクされたログオンID** [バージョン 2] [タイプ = HexInt64]**:** ペアになっているログオンセッションの16進数値。このログオンセッションに関連する他のログオンセッションがない場合、この値は "**0x0**" です。
 
-- **Network Account Name** [Version 2] [Type = UnicodeString]**:** User name that's used for outbound (network) connections. Valid only for [NewCredentials](#logon-types-and-descriptions) logon type.
+- **ネットワークアカウント名** [バージョン 2] [タイプ = UnicodeString]**:** アウトバウンド（ネットワーク）接続に使用されるユーザー名。これは [NewCredentials](#logon-types-and-descriptions) ログオンタイプにのみ有効です。
 
-    If not **NewCredentials** logon, then this value will be the string: `-`
+    **NewCredentials** ログオンでない場合、この値は文字列 `-` になります。
 
-- **Network Account Domain** [Version 2] [Type = UnicodeString]**:** Domain for the user that's used for outbound (network) connections. Valid only for [NewCredentials](#logon-types-and-descriptions) logon type.
+- **ネットワークアカウントドメイン** [バージョン 2] [タイプ = UnicodeString]**:** アウトバウンド（ネットワーク）接続に使用されるユーザーのドメイン。これは [NewCredentials](#logon-types-and-descriptions) ログオンタイプにのみ有効です。
 
-    If not **NewCredentials** logon, then this value will be the string: `-`
+    **NewCredentials** ログオンでない場合、この値は文字列 `-` になります。
 
-- **Logon GUID** [Type = GUID]: a GUID that can help you correlate this event with another event that can contain the same **Logon GUID**, "[4769](event-4769.md)(S, F): A Kerberos service ticket was requested event on a domain controller.
+- **ログオンGUID** [タイプ = GUID]: このイベントを同じ **ログオンGUID** を含む他のイベントと関連付けるのに役立つGUIDです。例えば、ドメインコントローラー上での "[4769](event-4769.md)(S, F): Kerberosサービスチケットが要求されました" イベント。
 
-    It also can be used for correlation between a 4624 event and several other events (on the same computer) that can contain the same **Logon GUID**, "[4648](event-4648.md)(S): A logon was attempted using explicit credentials" and "[4964](event-4964.md)(S): Special groups have been assigned to a new logon."
+    また、4624イベントと同じコンピューター上の他のいくつかのイベント（同じ **ログオンGUID** を含む）との関連付けにも使用できます。例えば、"[4648](event-4648.md)(S): 明示的な資格情報を使用してログオンが試行されました" や "[4964](event-4964.md)(S): 特別なグループが新しいログオンに割り当てられました" など。
 
-    This parameter might not be captured in the event, and in that case appears as "{00000000-0000-0000-0000-000000000000}".
+    このパラメータはイベントでキャプチャされない場合があり、その場合は "{00000000-0000-0000-0000-000000000000}" と表示されます。
 
     > [!NOTE]
-    > **GUID** is an acronym for 'Globally Unique Identifier'. It is a 128-bit integer number used to identify resources, activities, or instances.
+    > **GUID** は 'Globally Unique Identifier' の略です。これはリソース、アクティビティ、またはインスタンスを識別するために使用される128ビットの整数です。
 
-**Process Information:**
+**プロセス情報:**
 
-- **Process ID** [Type = Pointer]: hexadecimal Process ID of the process that attempted the logon. Process ID (PID) is a number used by the operating system to uniquely identify an active process. To see the PID for a specific process you can, for example, use Task Manager (Details tab, PID column):
+- **プロセスID** [タイプ = ポインタ]: ログオンを試みたプロセスの16進数のプロセスID。プロセスID（PID）は、オペレーティングシステムがアクティブなプロセスを一意に識別するために使用する番号です。特定のプロセスのPIDを確認するには、例えばタスクマネージャー（詳細タブ、PID列）を使用できます。
 
-    <img src="images/task-manager.png" alt="Task manager illustration" width="585" height="375" />
+    <img src="images/task-manager.png" alt="タスクマネージャーのイラスト" width="585" height="375" />
 
-    If you convert the hexadecimal value to decimal, you can compare it to the values in Task Manager.
+    16進数の値を10進数に変換すると、タスクマネージャーの値と比較できます。
 
-    You can also correlate this process ID with a process ID in other events, for example, "[4688](event-4688.md): A new process has been created" **Process Information\\New Process ID**.
+    また、このプロセスIDを他のイベントのプロセスIDと関連付けることができます。例えば、"[4688](event-4688.md): 新しいプロセスが作成されました" **プロセス情報\\新しいプロセスID**。
 
-- **Process Name** [Type = UnicodeString]**:** full path and the name of the executable for the process.
+- **プロセス名** [型 = UnicodeString]**:** プロセスの実行ファイルのフルパスと名前。
 
-**Network Information:**
+**ネットワーク情報:**
 
-- **Workstation Name** [Type = UnicodeString]**:** machine name from which a logon attempt was performed.
+- **ワークステーション名** [型 = UnicodeString]**:** ログオン試行が行われたマシンの名前。
 
-- **Source Network Address** [Type = UnicodeString]**:** IP address of machine from which logon attempt was performed.
+- **ソースネットワークアドレス** [型 = UnicodeString]**:** ログオン試行が行われたマシンのIPアドレス。
 
-    - IPv6 address or IPv4 address of a client.
+    - クライアントのIPv6アドレスまたはIPv4アドレス。
 
-    - `::1` or `127.0.0.1` means localhost.
+    - `::1` または `127.0.0.1` はローカルホストを意味します。
 
-- **Source Port** [Type = UnicodeString]: The source port that was used for logon attempt from remote machine.
+- **ソースポート** [型 = UnicodeString]: リモートマシンからのログオン試行に使用されたソースポート。
 
-    - 0 for interactive logons.
+    - インタラクティブログオンの場合は0。
 
 > [!NOTE]
-> The fields for IP address/port and workstation name are populated depending on the authentication context and protocol used. LSASS will audit the information the authenticating service shares with LSASS. For example, network logons with Kerberos likely have no workstation information, and NTLM logons have no TCP/IP details.
+> IPアドレス/ポートおよびワークステーション名のフィールドは、認証コンテキストと使用されるプロトコルに応じて入力されます。LSASSは、認証サービスがLSASSと共有する情報を監査します。例えば、Kerberosを使用したネットワークログオンにはワークステーション情報が含まれないことが多く、NTLMログオンにはTCP/IPの詳細が含まれません。
 
-**Detailed Authentication Information:**
+**詳細な認証情報:**
 
-- **Logon Process** [Type = UnicodeString]**:** the name of the trusted logon process that was used for the logon. See event "[4611](event-4611.md): A trusted logon process has been registered with the Local Security Authority" description for more information.
+- **ログオンプロセス** [型 = UnicodeString]**:** ログオンに使用された信頼されたログオンプロセスの名前。詳細については、イベント"[4611](event-4611.md): ローカルセキュリティ機関に信頼されたログオンプロセスが登録されました"の説明を参照してください。
 
-- **Authentication Package** [Type = UnicodeString]**:** The name of the authentication package that was used for the logon authentication process. Default packages loaded on LSA startup are located in "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Lsa\\OSConfig" registry key. Other packages can be loaded at runtime. When a new package is loaded a "[4610](event-4610.md): An authentication package has been loaded by the Local Security Authority" (typically for NTLM) or "[4622](event-4622.md): A security package has been loaded by the Local Security Authority" (typically for Kerberos) event is logged to indicate that a new package has been loaded along with the package name. The most common authentication packages are:
+- **認証パッケージ** [型 = UnicodeString]**:** ログオン認証プロセスに使用された認証パッケージの名前。LSAの起動時にロードされるデフォルトのパッケージは、"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Lsa\\OSConfig"レジストリキーにあります。他のパッケージは実行時にロードされることがあります。新しいパッケージがロードされると、"[4610](event-4610.md): ローカルセキュリティ機関によって認証パッケージがロードされました"（通常はNTLM用）または"[4622](event-4622.md): ローカルセキュリティ機関によってセキュリティパッケージがロードされました"（通常はKerberos用）イベントが記録され、新しいパッケージがパッケージ名と共にロードされたことを示します。最も一般的な認証パッケージは次のとおりです:
 
-    - **NTLM** - NTLM-family Authentication
+- **NTLM** - NTLMファミリー認証
 
-    - **Kerberos** - Kerberos authentication.
+- **Kerberos** - Kerberos認証。
 
-    - **Negotiate** - the Negotiate security package selects between Kerberos and NTLM protocols. Negotiate selects Kerberos unless it can't be used by one of the systems involved in the authentication or the calling application didn't provide sufficient information to use Kerberos.
+- **Negotiate** - Negotiateセキュリティパッケージは、KerberosとNTLMプロトコルの間で選択します。Negotiateは、認証に関与するシステムのいずれかが使用できない場合や、呼び出しアプリケーションがKerberosを使用するための十分な情報を提供しなかった場合を除き、Kerberosを選択します。
 
-- **Transited Services** [Type = UnicodeString] [Kerberos-only]**:** the list of transmitted services. Transmitted services are populated if the logon was a result of a S4U (Service For User) logon process. S4U is a Microsoft extension to the Kerberos Protocol to allow an application service to obtain a Kerberos service ticket on behalf of a user - most commonly done by a front-end website to access an internal resource on behalf of a user. For more information about S4U, see <https://msdn.microsoft.com/library/cc246072.aspx>
+- **転送されたサービス** [Type = UnicodeString] [Kerberosのみ]**:** 転送されたサービスのリスト。転送されたサービスは、S4U（Service For User）ログオンプロセスの結果としてログオンが行われた場合に入力されます。S4Uは、アプリケーションサービスがユーザーに代わってKerberosサービスチケットを取得できるようにするためのMicrosoftの拡張機能であり、最も一般的にはフロントエンドのウェブサイトがユーザーに代わって内部リソースにアクセスするために行われます。S4Uの詳細については、<https://msdn.microsoft.com/library/cc246072.aspx>を参照してください。
 
-- **Package Name (NTLM only)** [Type = UnicodeString]**:** The name of the LAN Manager subpackage ([NTLM-family](/openspecs/windows_protocols/ms-nlmp/c50a85f0-5940-42d8-9e82-ed206902e919) protocol name) that was used during logon. Possible values are:
+- **パッケージ名 (NTLMのみ)** [Type = UnicodeString]**:** ログオン中に使用されたLAN Managerサブパッケージ（[NTLMファミリー](/openspecs/windows_protocols/ms-nlmp/c50a85f0-5940-42d8-9e82-ed206902e919)プロトコル名）の名前。可能な値は次の通りです：
 
     - "NTLM V1"
 
@@ -274,49 +273,49 @@ This event generates when a logon session is created (on destination machine). I
 
     - "LM"
 
-        Only populated if "**Authentication Package" = "NTLM"**.
+        **"Authentication Package" = "NTLM"**の場合にのみ入力されます。
 
-- **Key Length** [Type = UInt32]**:** the length of [NTLM Session Security](/openspecs/windows_protocols/ms-nlmp/99d90ff4-957f-4c8a-80e4-5bfe5a9a9832) key. Typically it has 128-bit or 56-bit length. This parameter is always 0 if "**Authentication Package" = "Kerberos"**, because it isn't applicable for Kerberos protocol. This field also has a `0` value if Kerberos was negotiated using **Negotiate** authentication package.
+- **キーの長さ** [Type = UInt32]**:** [NTLMセッションセキュリティ](/openspecs/windows_protocols/ms-nlmp/99d90ff4-957f-4c8a-80e4-5bfe5a9a9832)キーの長さ。通常は128ビットまたは56ビットの長さです。このパラメータは、**"Authentication Package" = "Kerberos"**の場合は常に0です。これはKerberosプロトコルには適用されないためです。また、**Negotiate**認証パッケージを使用してKerberosが交渉された場合も、このフィールドは`0`の値を持ちます。
 
-## Security Monitoring Recommendations
+## セキュリティ監視の推奨事項
 
-For 4624(S): An account was successfully logged on.
+4624(S): アカウントが正常にログオンされました。
 
-| Type of monitoring required | Recommendation |
+| 必要な監視の種類 | 推奨事項 |
 |-----------------------------|-------------------------|
-| **High-value accounts**: You might have high-value domain or local accounts for which you need to monitor each action.<br>Examples of high-value accounts are database administrators, built-in local administrator account, domain administrators, service accounts, domain controller accounts and so on.       | Monitor this event with the **"New Logon\\Security ID"** that corresponds to the high-value account or accounts.                                                              |
-| **Anomalies or malicious actions**: You might have specific requirements for detecting anomalies or monitoring potential malicious actions. For example, you might need to monitor for use of an account outside of working hours.                                                                                | When you monitor for anomalies or malicious actions, use the **"New Logon\\Security ID"** (with other information) to monitor how or when a particular account is being used. |
-| **Non-active accounts**: You might have nonactive, disabled, or guest accounts, or other accounts that should never be used.                                                                                                                                                                                     | Monitor this event with the **"New Logon\\Security ID"** that corresponds to the accounts that should never be used.                                                          |
-| **Account allowlist**: You might have a specific allowlist of accounts that are the only ones allowed to perform actions corresponding to particular events.                                                                                                                                                     | If this event corresponds to an "allowlist-only" action, review the **"New Logon\\Security ID"** for accounts that are outside the allowlist.                                  |
-| **Accounts of different types**: Make sure that certain actions run only by certain account types. For example, local or domain account, machine or user account, or vendor or employee account.                                                                                 | If this event corresponds to an action you want to monitor for certain account types, review the **"New Logon\\Security ID"** to see whether the account type is as expected. |
-| **External accounts**: You might be monitoring accounts from another domain, or "external" accounts that aren't allowed to perform certain actions (represented by certain specific events).                                                                                                                     | Monitor this event for the **"Subject\\Account Domain"** corresponding to accounts from another domain or "external" accounts.                                                |
-| **Restricted-use computers or devices**: You might have certain computers, machines, or devices on which certain people (accounts) shouldn't typically perform any actions.                                                                                                                                      | Monitor the target **Computer:** (or other target device) for actions performed by the **"New Logon\\Security ID"** that you're concerned about.                             |
-| **Account naming conventions**: Your organization might have specific naming conventions for account names.                                                                                                                                                                                                       | Monitor "**Subject\\Account Name"** for names that don't comply with naming conventions.                                                                                      |
+| **高価値アカウント**: 各アクションを監視する必要がある高価値のドメインまたはローカルアカウントがあるかもしれません。<br>高価値アカウントの例としては、データベース管理者、組み込みのローカル管理者アカウント、ドメイン管理者、サービスアカウント、ドメインコントローラーアカウントなどがあります。       | 高価値アカウントまたはアカウントに対応する**"New Logon\\Security ID"**でこのイベントを監視します。                                                              |
+| **異常または悪意のある行動**: 異常を検出したり、潜在的な悪意のある行動を監視するための特定の要件があるかもしれません。たとえば、勤務時間外にアカウントが使用されているかどうかを監視する必要があるかもしれません。                                                                                | 異常や悪意のある行動を監視する場合、特定のアカウントがどのようにまたはいつ使用されているかを監視するために、**"New Logon\\Security ID"**（他の情報と共に）を使用します。 |
+| **非アクティブアカウント**: 非アクティブ、無効、またはゲストアカウント、または決して使用されるべきでない他のアカウントがあるかもしれません。                                                                                                                                                                                     | 使用されるべきでないアカウントに対応する**"New Logon\\Security ID"**でこのイベントを監視します。                                                          |
+| **アカウント許可リスト**: 特定のイベントに対応するアクションを実行することが許可されているアカウントの特定の許可リストがあるかもしれません。                                                                                                                                                     | このイベントが「許可リストのみ」のアクションに対応する場合、許可リスト外のアカウントに対して**"New Logon\\Security ID"**を確認します。                                  |
+| **異なる種類のアカウント**: 特定のアクションが特定のアカウントタイプによってのみ実行されることを確認します。たとえば、ローカルまたはドメインアカウント、マシンまたはユーザーアカウント、ベンダーまたは従業員アカウントなど。                                                                                 | このイベントが特定のアカウントタイプに対して監視したいアクションに対応する場合、アカウントタイプが期待通りであるかどうかを確認するために**"New Logon\\Security ID"**を確認します。 |
+| **外部アカウント**: 別のドメインからのアカウントや、特定のアクション（特定のイベントで表される）を実行することが許可されていない「外部」アカウントを監視しているかもしれません。                                                                                                                     | 別のドメインからのアカウントや「外部」アカウントに対応する**"Subject\\Account Domain"**に対してこのイベントを監視します。                                                |
+| **使用制限のあるコンピュータまたはデバイス**: 特定の人（アカウント）が通常はアクションを実行しない特定のコンピュータ、マシン、またはデバイスがあるかもしれません。                                                                                                                                      | 関心のある**"New Logon\\Security ID"**によって実行されたアクションに対して、ターゲット**コンピュータ:**（または他のターゲットデバイス）を監視します。                             |
+| **アカウント命名規則**: 組織にはアカウント名の特定の命名規則があるかもしれません。                                                                                                                                                                                                       | 命名規則に準拠していない名前に対して**"Subject\\Account Name"**を監視します。                                                                                      |
 
-- Because this event is typically triggered by the SYSTEM account, we recommend that you report it whenever **"Subject\\Security ID"** isn't SYSTEM.
+- このイベントは通常 SYSTEM アカウントによってトリガーされるため、**"Subject\\Security ID"** が SYSTEM でない場合は報告することをお勧めします。
 
-- If "**Restricted Admin**" mode must be used for logons by certain accounts, use this event to monitor logons by "**New Logon\\Security ID**" in relation to "**Logon Type**"=10 and "**Restricted Admin Mode**"="Yes". If "**Restricted Admin Mode**"="No" for these accounts, trigger an alert.
+- 特定のアカウントによるログオンに **"Restricted Admin"** モードを使用する必要がある場合、このイベントを使用して **"New Logon\\Security ID"** と **"Logon Type"**=10 および **"Restricted Admin Mode"**="Yes" の関連を監視します。これらのアカウントに対して **"Restricted Admin Mode"**="No" の場合は、アラートをトリガーします。
 
-- If you need to monitor all logon events for accounts with administrator privileges, monitor this event with "**Elevated Token**"="Yes".
+- 管理者権限を持つアカウントのすべてのログオンイベントを監視する必要がある場合、このイベントを **"Elevated Token"**="Yes" で監視します。
 
-- If you need to monitor all logon events for managed service accounts and group managed service accounts, monitor for events with "**Virtual Account**"="Yes".
+- 管理サービスアカウントおよびグループ管理サービスアカウントのすべてのログオンイベントを監視する必要がある場合、**"Virtual Account"**="Yes" のイベントを監視します。
 
-- To monitor for a mismatch between the logon type and the account that uses it (for example, if **Logon Type** 4-Batch or 5-Service is used by a member of a domain administrative group), monitor **Logon Type** in this event.
+- ログオンタイプとそれを使用するアカウントの不一致を監視する場合（例えば、**Logon Type** 4-Batch または 5-Service がドメイン管理グループのメンバーによって使用される場合）、このイベントで **Logon Type** を監視します。
 
-- If your organization restricts logons in the following ways, you can use this event to monitor accordingly:
+- 組織が以下の方法でログオンを制限している場合、このイベントを使用して適切に監視できます：
 
-    - If the user account **"New Logon\\Security ID"** should never be used to log on from the specific **Computer:**.
+    - ユーザーアカウント **"New Logon\\Security ID"** が特定の **Computer:** からログオンに使用されるべきでない場合。
 
-    - If **New Logon\\Security ID** credentials shouldn't be used from **Workstation Name** or **Source Network Address**.
+    - **New Logon\\Security ID** の資格情報が **Workstation Name** または **Source Network Address** から使用されるべきでない場合。
 
-    - If a specific account, such as a service account, should only be used from your internal IP address list (or some other list of IP addresses). In this case, you can monitor for **Network Information\\Source Network Address** and compare the network address with your list of IP addresses.
+    - 特定のアカウント（例えばサービスアカウント）が内部 IP アドレスリスト（または他の IP アドレスリスト）からのみ使用されるべき場合。この場合、**Network Information\\Source Network Address** を監視し、ネットワークアドレスを IP アドレスリストと比較します。
 
-    - If a particular version of NTLM is always used in your organization. In this case, you can use this event to monitor **Package Name (NTLM only)**, for example, to find events where **Package Name (NTLM only)** doesn't equal **NTLM V2**.
+    - 組織内で特定のバージョンの NTLM が常に使用される場合。この場合、このイベントを使用して **Package Name (NTLM only)** を監視し、例えば **Package Name (NTLM only)** が **NTLM V2** と等しくないイベントを見つけます。
 
-    - If NTLM isn't used in your organization, or shouldn't be used by a specific account (**New Logon\\Security ID**). In this case, monitor for all events where **Authentication Package** is NTLM.
+    - 組織内で NTLM が使用されていない場合、または特定のアカウント（**New Logon\\Security ID**）によって使用されるべきでない場合。この場合、**Authentication Package** が NTLM であるすべてのイベントを監視します。
 
-    - If the **Authentication Package** is NTLM. In this case, monitor for **Key Length** not equal to 128, because all Windows operating systems starting with Windows 2000 support 128-bit Key Length.
+    - **認証パッケージ**がNTLMの場合。この場合、**キー長**が128でないことを監視します。なぜなら、Windows 2000以降のすべてのWindowsオペレーティングシステムは128ビットのキー長をサポートしているからです。
 
-- If you monitor for potentially malicious software, or software that isn't authorized to request logon actions, monitor this event for **Process Name**.
+- 潜在的に悪意のあるソフトウェアや、ログオンアクションを要求する権限のないソフトウェアを監視する場合、このイベントの**プロセス名**を監視します。
 
-- If you have a trusted logon processes list, monitor for a **Logon Process** that isn't from the list.
+- 信頼できるログオンプロセスのリストがある場合、そのリストにない**ログオンプロセス**を監視します。
